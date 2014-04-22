@@ -1,0 +1,5 @@
+name = OHP Pdf
+description = A module to manage OHP Pdf generation
+package = OHP modules
+core = 7.x
+dependencies[] = ohp

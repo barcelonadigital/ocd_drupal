@@ -1,0 +1,34 @@
+
+form#ohp-case-form-page .column-right, form#ohp-case-form-page .column-left {
+width: 49%;
+margin: 0;
+}
+form#ohp-case-form-page .column-right {
+float: right;
+}
+form#ohp-case-form-page .column-left {
+float: left;
+}
+form#ohp-case-form-page input.form-text {max-width: 150px;}
+.columnboxes {
+    padding:10px 0 10px 0
+}
+.columnboxes .column:last-child {
+    margin-right: 0px;
+}
+.columnboxes .column {
+    float: left;
+    margin-right: 22px;
+}
+.columnboxes .column.por3 {
+    width: 318px;
+}
+.columnboxes .column.por2 {
+    width: 330px;
+}
+.columnboxes .column fieldset .question {
+    font-weight:bold;
+}
+.columnboxes .column fieldset .answer {
+    font-weight:none;
+}

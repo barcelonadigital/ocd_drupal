@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * Provide examples of using the TCPDF module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function ohp_pdf_menu() {
+  $items['ohp/ohp_pdf/download/%'] = array(
+    'title' => 'Download pdf',
+    'description' => 'TCPDF usage example.',
+    'page callback' => 'ohp_pdf_download',
+    'page arguments' => array(3),
+    'access arguments' => array('use tcpdf example'),
+    'file' => 'ohp_pdf.pages.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ohp_pdf_theme($existing, $type, $theme, $path) {
+  switch ($type) {
+    case 'module':
+      $themes = array(
+        'ohp_pdf_basic_html' => array(
+          'template' => 'tpl/ohp-pdf-basic-html'
+        ),
+      );
+      break;
+  }
+  return $themes;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ohp_pdf_permission() {
+  return array(
+    'use tcpdf example' => array(
+      'title' => t('Use TCPDF Examples'),
+      'description' => t('Generate the example pdfs that are provided by TCPDF Example module'),
+    ),
+  );
+}

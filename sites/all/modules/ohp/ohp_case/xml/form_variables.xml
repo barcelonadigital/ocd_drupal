@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<form>
+    <ref>482</ref>
+    <data>
+        <status>OPEN</status>
+        <name>Variables</name>
+        <description>Variables</description>
+        <parent_type>TASK</parent_type>
+        <parent_id>711</parent_id>
+        <parent_status>ASSIGNED/NOT DONE</parent_status>
+        <parent_name>Variables</parent_name>
+        <questions>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Pacient&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID1/1</question_id>
+                <description>CIP</description>
+                <num_dec/>
+                <type>TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value>ROTOXXXXXXXX3B</value>
+            </question>
+            <question>
+                <question_id>ID1/2</question_id>
+                <description>Nom</description>
+                <num_dec/>
+                <type>TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID1/3</question_id>
+                <description>Cognoms</description>
+                <num_dec/>
+                <type>TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID1/4</question_id>
+                <description>Gènere</description>
+                <num_dec/>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Sol·licitud&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID2/5</question_id>
+                <description>Data de la sol·licitud</description>
+                <num_dec/>
+                <type>DATE</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID2/6</question_id>
+                <description>Motiu de la sol·licitud</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>Inici de prescripció</description>
+                        <mnemonic>I</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>Seguiment de prescripció</description>
+                        <mnemonic>S</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>Alta de la prescripció</description>
+                        <mnemonic>A</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID2/7</question_id>
+                <description>Motiu de l'alta</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>No necessita</description>
+                        <mnemonic>N</mnemonic>
+                        <option_id>1</option_id>
+                        <value>NOTNEED</value>
+                    </option>
+                    <option>
+                        <description>Mort</description>
+                        <mnemonic>M</mnemonic>
+                        <option_id>2</option_id>
+                        <value>EXITUS</value>
+                    </option>
+                    <option>
+                        <description>No accepta el tractament</description>
+                        <mnemonic>A</mnemonic>
+                        <option_id>3</option_id>
+                        <value>REFUSE</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>2</tabulation>
+                <value/>
+                <condition>$ID2/6,EQUAL,3</condition>
+            </question>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Diagnòstic&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID3/8</question_id>
+                <description>Diagnòstic principal</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1. Respiratori - MPOC</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2. Respiratori - Fibrosi pulmonar</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3. Respiratori - Bronquièctasis</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4. Respiratori - Asma</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5. Respiratori - Apnea del son</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                    <option>
+                        <description>6. Respiratori - Altres</description>
+                        <mnemonic>6</mnemonic>
+                        <option_id>6</option_id>
+                        <value>6</value>
+                    </option>
+                    <option>
+                        <description>7. Cardiològic - Insuficiència cardíaca</description>
+                        <mnemonic>7</mnemonic>
+                        <option_id>7</option_id>
+                        <value>7</value>
+                    </option>
+                    <option>
+                        <description>8. Malalties Neuromusculars</description>
+                        <mnemonic>8</mnemonic>
+                        <option_id>8</option_id>
+                        <value>8</value>
+                    </option>
+                    <option>
+                        <description>9. Malalties Caixa toràcica</description>
+                        <mnemonic>9</mnemonic>
+                        <option_id>9</option_id>
+                        <value>9</value>
+                    </option>
+                    <option>
+                        <description>10. Càncer</description>
+                        <mnemonic>C</mnemonic>
+                        <option_id>10</option_id>
+                        <value>10</value>
+                    </option>
+                    <option>
+                        <description>11. Altres</description>
+                        <mnemonic>A</mnemonic>
+                        <option_id>11</option_id>
+                        <value>11</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID3/9</question_id>
+                <description>Si ha sel·leccionat "Altres" especifiqui</description>
+                <num_dec/>
+                <type>TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>2</tabulation>
+                <value/>
+                <condition>$ID3/8,EQUAL,11</condition>
+            </question>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Espirometria Forçada&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/10</question_id>
+                <description>FEV&lt;sub&gt;1&lt;/sub&gt; Unitats (Litres)</description>
+                <num_dec>2</num_dec>
+                <unity>(XX,XX)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID3/8,EQUAL,1</condition>
+            </question>
+            <question>
+                <question_id>ID4/11</question_id>
+                <description>FEV&lt;sub&gt;1&lt;/sub&gt; (%)</description>
+                <num_dec>2</num_dec>
+                <unity>(XX,XX)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID3/8,EQUAL,1</condition>
+            </question>
+            <question>
+                <question_id>ID4/12</question_id>
+                <description>FVC Unitats (Litres)</description>
+                <num_dec>2</num_dec>
+                <unity>(XX,XX)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID3/8,EQUAL,1</condition>
+            </question>
+            <question>
+                <question_id>ID4/13</question_id>
+                <description>FVC (%)</description>
+                <num_dec>2</num_dec>
+                <unity>(XX,XX)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID3/8,EQUAL,1</condition>
+            </question>
+            <question>
+                <question_id>ID4/14</question_id>
+                <description>FEV&lt;sub&gt;1&lt;/sub&gt;/FVC (%)</description>
+                <num_dec/>
+                <type>FORMULA</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID3/8,EQUAL,1</condition>
+                <formula>#DIVIDE,$ID4/10,$ID4/12</formula>
+            </question>
+            <question>
+                <question_id>ID4/104</question_id>
+                <description>Gasometria Arterial</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/105</question_id>
+                <description>&lt;em&gt;Resultats&lt;/em&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/15</question_id>
+                <description>pH</description>
+                <num_dec>2</num_dec>
+                <unity>(XX,XX)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/16</question_id>
+                <description>pO&lt;SUB&gt;2&lt;/SUB&gt; (mmHg)</description>
+                <num_dec/>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/17</question_id>
+                <description>PO&lt;sub&gt;2&lt;/sub&gt; entre 56-59 mmHg</description>
+                <num_dec/>
+                <type>FORMULA</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <formula>#RANGE($ID4/16,56,59,0,1,0)</formula>
+            </question>
+            <question>
+                <question_id>ID4/18</question_id>
+                <description>Indicar malaltia (Si PO&lt;sub&gt;2&lt;/sub&gt; entre 56-59 mmHg)</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1. Hipertensió pulmonar</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2. Cor pulmonale</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3. Policitèmia</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID4/17,EQUAL,1</condition>
+            </question>
+            <question>
+                <question_id>ID4/19</question_id>
+                <description>pCO&lt;SUB&gt;2&lt;/SUB&gt; (mmHg)</description>
+                <num_dec/>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/20</question_id>
+                <description>EB /EB-  (mEq/L)</description>
+                <num_dec/>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/106</question_id>
+                <description>&lt;em&gt;Condicions&lt;/em&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/21</question_id>
+                <description>Basal/Oxigen</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>Basal</description>
+                        <mnemonic>B</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>Oxigen</description>
+                        <mnemonic>O</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/22</question_id>
+                <description>Fluxe de O&lt;SUB&gt;2&lt;/SUB&gt; (litres/minut)</description>
+                <num_dec>1</num_dec>
+                <unity>(XX,X)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>2</tabulation>
+                <value/>
+                <condition>$ID4/21,EQUAL,2</condition>
+            </question>
+            <question>
+                <question_id>ID4/107</question_id>
+                <description>Sat O&lt;sub&gt;2&lt;/sub&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID4/23</question_id>
+                <description>Saturació de  O&lt;SUB&gt;2&lt;/SUB&gt; Basal (%)</description>
+                <num_dec/>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Equip/s prescrit/s&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/24</question_id>
+                <description>Situació del pacient en el moment de la sol·licitud / renovació</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Estable</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Alta hospitalària</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Hospitalització a domicili</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/25</question_id>
+                <description>Equip prescrit 1</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Concentrador</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Concentrador portàtil (vàlvula a demanda)</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Concentrador portàtil (flux continu)</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Oxígen líquid</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5: Bombona d'oxígen</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/26</question_id>
+                <description>Equip prescrit 2</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Concentrador</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Concentrador portàtil (vàlvula a demanda)</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Concentrador portàtil (flux continu)</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Oxígen líquid</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5: Bombona d'oxígen</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/27</question_id>
+                <description>Equip prescrit 3</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Concentrador</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Concentrador portàtil (vàlvula a demanda)</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Concentrador portàtil (flux continu)</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Oxígen líquid</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5: Bombona d'oxígen</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/28</question_id>
+                <description>Equip prescrit 4</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Concentrador</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Concentrador portàtil (vàlvula a demanda)</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Concentrador portàtil (flux continu)</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Oxígen líquid</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5: Bombona d'oxígen</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/29</question_id>
+                <description>Equip prescrit 5</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Concentrador</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Concentrador portàtil (vàlvula a demanda)</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Concentrador portàtil (flux continu)</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Oxígen líquid</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5: Bombona d'oxígen</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/109</question_id>
+                <description>Sistema de Administració de Oxígen</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/30</question_id>
+                <description>Seleccionar el sistema d´administració</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Cànula nasal</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Mascareta</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Traqueotomia / Laringectomia</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/31</question_id>
+                <description>Humidificador</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>Si</description>
+                        <mnemonic>S</mnemonic>
+                        <option_id>1</option_id>
+                        <value>S</value>
+                    </option>
+                    <option>
+                        <description>No</description>
+                        <mnemonic>N</mnemonic>
+                        <option_id>2</option_id>
+                        <value>N</value>
+                    </option>
+                </options>
+                <type>HORIZONTAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/32</question_id>
+                <description>Percentatge (%)</description>
+                <num_dec/>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID5/30,EQUAL,2</condition>
+            </question>
+            <question>
+                <question_id>ID5/110</question_id>
+                <description>Prescripció: Fluxe i hores</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/33</question_id>
+                <description>Hores al dia</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>&gt;=15h (mínim recomenable)</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>18h</description>
+                        <mnemonic>A</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>24h</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/34</question_id>
+                <description>Fluxe en repós</description>
+                <num_dec>1</num_dec>
+                <unity>(XX,X)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/35</question_id>
+                <description>Fluxe al exercici</description>
+                <num_dec>1</num_dec>
+                <unity>(XX,X)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/36</question_id>
+                <description>Fluxe a la nit</description>
+                <num_dec>1</num_dec>
+                <unity>(XX,X)</unity>
+                <type>NUMERICAL</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/37</question_id>
+                <description>Té CPAP?</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>Si</description>
+                        <mnemonic>S</mnemonic>
+                        <option_id>1</option_id>
+                        <value>S</value>
+                    </option>
+                    <option>
+                        <description>No</description>
+                        <mnemonic>N</mnemonic>
+                        <option_id>2</option_id>
+                        <value>N</value>
+                    </option>
+                </options>
+                <type>HORIZONTAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/38</question_id>
+                <description>Té BIPAP?</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>Si</description>
+                        <mnemonic>S</mnemonic>
+                        <option_id>1</option_id>
+                        <value>S</value>
+                    </option>
+                    <option>
+                        <description>No</description>
+                        <mnemonic>N</mnemonic>
+                        <option_id>2</option_id>
+                        <value>N</value>
+                    </option>
+                </options>
+                <type>HORIZONTAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/111</question_id>
+                <description>Plà terapèutic</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/39</question_id>
+                <description>Durada del tractament</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: A llarg termini</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: A curt termini - 3m</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: A curt termini - 6m</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Pal·liatiu</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID5/40</question_id>
+                <description>Plà terapèutic&lt;br/&gt; Propera visita de validació OCD?</description>
+                <num_dec/>
+                <type>DATE</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Proveïdor&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID6/41</question_id>
+                <description>Proveïdor del servei</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>Esteve Teijin</description>
+                        <mnemonic>E</mnemonic>
+                        <option_id>1</option_id>
+                        <value>ET</value>
+                    </option>
+                    <option>
+                        <description>Vitalaire</description>
+                        <mnemonic>V</mnemonic>
+                        <option_id>2</option_id>
+                        <value>VIT</value>
+                    </option>
+                    <option>
+                        <description>Linde</description>
+                        <mnemonic>L</mnemonic>
+                        <option_id>3</option_id>
+                        <value>LIN</value>
+                    </option>
+                    <option>
+                        <description>Oximesa</description>
+                        <mnemonic>O</mnemonic>
+                        <option_id>4</option_id>
+                        <value>OXIM</value>
+                    </option>
+                    <option>
+                        <description>Altres</description>
+                        <mnemonic>A</mnemonic>
+                        <option_id>5</option_id>
+                        <value>OTHER</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID6/42</question_id>
+                <description>Indiqui la empresa proveïdora de serveis</description>
+                <num_dec/>
+                <type>TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID6/41,EQUAL,5</condition>
+            </question>
+            <question>
+                <question_id>ID6/43</question_id>
+                <description>Observacions</description>
+                <num_dec/>
+                <type>TEXT_AREA</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id/>
+                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Metge&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <num_dec/>
+                <type>STATIC_TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID7/44</question_id>
+                <description>Metge sol·licitant d´OCD</description>
+                <num_dec/>
+                <options>
+                    <option>
+                        <description>1: Medicina Interna</description>
+                        <mnemonic>1</mnemonic>
+                        <option_id>1</option_id>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <description>2: Atenció Integrada</description>
+                        <mnemonic>2</mnemonic>
+                        <option_id>2</option_id>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <description>3: Oncologia</description>
+                        <mnemonic>3</mnemonic>
+                        <option_id>3</option_id>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <description>4: Pneumòleg</description>
+                        <mnemonic>4</mnemonic>
+                        <option_id>4</option_id>
+                        <value>4</value>
+                    </option>
+                    <option>
+                        <description>5: Altre</description>
+                        <mnemonic>5</mnemonic>
+                        <option_id>5</option_id>
+                        <value>5</value>
+                    </option>
+                </options>
+                <type>VERTICAL_RADIO</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+            </question>
+            <question>
+                <question_id>ID7/45</question_id>
+                <description>Indiqui quin altre:</description>
+                <num_dec/>
+                <type>TEXT</type>
+                <mandatory>N</mandatory>
+                <exclusive>N</exclusive>
+                <tabulation>0</tabulation>
+                <value/>
+                <condition>$ID7/44,EQUAL,5</condition>
+            </question>
+        </questions>
+    </data>
+</form>

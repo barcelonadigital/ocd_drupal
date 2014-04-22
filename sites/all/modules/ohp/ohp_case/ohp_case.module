@@ -1,0 +1,420 @@
+<?php
+
+/**
+ * @file
+ * Module file for ohp_case_module.
+ */
+
+/**
+ * @defgroup ohp_case Example: Page
+ * @ingroup examples
+ * @{
+ * This example demonstrates how a module can display a page at a given URL.
+ *
+ * It's important to understand how the menu system works in order to
+ * implement your own pages. See the Menu Example module for some insight.
+ *
+ * @see menu_example
+ */
+
+/**
+ * Implements hook_help().
+ *
+ * Through hook_help(), a module can make documentation available to the user
+ * for the module as a whole or for specific paths. Where the help appears
+ * depends on the $path specified.
+ *
+ * In the first example below, the help text will appear on the simple page
+ * defined in hook_menu below in the region designated for help text.
+ *
+ * In the second example, the text will be available through the module page as
+ * a link beside the module or on the admin help page (admin/help) in the list
+ * of help topics using the name of the module. To specify help in the admin
+ * section use the module name in the path as in the second case below.
+ *
+ * @see hook_help()
+ */
+function ohp_case_help($path, $arg) {
+  switch ($path) {
+    case 'ohp/ohp_case/simple':
+      // Help text for the simple page registered for this path.
+      return t('This is help text for the simple page.');
+  }
+}
+
+/**
+ * Implements hook_permission().
+ *
+ * Since the access to our new custom pages will be granted based on
+ * special permissions, we need to define what those permissions are here.
+ * This ensures that they are available to enable on the user role
+ * administration pages.
+ */
+function ohp_case_permission() {
+  return array(
+    'access ohp_case_search content' => array(
+      'title' => t('Acces ohp_case_search'),
+      'description' => t('Allow users to access ohp_case_search page'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ *
+ * Because hook_menu() registers URL paths for items defined by the function, it
+ * is necessary for modules that create pages. Each item can also specify a
+ * callback function for a given URL. The menu items returned here provide this
+ * information to the menu system.
+ *
+ * We will define some menus, and their paths will be interpreted as follows:
+ *
+ * If the user accesses http://example.com/?q=ohp/ohp_case/simple,
+ * the menu system will first look for a menu item with that path. In this case
+ * it will find a match, and execute ohp_case_simple().
+ *
+ * If the user accesses http://example.com/?q=ohp/ohp_case/arguments,
+ * the menu system will find no explicit match, and will fall back to the
+ * closest match, 'ohp/ohp_case', executing ohp_case_description().
+ *
+ * If the user accesses
+ * http://example.com/?q=ohp/ohp_case/arguments/1/2, the menu
+ * system will first look for ohp/ohp_case/arguments/1/2. Not finding
+ * a match, it will look for ohp/ohp_case/arguments/1/%. Again not
+ * finding a match, it will look for ohp/ohp_case/arguments/%/2.
+ * Yet again not finding a match, it will look for
+ * ohp/ohp_case/arguments/%/%. This time it finds a match, and so will
+ * execute ohp_case_arguments(1, 2). Since the parameters are passed to
+ * the function after the match, the function can do additional checking or
+ * make use of them before executing the callback function.
+ *
+ * @see hook_menu()
+ * @see menu_example
+ */
+function ohp_case_menu() {
+
+  // This is the minimum information you can provide for a menu item. This menu
+  // item will be created in the default menu, usually Navigation.
+  $items['ohp/ohp_case'] = array(
+    'title' => 'Cercar pacient',
+    'page callback'    => 'drupal_get_form',
+    'page arguments'   => array('ohp_case_search_form'),
+    //'page callback' => 'ohp_case_description',
+    'access arguments' => array('access ohp_case_search content'),
+    'file' => 'ohp_case_search.inc',
+  );
+  $items['ohp/ohp_case_result'] = array(
+    'title' => 'Resultats de la cerca',
+    'page callback' => 'ohp_case_result_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_result.inc',
+  );
+  $items['ohp/ohp_case_main'] = array(
+    'title' => 'Fitxa del pacient',
+    'page callback' => 'ohp_case_task_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_task.inc',
+  );
+  $items['ohp/ohp_case_taskunit'] = array(
+    'title' => 'Fitxa del pacient',
+    'page callback' => 'ohp_case_taskunit_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_taskunit.inc',
+  );
+  $items['ohp/ohp_case_formcatsalut'] = array(
+    'title' => 'Sol·licitud d\'OCD a CatSalut',
+    'page callback' => 'ohp_case_formcatsalut_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_formcatsalut.inc',
+  );
+  $items['ohp/ohp_case_formdocument'] = array(
+    'title' => 'Enviament de document a la història clínica',
+    'page callback' => 'ohp_case_formdocument_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_formdocument.inc',
+  );
+  $items['ohp/ohp_case_form'] = array(
+    'title' => 'Fitxa del pacient',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ohp_case_form_page'),
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_form.inc',
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * Defines the theming capabilities provided by this module.
+ */
+function ohp_case_theme() {
+  return array(
+    'ohp_case_header'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-layout',
+    ),
+  );
+}
+
+/**
+ * Process variables for theming-example-text-form.tpl.php
+ *
+ * @see theming-example-text-form.tpl.php
+ */
+function template_preprocess_ohp_case_header(&$variables) {
+
+  $case_bean_stored  = NULL;
+  if(isset($_SESSION['case_bean'])){
+    $case_bean_stored  = $_SESSION['case_bean'];
+  }
+
+  $variables['fullname'] = 'sdadas';
+  if($case_bean_stored !=NULL){
+
+    $variables['fullname'] = $case_bean_stored->fullname;
+
+    $variables['ident_patient'] = '<span><strong>'.t('Edat').':</strong> '.$case_bean_stored->age.'</span>';
+    $variables['ident_patient'] .=  '<span><strong>'.t('Gènere').':</strong> '.$case_bean_stored->desc_sex.'</span>';
+    $variables['ident_patient'] .=  '<span><strong>'.t('CIP').':</strong> '.$case_bean_stored->cip.'</span>';
+
+    if(isset($case_bean_stored->contact)){
+      $dropdown_list = "<ul>";
+      if(isset($case_bean_stored->contact->addresses) && !empty($case_bean_stored->contact->addresses)){
+        $i = 1;
+        foreach ($case_bean_stored->contact->addresses as $address) {
+          $dropdown_list .= '<li><b>'.t('Adreça').' '.$i.':</b></li>';
+          $street   = (string)$address->street;
+          $number   = (string)$address->number;
+          $floor    = (string)$address->floor;
+          $suite    = (string)$address->suite;
+          $postcode = (string)$address->postcode;
+          $city     = (string)$address->city;
+          $country  = (string)$address->country;
+          $dropdown_list .= '<li>'.$street.' '.$number.' '.t('Pis').' '.$floor.' '.$suite.'</li>';
+          $dropdown_list .= '<li>'.$postcode.' '.$city.'</li>';
+          $dropdown_list .= '<li>'.$country.'<br></li>';
+          $i++;
+        }
+      }
+      if(isset($case_bean_stored->contact->phones) && !empty($case_bean_stored->contact->phones)){
+        foreach ($case_bean_stored->contact->phones as $phone) {
+          if(isset($phone->number) && $phone->type=="home" && $phone->number!=""){
+            $dropdown_list .= '<li><b>'.t('Telèfon').':</b></li>';
+            $dropdown_list .= '<li>'.((string)$phone->number).'<br></li>';
+          }
+        }
+      }
+      if(!isset($case_bean_stored->contact->addresses) || empty($case_bean_stored->contact->addresses)){
+        $dropdown_list .= '<li><b>'.t('No hi ha cap adreça').':</b></li>';
+      }
+
+      $dropdown_list .= "</ul>";
+      $variables['dropdown_list'] = $dropdown_list;
+    }
+  }
+
+  $admission_bean_stored  = NULL;
+  if(isset($_SESSION['admission_bean'])){
+    $admission_bean_stored  = $_SESSION['admission_bean'];
+  }
+
+  if($admission_bean_stored !=NULL){
+    $variables['ident_treatment']  =  '<span class="info"><strong>'.t('Programa').'</strong>'.($admission_bean_stored->desc_protocol_actual).'&nbsp;</span>';
+    $variables['ident_treatment'] .=  '<span class="info"><strong>'.t('Inici').'</strong>'.($admission_bean_stored->data_protocol_actual).'&nbsp;</span>';
+    $variables['ident_treatment'] .=  '<span class="info"><strong>'.t('Estat').'</strong>'.($admission_bean_stored->estat_protocol_actual).'&nbsp;</span>';
+  }
+//   print "hello";
+}
+
+function ohp_case_load_common(&$page_array) {
+  try {
+    $case_id = NULL;
+    if(isset($_GET['id_case'])){
+      $case_id  = $_GET['id_case'];
+    }
+    $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
+    if(!isset($_SESSION['ohp_token'])){
+      drupal_set_message("ERROR: no token found");
+      return -1;
+    }
+    $token  = $_SESSION['ohp_token'];
+    $case_bean_stored  = NULL;
+    if(isset($_SESSION['case_bean'])){
+      $case_bean_stored  = $_SESSION['case_bean'];
+    }
+    $case_bean = NULL;
+
+    if(isset($case_id) && isset($case_bean_stored) && $case_id == $case_bean_stored->id_case){
+      $case_bean=$case_bean_stored;
+    }else if(isset($case_id) && (!isset($case_bean_stored) || $case_id != $case_bean_stored->id_case)){
+      $result = $client->case_get($token,$case_id);
+      if ( $result["ErrorMsg"] ) {
+ 	    drupal_set_message($result["ErrorMsg"]);
+        return -1;
+      }
+      $case_get_xml = simplexml_load_string($result["result"]);
+      if(isset($case_get_xml->data)){
+
+        $case_bean = new stdClass();
+        $case_bean->fullname = (string)$case_get_xml->data->full_name;
+        $case_bean->nickname = (string)$case_get_xml->data->nickname;
+        $case_bean->birthday = (string)$case_get_xml->data->bdate;
+        $case_bean->age = (string)$case_get_xml->data->age;
+        $case_bean->sex = (string)$case_get_xml->data->gender;
+        if($case_get_xml->data->gender == "M"){
+          $case_bean->desc_sex = t('Home');
+        }else if($case_get_xml->data->gender == "F"){
+          $case_bean->desc_sex = t('Dona');
+        }else{
+          $case_bean->desc_sex = (string)$case_get_xml->data->gender;
+        }
+      }
+      foreach ($case_get_xml->refs->ref as $ref) {
+        $ident = explode("/", $ref );
+        if ( isset($ident[1]) && $ident[1] != "" ) {
+          if ( $ident[0] == "CIP" ) {
+            $case_bean->cip = (string)$ident[1];
+          }
+          if ( $ident[0] == "NICK" ) {
+            $case_bean->nick = (string)$ident[1];
+          }
+          if ( $ident[0] == "NIF" ) {
+            $case_bean->nif = (string)$ident[1];
+          }
+          if ( $ident[0] == "NIE" ) {
+            $case_bean->nie = (string)$ident[1];
+          }
+          if ( $ident[0] == "PAS" ) {
+            $case_bean->pas = (string)$ident[1];
+          }
+          if ( $ident[0] == "NHC" ) {
+            $case_bean->nhc = (string)$ident[1];
+          }
+        }
+      }
+      $case_bean->id_case = (string)$case_id;
+
+      $result = $client->case_get_contact($token,$case_id);
+      if ( $result["ErrorMsg"] ) {
+ 	    drupal_set_message($result["ErrorMsg"]);
+        return -1;
+      }
+      $case_get_contact_xml = simplexml_load_string($result["result"]);
+
+      if(isset($case_get_contact_xml)){
+        $contact_bean = new stdClass();
+        $contact_bean->addresses = array();
+        $contact_bean->phones = array();
+        foreach ($case_get_contact_xml->addresses->address as $address) {
+          $address_bean = new stdClass();
+          $address_bean->street   = (string)$address->street;
+          $address_bean->number   = (string)$address->number;
+          $address_bean->floor    = (string)$address->floor;
+          $address_bean->suite    = (string)$address->suite;
+          $address_bean->postcode = (string)$address->postcode;
+          $address_bean->city     = (string)$address->city;
+          $address_bean->country  = (string)$address->country;
+          $contact_bean->addresses[]=$address_bean;
+        }
+        foreach ($case_get_contact_xml->phones->phone as $phone) {
+          $phone_bean = new stdClass();
+          $phone_bean->type     = (string)$phone->type;
+          $phone_bean->number   = (string)$phone->number;
+          $contact_bean->phones[]=$phone_bean;
+        }
+        $case_bean->contact = $contact_bean;
+      }
+
+      $_SESSION['case_bean'] = $case_bean;
+    }
+
+    $admission_id = NULL;
+    $admission_bean_stored  = NULL;
+    if(isset($_SESSION['admission_bean'])){
+      $admission_bean_stored  = $_SESSION['admission_bean'];
+    }
+    $admission_bean = NULL;
+
+    if(isset($admission_id) && isset($admission_bean_stored) && $admission_id == $admission_bean_stored->id_admission){
+      $admission_bean=$admission_bean_stored;
+    }else{
+
+      $admission_bean = new stdClass();
+      $result = $client->admission_list_case($token,$case_id, "true");
+      if ( $result["ErrorMsg"] ) {
+ 	    drupal_set_message($result["ErrorMsg"]);
+        return -1;
+      }
+      $admission_xml = simplexml_load_string($result["result"]);
+      $admissions_all = array();
+      foreach ($admission_xml->admission as $admission) {
+        if(isset($admission->data) && isset($admission->data->program) && $admission->data->program->id == "6"){
+          $admissions_all[]=$admission;
+        }
+      }
+      $admission_first = null;
+      $admission_selected=null;
+      if(!empty($admissions_all)){
+        $admission_first = $admissions_all[0];
+    	$admission_selected = $admission_first;
+    	if(isset($admission_id)){
+      	  foreach ($admissions_all as $adm) {
+            if($adm->ref == $admission_id){
+              $admission_selected = $adm;
+            }
+          }
+    	}
+      }
+      if(isset($admission_selected)){
+        $admission_bean->id_admission = (string)$admission_selected->ref;
+  		if(isset($admission_selected->data) && isset($admission_selected->data->protocol)
+  		    && isset($admission_selected->data->protocol->id)){
+          $admission_bean->desc_protocol_actual = (string)$admission_selected->data->program->name;
+          $admission_bean->data_protocol_actual = (string)$admission_selected->data->admission_date;
+          $admission_bean->data_inscripcio_admission = (string)$admission_selected->data->enrol_date;
+          if($admission_selected->data->status == "DISCHARGED"){
+          	$admission_bean->estat_protocol_actual = t('Alta');
+          }else if($admission_selected->data->status == "ACTIVE"){
+          	$admission_bean->estat_protocol_actual = t('En tractament');
+          }else{
+          	$admission_bean->estat_protocol_actual = (string)$admission_selected->data->status;
+          }
+  		}
+  	  }
+      $_SESSION['admission_bean'] = $admission_bean;
+    }
+  } catch (SoapFault $fault) {
+    drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
+  }
+
+  $page_array['page_header'] = array(
+    '#theme' => 'ohp_case_header',
+  );
+}
+
+function replace_ids($input_string, $ids_array){
+  if(!isset($input_string)){
+    return $input_string;
+  }else{
+    $input_string = str_replace("ID2", $ids_array[0], $input_string);
+    $input_string = str_replace("ID3", $ids_array[1], $input_string);
+    $input_string = str_replace("ID4", $ids_array[2], $input_string);
+    $input_string = str_replace("ID5", $ids_array[3], $input_string);
+    $input_string = str_replace("ID6", $ids_array[4], $input_string);
+    $input_string = str_replace("ID7", $ids_array[5], $input_string);
+    $input_string = str_replace("/", "_", $input_string);
+    return $input_string;
+  }
+}
+
+/**
+ * @} End of "defgroup ohp_case".
+ */

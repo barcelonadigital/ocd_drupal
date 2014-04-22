@@ -1,0 +1,5 @@
+name = OHP Case
+description = A module to manage OHP cases
+package = OHP modules
+core = 7.x
+dependencies[] = ohp

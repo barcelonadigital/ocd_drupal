@@ -1,0 +1,6 @@
+name = My First Drupal Distro
+core = 7.x
+description = Hello world!
+
+dependencies[] = feeds
+
