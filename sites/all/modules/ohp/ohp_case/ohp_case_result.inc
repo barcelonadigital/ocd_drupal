@@ -82,8 +82,23 @@ function ohp_case_result_page() {
     );
     $page_array['table'] = $content;
   }
+  $page_container['main'] = array(
+    '#theme' => 'ohp_case_result',
+    '#page_content' => $page_array,
+  );
+  $page_container['main']['table_result']=$page_array;
+  return $page_container;
+}
 
-  return $page_array;
+/**
+ * Process variables for ohp-case-search-form.tpl.php
+ *
+ * @see ohp-case-search-form.tpl.php
+ */
+function template_preprocess_ohp_case_result(&$variables) {
+  $search_form = $variables['elements']['#page_content'];
+  $search_form_box = drupal_render($search_form);
+  $variables['table_results'] = $search_form_box;
 }
 
 /**

@@ -23,7 +23,6 @@
  */
 ?>
 <!-- theming-example-text-form template -->
-<div class="container-inline">
     <div class="cabeceraperfil">
       <div class="container">
         <div id="contentnophoto" class="content">
@@ -58,7 +57,6 @@
         </div>
       </div>
     </div>
-</div>
 <!--
   < ? php print render($content); ? >
   -->

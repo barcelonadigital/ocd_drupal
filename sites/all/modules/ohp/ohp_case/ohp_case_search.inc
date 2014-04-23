@@ -37,6 +37,30 @@ function ohp_case_search_form($form, &$form_state) {
 }
 
 /**
+ * Constructs a descriptive page.
+ *
+ * Our menu maps this function to the path 'ohp/ohp_case'.
+ */
+function ohp_case_search_page() {
+  $page_array = array();
+  $page_array['page'] = array(
+    '#theme' => 'ohp_case_search',
+  );
+  return $page_array;
+}
+
+/**
+ * Process variables for ohp-case-search-form.tpl.php
+ *
+ * @see ohp-case-search-form.tpl.php
+ */
+function template_preprocess_ohp_case_search(&$variables) {
+  $search_form = drupal_get_form('ohp_case_search_form');
+  $search_form_box = drupal_render($search_form);
+  $variables['search_box'] = $search_form_box;
+}
+
+/**
  * Submit handler for the text form.
  *
  * @param array $form

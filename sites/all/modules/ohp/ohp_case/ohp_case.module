@@ -97,8 +97,8 @@ function ohp_case_menu() {
   // item will be created in the default menu, usually Navigation.
   $items['ohp/ohp_case'] = array(
     'title' => 'Cercar pacient',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('ohp_case_search_form'),
+    'page callback'    => 'ohp_case_search_page',
+    //'page arguments'   => array('ohp_case_search_form'),
     //'page callback' => 'ohp_case_description',
     'access arguments' => array('access ohp_case_search content'),
     'file' => 'ohp_case_search.inc',
@@ -159,7 +159,17 @@ function ohp_case_theme() {
   return array(
     'ohp_case_header'  => array(
       'render element' => 'elements',
-      'template' => 'tpl/ohp-case-layout',
+      'template' => 'tpl/ohp-case-header-layout',
+    ),
+    'ohp_case_search'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-search-form',
+      'file' => 'ohp_case_search.inc',
+    ),
+    'ohp_case_result'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-result-form',
+      'file' => 'ohp_case_result.inc',
     ),
   );
 }
