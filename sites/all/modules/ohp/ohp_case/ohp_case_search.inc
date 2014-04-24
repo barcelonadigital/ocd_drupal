@@ -32,6 +32,9 @@ function ohp_case_search_form($form, &$form_state) {
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Cercar'),
+    '#attributes' => array(
+      'class' => array('btn','custom-btn','btn-large','btn-info'),
+    ),
   );
   return $form;
 }
@@ -46,6 +49,7 @@ function ohp_case_search_page() {
   $page_array['page'] = array(
     '#theme' => 'ohp_case_search',
   );
+  $page_array['page']['pager_container'] = drupal_get_form('ohp_case_search_form');
   return $page_array;
 }
 
@@ -55,9 +59,10 @@ function ohp_case_search_page() {
  * @see ohp-case-search-form.tpl.php
  */
 function template_preprocess_ohp_case_search(&$variables) {
-  $search_form = drupal_get_form('ohp_case_search_form');
-  $search_form_box = drupal_render($search_form);
-  $variables['search_box'] = $search_form_box;
+//   $search_form = drupal_get_form('ohp_case_search_form');
+//   $search_form_box = drupal_render($search_form);
+//   $variables['search_box'] = $search_form_box;
+  $variables['search_box'] = drupal_render($variables['elements']['pager_container']);
 }
 
 /**

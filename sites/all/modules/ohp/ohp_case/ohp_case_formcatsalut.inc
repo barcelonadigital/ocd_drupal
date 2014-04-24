@@ -26,6 +26,9 @@ function ohp_case_formcatsalut_page() {
 
   $form = array();
   ohp_case_load_common($form);
+  $page_array['page_header'] = array(
+    '#theme' => 'ohp_case_header',
+  );
 
   $task_bean = new stdClass();
   $items = array();
@@ -155,14 +158,14 @@ function ohp_case_formcatsalut_page() {
           $descDiagnostic       = get_value_description($form_id2."_8",$questions_map);
           $descDiagnosticAltres = get_value_description($form_id2."_9",$questions_map);
           if(isset($descDiagnosticAltres) && $descDiagnosticAltres!=""){
-          	$descDiagnostic .= " - "+$descDiagnosticAltres;
+          	$descDiagnostic .= " - ".$descDiagnosticAltres;
           }
 
           $dataSolicitud = get_value_description($form_id1."_5",$questions_map);
           $strDataSolicitud = "";
           if(isset($dataSolicitud) && $dataSolicitud!=""){
             $data_convert = date_create_from_format("Y-m-d",$dataSolicitud);
-            $strDataSolicitud = date_format($date, 'd/m/Y');
+            $strDataSolicitud = date_format($data_convert, 'd/m/Y');
           }
 
           $duracio = get_value_description($form_id4."_39",$questions_map);
@@ -170,7 +173,7 @@ function ohp_case_formcatsalut_page() {
           $descSolicitant       = get_value_description($form_id6."_44",$questions_map);
           $descSolicitantAltres = get_value_description($form_id6."_45",$questions_map);
           if(isset($descSolicitantAltres) && $descSolicitantAltres!=""){
-          	$descSolicitant .= " - "+$descSolicitantAltres;
+          	$descSolicitant .= " - ".$descSolicitantAltres;
           }
 
           //Variables del tractament
@@ -235,22 +238,46 @@ function ohp_case_formcatsalut_page() {
     '#title' => t('Sol·licitud d\'OCD a CatSalut'),
     '#markup' => '<iframe src="https://salut.gencat.net/pls/gsa/gsapk030.portal" style="width:690px; height:375px;"></iframe>',
   );
+
+  $page_array['main'] = array(
+    '#theme' => 'ohp_case_body',
+  );
+  $page_array['main']['menu_container'] = array(
+    '#theme' => 'ohp_case_menu',
+    'is_active_menu_formularis' => TRUE,
+  );
+  $page_array['main']['pager_container'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('content'),
+    ),
+  );
+  $form['#prefix'] = '<h2 class="newsession">'.t('Sol·licitud d\'OCD a CatSalut').'</h2>';
+  $page_array['main']['pager_container']['pager_table'] = $form;
+//   array(
+//     '#theme' => 'table',
+//     '#header' => array(t('Data'), t('Tasca')),
+//     '#rows' => $chunks[$current_page],
+//     '#empty' => t('No hi ha elements per mostrar.'),
+//     '#prefix' => '<h2 class="asses">Tasques</h2>',
+//   );
+
   drupal_add_css(drupal_get_path('module', 'ohp_case') . '/css/ohp_case_form.css');
-  return $form;
+  return $page_array;
 }
 
 function get_value_description($question_id, $questions_map) {
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
     if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
+//var_dump($question_obj);
       foreach ($question_obj->options->option as $option) {
-        $form_array[$question_id]['#options'][(string)$option->option_id]=(string)$option->description;
-        if(isset($option->description) && isset($question_obj->value) && trim($option->description)==trim($question_obj->value)){
-          return $option->description;
+        if(isset($option->value) && isset($question_obj->value) && trim($option->value)==trim($question_obj->value)){
+          return (string)$option->description;
         }
       }
     }else{
-      return $question_obj->value;
+      return (string)$question_obj->value;
     }
   }
   return "";

@@ -33,6 +33,11 @@ function ohp_user_login(&$edit, $account) {
   	  //return $result["token"]."|".$result["user"]."|".$result["language"]."|".$result["role"]."|".$result["center"]."|".$result["name"];
       drupal_set_message($result["token"]."|".$result["user"]."|".$result["language"]."|".$result["role"]."|".$result["center"]."|".$result["name"]);
   	  $_SESSION['ohp_token'] = $result["token"];
+  	  
+      $_SESSION['user_full_name'] = $result["name"];
+      $_SESSION['user_center'] = $result["center"];
+      $_SESSION['case_bean'] = NULL;
+      $_SESSION['admission_bean'] = NULL;
     }
   } catch (SoapFault $fault) {
     //$this->errorMsg = "SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})";

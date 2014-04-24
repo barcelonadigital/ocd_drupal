@@ -26,6 +26,9 @@ function ohp_case_taskunit_page() {
 
   $page_array = array();
   ohp_case_load_common($page_array);
+  $page_array['page_header'] = array(
+    '#theme' => 'ohp_case_header',
+  );
 
   $task_bean = new stdClass();
   $items = array();
@@ -92,14 +95,27 @@ function ohp_case_taskunit_page() {
 
     // Create a render array ($page_array) which will be themed as a table with a
     // pager.
-    $page_array['pager_table'] = array(
+    $page_array['main'] = array(
+      '#theme' => 'ohp_case_body',
+    );
+    $page_array['main']['menu_container'] = array(
+      '#theme' => 'ohp_case_menu',
+      'is_active_menu_formularis' => TRUE,
+    );
+    $page_array['main']['pager_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array('content'),
+      ),
+    );
+    $page_array['main']['pager_container']['pager_table'] = array(
       '#theme' => 'table',
       '#header' => array(t('ID'), t('Formulari')),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
       '#task_bean' => $task_bean,
+      '#prefix' => '<h2 class="asses">Tasques</h2><h3>'.$task_bean->description.'<span>'.$task_bean->date.'<strong></strong></span></h3>',
     );
-    $page_array['pager_table']['#prefix'] = '<h2 class="asses">Tasques</h2><h3>'.$task_bean->description.'<span>'.$task_bean->date.'<strong></strong></span></h3>';
 
   }else {
     // There were no tasks. Tell the user.

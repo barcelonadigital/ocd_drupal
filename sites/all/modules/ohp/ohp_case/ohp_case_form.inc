@@ -22,9 +22,34 @@
  *
  * Our menu maps this function to the path 'ohp/tasks_assigned'.
  */
-function ohp_case_form_page($form, &$form_state) {
+function ohp_case_form_page() {
 
-  ohp_case_load_common($form);
+  $page_array = array();
+  ohp_case_load_common($page_array);
+
+  $page_array['page_header'] = array(
+    '#theme' => 'ohp_case_header_form',
+  );
+  $page_array['main'] = array(
+    '#theme' => 'ohp_case_body',
+  );
+  $page_array['main']['pager_container'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('content','full'),
+    ),
+  );
+  $page_array['main']['pager_container']['pager_table'] = drupal_get_form('ohp_case_form');
+
+  return $page_array;
+}
+
+/**
+ * Constructs a descriptive page.
+ *
+ * Our menu maps this function to the path 'ohp/tasks_assigned'.
+ */
+function ohp_case_form($form, &$form_state) {
 
   $task_bean = new stdClass();
   $items = array();
@@ -103,7 +128,10 @@ function ohp_case_form_page($form, &$form_state) {
           );
           $form['submit_area']['submit'] = array(
             '#type' => 'submit',
-            '#value' => t('Submit'),
+            '#value' => t('Desar'),
+            '#attributes' => array(
+              'class' => array('btn','custom-btn','btn-large','btn-info'),
+            ),
           );
           $form['column_left'] = array(
             '#type' => 'container',
@@ -191,9 +219,9 @@ function ohp_case_form_page($form, &$form_state) {
 }
 
 /**
- * Submit handler for ohp_case_form_page().
+ * Submit handler for ohp_case_form().
  */
-function ohp_case_form_page_submit($form, &$form_state) {
+function ohp_case_form_submit($form, &$form_state) {
 
   if(isset($_SESSION['admission_bean']) && isset($_SESSION['admission_bean']->id_admission) &&
       isset($_SESSION['case_bean']) && isset($_SESSION['case_bean']->id_case) &&
@@ -240,10 +268,11 @@ function ohp_case_form_page_submit($form, &$form_state) {
       $id_type="ADMI";
       $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
       $result = $client->form_set_all_answers($token,$id_form,$XML);
+//form_set_error('user_email', t('Email can not be empty'));
       if ( $result["ErrorMsg"] ) {
         drupal_set_message($result["ErrorMsg"]);
       }else{
-        drupal_set_message(t('El formulari s\'ha desat corectament.'));
+        drupal_set_message(t('El formulari s\'ha desat correctament.'));
       }
     } catch (SoapFault $fault) {
       drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");

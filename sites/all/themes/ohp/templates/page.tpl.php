@@ -16,7 +16,7 @@
                   <!--
                   <li><html:link action="/logoutAction"><bean:message key="label.myAccount"/></html:link></li>
                   -->
-                  <li><a href="/logoutAction"><?php print t('Logout'); ?></a></li>
+                  <li><?php print l(t('Tancar sessió'), 'user/logout'); ?></li>
                 </ul>
               </div>
             </li>
@@ -121,6 +121,13 @@
       </div>
     </nav>
     <div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false"><div class="modal-header"><h1><?php print t('Processant'); ?>...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>
+    <?php if ($messages): ?>
+      <div id="messages" class="gris1">
+        <div class="container">
+          <?php print $messages; ?>
+        </div>
+      </div>
+    <?php endif; ?>
     <?php print render($page['content']); ?>
     <div class="footer">
       <div class="container"><?php print t('© BDigital & Linkcare 2014'); ?></div>

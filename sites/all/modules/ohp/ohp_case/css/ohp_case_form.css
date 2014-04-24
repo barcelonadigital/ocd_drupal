@@ -1,15 +1,16 @@
 
-form#ohp-case-form-page .column-right, form#ohp-case-form-page .column-left {
+form#ohp-case-form .column-right, form#ohp-case-form .column-left {
 width: 49%;
 margin: 0;
 }
-form#ohp-case-form-page .column-right {
+form#ohp-case-form .column-right {
 float: right;
 }
-form#ohp-case-form-page .column-left {
+form#ohp-case-form .column-left {
 float: left;
 }
-form#ohp-case-form-page input.form-text {max-width: 150px;}
+form#ohp-case-form input.form-text {max-width: 150px;}
+form#ohp-case-form select {width: auto;}
 .columnboxes {
     padding:10px 0 10px 0
 }

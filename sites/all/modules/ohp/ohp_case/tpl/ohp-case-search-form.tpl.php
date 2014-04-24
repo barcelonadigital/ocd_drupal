@@ -50,13 +50,13 @@
     <!-- Lightboxes-->
     <div id="info1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal detail hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
-        <h3><bean:message key="label.caseSearch"/></h3>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Tancar'); ?></button>
+        <h3><?php print t('Cercar pacient'); ?></h3>
       </div>
       <div class="modal-body">
-        <h4><bean:message key="alert.helpCaseSearch.title"/></h4>
-        <p><bean:message key="alert.helpCaseSearch.body1"/></p>
-        <p><bean:message key="alert.helpCaseSearch.body2"/></p>
+        <h4><?php print t('Sobre quins camps es realitza la cerca?'); ?></h4>
+        <p><?php print t('<strong>CIP i NHC</strong>, en cas de pacients que existeixin al <strong>HIS</strong>.'); ?></p>
+        <p><?php print t('<strong>CIP, NHC, NIF, NIE, passaport, nom, cognoms i telèfon</strong>, en cas de pacients que existeixin al <strong>Open Health Practice</strong>.'); ?></p>
       </div>
     </div>
     <div id="confirmNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal confirmation hide fade">

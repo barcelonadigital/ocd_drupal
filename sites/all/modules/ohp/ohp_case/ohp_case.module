@@ -98,8 +98,8 @@ function ohp_case_menu() {
   $items['ohp/ohp_case'] = array(
     'title' => 'Cercar pacient',
     'page callback'    => 'ohp_case_search_page',
+    //'page callback' => 'drupal_get_form',
     //'page arguments'   => array('ohp_case_search_form'),
-    //'page callback' => 'ohp_case_description',
     'access arguments' => array('access ohp_case_search content'),
     'file' => 'ohp_case_search.inc',
   );
@@ -140,8 +140,9 @@ function ohp_case_menu() {
   );
   $items['ohp/ohp_case_form'] = array(
     'title' => 'Fitxa del pacient',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('ohp_case_form_page'),
+    'page callback' => 'ohp_case_form_page',
+    //'page callback' => 'drupal_get_form',
+    //'page arguments' => array('ohp_case_form_page'),
     'access arguments' => array('access ohp_case_search content'),
     'type' => MENU_CALLBACK,
     'file' => 'ohp_case_form.inc',
@@ -161,6 +162,10 @@ function ohp_case_theme() {
       'render element' => 'elements',
       'template' => 'tpl/ohp-case-header-layout',
     ),
+    'ohp_case_header_form'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-header-form-layout',
+    ),
     'ohp_case_search'  => array(
       'render element' => 'elements',
       'template' => 'tpl/ohp-case-search-form',
@@ -171,7 +176,49 @@ function ohp_case_theme() {
       'template' => 'tpl/ohp-case-result-form',
       'file' => 'ohp_case_result.inc',
     ),
+    'ohp_case_body'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-body-layout',
+    ),
+    'ohp_case_menu'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-menu-layout',
+    ),
   );
+}
+
+/**
+ * Process variables for theming-example-text-form.tpl.php
+ *
+ * @see theming-example-text-form.tpl.php
+ */
+function template_preprocess_ohp_case_menu(&$variables) {
+  if(isset($variables['elements']['is_active_menu_formularis'])){
+    $variables['is_active_menu_formularis'] = $variables['elements']['is_active_menu_formularis'];
+  }
+  if(isset($variables['elements']['is_active_menu_info_pacient'])){
+    $variables['is_active_menu_info_pacient'] = $variables['elements']['is_active_menu_info_pacient'];
+  }
+}
+
+/**
+ * Process variables for ohp-case-search-form.tpl.php
+ *
+ * @see ohp-case-search-form.tpl.php
+ */
+function template_preprocess_ohp_case_body(&$variables) {
+  $variables['body_style'] = '';
+  $variables['body_content'] = drupal_render($variables['elements']['pager_container']);
+  $variables['menu_content'] = drupal_render($variables['elements']['menu_container']);
+}
+
+/**
+ * Process variables for theming-example-text-form.tpl.php
+ *
+ * @see theming-example-text-form.tpl.php
+ */
+function template_preprocess_ohp_case_header_form(&$variables) {
+  template_preprocess_ohp_case_header($variables);
 }
 
 /**
@@ -223,7 +270,7 @@ function template_preprocess_ohp_case_header(&$variables) {
         }
       }
       if(!isset($case_bean_stored->contact->addresses) || empty($case_bean_stored->contact->addresses)){
-        $dropdown_list .= '<li><b>'.t('No hi ha cap adreça').':</b></li>';
+        $dropdown_list .= '<li><b>'.t('No hi ha cap adreça').'</b></li>';
       }
 
       $dropdown_list .= "</ul>";
@@ -404,10 +451,6 @@ function ohp_case_load_common(&$page_array) {
   } catch (SoapFault $fault) {
     drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
   }
-
-  $page_array['page_header'] = array(
-    '#theme' => 'ohp_case_header',
-  );
 }
 
 function replace_ids($input_string, $ids_array){
