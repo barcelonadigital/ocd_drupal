@@ -1,9 +1,10 @@
 
 (function($){
 	$(document).ready(function(){
+		//alert('aa');
 		checkFormulas();
 	});
-})(jQuery);
+}(window.jQuery));
 	function checkFormulas(){
 	  var field_formulas = Drupal.settings.field_formulas;
 	  for (var key in field_formulas) {
@@ -13,9 +14,9 @@
 	      var a1 = document.querySelector("input[name='"+array[1].substring(1)+"']");
 	      var a2 = document.querySelector("input[name='"+array[2].substring(1)+"']");
 	      var a0 = document.querySelector("input[name='"+key+"']");
-	      if (typeof a1 !== "undefined" &&
-	    		  typeof a2 !== "undefined" &&
-		    	  typeof a0 !== "undefined") { 
+	      if (typeof a1 !== "undefined" && a1!=null && 
+	    		  typeof a2 !== "undefined" && a2!=null &&
+		    	  typeof a0 !== "undefined" && a0!=null) { 
 	        var a1n = a1.value;
 	        var a2n = a2.value;
 	        if(isNumber(a1n) && isNumber(a2n)){
@@ -35,8 +36,8 @@
 	      var val1 = +array[3];
 	      var val2 = +array[4];
 	      var val3 = +array[5];
-	      if (typeof a1 !== "undefined" &&
-	          typeof a0 !== "undefined") {
+	      if (typeof a1 !== "undefined" && a1!=null &&
+	          typeof a0 !== "undefined" && a0!=null) {
 	    	var a1n = +(a1.value);
 	    	if(a1n<min){
 	    	  a0.value=val1;

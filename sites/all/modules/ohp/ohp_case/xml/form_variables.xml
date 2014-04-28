@@ -241,8 +241,8 @@
                 <condition>$ID3/8,EQUAL,11</condition>
             </question>
             <question>
-                <question_id/>
-                <description>&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Espirometria Forçada&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;</description>
+                <question_id>ID4/0</question_id>
+                <description>Espirometria Forçada</description>
                 <num_dec/>
                 <type>STATIC_TEXT</type>
                 <mandatory>N</mandatory>
