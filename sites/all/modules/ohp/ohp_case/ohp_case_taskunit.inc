@@ -53,6 +53,11 @@ function ohp_case_taskunit_page() {
         $task_xml = simplexml_load_string($result["result"]);
         $task_bean->description = $task_xml->description;
         $task_bean->date        = $task_xml->date;
+        if("VARIABLES"==strtoupper((string)$task_bean->description)){
+          $task_bean->description = 'Prescripció d\'OCD';
+        }else if("CVSO"==strtoupper((string)$task_bean->description)){
+          $task_bean->description = 'Visita de seguiment';
+        }
         $result = $client->task_form_list($token,$id_task);
         if ( $result["ErrorMsg"] ) {
           drupal_set_message($result["ErrorMsg"]);
@@ -63,20 +68,20 @@ function ohp_case_taskunit_page() {
             $ref_last_item = $form->ref;
             $items[] = array(
               'data' => array(
-                'id' => $form->ref,
+                'id' => l(t('QÜESTIONARI'), 'ohp/ohp_case_form', array('query' => array('id_form' => $form->ref, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
                 'item_description' => l($form->short_name, 'ohp/ohp_case_form', array('query' => array('id_form' => $form->ref, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
               ),
             );
           }
           $items[] = array(
             'data' => array(
-              'id' => $ref_last_item,
+              'id' => l(t('REPORT'), 'ohp/ohp_case_formdocument', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
               'item_description' => l(t('Enviament de document a la història clínica'), 'ohp/ohp_case_formdocument', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
             ),
           );
           $items[] = array(
             'data' => array(
-              'id' => $ref_last_item,
+              'id' => l(t('REPORT'), 'ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
               'item_description' => l(t('Sol·licitud d\'OCD a CatSalut'), 'ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
             ),
           );
@@ -110,7 +115,8 @@ function ohp_case_taskunit_page() {
     );
     $page_array['main']['pager_container']['pager_table'] = array(
       '#theme' => 'table',
-      '#header' => array(t('ID'), t('Formulari')),
+      //'#header' => array(t('ID'), t('Formulari')),
+      '#attributes' => array('id' => array('table_taskunit'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
       '#task_bean' => $task_bean,

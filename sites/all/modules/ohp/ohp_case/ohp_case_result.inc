@@ -41,47 +41,70 @@ function ohp_case_result_page() {
         $case1 = $contacts_xml->case[0];
         drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $case1->id)));
       }else if(sizeof($contacts_xml->case)>1){
+        $per_page = 6;
+        // Initialize the pager
+        $current_page = pager_default_initialize(sizeof($contacts_xml->case), $per_page);
+        $i = 0;
         foreach ($contacts_xml->case as $case) {
+          $cip=NULL;
+          $nif=NULL;
+          if($i>=$current_page*$per_page && $i<($current_page+1)*$per_page){
+            $result = $client->case_get($token,(string)$case->id);
+            if ( $result["ErrorMsg"] ) {
+              drupal_set_message($result["ErrorMsg"]);
+            } else {
+              $case_get_xml = simplexml_load_string($result["result"]);
+              foreach ($case_get_xml->refs->ref as $ref) {
+                $ident = explode("/", $ref );
+                if ( isset($ident[1]) && $ident[1] != "" ) {
+                  if ( $ident[0] == "CIP" ) {
+                    $cip = (string)$ident[1];
+                  }
+                  if ( $ident[0] == "NIF" ) {
+                    $nif = (string)$ident[1];
+                  }
+                }
+              }
+            }
+          }
           // Create tabular rows for our entities.
           $items[] = array(
             'data' => array(
-              'id' => $case->id,
+              'cip' => l($cip, 'ohp/ohp_case_main', array('query' => array('id_case' => $case->id))),
+              'nif' => l($nif, 'ohp/ohp_case_main', array('query' => array('id_case' => $case->id))),
               'item_description' => l($case->name_complete, 'ohp/ohp_case_main', array('query' => array('id_case' => $case->id))),
             ),
           );
+          $i++;
         }
+        // Split your list into page sized chunks
+        $chunks = array_chunk($items, $per_page, TRUE);
+
+        // Create a render array ($page_array) which will be themed as a table with a
+        // pager.
+        $page_array['pager_table'] = array(
+          '#theme' => 'table',
+          '#header' => array(t('CIP'), t('NIF'), t('Nom complert')),
+          '#attributes' => array('id' => array('table_result'),),
+          '#rows' => $chunks[$current_page],
+          '#empty' => t('No hi ha elements per mostrar.'),
+        );
+
+        // Attach the pager theme.
+        $page_array['pager_pager'] = array('#theme' => 'pager');
+      }else{
+        // There were no tasks. Tell the user.
+        $content[] = array(
+          '#type' => 'item',
+          '#markup' => t('No hi ha elements per mostrar.'),
+        );
+        $page_array['table'] = $content;
       }
     }
   } catch (SoapFault $fault) {
     drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
   }
 
-  if (!empty($items)) { //No content in the last week.
-    $per_page = 10;
-    // Initialize the pager
-    $current_page = pager_default_initialize(count($items), $per_page);
-    // Split your list into page sized chunks
-    $chunks = array_chunk($items, $per_page, TRUE);
-
-    // Create a render array ($page_array) which will be themed as a table with a
-    // pager.
-    $page_array['pager_table'] = array(
-      '#theme' => 'table',
-      '#header' => array(t('ID'), t('Nom complert')),
-      '#rows' => $chunks[$current_page],
-      '#empty' => t('No hi ha elements per mostrar.'),
-    );
-
-    // Attach the pager theme.
-    $page_array['pager_pager'] = array('#theme' => 'pager');
-  }else {
-    // There were no tasks. Tell the user.
-    $content[] = array(
-      '#type' => 'item',
-      '#markup' => t('No hi ha elements per mostrar.'),
-    );
-    $page_array['table'] = $content;
-  }
   $page_container['main'] = array(
     '#theme' => 'ohp_case_result',
     '#page_content' => $page_array,

@@ -60,10 +60,26 @@ function ohp_case_task_page() {
    	            $task_xml = simplexml_load_string($result["result"]);
      	        foreach ($task_xml->task as $task) {
      	          // Create tabular rows for our entities.
-                  $items[] = array(
+                  $data_convert = date_create_from_format("Y-m-d",(string)$task->date);
+                  $day = date_format($data_convert, 'd');
+                  $month = date_format($data_convert, 'M');
+                  $year = date_format($data_convert, 'Y');
+                  $long_desc = NULL;
+                  if("VARIABLES"==strtoupper((string)$task->description)){
+                    $task->description = 'Prescripció d\'OCD';
+                    $long_desc = 'QÜESTIONARI VARIABLES. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
+                  }else if("CVSO"==strtoupper((string)$task->description)){
+                    $task->description = 'Visita de seguiment';
+                    $long_desc = 'QÜESTIONARI CVSO. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
+                  }else if("DISCHARGE"==(string)$task->type){
+                    $long_desc = 'QÜESTIONARI REGISTRE D\'ALTA DEL PROGRAMA. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
+                  }
+     	          $items[] = array(
                     'data' => array(
-                      'id' => $task->date,
-                      'item_description' => l($task->description, 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+                      'id' => l('<span class="month">'.$month.'</span><span class="day">'.$day.'</span><span class="year">'.$year.'</span>',
+	                    'ohp/ohp_case_taskunit', array('html' => TRUE,'query' => array('id_task' => $task->id, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+                      'item_description' => l('<h4>'.$task->description.'</h4><p>'.$long_desc.'</p>',
+	                    'ohp/ohp_case_taskunit', array('html' => TRUE,'query' => array('id_task' => $task->id, 'id_admission' => $id_admission, 'id_case' => $id_case))),
                     ),
                   );
      	        }
@@ -100,7 +116,8 @@ function ohp_case_task_page() {
     );
     $page_array['main']['pager_container']['pager_table'] = array(
       '#theme' => 'table',
-      '#header' => array(t('Data'), t('Tasca')),
+      //'#header' => array(t('Data'), t('Tasca')),
+      '#attributes' => array('id' => array('table_task'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
       '#prefix' => '<h2 class="asses">Tasques</h2>',

@@ -88,7 +88,7 @@ function ohp_case_formunit($form, &$form_state) {
         '#title' => t('Cancel.'),
         '#href' => 'ohp/ohp_case_form',
         '#options' => array('query' => array('id_form' => $id_form, 'id_task' => $id_task,
-                'id_admission' => $id_admission, 'id_case' => $id_case, 'group_form' => $group_form)),
+                'id_admission' => $id_admission, 'id_case' => $id_case)),
         '#attributes' => array(
           'class' => array('btn','btn','btn-warning','link'),
         ),
@@ -104,6 +104,7 @@ function ohp_case_formunit($form, &$form_state) {
         '#collapsible' => FALSE,
         '#collapsed' => FALSE,
       );
+      //var_dump($questions_map);
       if($group_form=='diagnostic'){
         add_question($form['form_container'],$questions_map,$form_xml['form_id2']."_8");
         add_question($form['form_container'],$questions_map,$form_xml['form_id2']."_9");
@@ -148,10 +149,18 @@ function ohp_case_formunit($form, &$form_state) {
 	    add_question($form['form_container'],$questions_map,$form_xml['form_id5']."_41");
 	    add_question($form['form_container'],$questions_map,$form_xml['form_id5']."_42");
 	    add_question($form['form_container'],$questions_map,$form_xml['form_id5']."_43");
+	    //var_dump('ds');
       }else if($group_form=='planificacio'){
 	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_39");
 	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_40");
       }
+      //var_dump($questions_map);
+       foreach ($questions_map as $key => $value) {
+         //var_dump($key);
+         add_question($form['form_container'],$questions_map,(string)$key, true);
+       }
+      $form['submit_area2'] = $form['submit_area'];
+
     }else if($form_xml->data->name=='CVSO'){
 
     }
@@ -240,7 +249,7 @@ function ohp_case_after_build($form, &$form_state) {
   return $form;
 }
 
-function add_question(&$form_array, $questions_map, $question_id, $hidden = false){
+function add_question(&$form_array, &$questions_map, $question_id, $hidden = false){
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
     $form_array['question_type_'.$question_id] = array(
@@ -251,7 +260,8 @@ function add_question(&$form_array, $questions_map, $question_id, $hidden = fals
       '#title' => $question_obj->description,
     );
     $attributes_array = array();
-    if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
+    if(($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO') &&
+        isset($question_obj->options->option)){
       $form_array[$question_id]['#type'] = 'select';
       $form_array[$question_id]['#empty_value'] = '';
       //$form_array[$question_id]['#empty_option'] = TRUE;
@@ -294,7 +304,7 @@ function add_question(&$form_array, $questions_map, $question_id, $hidden = fals
       if($oper=='EQUAL'){
       	$valueThatEnables = $elems[2];
       	$form_array[$question_id]['#states'] = array(
-      	    'visible' => array(
+      	    'enabled' => array(
       	        ':input[name="'.$id_question.'"]' => array(
       	            array('value' => $valueThatEnables),
                 ),
@@ -302,6 +312,7 @@ function add_question(&$form_array, $questions_map, $question_id, $hidden = fals
         );
       }
     }
+    unset($questions_map[$question_id]);
   }
 }
 

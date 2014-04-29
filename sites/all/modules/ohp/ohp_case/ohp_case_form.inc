@@ -50,6 +50,28 @@ function ohp_case_form_page() {
 
     if($form_xml->data->name=='Variables'){
 
+      $form['cancel'] = array(
+        '#type' => 'link',
+        '#title' => "<span>" . t("Tornar") . "</span>",
+        '#href' => 'ohp/ohp_case_taskunit',
+        '#attributes' => array(
+          'class' => array('h2','back','clearfix'),
+        ),
+        '#options' => array(
+          'html' => TRUE,
+          'query' => array('id_task' => $id_task,
+              'id_admission' => $id_admission, 'id_case' => $id_case),
+        ),
+      );
+
+
+//       $form['cancel'] = array(
+//         '#markup' => l("<span>" . t("Tornar") . "</span>",
+//             'ohp/ohp_case_taskunit',
+//             array('attributes' => array('class' => array('h2','back','clearfix')),
+//                 'query' => array('id_task' => $id_task,
+//                     'id_admission' => $id_admission, 'id_case' => $id_case))));
+
       $form['columns_container'] = array(
         '#type' => 'container',
         '#attributes' => array(
@@ -173,7 +195,7 @@ function ohp_case_form_page() {
       );
       add_group_form('planificacio',$form['columns_container']['column_right']['planificacio'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
-      ;
+      //var_dump($questions_map);
 
     }else if($form_xml->data->name=='CVSO'){
 
@@ -234,7 +256,7 @@ function get_value_description($question_id, $questions_map) {
     if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
 //var_dump($question_obj);
       foreach ($question_obj->options->option as $option) {
-        if(isset($option->value) && isset($question_obj->value) && trim($option->value)==trim($question_obj->value)){
+        if(isset($option->option_id) && isset($question_obj->value) && trim($option->option_id)==trim($question_obj->value)){
           return (string)$option->description;
         }
       }
