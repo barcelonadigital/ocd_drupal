@@ -11,37 +11,18 @@ require_once 'ohp.utils.inc';
  * Implements hook_user_login().
  */
 function ohp_user_login(&$edit, $account) {
-  // If the user has a NULL time zone, notify them to set a time zone.
-  //if (!$account->timezone && variable_get('configurable_timezones', 1) && variable_get('empty_timezone_message', 0)) {
-  //  drupal_set_message(t('Configure your <a href="@user-edit">account time zone setting</a>.', array('@user-edit' => url("user/$account->uid/edit", array('query' => drupal_get_destination(), 'fragment' => 'edit-timezone')))));
-  //}
-  //user_logout();
   
-  try {
-    //$this->errorMsg = "";
-    $USER     = "consulta.validacio";
-    $PASSWORD = "bdigital";
-    $IP       = "127.0.0.1";
-    $HOST     = "localhost";
-    $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
-    $result = $client->session_init($USER, $PASSWORD , $IP, $HOST);
-    if ( $result["ErrorMsg"] ) {
-      //$this->errorMsg = $result["ErrorMsg"];
-      drupal_set_message($result["ErrorMsg"]);
-      //return -1;
-    } else {
-  	  //return $result["token"]."|".$result["user"]."|".$result["language"]."|".$result["role"]."|".$result["center"]."|".$result["name"];
-      drupal_set_message($result["token"]."|".$result["user"]."|".$result["language"]."|".$result["role"]."|".$result["center"]."|".$result["name"]);
-  	  $_SESSION['ohp_token'] = $result["token"];
-  	  
-      $_SESSION['user_full_name'] = $result["name"];
-      $_SESSION['user_center'] = $result["center"];
-      $_SESSION['case_bean'] = NULL;
-      $_SESSION['admission_bean'] = NULL;
-    }
-  } catch (SoapFault $fault) {
-    //$this->errorMsg = "SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})";
-    drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
-    //return -1;
+  $query = db_select('ohp_identification', 'n')
+    ->fields('n', array('given_name', 'family_name'))
+    ->condition('user_uid', $account->uid);
+  
+  $entries = $query->execute()->fetchAssoc();
+  if (!empty($entries)) {
+    $_SESSION['user_full_name'] = $entries["given_name"].' '.$entries["family_name"];
+  }else{
+    $_SESSION['user_full_name'] = '';
   }
+  $_SESSION['user_center'] = 'Hospital Clínic';
+  $_SESSION['case_bean'] = NULL;
+  $_SESSION['admission_bean'] = NULL;
 }

@@ -1,5 +1,7 @@
 <?php
 
+include_once 'ohp_case.utils.inc';
+
 /**
  * @file
  * Module file for case_search_module.
@@ -74,59 +76,15 @@ function template_preprocess_ohp_case_search(&$variables) {
  *   Form API form state array.
  */
 function ohp_case_search_form_submit($form, &$form_state) {
-  try {
-    $search_str = $form_state['values']['text'];
-    $cip = 'CIP/'.$search_str;
-    $nhc = 'NHC/'.$search_str;
-    if(!isset($_SESSION['ohp_token'])){
-      drupal_set_message("ERROR: no token found");
-      return;
-    }
-    $token     = $_SESSION['ohp_token'];
+  $search_str = $form_state['values']['text'];
 
-    $doc = new DomDocument("1.0", 'utf-8');
-    $doc->standalone = true;
-    $root = $doc->createElement("case");
-    $root = $doc->appendChild($root);
+  $result = search_case($search_str);
 
-    $refs = colgar_hijo( $doc, $root, "refs");
-    colgar_hijo( $doc, $refs, "ref", "CIP"."/".$search_str);
-    colgar_hijo( $doc, $refs, "ref", "NHC"."/".$search_str);
-
-    $XML = $doc->saveXML();
-
-    $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
-    $result = $client->case_insert($token,$XML);
-    if ( $result["ErrorMsg"] == "Fill all reguired fields") {
-      $doc = new DomDocument("1.0", 'utf-8');
-      $doc->standalone = true;
-      $root = $doc->createElement("case");
-      $root = $doc->appendChild($root);
-
-      $refs = colgar_hijo( $doc, $root, "refs");
-      colgar_hijo( $doc, $refs, "ref", "NIE"."/".$search_str);
-      colgar_hijo( $doc, $refs, "ref", "PAS"."/".$search_str);
-      colgar_hijo( $doc, $refs, "ref", "NIF"."/".$search_str);
-
-      $XML = $doc->saveXML();
-      $result = $client->case_insert($token,$XML);
-      if ( $result["ErrorMsg"] == "Fill all reguired fields") {
-        drupal_goto('ohp/ohp_case_result', array('query' => array('search_str' => $search_str)));
-      }else if ( $result["ErrorMsg"] ){
-        drupal_set_message($result["ErrorMsg"]);
-        return -1;
-      }
-    }else if ( $result["ErrorMsg"] ){
-      drupal_set_message($result["ErrorMsg"]);
-      return -1;
-    }
-    if($result["type"] != "EXIST") {
-      drupal_set_message("Error no esperat del servei remot.".$result["type"]);
-    }else{
-      drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $result["result"])));
-  	}
-  } catch (SoapFault $fault) {
-    drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
+  if($result->rowCount()==1){
+    $row = $result->fetchAssoc();
+    drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $row["user_uid"])));
+  }else{
+    drupal_goto('ohp/ohp_case_result', array('query' => array('search_str' => $search_str)));
   }
 }
 

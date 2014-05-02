@@ -1,5 +1,7 @@
 <?php
 
+include_once 'ohp_case.utils.inc';
+
 /**
  * @file
  * Module file for case_search_module.
@@ -23,86 +25,51 @@
  * Our menu maps this function to the path 'ohp/tasks_assigned'.
  */
 function ohp_case_result_page() {
+
   $search_str = $_GET['search_str'];
-  $items = array();
-  try {
-    if(!isset($_SESSION['ohp_token'])){
-      drupal_set_message("ERROR: no token found");
-      return array();
-    }
-    $token  = $_SESSION['ohp_token'];
-    $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
-    $result = $client->contact_search($token,"CASE",$search_str,"100", "TEAM");
-    if ( $result["ErrorMsg"] ) {
-      drupal_set_message($result["ErrorMsg"]);
-    } else {
-      $contacts_xml = simplexml_load_string($result["result"]);
-      if(sizeof($contacts_xml->case)==1){
-        $case1 = $contacts_xml->case[0];
-        drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $case1->id)));
-      }else if(sizeof($contacts_xml->case)>1){
-        $per_page = 6;
-        // Initialize the pager
-        $current_page = pager_default_initialize(sizeof($contacts_xml->case), $per_page);
-        $i = 0;
-        foreach ($contacts_xml->case as $case) {
-          $cip=NULL;
-          $nif=NULL;
-          if($i>=$current_page*$per_page && $i<($current_page+1)*$per_page){
-            $result = $client->case_get($token,(string)$case->id);
-            if ( $result["ErrorMsg"] ) {
-              drupal_set_message($result["ErrorMsg"]);
-            } else {
-              $case_get_xml = simplexml_load_string($result["result"]);
-              foreach ($case_get_xml->refs->ref as $ref) {
-                $ident = explode("/", $ref );
-                if ( isset($ident[1]) && $ident[1] != "" ) {
-                  if ( $ident[0] == "CIP" ) {
-                    $cip = (string)$ident[1];
-                  }
-                  if ( $ident[0] == "NIF" ) {
-                    $nif = (string)$ident[1];
-                  }
-                }
-              }
-            }
-          }
-          // Create tabular rows for our entities.
-          $items[] = array(
-            'data' => array(
-              'cip' => l($cip, 'ohp/ohp_case_main', array('query' => array('id_case' => $case->id))),
-              'nif' => l($nif, 'ohp/ohp_case_main', array('query' => array('id_case' => $case->id))),
-              'item_description' => l($case->name_complete, 'ohp/ohp_case_main', array('query' => array('id_case' => $case->id))),
-            ),
-          );
-          $i++;
-        }
-        // Split your list into page sized chunks
-        $chunks = array_chunk($items, $per_page, TRUE);
 
-        // Create a render array ($page_array) which will be themed as a table with a
-        // pager.
-        $page_array['pager_table'] = array(
-          '#theme' => 'table',
-          '#header' => array(t('CIP'), t('NIF'), t('Nom complert')),
-          '#attributes' => array('id' => array('table_result'),),
-          '#rows' => $chunks[$current_page],
-          '#empty' => t('No hi ha elements per mostrar.'),
-        );
+  $result = search_case($search_str);
 
-        // Attach the pager theme.
-        $page_array['pager_pager'] = array('#theme' => 'pager');
-      }else{
-        // There were no tasks. Tell the user.
-        $content[] = array(
-          '#type' => 'item',
-          '#markup' => t('No hi ha elements per mostrar.'),
-        );
-        $page_array['table'] = $content;
-      }
+  if($result->rowCount()>0){
+
+
+    $items = array();
+    $per_page = 6;
+    // Initialize the pager
+    $current_page = pager_default_initialize($result->rowCount(), $per_page);
+
+    foreach ($result as $row) {
+      $fullname = get_fullname ($row->given_name,$row->middle_name,$row->family_name,$row->family_name2);
+      $items[] = array(
+        'data' => array(
+          'cip' => l($row->cip, 'ohp/ohp_case_main', array('query' => array('id_case' => $row->user_uid))),
+          'nif' => l($row->nif, 'ohp/ohp_case_main', array('query' => array('id_case' => $row->user_uid))),
+          'item_description' => l($fullname, 'ohp/ohp_case_main', array('query' => array('id_case' => $row->user_uid))),
+        ),
+      );
     }
-  } catch (SoapFault $fault) {
-    drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
+    // Split your list into page sized chunks
+    $chunks = array_chunk($items, $per_page, TRUE);
+
+    // Create a render array ($page_array) which will be themed as a table with a
+    // pager.
+    $page_array['pager_table'] = array(
+      '#theme' => 'table',
+      '#header' => array(t('CIP'), t('NIF'), t('Nom complert')),
+      '#attributes' => array('id' => array('table_result'),),
+      '#rows' => $chunks[$current_page],
+      '#empty' => t('No hi ha elements per mostrar.'),
+    );
+
+    // Attach the pager theme.
+    $page_array['pager_pager'] = array('#theme' => 'pager');
+  }else{
+    // There were no tasks. Tell the user.
+    $content[] = array(
+      '#type' => 'item',
+      '#markup' => t('No hi ha elements per mostrar.'),
+    );
+    $page_array['table'] = $content;
   }
 
   $page_container['main'] = array(
