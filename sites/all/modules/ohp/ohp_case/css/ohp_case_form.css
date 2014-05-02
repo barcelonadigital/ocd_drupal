@@ -9,8 +9,13 @@ float: right;
 form#ohp-case-form .column-left {
 float: left;
 }
-form#ohp-case-form input.form-text {max-width: 150px;}
-form#ohp-case-form select {width: auto;}
+form#ohp-case-formunit select {width: auto;}
+form#ohp-case-formunit input[disabled] {
+	padding-left: 16px;
+	background-color: #ccc;
+	border-width: 1px;
+	color: #48525e;
+}
 .columnboxes {
     padding:10px 0 10px 0
 }

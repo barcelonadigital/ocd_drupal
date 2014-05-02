@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+// function ohp_schema() {
+//   //extreure codi de SCHEMA API  
+//   return $schema;
+// }

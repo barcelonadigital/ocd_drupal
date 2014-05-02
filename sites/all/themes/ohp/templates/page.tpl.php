@@ -39,14 +39,14 @@
                 <div><strong><?php print t('Pacient actual'); ?></strong></div>
                 <div class="user"><?php print $_SESSION['case_bean']->fullname; ?></div>
                 <ul>
-	              <li><a action="/caseTaskDetailsAction?idCase=${caseBean.idCase}&idAdmission=${admissionBean.idAdmission}" styleClass="${formularisClass}"><?php print t('Tasques'); ?></a></li>
-	              <li><a action="/caseDetailsAction?idCase=${caseBean.idCase}&idAdmission=${admissionBean.idAdmission}" styleClass="${infoPacientClass}"><?php print t('Informació pacient'); ?></a></li>
+	              <li><a href="<?php echo url('ohp/ohp_case_main'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>" ><?php print t('Tasques'); ?></a></li>
+	              <li><a href="<?php echo url('ohp/ohp_case_main'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>" ><?php print t('Informació pacient'); ?></a></li>
                 </ul>
               </div>
-              <div class="newpacient"><a styleClass="brand" action="/caseSearchPg"><?php print t('Seleccionar un <br>altre pacient'); ?></a></div>
+              <div class="newpacient"><a class="brand" href="<?php echo url('ohp/ohp_case'); ?>"><?php print t('Seleccionar un <br>altre pacient'); ?></a></div>
               <?php endif; ?>
               <?php if (!isset($_SESSION['case_bean'])): ?>
-              <div class="newpacient"><a styleClass="brand" action="/caseSearchPg"><?php print t('Seleccionar <br>pacient'); ?></a></div>
+              <div class="newpacient"><a class="brand" href="<?php echo url('ohp/ohp_case'); ?>"><?php print t('Seleccionar <br>pacient'); ?></a></div>
               <?php endif; ?>
             </div>
           </li>
@@ -56,7 +56,7 @@
 
               <div class="task_links">
                 <ul>
-                <li><a action="/tasksAssignedAction"><?php print t('Pendents'); ?></a></li>
+                <li><a href="<?php echo url('ohp/ohp_task_assigned'); ?>"><?php print t('Pendents'); ?></a></li>
                 <!--
                 <logic:present name="caseBean">
 			    <logic:present name="actionsTransfer">

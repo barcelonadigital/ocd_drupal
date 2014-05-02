@@ -27,8 +27,8 @@
           <ul>
             <!--
              -->
-            <li><a action="/caseTaskDetailsAction?idCase=${caseBean.idCase}&idAdmission=${admissionBean.idAdmission}" class="<?php if (isset($is_active_menu_formularis)): print 'active'; endif; ?>"><?php print t('Tasques'); ?></a></li>
-            <li><a action="/caseDetailsAction?idCase=${caseBean.idCase}&idAdmission=${admissionBean.idAdmission}" class="<?php if (isset($is_active_menu_info_pacient)): print 'active'; endif; ?>"><?php print t('Informació pacient'); ?></a></li>
+            <li><a href="<?php echo url('ohp/ohp_case_main'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>" class="<?php if (isset($is_active_menu_formularis)): print 'active'; endif; ?>"><?php print t('Tasques'); ?></a></li>
+            <li><a href="<?php echo url('ohp/ohp_case_main'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>" class="<?php if (isset($is_active_menu_info_pacient)): print 'active'; endif; ?>"><?php print t('Informació pacient'); ?></a></li>
             <!--
             <li><html:link action="/caseHistoricAction?idCase=${caseBean.idCase}" styleClass="${historicClass}">Protocols anteriors</html:link></li>
              -->

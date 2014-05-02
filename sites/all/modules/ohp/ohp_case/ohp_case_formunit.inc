@@ -173,7 +173,6 @@ function ohp_case_formunit($form, &$form_state) {
  */
 function ohp_case_formunit_submit($form, &$form_state) {
 
-  var_dump('a');
   if(isset($_SESSION['admission_bean']) && isset($_SESSION['admission_bean']->id_admission) &&
       isset($_SESSION['case_bean']) && isset($_SESSION['case_bean']->id_case) &&
       isset($_GET['id_task']) && isset($_GET['id_form'])){
@@ -192,10 +191,24 @@ function ohp_case_formunit_submit($form, &$form_state) {
     $root = $doc->appendChild($root);
 
     foreach ($form_state['values'] as $key => $value) {
-      if(strrpos($key, "question_type")===FALSE){
+      if(strrpos($key, "question_type")===FALSE && strrpos($key, "question_condition")===FALSE){
         $question = colgar_hijo( $doc, $root, "question");
         $question_id    = str_replace("_", "/", (string)$key);
         $question_type  = $form_state['values']['question_type_'.(string)$key];
+        if($form_state['values']['question_condition_'.(string)$key]!=""){
+          $question_condition  = $form_state['values']['question_condition_'.(string)$key];
+          $elems = explode(",", (string)$question_condition);
+          $id_question = substr($elems[0], 1);
+          $oper = $elems[1];
+          if($oper=='EQUAL'){
+            $question_that_enables  = $form_state['values'][$id_question];
+            $value_that_enables  = $elems[2];
+//drupal_set_message($id_question.' '.$question_that_enables.' '.$value_that_enables);
+            if($question_that_enables!=$value_that_enables){
+              $value = "";
+            }
+          }
+        }
         $question_value = NULL;
         if($question_type=='DATE'){
           $question_value = date("Y-m-d", mktime(0, 0, 0, $value['month'], $value['day'], $value['year']));
@@ -222,6 +235,7 @@ function ohp_case_formunit_submit($form, &$form_state) {
       $id_type="ADMI";
       $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
       $result = $client->form_set_all_answers($token,$id_form,$XML);
+//drupal_set_message($XML);
 //form_set_error('user_email', t('Email can not be empty'));
       if ( $result["ErrorMsg"] ) {
         drupal_set_message($result["ErrorMsg"]);
@@ -254,6 +268,10 @@ function add_question(&$form_array, &$questions_map, $question_id, $hidden = fal
     $question_obj = $questions_map[$question_id];
     $form_array['question_type_'.$question_id] = array(
       '#value' => $question_obj->type,
+      '#type' => 'hidden',
+    );
+    $form_array['question_condition_'.$question_id] = array(
+      '#value' => $question_obj->condition,
       '#type' => 'hidden',
     );
     $form_array[$question_id] = array(
