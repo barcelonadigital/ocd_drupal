@@ -38,58 +38,37 @@ function ohp_case_taskunit_page() {
     $id_admission = $_SESSION['admission_bean']->id_admission;
     $id_case      = $_SESSION['case_bean']->id_case;
     $id_task      = $_GET['id_task'];
-    try {
-      if(!isset($_SESSION['ohp_token'])){
-        drupal_set_message("ERROR: no token found");
-        return array();
-      }
-      $token    = $_SESSION['ohp_token'];
-      $id_type="ADMI";
-      $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
-      $result = $client->task_get($token,$id_task,$id_type);
-      if ( $result["ErrorMsg"] ) {
-        drupal_set_message($result["ErrorMsg"]);
-      } else {
-        $task_xml = simplexml_load_string($result["result"]);
-        $task_bean->description = $task_xml->description;
-        $task_bean->date        = $task_xml->date;
-        if("VARIABLES"==strtoupper((string)$task_bean->description)){
-          $task_bean->description = 'Prescripció d\'OCD';
-        }else if("CVSO"==strtoupper((string)$task_bean->description)){
-          $task_bean->description = 'Visita de seguiment';
-        }
-        $result = $client->task_form_list($token,$id_task);
-        if ( $result["ErrorMsg"] ) {
-          drupal_set_message($result["ErrorMsg"]);
-        } else {
-          $ref_last_item = NULL;
-          $forms_xml = simplexml_load_string($result["result"]);
-          foreach ($forms_xml->form as $form) {
-            $ref_last_item = $form->ref;
-            $items[] = array(
-              'data' => array(
-                'id' => l(t('QÜESTIONARI'), 'ohp/ohp_case_form', array('query' => array('id_form' => $form->ref, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
-                'item_description' => l($form->short_name, 'ohp/ohp_case_form', array('query' => array('id_form' => $form->ref, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
-              ),
-            );
-          }
-          $items[] = array(
-            'data' => array(
-              'id' => l(t('REPORT'), 'ohp/ohp_case_formdocument', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
-              'item_description' => l(t('Enviament de document a la història clínica'), 'ohp/ohp_case_formdocument', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
-            ),
-          );
-          $items[] = array(
-            'data' => array(
-              'id' => l(t('REPORT'), 'ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
-              'item_description' => l(t('Sol·licitud d\'OCD a CatSalut'), 'ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
-            ),
-          );
-        }
-      }
-    } catch (SoapFault $fault) {
-      drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
+
+    $task_bean = get_task($id_task);
+    if("VARIABLES"==strtoupper($task_bean->description)){
+      $task_bean->description = 'Prescripció d\'OCD';
+    }else if("CVSO"==strtoupper($task_bean->description)){
+      $task_bean->description = 'Visita de seguiment';
     }
+
+    $ref_last_item = NULL;
+    $result = get_task_forms($id_task);
+    foreach ($result as $form) {
+      $ref_last_item = $form->id_form;
+      $items[] = array(
+        'data' => array(
+          'id' => l(t('QÜESTIONARI'), 'ohp/ohp_case_form', array('query' => array('id_form' => $form->id_form, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+          'item_description' => l($form->short_name, 'ohp/ohp_case_form', array('query' => array('id_form' => $form->id_form, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+        ),
+      );
+    }
+    $items[] = array(
+      'data' => array(
+        'id' => l(t('REPORT'), 'ohp/ohp_case_formdocument', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+        'item_description' => l(t('Enviament de document a la història clínica'), 'ohp/ohp_case_formdocument', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+      ),
+    );
+    $items[] = array(
+      'data' => array(
+        'id' => l(t('REPORT'), 'ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+        'item_description' => l(t('Sol·licitud d\'OCD a CatSalut'), 'ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $ref_last_item, 'id_task' => $id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+      ),
+    );
   }
   if (!empty($items)) { //No content in the last week.
     $per_page = 10;
@@ -98,29 +77,14 @@ function ohp_case_taskunit_page() {
     // Split your list into page sized chunks
     $chunks = array_chunk($items, $per_page, TRUE);
 
-    // Create a render array ($page_array) which will be themed as a table with a
-    // pager.
-    $page_array['main'] = array(
-      '#theme' => 'ohp_case_body',
-    );
-    $page_array['main']['menu_container'] = array(
-      '#theme' => 'ohp_case_menu',
-      'is_active_menu_formularis' => TRUE,
-    );
-    $page_array['main']['pager_container'] = array(
-      '#type' => 'container',
-      '#attributes' => array(
-        'class' => array('content'),
-      ),
-    );
-    $page_array['main']['pager_container']['pager_table'] = array(
+    $content[] = array(
       '#theme' => 'table',
       //'#header' => array(t('ID'), t('Formulari')),
       '#attributes' => array('id' => array('table_taskunit'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
       '#task_bean' => $task_bean,
-      '#prefix' => '<h2 class="asses">Tasques</h2><h3>'.$task_bean->description.'<span>'.$task_bean->date.'<strong></strong></span></h3>',
+      '#prefix' => '<h2 class="asses">Tasques</h2><h3>'.$task_bean->description.'<span>'.date('d/m/Y', $task_bean->date).'<strong></strong></span></h3>',
     );
 
   }else {
@@ -131,6 +95,23 @@ function ohp_case_taskunit_page() {
     );
     $page_array['table'] = $content;
   }
+
+  // Create a render array ($page_array) which will be themed as a table with a
+  // pager.
+  $page_array['main'] = array(
+    '#theme' => 'ohp_case_body',
+  );
+  $page_array['main']['menu_container'] = array(
+    '#theme' => 'ohp_case_menu',
+    'is_active_menu_formularis' => TRUE,
+  );
+  $page_array['main']['pager_container'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('content'),
+    ),
+  );
+  $page_array['main']['pager_container']['pager_table'] = $content;
 
   return $page_array;
 }

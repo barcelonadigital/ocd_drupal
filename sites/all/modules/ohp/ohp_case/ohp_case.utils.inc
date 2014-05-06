@@ -78,6 +78,32 @@ function get_case_identification($case_id) {
 /**
  * Custom content function.
  *
+ * Retrieve one single task from database.
+ *
+ * @return
+ *   An object of the targeted task.
+ */
+function get_task($id_task) {
+
+  $query = db_select('ohp_task', 'n');
+  $query->join('ohp_activity', 'p', 'n.id_activity = p.id_activity');
+  $query->addField('n', 'status');
+  $query->addField('n', 'date');
+  $query->addField('n', 'type');
+  $query->addField('n', 'id_task');
+  $query->addField('n', 'id_activity');
+  $query->addField('n', 'id_admission');
+  $query->addField('p', 'description');
+  $query->condition('n.id_task',$id_task,'=');
+
+  $result = $query->execute()->fetchObject();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
  * Retrieve one case phones from database.
  *
  * @return
@@ -123,7 +149,7 @@ function get_case_address($case_id) {
 /**
  * Custom content function.
  *
- * Retrieve one case admissions from database.
+ * Retrieve case admissions from database.
  *
  * @return
  *   A set of admissions from the case.
@@ -146,7 +172,7 @@ function get_case_admission($case_id) {
 /**
  * Custom content function.
  *
- * Retrieve one admission tasks from database.
+ * Retrieve admission tasks from database.
  *
  * @return
  *   A set of tasks from the admission.
@@ -163,6 +189,30 @@ function get_admission_tasks($admission_id) {
   $query->addField('n', 'id_admission');
   $query->addField('p', 'description');
   $query->condition('n.id_admission',$admission_id,'=');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve task forms from database.
+ *
+ * @return
+ *   A set of forms from the task.
+ */
+function get_task_forms($id_task) {
+
+  $query = db_select('ohp_form', 'n');
+  $query->join('ohp_template', 'p', 'n.id_template = p.id_template');
+  $query->addField('n', 'status');
+  $query->addField('n', 'id_task');
+  $query->addField('n', 'id_template');
+  $query->addField('n', 'id_form');
+  $query->addField('p', 'description', 'short_name');
+  $query->condition('n.id_task',$id_task,'=');
 
   $result = $query->execute();
 
