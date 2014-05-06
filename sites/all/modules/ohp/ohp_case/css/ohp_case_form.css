@@ -9,7 +9,7 @@ float: right;
 form#ohp-case-form .column-left {
 float: left;
 }
-form#ohp-case-formunit select {width: auto;}
+form#ohp-case-formunit select {width: auto;padding: 8px 16px;}
 form#ohp-case-formunit input[disabled] {
 	padding-left: 16px;
 	background-color: #ccc;

@@ -61,14 +61,13 @@ function ohp_case_formunit($form, &$form_state) {
     $id_task      = $_GET['id_task'];
     $id_form      = $_GET['id_form'];
     $group_form   = $_GET['group_form'];
-    if(!isset($_SESSION['ohp_token'])){
-      drupal_set_message("ERROR: no token found");
-      return array();
-    }
-    $token    = $_SESSION['ohp_token'];
     $questions_map = array();
     $form_xml = NULL;
-    load_form($token ,$id_form, $form_xml, $questions_map);
+    load_form(NULL ,$id_form, $form_xml, $questions_map);
+    $copy_of_questions_map = array();
+    foreach ($questions_map as $k => $v) {
+      $copy_of_questions_map[$k] = clone $v;
+    }
 
     if($form_xml->data->name=='Variables'){
       $form['#questions'] = $questions_map;
@@ -90,7 +89,7 @@ function ohp_case_formunit($form, &$form_state) {
         '#options' => array('query' => array('id_form' => $id_form, 'id_task' => $id_task,
                 'id_admission' => $id_admission, 'id_case' => $id_case)),
         '#attributes' => array(
-          'class' => array('btn','btn','btn-warning','link'),
+          'class' => array('btn','btn-warning','link'),
         ),
       );
 //       $form['column_left'] = array(
@@ -104,61 +103,34 @@ function ohp_case_formunit($form, &$form_state) {
         '#collapsible' => FALSE,
         '#collapsed' => FALSE,
       );
-      //var_dump($questions_map);
-      if($group_form=='diagnostic'){
-        add_question($form['form_container'],$questions_map,$form_xml['form_id2']."_8");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id2']."_9");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id1']."_5");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id1']."_6");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id1']."_7");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_24");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id6']."_44");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id6']."_45");
+
+      if($group_form=='caracteristiques'){
+        $ids_array = array("1","2","3","4","5","6","7","8","9","10","11","12","13");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
+      }else if($group_form=='diagnostic'){
+        $ids_array = array("14","15","16","17","18");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
       }else if($group_form=='espiro'){
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_10");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_11");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_12");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_13");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_14");
+        $ids_array = array("19","20","21","22","23","24","25");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
       }else if($group_form=='gaso'){
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_15");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_16");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_17", true);
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_18");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_19");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_20");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_21");
-        add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_22");
+        $ids_array = array("26","27","28","29","30","31","32","33","34","35");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
       }else if($group_form=='pulsio'){
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id3']."_23");
+        $ids_array = array("36","37","38");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
       }else if($group_form=='equip'){
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_25");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_26");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_27");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_28");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_29");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_30");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_31");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_32");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_34");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_35");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_36");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_33");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_37");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_38");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id5']."_41");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id5']."_42");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id5']."_43");
-	    //var_dump('ds');
+        $ids_array = array("39","40","41","42",
+          "43","44","45","46","47","48","49",
+          "50","51","52","53","54");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
       }else if($group_form=='planificacio'){
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_39");
-	    add_question($form['form_container'],$questions_map,$form_xml['form_id4']."_40");
+        $ids_array = array("55","56","57","58","59","60");
+        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
       }
-      //var_dump($questions_map);
-       foreach ($questions_map as $key => $value) {
-         //var_dump($key);
-         add_question($form['form_container'],$questions_map,(string)$key, true);
-       }
+      foreach ($questions_map as $key => $value) {
+        add_question($form['form_container'],$questions_map,(string)$key,$copy_of_questions_map, true);
+      }
       $form['submit_area2'] = $form['submit_area'];
 
     }else if($form_xml->data->name=='CVSO'){
@@ -168,6 +140,15 @@ function ohp_case_formunit($form, &$form_state) {
   return $form;
 }
 
+function add_group_question(&$form_array,&$questions_map,$ids_array,$copy_of_questions_map,$hiddens_array=array()){
+  foreach ($ids_array as $id_question) {
+    $hidden = FALSE;
+    if(in_array($id_question, $hiddens_array)){
+      $hidden = TRUE;
+    }
+    add_question($form_array,$questions_map,$id_question,$copy_of_questions_map,$hidden);
+  }
+}
 /**
  * Submit handler for ohp_case_form().
  */
@@ -193,60 +174,51 @@ function ohp_case_formunit_submit($form, &$form_state) {
     foreach ($form_state['values'] as $key => $value) {
       if(strrpos($key, "question_type")===FALSE && strrpos($key, "question_condition")===FALSE){
         $question = colgar_hijo( $doc, $root, "question");
-        $question_id    = str_replace("_", "/", (string)$key);
-        $question_type  = $form_state['values']['question_type_'.(string)$key];
-        if($form_state['values']['question_condition_'.(string)$key]!=""){
-          $question_condition  = $form_state['values']['question_condition_'.(string)$key];
+        $answer_id    = (string)$key;
+        $question_type  = $form_state['values']['question_type_'.$answer_id];
+        if(isset($form_state['values']['question_condition_'.$answer_id])){
+          $question_condition  = $form_state['values']['question_condition_'.$answer_id];
           $elems = explode(",", (string)$question_condition);
-          $id_question = substr($elems[0], 1);
-          $oper = $elems[1];
-          if($oper=='EQUAL'){
-            $question_that_enables  = $form_state['values'][$id_question];
-            $value_that_enables  = $elems[2];
-//drupal_set_message($id_question.' '.$question_that_enables.' '.$value_that_enables);
-            if($question_that_enables!=$value_that_enables){
-              $value = "";
-            }
+          $id_answer = substr($elems[0], 1);
+          $value_that_enables  = $elems[1];
+          $question_that_enables  = $form_state['values'][$id_answer];
+          if($question_that_enables!=$value_that_enables){
+            $value = "";
           }
         }
         $question_value = NULL;
-        if($question_type=='DATE'){
+        if($question_type=='DATE' && isset($value['month']) && isset($value['day']) && isset($value['year'])){
           $question_value = date("Y-m-d", mktime(0, 0, 0, $value['month'], $value['day'], $value['year']));
         }else{
           $question_value = (string)$value;
         }
-        colgar_hijo( $doc, $question, "question_id", $question_id);
+        $option_id = NULL;
+        $value     = NULL;
         if($question_type=='VERTICAL_RADIO' || $question_type=='HORIZONTAL_RADIO'){
-          colgar_hijo( $doc, $question, "option_id", $question_value);
+          if(isset($question_value) && $question_value!=''){
+            $option_id = $question_value;
+          }else{
+            $option_id = NULL;
+          }
         }else{
-          colgar_hijo( $doc, $question, "value", $question_value);
+          $value = $question_value;
         }
+
+        //drupal_set_message($answer_id.', '.$option_id.', '.$value);
+        try {
+          update_answer($answer_id,$option_id,$value);
+        }
+        catch (Exception $e) {
+          drupal_set_message(t('db_update failed. Message = %message, query= %query',
+            array('%message' => $e->getMessage(), '%query' => $e->query_string)), 'error');
+          return;
+        }
+
       }
     }
-
-    $XML = $doc->saveXML();
-
-    try {
-      if(!isset($_SESSION['ohp_token'])){
-        drupal_set_message("ERROR: no token found");
-        return array();
-      }
-      $token    = $_SESSION['ohp_token'];
-      $id_type="ADMI";
-      $client = new SoapClient(null, array('location' => $GLOBALS["WS-ENDPOINT"], 'uri' => ""));
-      $result = $client->form_set_all_answers($token,$id_form,$XML);
-//drupal_set_message($XML);
-//form_set_error('user_email', t('Email can not be empty'));
-      if ( $result["ErrorMsg"] ) {
-        drupal_set_message($result["ErrorMsg"]);
-      }else{
-        drupal_set_message(t('El formulari s\'ha desat correctament.'));
-        drupal_goto('ohp/ohp_case_form', array('query' => array('id_form' => $id_form, 'id_task' => $id_task,
-                    'id_admission' => $id_admission, 'id_case' => $id_case)));
-      }
-    } catch (SoapFault $fault) {
-      drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})");
-    }
+    drupal_set_message(t('El formulari s\'ha desat correctament.'));
+    drupal_goto('ohp/ohp_case_form', array('query' => array('id_form' => $id_form, 'id_task' => $id_task,
+                'id_admission' => $id_admission, 'id_case' => $id_case)));
   }
 }
 
@@ -254,79 +226,107 @@ function ohp_case_after_build($form, &$form_state) {
   $field_formulas = array();
   foreach ($form['#questions'] as $key => $question) {
     if(isset($question->formula)&&!empty($question->formula)){
-      $field_formulas[(string)$question->question_id]=(string)$question->formula;
+      $field_formulas[(string)$question->id_question]=(string)$question->formula;
     }
   }
   drupal_add_js(array('field_formulas' => $field_formulas), array('type' => 'setting'));
   drupal_add_js(drupal_get_path('module', 'ohp_case') .'/js/ohp_case_form.js');
   drupal_add_css(drupal_get_path('module', 'ohp_case') . '/css/ohp_case_form.css');
+
+  $string_init_datapicker  = "(function ( $ ) {  $.fn.datepicker.dates['linkcare'] = {";
+  $string_init_datapicker .= "days: ['Diumenge', 'Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte', 'Diumenge'],";
+  $string_init_datapicker .= "daysShort: ['Diu', 'Dil', 'Dim', 'Dim', 'Dij', 'Div', 'Dis', 'Diu'],";
+  $string_init_datapicker .= "daysMin: ['Dg', 'Dl', 'Dm', 'Dc', 'Dj', 'Dv', 'Ds', 'Dg'],";
+  $string_init_datapicker .= "months: ['Gener','Febrer','Març','Abril','Maig','Juny','Juliol','Agost','Setembre','Octubre','Novembre','Decembre'],";
+  $string_init_datapicker .= "monthsShort: ['Gen','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],";
+  $string_init_datapicker .= "today: 'Avui',";
+  $string_init_datapicker .= "clear: 'Esborrar'";
+  $string_init_datapicker .= "};}( jQuery10 ));";
+  drupal_add_js($string_init_datapicker,array('type' => 'inline', 'scope' => 'footer', 'weight' => 5));
   return $form;
 }
 
-function add_question(&$form_array, &$questions_map, $question_id, $hidden = false){
+function add_question(&$form_array, &$questions_map, $question_id,$copy_of_questions_map, $hidden = FALSE){
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
-    $form_array['question_type_'.$question_id] = array(
+    $answer_id = $question_obj->id_answer;
+    $form_array['question_type_'.$answer_id] = array(
       '#value' => $question_obj->type,
       '#type' => 'hidden',
     );
-    $form_array['question_condition_'.$question_id] = array(
-      '#value' => $question_obj->condition,
-      '#type' => 'hidden',
-    );
-    $form_array[$question_id] = array(
+    $form_array[$answer_id] = array(
       '#title' => $question_obj->description,
     );
-    $attributes_array = array();
     if(($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO') &&
         isset($question_obj->options->option)){
-      $form_array[$question_id]['#type'] = 'select';
-      $form_array[$question_id]['#empty_value'] = '';
-      //$form_array[$question_id]['#empty_option'] = TRUE;
+      $form_array[$answer_id]['#type'] = 'select';
+      $form_array[$answer_id]['#empty_value'] = '';
+      //$form_array[$answer_id]['#empty_option'] = TRUE;
       foreach ($question_obj->options->option as $option) {
-        $form_array[$question_id]['#options'][(string)$option->option_id]=(string)$option->description;
+        $form_array[$answer_id]['#options'][(string)$option->id_option]=(string)$option->description;
       }
     }else if($question_obj->type=='TEXT' || $question_obj->type=='NUMERICAL'){
-      $form_array[$question_id]['#type'] = 'textfield';
+      $form_array[$answer_id]['#type'] = 'textfield';
     }else if($question_obj->type=='FORMULA'){
-      $form_array[$question_id]['#type'] = 'textfield';
+      $form_array[$answer_id]['#type'] = 'textfield';
     }else if($question_obj->type=='TEXT_AREA'){
-      $form_array[$question_id]['#type'] = 'textarea';
+      $form_array[$answer_id]['#type'] = 'textarea';
     }else if($question_obj->type=='DATE'){
-      $form_array[$question_id]['#type'] = 'date';
+      $form_array[$answer_id]['#type'] = 'textfield';
     }else if($question_obj->type=='STATIC_TEXT'){
-      $form_array[$question_id]['#type'] = 'item';
-    }
-    if($question_obj->type=='FORMULA'){
-      $form_array[$question_id]['#attributes'] = array('readonly' => 'readonly');
+      $form_array[$answer_id]['#type'] = 'item';
     }else{
-      $form_array[$question_id]['#attributes'] = array('onchange' => 'checkFormulas()');
+      $form_array[$answer_id]['#type'] = 'item';
     }
+    $attributes_array = array();
+    if($question_obj->type=='FORMULA'){
+      $attributes_array['readonly']='readonly';
+    }else{
+      $attributes_array['onchange']='checkFormulas()';
+    }
+    if($question_obj->type=='DATE'){
+      $attributes_array['class']=array('form-control','date');
+    }
+    $form_array[$answer_id]['#attributes'] = $attributes_array;
     if($hidden){
-      $form_array[$question_id]['#prefix'] = '<div style="display:none;">';
-      $form_array[$question_id]['#suffix'] = '</div>';
+      $form_array[$answer_id]['#prefix'] = '<div style="display:none;">';
+      $form_array[$answer_id]['#suffix'] = '</div>';
     }
     if(isset($question_obj->value)&&!empty($question_obj->value)){
       if($question_obj->type=='DATE'){
         $arr = date_parse_from_format("Y-m-d",$question_obj->value);
-        $form_array[$question_id]['#default_value'] = array('year' => $arr['year'], 'month' => $arr['month'],
+        $form_array[$answer_id]['#default_value'] = array('year' => $arr['year'], 'month' => $arr['month'],
            'day' => $arr['day']);
       }else{
-        $form_array[$question_id]['#default_value'] = (string)$question_obj->value;
+        $form_array[$answer_id]['#default_value'] = (string)$question_obj->value;
       }
     }
-    if(isset($question_obj->condition)&&!empty($question_obj->condition)){
-      $elems = explode(",", (string)$question_obj->condition);
+    if(isset($question_obj->requirement)&&!empty($question_obj->requirement)){
+      $elems = explode(",", (string)$question_obj->requirement);
       $id_question = substr($elems[0], 1);
-      $oper = $elems[1];
-      if($oper=='EQUAL'){
-      	$valueThatEnables = $elems[2];
-      	$form_array[$question_id]['#states'] = array(
+      //$oper = $elems[1];
+      //if($oper=='EQUAL'){
+      $questionThatEnables = $copy_of_questions_map[$id_question];
+      $idOptionThatEnables = NULL;
+      $valueThatEnables = $elems[1];
+      if(isset($questionThatEnables->options->option)){
+        foreach ($questionThatEnables->options->option as $option) {
+          if($option->value==$valueThatEnables){
+            $idOptionThatEnables = $option->id_option;
+          }
+        }
+      }
+      if($idOptionThatEnables!=NULL){
+      	$form_array[$answer_id]['#states'] = array(
       	    'enabled' => array(
-      	        ':input[name="'.$id_question.'"]' => array(
-      	            array('value' => $valueThatEnables),
+      	        ':input[name="'.$questionThatEnables->id_answer.'"]' => array(
+      	            array('value' => $idOptionThatEnables),
                 ),
             ),
+        );
+        $form_array['question_condition_'.$answer_id] = array(
+          '#value' => '$'.$questionThatEnables->id_answer.','.$idOptionThatEnables,
+          '#type' => 'hidden',
         );
       }
     }

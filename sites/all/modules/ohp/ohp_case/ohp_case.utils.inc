@@ -104,6 +104,33 @@ function get_task($id_task) {
 /**
  * Custom content function.
  *
+ * Retrieve one single form from database.
+ *
+ * @return
+ *   An object of the targeted form.
+ */
+function get_form($id_form) {
+
+  $query = db_select('ohp_form', 'n');
+  $query->join('ohp_template', 'p', 'n.id_template = p.id_template');
+  $query->addField('n', 'status');
+  $query->addField('n', 'id_form');
+  $query->addField('n', 'id_template');
+  $query->addField('n', 'id_task');
+  $query->addField('p', 'description');
+  $query->condition('n.id_form',$id_form,'=');
+
+  $result = $query->execute()->fetchObject();
+
+  $result->data = new stdClass();
+  $result->data->name = $result->description;
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
  * Retrieve one case phones from database.
  *
  * @return
@@ -217,6 +244,82 @@ function get_task_forms($id_task) {
   $result = $query->execute();
 
   return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve form answers from database.
+ *
+ * @return
+ *   A set of answers from the form.
+ */
+function get_form_answers($id_form) {
+
+  $query = db_select('ohp_answer', 'n');
+  $query->join('ohp_question', 'p', 'n.id_question = p.id_question');
+  $query->addField('n', 'value');
+  $query->addField('n', 'id_option');
+  $query->addField('n', 'id_answer');
+  $query->addField('n', 'id_form');
+  $query->addField('n', 'id_question');
+  $query->addField('p', 'description');
+  $query->addField('p', 'formula');
+  $query->addField('p', 'requirement');
+  $query->addField('p', 'min_value');
+  $query->addField('p', 'max_value');
+  $query->addField('p', 'mandatory');
+  $query->addField('p', 'type');
+  $query->addField('p', 'min_length');
+  $query->addField('p', 'max_length');
+  $query->addField('p', 'num_decimals');
+  $query->condition('n.id_form',$id_form,'=');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve form answers options from database.
+ *
+ * @return
+ *   A set of options from the form answers.
+ */
+function get_formanswers_options($id_form) {
+
+  $query = db_select('ohp_answer', 'n');
+  $query->join('ohp_option', 'p', 'n.id_question = p.id_question');
+  $query->addField('p', 'value');
+  $query->addField('p', 'description');
+  $query->addField('p', 'id_question');
+  $query->addField('p', 'id_option');
+  $query->condition('n.id_form',$id_form,'=');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom update function.
+ *
+ * Update answer in database.
+ */
+function update_answer($answer_id,$option_id,$value) {
+
+  $entry = array(
+    'id_option' => $option_id,
+    'value' => $value,
+  );
+  $count = db_update('ohp_answer')
+    ->fields($entry)
+    ->condition('id_answer', $answer_id)
+    ->execute();
+
+  return $count;
 }
 
 function get_age( $then_ts )

@@ -39,14 +39,9 @@ function ohp_case_form_page() {
     $id_case      = $_SESSION['case_bean']->id_case;
     $id_task      = $_GET['id_task'];
     $id_form      = $_GET['id_form'];
-    if(!isset($_SESSION['ohp_token'])){
-      drupal_set_message("ERROR: no token found");
-      return array();
-    }
-    $token    = $_SESSION['ohp_token'];
     $questions_map = array();
     $form_xml = NULL;
-    load_form($token ,$id_form, $form_xml, $questions_map);
+    load_form(NULL ,$id_form, $form_xml, $questions_map);
 
     if($form_xml->data->name=='Variables'){
 
@@ -94,6 +89,15 @@ function ohp_case_form_page() {
           )
         ),
       );
+      $form['columns_container']['column_left']['caracteristiques'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Característiques de la sol·licitud'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
       $form['columns_container']['column_right'] = array(
         '#type' => 'container',
         '#attributes' => array(
@@ -102,7 +106,7 @@ function ohp_case_form_page() {
       );
       $form['columns_container']['column_right']['equip'] = array(
         '#type' => 'fieldset',
-        '#title' => t('Equip teràpia respiratòria'),
+        '#title' => t('Equips de teràpia respiratòria'),
         '#collapsible' => TRUE,
         '#collapsed' => FALSE,
         '#attributes' => array (
@@ -113,7 +117,7 @@ function ohp_case_form_page() {
       );
       $form['columns_container']['column_right']['planificacio'] = array(
         '#type' => 'fieldset',
-        '#title' => t('Propera visita'),
+        '#title' => t('Pla terapèutic'),
         '#attributes' => array (
           'class' => array(
             'collapsible','ohp-form-summary'
@@ -137,62 +141,42 @@ function ohp_case_form_page() {
       );
 
       $id_title = NULL;
-      $ids_array = array($form_xml['form_id2']."_8",
-          $form_xml['form_id2']."_9",$form_xml['form_id1']."_5",
-          $form_xml['form_id1']."_6",$form_xml['form_id1']."_7",
-          $form_xml['form_id4']."_24",$form_xml['form_id6']."_44",
-          $form_xml['form_id6']."_45"
-      );
+      $ids_array = array("1","2","3","4","5","6","7","8","9","10","11","12","13");
+      add_group_form('caracteristiques',$form['columns_container']['column_left']['caracteristiques'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
+      $ids_array = array("14","15","16","17","18");
       add_group_form('diagnostic',$form['columns_container']['column_left']['diagnostic'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
 	  //espiro
-      $id_title = $form_xml['form_id3']."_0";
-      $ids_array = array($form_xml['form_id3']."_10",
-          $form_xml['form_id3']."_11",$form_xml['form_id3']."_12",
-          $form_xml['form_id3']."_13",$form_xml['form_id3']."_14",
-      );
+      $id_title = 'Espirometria';
+      $ids_array = array("19","20","21","22","23","24","25");
       add_group_form('espiro',$form['columns_container']['column_right2']['proves'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
 	  //gaso
-      $id_title = $form_xml['form_id3']."_104";
-      $ids_array = array($form_xml['form_id3']."_15",
-          $form_xml['form_id3']."_16",$form_xml['form_id3']."_18",
-          $form_xml['form_id3']."_19",$form_xml['form_id3']."_20",
-          $form_xml['form_id3']."_21",$form_xml['form_id3']."_22",
-      );
+      $id_title = 'Gasometria';
+      $ids_array = array("26","27","28","29","30","31","32","33","34","35");
       add_group_form('gaso',$form['columns_container']['column_right2']['proves'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
 	  //pulsio
-      $id_title = $form_xml['form_id3']."_107";
-      $ids_array = array(
-          $form_xml['form_id3']."_23",
-      );
+      $id_title = 'Pulsioximetria';
+      $ids_array = array("36","37","38");
       add_group_form('pulsio',$form['columns_container']['column_right2']['proves'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
-
       $id_title = NULL;
-      $ids_array = array($form_xml['form_id4']."_25",
-          $form_xml['form_id4']."_26",$form_xml['form_id4']."_27",
-          $form_xml['form_id4']."_28",$form_xml['form_id4']."_29",
-          $form_xml['form_id4']."_30",$form_xml['form_id4']."_31",
-          $form_xml['form_id4']."_32",
-          $form_xml['form_id4']."_34",$form_xml['form_id4']."_35",
-          $form_xml['form_id4']."_36",$form_xml['form_id4']."_33",
-          $form_xml['form_id4']."_37",$form_xml['form_id4']."_38",
-          $form_xml['form_id5']."_41",$form_xml['form_id5']."_42",
-          $form_xml['form_id5']."_43",
-      );
+      $ids_array = array("39","40","41","42",
+          "43","44","45","46","47","48","49",
+          "50","51","52","53","54");
       add_group_form('equip',$form['columns_container']['column_right']['equip'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
       $id_title = NULL;
-      $ids_array = array($form_xml['form_id4']."_39",
-          $form_xml['form_id4']."_40",
-      );
+      $ids_array = array("55","56","57","58","59","60");
       add_group_form('planificacio',$form['columns_container']['column_right']['planificacio'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
       //var_dump($questions_map);
@@ -217,15 +201,17 @@ function ohp_case_form_page() {
   return $page_array;
 }
 
-function add_group_form($group_name,&$form_array,$questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case){
+function add_group_form($group_name,&$form_array,$questions_map,$text_title,$ids_array,$id_form,$id_task,$id_admission,$id_case){
   $form_array[] = array(
     '#markup' => '<hr>'.l(t('Editar'),
         'ohp/ohp_case_formunit',
         array('attributes' => array('class' => array('btn-primary', 'btn', 'btn-editform')),
             'query' => array('id_form' => $id_form, 'id_task' => $id_task,
                 'id_admission' => $id_admission, 'id_case' => $id_case, 'group_form' => $group_name))));
-  if(isset($id_title) && $id_title!=NULL){
-    add_resume_question($form_array,$questions_map,$id_title);
+  if(isset($text_title) && $text_title!=NULL){
+    $form_array[] = array(
+      '#markup' => '<span class="question">'.$text_title.'</span> <span class="answer"></span><br/>',
+    );
   }
   $size_before = count($form_array);
   foreach ($ids_array as $id_question) {
@@ -242,7 +228,9 @@ function add_group_form($group_name,&$form_array,$questions_map,$id_title,$ids_a
 function add_resume_question(&$form_array, $questions_map, $question_id, $hidden = false){
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
-    if($question_obj->type=='STATIC_TEXT' || $question_obj->value!=NULL && $question_obj->value!=""){
+    //var_dump($question_obj);
+    if($question_obj->type=='STATIC_TEXT' ||
+        $question_obj->value!=NULL && $question_obj->value!=""){
       $form_array[] = array(
         '#markup' => '<span class="question">'.$question_obj->description.'</span> <span class="answer">'.get_value_description($question_id, $questions_map).'</span><br/>',
       );
@@ -251,16 +239,18 @@ function add_resume_question(&$form_array, $questions_map, $question_id, $hidden
 }
 
 function get_value_description($question_id, $questions_map) {
+  //var_dump(2);
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
+    //var_dump($question_obj);
     if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
-//var_dump($question_obj);
       foreach ($question_obj->options->option as $option) {
-        if(isset($option->option_id) && isset($question_obj->value) && trim($option->option_id)==trim($question_obj->value)){
+        if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
           return (string)$option->description;
         }
       }
     }else if($question_obj->type=='DATE'){
+      //var_dump($question_obj);
       $data_convert = date_create_from_format("Y-m-d",(string)$question_obj->value);
       return date_format($data_convert, 'd/m/Y');
     }else{
