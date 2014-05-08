@@ -6,6 +6,7 @@
 	});
 }(window.jQuery));
 	function checkFormulas(){
+		//alert('b');
 	  var field_formulas = Drupal.settings.field_formulas;
 	  for (var key in field_formulas) {
 	    var value = field_formulas[key];
@@ -29,7 +30,13 @@
 	    }else if(value.indexOf("#RANGE")!=-1){
 		  var value2 = value.substring(7,value.length-1);
 		  array = value2.split(",");
-	      var a1 = document.querySelector("input[name='"+array[0].substring(1)+"']");
+		  var type = document.querySelector("input[name='question_type_"+array[0].substring(1)+"']");
+		  //alert(array[0].substring(1));
+		  if(type.value==='VERTICAL_RADIO' || type.value==='HORIZONTAL_RADIO'){
+	        a1= document.querySelector("select[name='"+array[0].substring(1)+"']");
+		  }else{
+			a1= document.querySelector("input[name='"+array[0].substring(1)+"']");
+		  }
 	      var a0 = document.querySelector("input[name='"+key+"']");
 	      var min = array[1];
 	      var max = array[2];
@@ -39,9 +46,10 @@
 	      if (typeof a1 !== "undefined" && a1!=null &&
 	          typeof a0 !== "undefined" && a0!=null) {
 	    	var a1n = +(a1.value);
+	    	//alert(a1n);
 	    	if(a1n<min){
 	    	  a0.value=val1;
-	    	}else if(a1n>=min && a1n<max){
+	    	}else if(a1n>=min && a1n<=max){
 	    	  a0.value=val2;
 	    	}else{
 	    	  a0.value=val3;

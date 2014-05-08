@@ -9,12 +9,42 @@ float: right;
 form#ohp-case-form .column-left {
 float: left;
 }
-form#ohp-case-formunit select {width: auto;padding: 8px 16px;}
-form#ohp-case-formunit input[disabled] {
-	padding-left: 16px;
+form#ohp-case-formunit fieldset select {
+	width: 244px;padding: 8px 16px;
+}
+form#ohp-case-formunit fieldset input {
+    width: 210px;
+}
+form#ohp-case-formunit fieldset  input[disabled] {
+    padding-left: 16px;
+} 
+form#ohp-case-formunit fieldset  input[disabled], 
+form#ohp-case-formunit fieldset select[disabled], 
+form#ohp-case-formunit fieldset textarea[disabled] {
 	background-color: #ccc;
 	border-width: 1px;
 	color: #48525e;
+}
+.inline-row .form-item {
+	width: 360px;
+    margin: 0px 0px 5px 110px;
+	display: inline-block;
+}
+.notitlebox {
+    padding: 10px 10px 10px 10px;
+}
+.notitlebox .question {
+    font-weight: bold;
+}
+.notitlebox hr {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.notitlebox hr:last-child {
+	margin-top: 20px;
+}
+#edit-submit-area {
+	padding-bottom: 10px;
 }
 .columnboxes {
     padding:10px 0 10px 0
@@ -25,6 +55,9 @@ form#ohp-case-formunit input[disabled] {
 .columnboxes .column {
     float: left;
     margin-right: 22px;
+}
+.columnboxes .column.por6 {
+    width: 658px;
 }
 .columnboxes .column.por3 {
     width: 318px;

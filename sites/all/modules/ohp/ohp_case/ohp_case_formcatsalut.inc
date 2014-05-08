@@ -39,14 +39,8 @@ function ohp_case_formcatsalut_page() {
     $id_case      = $_SESSION['case_bean']->id_case;
     $id_task      = $_GET['id_task'];
     $id_form      = $_GET['id_form'];
-    if(!isset($_SESSION['ohp_token'])){
-      drupal_set_message("ERROR: no token found");
-      return array();
-    }
-    $token    = $_SESSION['ohp_token'];
     $questions_map = array();
-    $form_xml = NULL;
-    load_form($token ,$id_form, $form_xml, $questions_map);
+    load_form(NULL ,$id_form, $form_xml, $questions_map);
 
     if($form_xml->data->name=='Variables'){
 
@@ -105,38 +99,50 @@ function ohp_case_formcatsalut_page() {
           }
         }
       }
-      $descDiagnostic       = get_value_description($form_xml['form_id2']."_8",$questions_map);
-      $descDiagnosticAltres = get_value_description($form_xml['form_id2']."_9",$questions_map);
-      if(isset($descDiagnosticAltres) && $descDiagnosticAltres!=""){
-      	$descDiagnostic .= " - ".$descDiagnosticAltres;
+      $descDiagnostic   = get_value_description("14",$questions_map);
+      $descDiagnostic_2 = get_value_description("15",$questions_map);
+      $descDiagnostic_3 = get_value_description("16",$questions_map);
+      $descDiagnostic_4 = get_value_description("17",$questions_map);
+      $descDiagnostic_5 = get_value_description("18",$questions_map);
+      if(isset($descDiagnostic_2) && $descDiagnostic_2!=""){
+      	$descDiagnostic .= " - ".$descDiagnostic_2;
+      }
+      if(isset($descDiagnostic_3) && $descDiagnostic_3!=""){
+      	$descDiagnostic .= " - ".$descDiagnostic_3;
+      }
+      if(isset($descDiagnostic_4) && $descDiagnostic_4!=""){
+      	$descDiagnostic .= " - ".$descDiagnostic_4;
+      }
+      if(isset($descDiagnostic_5) && $descDiagnostic_5!=""){
+      	$descDiagnostic .= " - ".$descDiagnostic_5;
       }
 
-      $dataSolicitud = get_value_description($form_xml['form_id1']."_5",$questions_map);
-      $strDataSolicitud = "";
-      if(isset($dataSolicitud) && $dataSolicitud!=""){
-        $data_convert = date_create_from_format("Y-m-d",$dataSolicitud);
-        $strDataSolicitud = date_format($data_convert, 'd/m/Y');
-      }
+      $strDataSolicitud = get_value_description("2",$questions_map);
+//       $strDataSolicitud = "";
+//       if(isset($dataSolicitud) && $dataSolicitud!=""){
+//         $data_convert = date_create_from_format("Y-m-d",$dataSolicitud);
+//         $strDataSolicitud = date_format($data_convert, 'd/m/Y');
+//       }
 
-      $duracio = get_value_description($form_xml['form_id4']."_39",$questions_map);
+      $duracio = get_value_description("57",$questions_map);
 
-      $descSolicitant       = get_value_description($form_xml['form_id6']."_44",$questions_map);
-      $descSolicitantAltres = get_value_description($form_xml['form_id6']."_45",$questions_map);
+      $descSolicitant       = get_value_description("8",$questions_map);
+      $descSolicitantAltres = get_value_description("9",$questions_map);
       if(isset($descSolicitantAltres) && $descSolicitantAltres!=""){
       	$descSolicitant .= " - ".$descSolicitantAltres;
       }
 
       //Variables del tractament
-      $valueSistAdm = get_value_description($form_xml['form_id4']."_30",$questions_map);
+      $valueSistAdm = get_value_description("44",$questions_map);
       $descCanulaNasals = "";
       if($valueSistAdm=='1'){
       	$descCanulaNasals = t('Si');
       }else if(isset($valueSistAdm) && $valueSistAdm!=''){
       	$descCanulaNasals = t('No');
       }
-      $fluxRepos = get_value_description($form_xml['form_id4']."_34",$questions_map);
-      $horesDia = get_value_description($form_xml['form_id4']."_33",$questions_map);
-      $observacions = get_value_description($form_xml['form_id5']."_43",$questions_map);
+      $fluxRepos = get_value_description("47",$questions_map);
+      $horesDia = get_value_description("50",$questions_map);
+      $observacions = get_value_description("60",$questions_map);
 
       $form['columns_container']['column_left']['content'][] = array(
         '#markup' => '<span class="question">'.t('Prescripció de tractament').'</span> <span class="answer">'.$strDataSolicitud.'</span><br/>',
@@ -213,21 +219,26 @@ function ohp_case_formcatsalut_page() {
 }
 
 function get_value_description($question_id, $questions_map) {
+  //var_dump(2);
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
+    //var_dump($question_obj);
     if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
-//var_dump($question_obj);
       foreach ($question_obj->options->option as $option) {
-        if(isset($option->value) && isset($question_obj->value) && trim($option->value)==trim($question_obj->value)){
+        if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
           return (string)$option->description;
         }
       }
+    }else if($question_obj->type=='DATE'){
+      //var_dump($question_obj);
+      return date('d/m/Y',(string)$question_obj->value);
     }else{
       return (string)$question_obj->value;
     }
   }
   return "";
 }
+
 
 
 /**

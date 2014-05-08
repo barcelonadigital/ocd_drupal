@@ -43,23 +43,19 @@ function ohp_case_form_page() {
     $form_xml = NULL;
     load_form(NULL ,$id_form, $form_xml, $questions_map);
 
-    if($form_xml->data->name=='Variables'){
-
-      $form['cancel'] = array(
-        '#type' => 'link',
-        '#title' => "<span>" . t("Tornar") . "</span>",
-        '#href' => 'ohp/ohp_case_taskunit',
-        '#attributes' => array(
-          'class' => array('h2','back','clearfix'),
-        ),
-        '#options' => array(
-          'html' => TRUE,
-          'query' => array('id_task' => $id_task,
-              'id_admission' => $id_admission, 'id_case' => $id_case),
-        ),
-      );
-
-
+    $form['cancel'] = array(
+      '#type' => 'link',
+      '#title' => "<span>" . t("Tornar") . "</span>",
+      '#href' => 'ohp/ohp_case_taskunit',
+      '#attributes' => array(
+        'class' => array('h2','back','clearfix'),
+      ),
+      '#options' => array(
+        'html' => TRUE,
+        'query' => array('id_task' => $id_task,
+            'id_admission' => $id_admission, 'id_case' => $id_case),
+      ),
+    );
 //       $form['cancel'] = array(
 //         '#markup' => l("<span>" . t("Tornar") . "</span>",
 //             'ohp/ohp_case_taskunit',
@@ -67,18 +63,34 @@ function ohp_case_form_page() {
 //                 'query' => array('id_task' => $id_task,
 //                     'id_admission' => $id_admission, 'id_case' => $id_case))));
 
-      $form['columns_container'] = array(
-        '#type' => 'container',
-        '#attributes' => array(
-          'class' => array('columnboxes','clearfix'),
-        ),
-      );
-      $form['columns_container']['column_left'] = array(
+    $form['columns_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array('columnboxes','clearfix'),
+      ),
+    );
+    $form['columns_container']['column_left'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array('column','por3'),
+      ),
+    );
+
+    if($form_xml->data->name=='Variables'){
+
+      $form['columns_container']['column_middle'] = array(
         '#type' => 'container',
         '#attributes' => array(
           'class' => array('column','por3'),
         ),
       );
+      $form['columns_container']['column_right'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('column','por3'),
+        ),
+      );
+
       drupal_add_library('system', 'drupal.collapse');
       $form['columns_container']['column_left']['diagnostic'] = array(
         '#type' => 'fieldset',
@@ -98,13 +110,7 @@ function ohp_case_form_page() {
           )
         ),
       );
-      $form['columns_container']['column_right'] = array(
-        '#type' => 'container',
-        '#attributes' => array(
-          'class' => array('column','por3'),
-        ),
-      );
-      $form['columns_container']['column_right']['equip'] = array(
+      $form['columns_container']['column_middle']['equip'] = array(
         '#type' => 'fieldset',
         '#title' => t('Equips de teràpia respiratòria'),
         '#collapsible' => TRUE,
@@ -115,7 +121,7 @@ function ohp_case_form_page() {
           )
         ),
       );
-      $form['columns_container']['column_right']['planificacio'] = array(
+      $form['columns_container']['column_middle']['planificacio'] = array(
         '#type' => 'fieldset',
         '#title' => t('Pla terapèutic'),
         '#attributes' => array (
@@ -124,13 +130,7 @@ function ohp_case_form_page() {
           )
         ),
       );
-      $form['columns_container']['column_right2'] = array(
-        '#type' => 'container',
-        '#attributes' => array(
-          'class' => array('column','por3'),
-        ),
-      );
-      $form['columns_container']['column_right2']['proves'] = array(
+      $form['columns_container']['column_right']['proves'] = array(
         '#type' => 'fieldset',
         '#title' => t('Proves complementàries'),
         '#attributes' => array (
@@ -141,48 +141,230 @@ function ohp_case_form_page() {
       );
 
       $id_title = NULL;
+      $ids_array = array("14","15","16","17","18");
+      add_group_form('diagnostic',$form['columns_container']['column_left']['diagnostic'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
       $ids_array = array("1","2","3","4","5","6","7","8","9","10","11","12","13");
       add_group_form('caracteristiques',$form['columns_container']['column_left']['caracteristiques'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+	  //espiro
+      $id_title = 'Espirometria';
+      $ids_array = array("19","20","21","22","23","24","25");
+      add_group_form('espiro',$form['columns_container']['column_right']['proves'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+	  //gaso
+      $id_title = 'Gasometria';
+      $ids_array = array("26","27","28","29","31","32","33","34","35");
+      add_group_form('gaso',$form['columns_container']['column_right']['proves'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+	  //pulsio
+      $id_title = 'Pulsioximetria';
+      $ids_array = array("36","37","38");
+      add_group_form('pulsio',$form['columns_container']['column_right']['proves'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
+      $ids_array = array("39","40","41","42",
+          "43","44","46","47","48","49",
+          "50","51","52","53","54");
+      add_group_form('equip',$form['columns_container']['column_middle']['equip'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
+      $ids_array = array("55","56","57","58","59","60");
+      add_group_form('planificacio',$form['columns_container']['column_middle']['planificacio'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+      //var_dump($questions_map);
+
+    }else if($form_xml->data->name=='CVSO'){
+
+      $form['columns_container']['column_left']['info'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('notitlebox'),
+        ),
+      );
+      $form['columns_container']['right_container'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('column','por6'),
+        ),
+      );
+      $form['columns_container']['right_container']['column_top'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('column','por6'),
+        ),
+      );
+      $form['columns_container']['right_container']['column_left'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('column','por3'),
+        ),
+      );
+      $form['columns_container']['right_container']['column_right'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('column','por3'),
+        ),
+      );
+
+      drupal_add_library('system', 'drupal.collapse');
+      $form['columns_container']['column_left']['diagnostic'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Diagnòstic'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['column_left']['caracteristiques'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Característiques de la sol·licitud'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['column_left']['factors'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Factors de risc  i hàbits de vida'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','collapsed','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['column_left']['adherencia'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Adequació i adherència '),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','collapsed','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['column_left']['percepcio'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Percepció del pacient'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','collapsed','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['right_container']['column_top']['planificacio'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Pla terapèutic'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','collapsed','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['right_container']['column_left']['equip'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Equips de teràpia respiratòria'),
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
+      $form['columns_container']['right_container']['column_right']['proves'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Proves complementàries'),
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
+
+      $id_title = NULL;
+      $ids_array = array("61","62","63");
+      add_group_form('info',$form['columns_container']['column_left']['info'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+      $form['columns_container']['column_left']['info'][] = array('#markup' => '<hr>');
 
       $id_title = NULL;
       $ids_array = array("14","15","16","17","18");
       add_group_form('diagnostic',$form['columns_container']['column_left']['diagnostic'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
+      $id_title = NULL;
+      $ids_array = array("1","2","3","4","5","6","7","8","9","10","11","12","13");
+      add_group_form('caracteristiques',$form['columns_container']['column_left']['caracteristiques'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
+      $ids_array = array("64","65","66","67","68","69");
+      add_group_form('factors',$form['columns_container']['column_left']['factors'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
+      $ids_array = array("90","92","93","94","95","96","97","99","100");
+      add_group_form('adherencia',$form['columns_container']['column_left']['adherencia'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+      $id_title = NULL;
+      $ids_array = array("101","102","103");
+      add_group_form('percepcio',$form['columns_container']['column_left']['percepcio'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+	  //test marxa
+      $id_title = 'Test de la marxa (6 minuts)';
+      $ids_array = array("70","71","72","73","74","75","76");
+      add_group_form('test',$form['columns_container']['right_container']['column_right']['proves'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
+	  //pulsio noct
+      $id_title = 'Pulsioximetria nocturna';
+      $ids_array = array("77","78","79","80","81","82","83","84","85","86");
+      add_group_form('noct',$form['columns_container']['right_container']['column_right']['proves'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
+
 	  //espiro
       $id_title = 'Espirometria';
       $ids_array = array("19","20","21","22","23","24","25");
-      add_group_form('espiro',$form['columns_container']['column_right2']['proves'],
+      add_group_form('espiro',$form['columns_container']['right_container']['column_right']['proves'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
 	  //gaso
       $id_title = 'Gasometria';
-      $ids_array = array("26","27","28","29","30","31","32","33","34","35");
-      add_group_form('gaso',$form['columns_container']['column_right2']['proves'],
+      $ids_array = array("26","27","28","29","31","32","33","34","35");
+      add_group_form('gaso',$form['columns_container']['right_container']['column_right']['proves'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
 	  //pulsio
       $id_title = 'Pulsioximetria';
       $ids_array = array("36","37","38");
-      add_group_form('pulsio',$form['columns_container']['column_right2']['proves'],
+      add_group_form('pulsio',$form['columns_container']['right_container']['column_right']['proves'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
       $id_title = NULL;
-      $ids_array = array("39","40","41","42",
-          "43","44","45","46","47","48","49",
+      $ids_array = array("87","88","89","39","40","41","42",
+          "43","44","46","47","48","49",
           "50","51","52","53","54");
-      add_group_form('equip',$form['columns_container']['column_right']['equip'],
+      add_group_form('equip',$form['columns_container']['right_container']['column_left']['equip'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
 
       $id_title = NULL;
-      $ids_array = array("55","56","57","58","59","60");
-      add_group_form('planificacio',$form['columns_container']['column_right']['planificacio'],
+      $ids_array = array("55","56","57","58","59","60",
+          "104","105","106","107","108","109",
+          "110","111","112","113","114","115","116","117","118","119",
+          "120","121","122","123","124","125","126","127");
+      add_group_form('planificacio',$form['columns_container']['right_container']['column_top']['planificacio'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case);
-      //var_dump($questions_map);
-
-    }else if($form_xml->data->name=='CVSO'){
-
     }
   }
 
@@ -251,8 +433,7 @@ function get_value_description($question_id, $questions_map) {
       }
     }else if($question_obj->type=='DATE'){
       //var_dump($question_obj);
-      $data_convert = date_create_from_format("Y-m-d",(string)$question_obj->value);
-      return date_format($data_convert, 'd/m/Y');
+      return date('d/m/Y',(string)$question_obj->value);
     }else{
       return (string)$question_obj->value;
     }
