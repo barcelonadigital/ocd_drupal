@@ -47,14 +47,14 @@ function ohp_pdf_prescription_pdf() {
   */
   $tcpdf->DrupalInitialize(array(
     'footer' => array(
-      'html' => 'This is a test!! <em>Bottom of the page</em>',
+      'html' => '<em>footer</em>',
     ),
     'header' => array(
       'callback' => array(
         'function' => 'ohp_pdf_default_header',
         // You can pass extra data to your callback.
         'context' => array(
-          'welcome_message' => 'Hello, context array!',
+          'welcome_message' => 'header',
         ),
       ),
     ),

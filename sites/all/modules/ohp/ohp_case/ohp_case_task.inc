@@ -75,7 +75,7 @@ function ohp_case_task_page() {
       '#attributes' => array('id' => array('table_task'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
-      '#prefix' => '<h2 class="asses">Tasques</h2>',
+      '#prefix' => '<h2 class="asses">Tasques</h2><br><br>',
     );
 
   }else {
@@ -83,7 +83,7 @@ function ohp_case_task_page() {
     $content[] = array(
       '#type' => 'item',
       '#markup' => t('No hi ha elements per mostrar.'),
-      '#prefix' => '<h2 class="asses">Tasques</h2>',
+      '#prefix' => '<h2 class="asses">Tasques</h2><br><br>',
     );
     //$page_array['table'] = $content;
   }
@@ -103,7 +103,13 @@ function ohp_case_task_page() {
       'class' => array('content'),
     ),
   );
+  $page_array['main']['pager_container']['newtask_link'] = array(
+    '#markup' => t('<div class="h2actions"><a href="#alertModal" role="button" data-toggle="modal" class="btn btn-warning btn-large custom-btn">Nova tasca</a></div>'),
+  );
   $page_array['main']['pager_container']['pager_table'] = $content;
+  $page_array['main']['pager_container']['newtask_modal'] = array(
+    '#theme' => 'ohp_case_newtask',
+  );
 
   return $page_array;
 }

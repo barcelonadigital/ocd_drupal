@@ -3,176 +3,87 @@
  * @file
  * Example template file for TCPDF Example module.
  */
+ 
+//VARIABLES 
+$today = date("j.n.Y");
+$today_hour = date("H:i:s");  
+ 
+//FUNCTIONS
+ 
+ 
 ?>
 <html>
-  <title>TCPDF for Drupal</title>
   <body>
-    <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <table border="1">
-      <tr>
-        <td>First row</td>
-        <td>Foo</td>
-        <td>Bar</td>
+    <table border="0">
+	  <tr>
+        <td> </td>
+		<td ALIGN="center"><b> CONSULTA DE VALIDACIÓ </b></td>
+        <td> </td>
+      </tr>	
+	  <tr>
+        <td> </td>
+		<td ALIGN="center"><b> I SEGUIMENT D'OXIGENOTERÀPIA </b></td>
+        <td> </td>
       </tr>
       <tr>
-        <td>Second row</td>
-        <td>Bar</td>
-        <td>Bar</td>
+        <td><b>PACIENT: </b></td>
+		<td> </td>
+        <td><b> NHC: </b></td>
+      </tr>
+	</table>
+	<p></p>
+	<hr>
+	<table border="0">
+      <tr>
+        <td>Sexo/Sexe: </td>
+        <td>Fecha nac./Data naix.: </td>
+        <td>Edad/Edat: </td>
       </tr>
       <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
+        <td>Dirección/Adreça: </td>
+		<td> </td>
+        <td>CP: </td>
       </tr>
       <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
+		<td>Municip. (Prov.): </td>
+        <td>ABS: </td>
+        <td>Tel.: </td>
       </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
+	  <tr>
+		<td>As.: </td>
+        <td>CIP: </td>
+        <td>NASS: </td>
       </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
+	  <tr>
+		<td>Nº epis.: </td>
+        <td>Tipo/Tipus: </td>
+        <td>Ingres.: </td>
       </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
+	  <tr>
+		<td>Serv: </td>
+        <td>UO Enf.: </td>
+        <td>Hora: </td>
       </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
-      </tr>
-      <tr>
-        <td>Third row</td>
-        <td>Foo</td>
-        <td>Foo</td>
+	  <tr>
+		<td>Facult. de ref.: </td>
+		<td> </td>
+        <td> </td>
       </tr>
      </table>
-    <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-     </body>
-</html>'
+	 <p></p>
+	 <hr>
+	<table border="0">
+    <tr>
+       <td><b>Realización/Realització</b></td>
+       <td>Fecha/Data: <?php echo $today?></td>
+       <td>Hora: <?php echo $today_hour?></td>
+     </tr>
+     <tr>
+       <td>Nº:</td>
+	   <td> </td>
+       <td> </td>
+     </tr>
+	<hr>
+	<p ALIGN="center"><b>INFORME SOL-LICITUT / CANVIS / RETIRADA / RENOVACIÓ</b></p>
+  </body>
+</html>

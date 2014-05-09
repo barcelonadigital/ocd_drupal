@@ -104,10 +104,35 @@ function ohp_task_menu() {
     'page callback' => 'ohp_task_assigned_page',
     'access arguments' => array('access ohp_task_assigned content'),
   );
-
+  $items['ohp/ohp_task_insert'] = array(
+    'title' => 'Nova tasca',
+    'page callback' => 'ohp_task_insert_page',
+    'access arguments' => array('access ohp_task_assigned content'),
+    'type' => MENU_CALLBACK,
+  );
+  
   return $items;
 }
 
+/**
+ * Constructs a descriptive page.
+ *
+ * Our menu maps this function to the path 'ohp/ohp_task_assigned'.
+ */
+function ohp_task_insert_page() {
+  $id_admission = $_SESSION['admission_bean']->id_admission;
+  $id_case      = $_SESSION['case_bean']->id_case;
+  if(isset($_GET['id_case']) && isset($_GET['id_activity'])){
+    $id_case = $_GET['id_case'];
+    $id_activity = $_GET['id_activity'];
+    if(!isset($_GET['id_admission'])){
+      $id_admission = insert_admission($id_case);
+    }
+    $id_task = insert_task($id_admission,$id_activity);
+    $_SESSION['admission_bean'] = NULL;
+    drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $id_case)));
+  }
+}
 
 /**
  * Constructs a descriptive page.

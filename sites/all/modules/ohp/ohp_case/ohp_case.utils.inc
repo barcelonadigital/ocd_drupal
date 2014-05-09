@@ -216,6 +216,7 @@ function get_admission_tasks($admission_id) {
   $query->addField('n', 'id_admission');
   $query->addField('p', 'description');
   $query->condition('n.id_admission',$admission_id,'=');
+  $query->orderBy('n.id_task', 'ASC');
 
   $result = $query->execute();
 
@@ -320,6 +321,115 @@ function update_answer($answer_id,$option_id,$value) {
     ->execute();
 
   return $count;
+}
+
+/**
+ * Custom update function.
+ *
+ * Insert admission in database.
+ */
+function insert_admission($id_case) {
+
+  $query = db_select('ohp_admission');
+  $query->addExpression('MAX(id_admission)');
+  $max= $query->execute()->fetchField();
+
+  $value = getdate();
+  $today = mktime(0, 0, 0, $value['mon'], $value['mday'], $value['year']);
+
+  $entry = array(
+    'id_admission' => $max+1,
+    'user_uid' => $id_case,
+    'enrol_date' => $today,
+    'status' => 'ENROLLED',
+  );
+  $result = db_insert('ohp_admission')
+    ->fields($entry)
+    ->execute();
+
+  return $result;
+}
+
+/**
+ * Custom update function.
+ *
+ * Insert task in database.
+ */
+function insert_task($id_admission,$id_activity) {
+
+  $query = db_select('ohp_task');
+  $query->addExpression('MAX(id_task)');
+  $max= $query->execute()->fetchField();
+
+  $value = getdate();
+  $today = mktime(0, 0, 0, $value['mon'], $value['mday'], $value['year']);
+
+  if($id_activity=="#TASK:N261"){
+    $id_activity = 2;
+  }else if($id_activity=="#TASK:N253"){
+    $id_activity = 1;
+  }
+  $id_task = $max+1;
+  $entry = array(
+    'id_task' => $max+1,
+    'id_activity' => $id_activity,
+    'id_admission' => $id_admission,
+    'status' => 'ACTIVE',
+    'date' => $today,
+    'type' => 'PRO_TASK',
+  );
+  $result_task = db_insert('ohp_task')
+    ->fields($entry)
+    ->execute();
+
+  $query = db_select('ohp_template', 'n');
+  $query->addField('n', 'id_template');
+  $query->addField('n', 'id_activity');
+  $query->addField('n', 'description');
+  $query->condition('n.id_activity',$id_activity,'=');
+
+  $result_template = $query->execute();
+
+  foreach ($result_template as $row_template) {
+    $query = db_select('ohp_form');
+    $query->addExpression('MAX(id_form)');
+    $max= $query->execute()->fetchField();
+
+    $id_form = $max+1;
+    $id_template = $row_template->id_template;
+    $entry = array(
+      'id_form' => $id_form,
+      'id_template' => $id_template,
+      'id_task' => $id_task,
+      'status' => 'OPEN',
+    );
+    $result_form = db_insert('ohp_form')
+      ->fields($entry)
+      ->execute();
+
+    $query = db_select('ohp_template_question', 'n');
+    $query->addField('n', 'id_template_question');
+    $query->addField('n', 'id_template');
+    $query->addField('n', 'id_question');
+    $query->condition('n.id_template',$id_template,'=');
+
+    $result_tq = $query->execute();
+
+    foreach ($result_tq as $row_tq) {
+      $query = db_select('ohp_answer');
+      $query->addExpression('MAX(id_answer)');
+      $max= $query->execute()->fetchField();
+
+      $entry = array(
+        'id_answer' => $max+1,
+        'id_form' => $id_form,
+        'id_question' => $row_tq->id_question,
+      );
+      $result_task = db_insert('ohp_answer')
+        ->fields($entry)
+        ->execute();
+    }
+  }
 }
 
 function get_age( $then_ts )

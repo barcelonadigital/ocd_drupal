@@ -399,6 +399,38 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
       $attributes_array['class']=array('form-control','date');
     }
     $form_array[$question_id]['#attributes'] = $attributes_array;
+    $rules_array = array();
+    if(isset($question_obj->num_decimals)){
+      $rules_array[]='decimal[*, '.$question_obj->num_decimals.']';
+    }
+    if(isset($question_obj->min_value)){
+      $min_value = $question_obj->min_value;
+    }else{
+      $min_value = '*';
+    }
+    if(isset($question_obj->max_value)){
+      $max_value = $question_obj->max_value;
+    }else{
+      $max_value = '*';
+    }
+    if(isset($question_obj->min_value) || isset($question_obj->max_value)){
+      $rules_array[]='range['.$min_value.', '.$max_value.']';
+    }
+    if(isset($question_obj->min_length)){
+      $min_length = $question_obj->min_length;
+    }else{
+      $min_length = '*';
+    }
+    if(isset($question_obj->max_length)){
+      $max_length = $question_obj->max_length;
+    }else{
+      $max_length = '*';
+    }
+    if(isset($question_obj->min_length) || isset($question_obj->max_length)){
+      $rules_array[]='length['.$min_length.', '.$max_length.']';
+    }
+    $form_array[$question_id]['#rules'] = $rules_array;
+    var_dump($rules_array);
     if($hidden){
       $form_array[$question_id]['#prefix'] = '<div style="display:none;">';
       $form_array[$question_id]['#suffix'] = '</div>';

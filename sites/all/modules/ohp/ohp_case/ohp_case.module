@@ -193,6 +193,10 @@ function ohp_case_theme() {
       'render element' => 'elements',
       'template' => 'tpl/ohp-case-menu-layout',
     ),
+    'ohp_case_newtask'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-newtask-modal',
+    ),
   );
 }
 
