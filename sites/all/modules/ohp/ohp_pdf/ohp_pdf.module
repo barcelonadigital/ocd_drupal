@@ -8,11 +8,11 @@
  * Implements hook_menu().
  */
 function ohp_pdf_menu() {
-  $items['ohp/ohp_pdf/download/%'] = array(
+  $items['ohp/ohp_pdf/download/%/%'] = array(
     'title' => 'Download pdf',
     'description' => 'TCPDF usage example.',
     'page callback' => 'ohp_pdf_download',
-    'page arguments' => array(3),
+    'page arguments' => array(3,4),
     'access arguments' => array('use tcpdf example'),
     'file' => 'ohp_pdf.pages.inc',
   );

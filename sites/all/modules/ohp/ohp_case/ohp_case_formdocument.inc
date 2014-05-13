@@ -41,7 +41,11 @@ function ohp_case_formdocument_page() {
       'class' => array('content'),
     ),
   );
-  $path = url('ohp/ohp_pdf/download/prescription');
+  $param_form = '';
+  if(isset($_GET['id_form'])){
+    $param_form .= '/'.$_GET['id_form'];
+  }
+  $path = url('ohp/ohp_pdf/download/prescription'.$param_form);
   $page_array['main']['pager_container']['pager_table'] = array(
     //Title serves as page subtitle
     '#title' => t('Enviament de document a la història clínica'),

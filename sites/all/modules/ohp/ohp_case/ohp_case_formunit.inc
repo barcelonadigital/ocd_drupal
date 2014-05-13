@@ -172,7 +172,7 @@ function ohp_case_formunit($form, &$form_state) {
         $form['form_container']['#title'] = t('Equips de teràpia respiratòria');
         $ids_array = array(array("87"),array("88"),array("89"),array("39","40"),array("41","42"),
           array("43"),array("44","45","46"),array("47","48"),array("49",
-          "50","51"),array("52","53","54"));
+          "50"),array("51"),array("52","53"),array("54"));
         add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map,array("45")
         );
       }else if($group_form=='planificacio'){

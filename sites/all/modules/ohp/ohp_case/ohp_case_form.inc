@@ -420,35 +420,6 @@ function add_resume_question(&$form_array, $questions_map, $question_id, $hidden
   }
 }
 
-function get_value_description($question_id, $questions_map) {
-  //var_dump(2);
-  if(isset($questions_map[$question_id])){
-    $question_obj = $questions_map[$question_id];
-    //var_dump($question_obj);
-    if(in_array($question_id, get_numeric_array())){
-      $num_decimals = 0;
-      if(isset($question_obj->num_decimals)){
-        $num_decimals = $question_obj->num_decimals;
-      }
-      return number_format((float)$question_obj->value,$num_decimals,",",".");
-    }else
-    if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
-      foreach ($question_obj->options->option as $option) {
-        if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
-          return (string)$option->description;
-        }
-      }
-    }else if($question_obj->type=='DATE'){
-      //var_dump($question_obj);
-      return date('d/m/Y',(string)$question_obj->value);
-    }else{
-      return (string)$question_obj->value;
-    }
-  }
-  return "";
-}
-
-
 /**
  * @} End of "defgroup case_task".
  */
