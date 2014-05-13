@@ -5,7 +5,6 @@
  * A file with form utils.
  */
 
-
 /**
  * Custom content function.
  *
@@ -199,6 +198,29 @@ function get_case_admission($case_id) {
 /**
  * Custom content function.
  *
+ * Retrieve case admissions from database.
+ *
+ * @return
+ *   A set of admissions from the case.
+ */
+function get_admission($admission_id) {
+
+  $query = db_select('ohp_admission', 'n');
+  $query->addField('n', 'id_admission');
+  $query->addField('n', 'enrol_date');
+  $query->addField('n', 'admission_date');
+  $query->addField('n', 'discharge_date');
+  $query->addField('n', 'status');
+  $query->condition('n.id_admission',$admission_id,'=');
+
+  $result = $query->execute()->fetchObject();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
  * Retrieve admission tasks from database.
  *
  * @return
@@ -333,12 +355,13 @@ function insert_admission($id_case) {
   $query = db_select('ohp_admission');
   $query->addExpression('MAX(id_admission)');
   $max= $query->execute()->fetchField();
+  $id_admission = $max+1;
 
   $value = getdate();
   $today = mktime(0, 0, 0, $value['mon'], $value['mday'], $value['year']);
 
   $entry = array(
-    'id_admission' => $max+1,
+    'id_admission' => $id_admission,
     'user_uid' => $id_case,
     'enrol_date' => $today,
     'status' => 'ENROLLED',
@@ -347,7 +370,26 @@ function insert_admission($id_case) {
     ->fields($entry)
     ->execute();
 
-  return $result;
+  return $id_admission;
+}
+
+/**
+ * Custom update function.
+ *
+ * Update admission in database.
+ */
+function update_admission($id_admission,$admission_date,$status) {
+
+  $entry = array(
+    'admission_date' => $admission_date,
+    'status' => $status,
+  );
+  $count = db_update('ohp_admission')
+    ->fields($entry)
+    ->condition('id_admission', $id_admission)
+    ->execute();
+
+  return $count;
 }
 
 /**
@@ -391,6 +433,27 @@ function insert_task($id_admission,$id_activity) {
   $result_template = $query->execute();
 
   foreach ($result_template as $row_template) {
+
+
+    $query = db_select('ohp_form', 'n');
+    $query->join('ohp_task', 'p', 'n.id_task = p.id_task');
+    $query->join('ohp_template', 'o', 'o.id_template = n.id_template');
+    $query->addExpression('MAX(n.id_form)');
+    $query->condition('p.id_admission',$id_admission,'=');
+    $query->condition('o.id_activity',array(1,2),'IN');
+
+    $maxform= $query->execute()->fetchField();
+// if(!isset($maxform)){
+// drupal_set_message('A'.' '.$id_admission);
+// var_dump('A'.' '.$id_admission);
+// }else if($maxform==null){
+// drupal_set_message('B');
+// var_dump('B');
+// }else{
+// drupal_set_message($maxform);
+// var_dump($maxform);
+// }
+
     $query = db_select('ohp_form');
     $query->addExpression('MAX(id_form)');
     $max= $query->execute()->fetchField();
@@ -408,27 +471,59 @@ function insert_task($id_admission,$id_activity) {
       ->execute();
 
     $query = db_select('ohp_template_question', 'n');
+    if(isset($maxform)){
+      $query->leftJoin('ohp_answer', 'p', 'n.id_question = p.id_question and p.id_form='.$maxform);
+    }
     $query->addField('n', 'id_template_question');
     $query->addField('n', 'id_template');
     $query->addField('n', 'id_question');
+    if(isset($maxform)){
+      $query->addField('p', 'id_option');
+      $query->addField('p', 'value');
+    }
     $query->condition('n.id_template',$id_template,'=');
+//     if(isset($maxform)){
+//       $query->condition('p.id_form',$maxform,'=');
+// var_dump('$maxform '.$maxform);
+// drupal_set_message('$maxform '.$maxform);
+//     }
 
     $result_tq = $query->execute();
+var_dump('$$query-> '.$query->__toString());
+drupal_set_message('$$query-> '.$query->__toString());
 
     foreach ($result_tq as $row_tq) {
       $query = db_select('ohp_answer');
       $query->addExpression('MAX(id_answer)');
       $max= $query->execute()->fetchField();
 
+      $id_option = NULL;
+      if(isset($row_tq->id_option)){
+        $id_option = $row_tq->id_option;
+      }
+      $value = NULL;
+      if(isset($row_tq->value)){
+        $value = $row_tq->value;
+      }
       $entry = array(
         'id_answer' => $max+1,
         'id_form' => $id_form,
         'id_question' => $row_tq->id_question,
+        'id_option' => $id_option,
+        'value' => $value,
       );
       $result_task = db_insert('ohp_answer')
         ->fields($entry)
         ->execute();
     }
+  }
+
+  $admission_obj = get_admission($id_admission);
+
+  if($admission_obj->status!='ACTIVE'){
+    $value = getdate();
+    $enrol_date = mktime($value['hours'], $value['minutes'], 0, $value['mon'], $value['mday'], $value['year']);
+    update_admission($id_admission,$enrol_date,'ACTIVE');
   }
 }
 

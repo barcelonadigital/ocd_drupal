@@ -425,6 +425,13 @@ function get_value_description($question_id, $questions_map) {
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
     //var_dump($question_obj);
+    if(in_array($question_id, get_numeric_array())){
+      $num_decimals = 0;
+      if(isset($question_obj->num_decimals)){
+        $num_decimals = $question_obj->num_decimals;
+      }
+      return number_format((float)$question_obj->value,$num_decimals,",",".");
+    }else
     if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
       foreach ($question_obj->options->option as $option) {
         if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){

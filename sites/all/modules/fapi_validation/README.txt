@@ -29,10 +29,14 @@ alpha_numeric alpha_numeric Accept only Alpha Numeric characters
 
 alpha_dash 		alpha_dash 		Accept only Alpha characters and Dash ( - )
 
-digit 				digit							Checks wheter a string consists of digits only (no dots or dashes).
+digit 				digit					Checks wheter a string consists of digits only (no dots or dashes).
 
 decimal 			decimal
-							decimal[<digits>,<decimals>] 
+							decimal[<digits>,<decimals>]
+
+limit_decimals
+							limit_decimals[2]
+														Only allows X deicmal places.
 
 regexp 				regexp[/^regular expression$/] 
 														PCRE Regular Expression

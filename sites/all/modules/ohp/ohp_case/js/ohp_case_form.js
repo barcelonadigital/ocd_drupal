@@ -18,10 +18,10 @@
 	      if (typeof a1 !== "undefined" && a1!=null && 
 	    		  typeof a2 !== "undefined" && a2!=null &&
 		    	  typeof a0 !== "undefined" && a0!=null) { 
-	        var a1n = a1.value;
-	        var a2n = a2.value;
+	        var a1n = a1.value.replace(/\./g, '').replace(',', '.');
+	        var a2n = a2.value.replace(/\./g, '').replace(',', '.');
 	        if(isNumber(a1n) && isNumber(a2n)){
-	          a0.value=(a1n/a2n);
+	          a0.value=(a1n/a2n).toFixed(2).replace(".", ",");
 	        }else{
 	          a0.value='';
 	        }

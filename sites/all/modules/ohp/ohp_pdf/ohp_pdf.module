@@ -27,7 +27,20 @@ function ohp_pdf_theme($existing, $type, $theme, $path) {
     case 'module':
       $themes = array(
         'ohp_pdf_basic_html' => array(
-          'template' => 'tpl/ohp-pdf-basic-html'
+          'template' => 'tpl/ohp-pdf-basic-html',
+          'variables' => array(
+            'sex' => NULL,
+            'cognom_nom' => NULL,
+            'birthday' => NULL,
+            'age' => NULL,
+            'telf' => NULL,
+            'cip' => NULL,
+            'nhc' => NULL,
+            'address' => NULL,
+            'postcode' => NULL,
+            'city' => NULL,
+            'body' => NULL,
+          ),
         ),
       );
       break;

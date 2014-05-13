@@ -3,14 +3,6 @@
  * @file
  * Example template file for TCPDF Example module.
  */
- 
-//VARIABLES 
-$today = date("j.n.Y");
-$today_hour = date("H:i:s");  
- 
-//FUNCTIONS
- 
- 
 ?>
 <html>
   <body>
@@ -19,39 +11,39 @@ $today_hour = date("H:i:s");
         <td> </td>
 		<td ALIGN="center"><b> CONSULTA DE VALIDACIÓ </b></td>
         <td> </td>
-      </tr>	
+      </tr>
 	  <tr>
         <td> </td>
 		<td ALIGN="center"><b> I SEGUIMENT D'OXIGENOTERÀPIA </b></td>
         <td> </td>
       </tr>
       <tr>
-        <td><b>PACIENT: </b></td>
+        <td><b>PACIENT: <?php  print $cognom_nom; ?></b></td>
 		<td> </td>
-        <td><b> NHC: </b></td>
+        <td><b>NHC: <?php  print $nhc; ?></b></td>
       </tr>
 	</table>
 	<p></p>
 	<hr>
 	<table border="0">
       <tr>
-        <td>Sexo/Sexe: </td>
-        <td>Fecha nac./Data naix.: </td>
-        <td>Edad/Edat: </td>
+        <td>Sexo/Sexe: <?php  print $sex; ?></td>
+        <td>Fecha nac./Data naix.: <?php  print $birthday; ?></td>
+        <td>Edad/Edat: <?php  print $age; ?></td>
       </tr>
       <tr>
-        <td>Dirección/Adreça: </td>
+        <td>Dirección/Adreça: <?php  print $address; ?></td>
 		<td> </td>
-        <td>CP: </td>
+        <td>CP: <?php  print $postcode; ?></td>
       </tr>
       <tr>
-		<td>Municip. (Prov.): </td>
+		<td>Municip. (Prov.): <?php  print $city; ?></td>
         <td>ABS: </td>
-        <td>Tel.: </td>
+        <td>Tel.: <?php  print $telf; ?></td>
       </tr>
 	  <tr>
 		<td>As.: </td>
-        <td>CIP: </td>
+        <td>CIP: <?php  print $cip; ?></td>
         <td>NASS: </td>
       </tr>
 	  <tr>
@@ -75,8 +67,8 @@ $today_hour = date("H:i:s");
 	<table border="0">
     <tr>
        <td><b>Realización/Realització</b></td>
-       <td>Fecha/Data: <?php echo $today?></td>
-       <td>Hora: <?php echo $today_hour?></td>
+       <td>Fecha/Data: <?php print date("j.m.Y"); ?></td>
+       <td>Hora: <?php print date("H:i:s"); ?></td>
      </tr>
      <tr>
        <td>Nº:</td>
@@ -85,5 +77,6 @@ $today_hour = date("H:i:s");
      </tr>
 	<hr>
 	<p ALIGN="center"><b>INFORME SOL-LICITUT / CANVIS / RETIRADA / RENOVACIÓ</b></p>
+	<?php  print $body; ?>
   </body>
 </html>

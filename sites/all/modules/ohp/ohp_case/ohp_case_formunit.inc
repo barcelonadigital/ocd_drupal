@@ -1,6 +1,6 @@
 <?php
 
-include 'ohp_case_form.utils.inc';
+require 'ohp_case_form.utils.inc';
 
 /**
  * @file
@@ -42,6 +42,9 @@ function ohp_case_formunit_page() {
     ),
   );
   $page_array['main']['pager_container']['pager_table'] = drupal_get_form('ohp_case_formunit');
+  $page_array['main']['pager_container']['formhints_modal'] = array(
+    '#theme' => 'ohp_case_formhints',
+  );
 
   return $page_array;
 }
@@ -365,10 +368,28 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
       '#value' => $question_obj->id_answer,
       '#type' => 'hidden',
     );
+    $description = $question_obj->description;
+    if($question_id=='26'){
+      $description .= '<a href="#helpGasometriaModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }else if($question_id=='19'){
+      $description .= '<a href="#helpEspiroModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }else if($question_id=='36'){
+      $description .= '<a href="#helpPulsioModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }else if($question_id=='64'){
+      $description .= '<a href="#helpTabaqModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }else if($question_id=='67'){
+      $description .= '<a href="#helpImcModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }else if($question_id=='77'){
+      $description .= '<a href="#helpPulsioNoctModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }else if($question_id=='90'){
+      $description .= '<a href="#helpAdequacioModal" role="button" data-toggle="modal" class="info_popup">Info</a>';
+    }
     $form_array[$question_id] = array(
-      '#title' => $question_obj->description,
+      '#title' => $description,
     );
-    if(($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO') &&
+    if(in_array($question_id, get_numeric_array())){
+      $form_array[$question_id]['#type'] = 'numericfield';
+    }else if(($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO') &&
         isset($question_obj->options->option)){
       $form_array[$question_id]['#type'] = 'select';
       $form_array[$question_id]['#empty_value'] = '';
@@ -400,21 +421,33 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
     }
     $form_array[$question_id]['#attributes'] = $attributes_array;
     $rules_array = array();
-    if(isset($question_obj->num_decimals)){
-      $rules_array[]='decimal[*, '.$question_obj->num_decimals.']';
-    }
-    if(isset($question_obj->min_value)){
-      $min_value = $question_obj->min_value;
-    }else{
-      $min_value = '*';
-    }
-    if(isset($question_obj->max_value)){
-      $max_value = $question_obj->max_value;
-    }else{
-      $max_value = '*';
-    }
-    if(isset($question_obj->min_value) || isset($question_obj->max_value)){
-      $rules_array[]='range['.$min_value.', '.$max_value.']';
+//     if(isset($question_obj->num_decimals)){
+//       $rules_array[]='limit_decimals['.$question_obj->num_decimals.']';
+//     }
+//     if(isset($question_obj->min_value)){
+//       $min_value = $question_obj->min_value;
+//     }else{
+//       $min_value = '*';
+//     }
+//     if(isset($question_obj->max_value)){
+//       $max_value = $question_obj->max_value;
+//     }else{
+//       $max_value = '*';
+//     }
+//     if(isset($question_obj->min_value) || isset($question_obj->max_value)){
+//       $rules_array[]='range['.$min_value.', '.$max_value.']';
+//     }
+    if(isset($question_obj->min_value) || isset($question_obj->max_value) || isset($question_obj->num_decimals)){
+      $form_array[$question_id]['#type'] = 'numericfield';
+      if(isset($question_obj->num_decimals)){
+        $form_array[$question_id]['#decimals'] = $question_obj->num_decimals;
+      }
+      if(isset($question_obj->min_value)){
+        $form_array[$question_id]['#minimum'] = $question_obj->min_value;
+      }
+      if(isset($question_obj->max_value)){
+        $form_array[$question_id]['#maximum'] = $question_obj->max_value;
+      }
     }
     if(isset($question_obj->min_length)){
       $min_length = $question_obj->min_length;
@@ -429,11 +462,12 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
     if(isset($question_obj->min_length) || isset($question_obj->max_length)){
       $rules_array[]='length['.$min_length.', '.$max_length.']';
     }
-    $form_array[$question_id]['#rules'] = $rules_array;
-    var_dump($rules_array);
+    //var_dump($rules_array);
     if($hidden){
       $form_array[$question_id]['#prefix'] = '<div style="display:none;">';
       $form_array[$question_id]['#suffix'] = '</div>';
+    }else{
+      $form_array[$question_id]['#rules'] = $rules_array;
     }
     if(isset($question_obj->value)&&!empty($question_obj->value)){
       if($question_obj->type=='DATE'){

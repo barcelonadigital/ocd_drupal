@@ -5,6 +5,9 @@
  * A file with form utils.
  */
 
+function get_numeric_array(){
+  return array('21','22','23','24','25','28','29','32','33','35','38','46','47','48','49','66','67','72','73','74','82','83','84','85','86','103');
+}
 
 /**
  * Constructs a descriptive page.

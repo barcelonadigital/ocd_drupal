@@ -197,6 +197,10 @@ function ohp_case_theme() {
       'render element' => 'elements',
       'template' => 'tpl/ohp-case-newtask-modal',
     ),
+    'ohp_case_formhints'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-formhints-modal',
+    ),
   );
 }
 
@@ -332,6 +336,10 @@ function ohp_case_load_common(&$page_array) {
       $case_bean = new stdClass();
       $case_bean->id_case  = $result['user_uid'];
       $case_bean->fullname = get_fullname ($result['given_name'],$result['middle_name'],$result['family_name'],$result['family_name2']);
+      $case_bean->given_name   = $result['given_name'];
+      $case_bean->middle_name  = $result['middle_name'];
+      $case_bean->family_name  = $result['family_name'];
+      $case_bean->family_name2 = $result['family_name2'];
       $case_bean->birthday = date('d/m/Y', $result['birthdate']);
       $case_bean->age = get_age( $result['birthdate'] );
       $case_bean->sex = $result['gender'];
@@ -394,35 +402,35 @@ function ohp_case_load_common(&$page_array) {
     $admission_bean = new stdClass();
     
     $result = get_case_admission($case_id)->fetchAll();
-//var_dump($r esult);
     $admission_first = null;
     $admission_selected=null;
     if(!empty($result)){
       $admission_first = $result[0];
       $admission_selected = $admission_first;
-  	if(isset($admission_id)){
-    	  foreach ($result as $adm) {
-          if($adm['id_admission'] == $admission_id){
-            $admission_selected = $adm;
+    	if(isset($admission_id)){
+      	  foreach ($result as $adm) {
+            if($adm['id_admission'] == $admission_id){
+              $admission_selected = $adm;
+            }
           }
-        }
-  	}
+    	}
     }
     if(isset($admission_selected)){
       $admission_bean->id_admission = $admission_selected->id_admission;
-		if(isset($admission_selected->admission_date)){
-        $admission_bean->desc_protocol_actual = t('Oxigenoterapia Crònica Domiciliària');
-        $admission_bean->data_protocol_actual = date('d/m/Y', $admission_selected->admission_date);
-        $admission_bean->data_inscripcio_admission = date('d/m/Y', $admission_selected->enrol_date);
-        if($admission_selected->status == "DISCHARGED"){
-        	$admission_bean->estat_protocol_actual = t('Alta');
-        }else if($admission_selected->status == "ACTIVE"){
-        	$admission_bean->estat_protocol_actual = t('En tractament');
-        }else{
-        	$admission_bean->estat_protocol_actual = $admission_selected->status;
-        }
-		}
-	  }
+      $admission_bean->desc_protocol_actual = t('Oxigenoterapia Crònica Domiciliària');
+      if(isset($admission_selected->admission_date)){
+        $admission_bean->data_protocol_actual = date('d/m/Y H:i', $admission_selected->admission_date);
+      }
+      if($admission_selected->status == "DISCHARGED"){
+      	$admission_bean->estat_protocol_actual = t('Alta');
+      }else if($admission_selected->status == "ACTIVE"){
+      	$admission_bean->estat_protocol_actual = t('En tractament');
+      }else if($admission_selected->status == "ENROLLED"){
+      	$admission_bean->estat_protocol_actual = t('Inscrit');
+      }else{
+      	$admission_bean->estat_protocol_actual = $admission_selected->status;
+      }
+    }
     $_SESSION['admission_bean'] = $admission_bean;
   }
 }

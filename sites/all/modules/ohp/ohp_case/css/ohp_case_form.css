@@ -25,6 +25,12 @@ form#ohp-case-formunit fieldset textarea[disabled] {
 	border-width: 1px;
 	color: #48525e;
 }
+form#ohp-case-formunit fieldset .form-numeric {
+	text-align: left;
+}
+form#ohp-case-formunit fieldset a.info_popup {
+	margin: -4px 8px;
+}
 .inline-row .form-item {
 	width: 360px;
     margin: 0px 0px 5px 110px;

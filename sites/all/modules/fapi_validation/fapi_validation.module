@@ -39,6 +39,10 @@ function fapi_validate_element_validate(&$element, &$form_state) {
   fapi_validation_rules_execute($element, $form_state);
 }
 
+/**
+ *  Function for executing all filters
+ */
+
 function fapi_validation_filters_execute(&$element, &$form_state) {
   $data = _fapi_validation_data('filters');
 
@@ -54,14 +58,22 @@ function fapi_validation_filters_execute(&$element, &$form_state) {
   }
 }
 
+/**
+ *  Function for executing all rules
+ */
+
 function fapi_validation_rules_execute(&$element, &$form_state) {
   $data = _fapi_validation_data('rules');
 
-  // If element is empty and not required, by pass rule validation.
+  // If element is empty and not required, by pass rule validation
   if (!$element['#required'] && empty($element['#value'])) {
     return;
   }
 
+  //establish errors array
+  $errors = array();
+
+  // Loop through all rules on the field
   foreach ($element['#rules'] as $rule) {
     $error_message = $error_callback = NULL;
 
@@ -82,19 +94,21 @@ function fapi_validation_rules_execute(&$element, &$form_state) {
 
       $rule = $rule['rule'];
     }
-    
+
+    // Break rule into various aspects    
     preg_match('/^(.*?)(\[(.*)\])?$/', $rule, $rs);
-    
     $rule = $rs[1];
-   
+
+    // Check if rule exists
     if (!isset($data[$rule])) {
       drupal_set_message(t('Rule %rule not found!', array('%rule' => $rule)), 'error');
       continue;
     }
 
+    //Get element value
     $params = array($element['#value']);
 
-    // Parsing parameters.
+    // Parsing parameters from rule input
     if (isset($rs[3])) {
       if ($rule == 'regexp') {
         $params[] = array($rs[3]);
@@ -106,23 +120,29 @@ function fapi_validation_rules_execute(&$element, &$form_state) {
 
     $params[] = &$element;
     $params[] = &$form_state;
-    
+
+    // Call the function for the associated role, with relevant params.
     $ret = call_user_func_array($data[$rule]['callback'], $params);
 
+    // If it returns false (IE fails rule):
     if (!$ret) {
       if (!is_null($error_callback)) {
         $error_params = array(
           $rule, $params, $element, $form_state
         );
-        $error = call_user_func_array($error_callback, $error_params);
+        $errors[] = call_user_func_array($error_callback, $error_params);
       }
       else {
         $error = is_null($error_message) ? $data[$rule]['error_msg'] : $error_message;
-        $error = t($error, array('%field' => $element['#title']));
+        $errors[] = t($error, array('%field' => $element['#title']));
       }
-      form_set_error(implode('][', $element['#parents']), $error);
+      
     }
   }
+  if(!empty($errors)){
+    form_set_error(implode('][', $element['#parents']), implode('<br/>',$errors));  
+  }
+  
 }
 
 function _fapi_validation_data($type, $refresh=NULL) {
@@ -202,7 +222,11 @@ function fapi_validation_fapi_validation_rules() {
     'range' => array(
       'callback' => 'fapi_validation_rule_range',
       'error_msg' => t('%field value is out of range.')
-    )
+    ),
+    'limit_decimals' => array(
+      'callback' => 'fapi_validation_rule_limit_decimals',
+      'error_msg' => t('Invalid value for %field or too many decimal digits')
+    ),
   );
 }
 
@@ -314,6 +338,17 @@ function fapi_validation_rule_decimal($value, $params) {
 }
 
 function fapi_validation_rule_regexp($value, $params) {
+  // Some FAPI elements types, such as those provided by the Date API module,
+  // will come in as an array (with date in one element and time in another). To
+  // handle this use-case we simply implode them into a string.
+  if (is_array($value)) {
+    // Using array filter ensures that empty array elements do not cause an
+    // extra space to be added to the value. We can't use trim to fix this issue
+    // cause trim will remove all trailing whitespace in a string, which may be
+    // meaningful.
+    $value = implode(' ', array_filter($value));
+  }
+
   return (bool) preg_match($params[0], (string) $value);
 }
 
@@ -326,6 +361,22 @@ function fapi_validation_rule_range($value, $params) {
   $max = $params[1];
 
   return ($min <= $value && $max >= $value);
+}
+
+/**
+ *  Limits decimals allowed
+ */
+
+function fapi_validation_rule_limit_decimals($value, $params) {
+  if ( !is_numeric($value) ) {
+    return FALSE;
+  }
+  if (count($params) > 0) {
+    $value = (float) $value;
+    $pattern = '/^[^\.]*\.?[0-9]{0,' . $params[0] . '}$/';
+    return (bool) preg_match($pattern, (string) $value);
+  }
+  return TRUE;
 }
 
 

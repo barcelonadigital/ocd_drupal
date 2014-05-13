@@ -10322,3 +10322,16 @@ a.back {
     background-image:none;
     background-color: transparent;
 }
+.h3actions a.help {
+    display:block;
+    width:21px;
+    height:21px;
+    background:url(../img/ico-info.png) no-repeat 0 0;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.h3actions a.help:hover {
+    opacity:.7;
+    filter:alpha(opacity=70)
+}
