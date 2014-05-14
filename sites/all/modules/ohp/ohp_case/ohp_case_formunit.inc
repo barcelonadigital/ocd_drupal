@@ -106,114 +106,13 @@ function ohp_case_formunit($form, &$form_state) {
       '#collapsed' => FALSE,
     );
 
-    if($form_xml->data->name=='Variables'){
-
-      if($group_form=='caracteristiques'){
-        $form['form_container']['#title'] = t('Característiques de la sol·licitud');
-        $ids_array = array(array("1","2"),array("3","4"),array("5","6"),array("7"),array("8","9"),array("10","11"),array("12","13"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='diagnostic'){
-        $form['form_container']['#title'] = t('Diagnòstic');
-        $ids_array = array(array("14","15"),array("16","17"),array("18"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='espiro'){
-        $form['form_container']['#title'] = t('Espirometria');
-        $ids_array = array(array("19","20"),array("21","22"),array("23","24"),array("25"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='gaso'){
-        $form['form_container']['#title'] = t('Gasometria');
-        $ids_array = array(array("26","27"),array("28","29"),array("30","31"),array("32","33"),array("34","35"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map,array("30")
-        );
-      }else if($group_form=='pulsio'){
-        $form['form_container']['#title'] = t('Pulsioximetria');
-        $ids_array = array(array("36","37"),array("38"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='equip'){
-        $form['form_container']['#title'] = t('Equips de teràpia respiratòria');
-        $ids_array = array(array("39","40"),array("41","42"),
-          array("43"),array("44","45","46"),array("47","48"),array("49",
-          "50","51"),array("52","53","54"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map,array("45")
-        );
-      }else if($group_form=='planificacio'){
-        $form['form_container']['#title'] = t('Pla terapèutic');
-        $ids_array = array(array("55","56"),array("57","58"),array("59"),array("60"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }
-      foreach ($questions_map as $key => $value) {
-        add_question($form['form_container'],$questions_map,(string)$key,$copy_of_questions_map, true);
-      }
-
-    }else if($form_xml->data->name=='CVSO'){
-
-      if($group_form=='caracteristiques'){
-        $form['form_container']['#title'] = t('Característiques de la sol·licitud');
-        $ids_array = array(array("1","2"),array("3","4"),array("5","6"),array("7"),array("8","9"),array("10","11"),array("12","13"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='diagnostic'){
-        $form['form_container']['#title'] = t('Diagnòstic');
-        $ids_array = array(array("14","15"),array("16","17"),array("18"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='espiro'){
-        $form['form_container']['#title'] = t('Espirometria');
-        $ids_array = array(array("19","20"),array("21","22"),array("23","24"),array("25"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='gaso'){
-        $form['form_container']['#title'] = t('Gasometria');
-        $ids_array = array(array("26","27"),array("28","29"),array("30","31"),array("32","33"),array("34","35"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map,array("30")
-        );
-      }else if($group_form=='pulsio'){
-        $form['form_container']['#title'] = t('Pulsioximetria');
-        $ids_array = array(array("36","37"),array("38"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='equip'){
-        $form['form_container']['#title'] = t('Equips de teràpia respiratòria');
-        $ids_array = array(array("87"),array("88"),array("89"),array("39","40"),array("41","42"),
-          array("43"),array("44","45","46"),array("47","48"),array("49",
-          "50"),array("51"),array("52","53"),array("54"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map,array("45")
-        );
-      }else if($group_form=='planificacio'){
-        $form['form_container']['#title'] = t('Pla terapèutic');
-        $ids_array = array(array("55","56"),array("57","58"),array("59"),array("60"),
-          array("104","105"),array("106","107"),array("108","109"),
-          array("110"),array("111"),array("112"),array("113","114"),array("115","116"),array("117","118"),array("119",
-          "120"),array("121","122"),array("123","124"),array("125","126"),array("127"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='factors'){
-        $form['form_container']['#title'] = t('Factors de risc i hàbits de vida');
-        $ids_array = array(array("64"),array("65","66"),array("67"),array("68"),array("69"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='adherencia'){
-        $form['form_container']['#title'] = t('Adequació i adherència');
-        $ids_array = array(array("90","91"),array("92"),array("93","94"),
-            array("95"),array("96"),array("97"),array("98"),array("99"),array("100"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map,array("91","98")
-        );
-      }else if($group_form=='percepcio'){
-        $form['form_container']['#title'] = t('Percepció del pacient');
-        $ids_array = array(array("101","102"),array("103"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='test'){
-        $form['form_container']['#title'] = t('Test de la marxa (6 minuts)');
-        $ids_array = array(array("70","71"),array("72","73"),array("74"),array("75","76"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='noct'){
-        $form['form_container']['#title'] = t('Pulsioximetria nocturna');
-        $ids_array = array(array("77","78"),array("79","80"),array("81","82"),array("83","84"),array("85","86"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }else if($group_form=='info'){
-        $form['form_container']['#title'] = t('Informació de la visita');
-        $ids_array = array(array("61","62"),array("63"));
-        add_group_question($form['form_container'],$questions_map,$ids_array,$copy_of_questions_map);
-      }
-      foreach ($questions_map as $key => $value) {
-        add_question($form['form_container'],$questions_map,(string)$key,$copy_of_questions_map, true);
-      }
-
+    $form_object = get_form_object($group_form);
+    $form['form_container']['#title'] = $form_object['title'];
+    add_group_question($form['form_container'],$questions_map,$form_object['items'],$copy_of_questions_map,$form_object['hidden']);
+    foreach ($questions_map as $key => $value) {
+      add_question($form['form_container'],$questions_map,(string)$key,$copy_of_questions_map, true);
     }
+
     $form['submit_area2'] = $form['submit_area'];
   }
   return $form;

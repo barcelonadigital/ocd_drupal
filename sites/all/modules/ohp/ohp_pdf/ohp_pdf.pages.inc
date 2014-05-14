@@ -90,6 +90,9 @@ function add_group_docform(&$count_questions,$questions_map,$ids_array,$hiddens_
       }
     }
     if($i>0){
+      if($i==1){
+        $row_result .= '<td>&nbsp;</td>';
+      }
       $result .= '<tr>'.$row_result.'</tr>';
     }
   }
@@ -145,80 +148,7 @@ function ohp_pdf_prescription_pdf($id_form) {
     $form_xml = NULL;
     load_form(NULL ,$id_form, $form_xml, $questions_map);
 
-    $struct_form = array(
-        'caracteristiques'=>array(
-            'title'=>t('Característiques de la sol·licitud'),
-            'items'=>array(array("1","2"),array("3","4"),
-                array("5","6"),array("7"),array("8","9"),
-                array("10","11"),array("12","13")),
-            'hidden'=>array(),
-        ),
-        'diagnostic'=>array(
-            'title'=>t('Diagnòstic'),
-            'items'=>array(array("14","15"),array("16","17"),array("18")),
-            'hidden'=>array(),
-        ),
-        'proves'=>array(
-            'title'=>t('Proves complementàries'),
-            'groups'=>array(
-                'test'=>array(
-                    'title'=>t('Test de la marxa (6 minuts)'),
-                    'items'=>array(array("70","71"),array("72","73"),array("74"),array("75","76")),
-                    'hidden'=>array()),
-                'noct'=>array(
-                    'title'=>t('Pulsioximetria nocturna'),
-                    'items'=>array(array("77","78"),array("79","80"),array("81","82"),array("83","84"),array("85","86")),
-                    'hidden'=>array()),
-                'espiro'=>array(
-                    'title'=>t('Espirometria'),
-                    'items'=>array(array("19","20"),array("21","22"),array("23","24"),array("25")),
-                    'hidden'=>array()),
-                'gaso'=>array(
-                    'title'=>t('Gasometria'),
-                    'items'=>array(array("26","27"),array("28","29"),array("30","31"),array("32","33"),array("34","35")),
-                    'hidden'=>array("30")),
-                'pulsio'=>array(
-                    'title'=>t('Pulsioximetria'),
-                    'items'=>array(array("36","37"),array("38")),
-                    'hidden'=>array()),
-                )
-        ),
-        'equip'=>array(
-            'title'=>t('Equips de teràpia respiratòria'),
-            'items'=>array(array("87"),array("88"),array("89"),array("39","40"),array("41","42"),
-                array("43"),array("44","45","46"),array("47","48"),array("49",
-                "50"),array("51"),array("52","53"),array("54")),
-            'hidden'=>array("45"),
-        ),
-        'planificacio'=>array(
-            'title'=>t('Pla terapèutic'),
-            'items'=>array(array("55","56"),array("57","58"),array("59"),array("60"),
-                array("104","105"),array("106","107"),array("108","109"),
-                array("110"),array("111"),array("112"),array("113","114"),array("115","116"),array("117","118"),array("119",
-                "120"),array("121","122"),array("123","124"),array("125","126"),array("127")),
-            'hidden'=>array(),
-        ),
-        'factors'=>array(
-            'title'=>t('Factors de risc i hàbits de vida'),
-            'items'=>array(array("64"),array("65","66"),array("67"),array("68"),array("69")),
-            'hidden'=>array(),
-        ),
-        'adherencia'=>array(
-            'title'=>t('Adequació i adherència'),
-            'items'=>array(array("90","91"),array("92"),array("93","94"),
-                array("95"),array("96"),array("97"),array("98"),array("99"),array("100")),
-            'hidden'=>array("91","98"),
-        ),
-        'percepcio'=>array(
-            'title'=>t('Percepció del pacient'),
-            'items'=>array(array("101","102"),array("103")),
-            'hidden'=>array(),
-        ),
-        'info'=>array(
-            'title'=>t('Informació de la visita'),
-            'items'=>array(array("61","62"),array("63")),
-            'hidden'=>array(),
-        ));
+    $struct_form = get_form_struct();
     $body  = '';
     foreach ($struct_form as $struct_item) {
       if(!isset($struct_item['groups'])){
@@ -227,27 +157,36 @@ function ohp_pdf_prescription_pdf($id_form) {
         $count_questions=0;
         $result = add_group_docform($count_questions,$questions_map,$struct_item['items'],$struct_item['hidden']);
         if($count_questions>0){
-          $body .= '<p><strong>'.$struct_item['title'].'</strong></p>';
-          $body .= '<table>';
-          if($result==''){
-            $body .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td></tr>';
+          if(isset($struct_item['hide_title']) && $struct_item['hide_title']==TRUE){
+            $body .= '<table>'.$result.'</table>';
           }else{
-            $body .= $result;
+            $body .= '<p><strong>'.$struct_item['title'].'</strong></p>';
+            $body .= '<table>';
+            if($result==''){
+              $body .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td></tr>';
+            }else{
+              $body .= $result;
+            }
+            $body .= '</table>';
           }
-          $body .= '</table>';
         }
       }else{
         $groups_result = '';
+        $k = 0;
         foreach ($struct_item['groups'] as $struct_group) {
           $count_questions=0;
           $result = add_group_docform($count_questions,$questions_map,$struct_group['items'],$struct_group['hidden']);
           if($count_questions>0){
-            $groups_result .= '<tr><td>'.$struct_group['title'].'</td></tr>';
+            if($k>0){
+              $groups_result .= '<tr><td>&nbsp;</td></tr>';
+            }
+            $groups_result .= '<tr><td>'.$struct_group['title'].'</td><td>&nbsp;</td></tr>';
             if($result==''){
               $groups_result .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td></tr>';
             }else{
               $groups_result .= $result;
             }
+            $k++;
           }
         }
         if($groups_result!=''){
@@ -256,7 +195,7 @@ function ohp_pdf_prescription_pdf($id_form) {
         }
       }
     }
-    drupal_set_message($body);
+    //drupal_set_message($body);
 
     $variables = array(
       'sex'        => $sex_for_report,

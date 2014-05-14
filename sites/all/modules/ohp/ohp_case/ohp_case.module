@@ -156,6 +156,18 @@ function ohp_case_menu() {
     'type' => MENU_CALLBACK,
     'file' => 'ohp_case_formunit.inc',
   );
+  $items['ohp/ohp_case_taskfinish'] = array(
+    'title' => 'Tancar tasca',
+    'page callback' => 'ohp_case_task_finish',
+    'access arguments' => array('access ohp_case_search content'),
+    'file' => 'ohp_case_taskstatus.inc',
+  );
+  $items['ohp/ohp_case_taskopen'] = array(
+    'title' => 'Reobrir tasca',
+    'page callback' => 'ohp_case_task_reopen',
+    'access arguments' => array('access ohp_case_search content'),
+    'file' => 'ohp_case_taskstatus.inc',
+  );
   
   return $items;
 }
@@ -200,6 +212,13 @@ function ohp_case_theme() {
     'ohp_case_formhints'  => array(
       'render element' => 'elements',
       'template' => 'tpl/ohp-case-formhints-modal',
+    ),
+    'ohp_case_formctrl'  => array(
+      'template' => 'tpl/ohp-case-formctrl-layout',
+      'variables' => array(
+        'selected_option' => NULL,
+        'task_status' => NULL,
+      ),
     ),
   );
 }

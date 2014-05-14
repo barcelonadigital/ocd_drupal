@@ -238,7 +238,7 @@ function get_admission_tasks($admission_id) {
   $query->addField('n', 'id_admission');
   $query->addField('p', 'description');
   $query->condition('n.id_admission',$admission_id,'=');
-  $query->orderBy('n.id_task', 'ASC');
+  $query->orderBy('n.id_task', 'DESC');
 
   $result = $query->execute();
 
@@ -395,6 +395,49 @@ function update_admission($id_admission,$admission_date,$status) {
 /**
  * Custom update function.
  *
+ * Update task forms in database.
+ */
+function update_taskform_status($id_task, $status) {
+
+  $query = db_select('ohp_form', 'n');
+  $query->addField('n', 'id_form');
+  $query->condition('n.id_task',$id_task,'=');
+
+  $result = $query->execute();
+
+  $entry = array(
+    'status' => $status,
+  );
+
+  foreach ($result as $row) {
+    $count = db_update('ohp_form')
+      ->fields($entry)
+      ->condition('id_form', $row->id_form)
+      ->execute();
+  }
+}
+
+/**
+ * Custom update function.
+ *
+ * Update task in database.
+ */
+function update_task_status($id_task, $status) {
+
+  $entry = array(
+    'status' => $status,
+  );
+  $count = db_update('ohp_task')
+    ->fields($entry)
+    ->condition('id_task', $id_task)
+    ->execute();
+
+  return $count;
+}
+
+/**
+ * Custom update function.
+ *
  * Insert task in database.
  */
 function insert_task($id_admission,$id_activity) {
@@ -489,8 +532,8 @@ function insert_task($id_admission,$id_activity) {
 //     }
 
     $result_tq = $query->execute();
-var_dump('$$query-> '.$query->__toString());
-drupal_set_message('$$query-> '.$query->__toString());
+//var_dump('$$query-> '.$query->__toString());
+//drupal_set_message('$$query-> '.$query->__toString());
 
     foreach ($result_tq as $row_tq) {
       $query = db_select('ohp_answer');

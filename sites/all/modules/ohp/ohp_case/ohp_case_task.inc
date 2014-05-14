@@ -51,11 +51,20 @@ function ohp_case_task_page() {
       }else if("DISCHARGE"==$row->type){
         $long_desc = 'QÜESTIONARI REGISTRE D\'ALTA DEL PROGRAMA. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
       }
+      if($row->status=='ACTIVE'){
+        $desc_status=t('Pendent');
+      }else if($row->status=='DONE'){
+        $desc_status=t('Finalitzat');
+      }else{
+        $desc_status=$row->status;
+      }
       $items[] = array(
         'data' => array(
           'id' => l('<span class="month">'.$month.'</span><span class="day">'.$day.'</span><span class="year">'.$year.'</span>',
           'ohp/ohp_case_taskunit', array('html' => TRUE,'query' => array('id_task' => $row->id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
           'item_description' => l('<h4>'.$row->description.'</h4><p>'.$long_desc.'</p>',
+          'ohp/ohp_case_taskunit', array('html' => TRUE,'query' => array('id_task' => $row->id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
+          'status' => l('<span class="status">'.$desc_status.'</span>',
           'ohp/ohp_case_taskunit', array('html' => TRUE,'query' => array('id_task' => $row->id_task, 'id_admission' => $id_admission, 'id_case' => $id_case))),
         ),
       );
@@ -75,7 +84,7 @@ function ohp_case_task_page() {
       '#attributes' => array('id' => array('table_task'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
-      '#prefix' => '<h2 class="asses">Tasques</h2><br><br>',
+      '#prefix' => '<h2 class="asses">Històric d\'avaluacions</h2><br><br>',
     );
 
   }else {
@@ -83,7 +92,7 @@ function ohp_case_task_page() {
     $content[] = array(
       '#type' => 'item',
       '#markup' => t('No hi ha elements per mostrar.'),
-      '#prefix' => '<h2 class="asses">Tasques</h2><br><br>',
+      '#prefix' => '<h2 class="asses">Històric d\'avaluacions</h2><br><br>',
     );
     //$page_array['table'] = $content;
   }
@@ -93,18 +102,18 @@ function ohp_case_task_page() {
   $page_array['main'] = array(
     '#theme' => 'ohp_case_body',
   );
-  $page_array['main']['menu_container'] = array(
-    '#theme' => 'ohp_case_menu',
-    'is_active_menu_formularis' => TRUE,
-  );
+//   $page_array['main']['menu_container'] = array(
+//     '#theme' => 'ohp_case_menu',
+//     'is_active_menu_formularis' => TRUE,
+//   );
   $page_array['main']['pager_container'] = array(
     '#type' => 'container',
     '#attributes' => array(
-      'class' => array('content'),
+      'class' => array('content','full'),
     ),
   );
   $page_array['main']['pager_container']['newtask_link'] = array(
-    '#markup' => t('<div class="h2actions"><a href="#alertModal" role="button" data-toggle="modal" class="btn btn-warning btn-large custom-btn">Nova tasca</a></div>'),
+    '#markup' => t('<div class="h2actions"><a href="#alertModal" role="button" data-toggle="modal" class="btn btn-warning btn-large custom-btn">Nova avaluació</a></div>'),
   );
   $page_array['main']['pager_container']['pager_table'] = $content;
   $page_array['main']['pager_container']['newtask_modal'] = array(

@@ -27,9 +27,11 @@
       <div class="container">
         <!-- Encabezado-->
         <div class="encabezado bordebajo">
+          <!--
           <div class="h1actions">
             <a href="#confirmNewModal" role="button" data-toggle="modal" class="btn btn-large btn-warning"><?php print t('Nou pacient'); ?></a>
           </div>
+          -->
           <header>
             <h1><?php print t('Usuaris'); ?> <strong>— <?php print t('Pacients'); ?></strong></h1>
           </header>
@@ -55,8 +57,7 @@
       </div>
       <div class="modal-body">
         <h4><?php print t('Sobre quins camps es realitza la cerca?'); ?></h4>
-        <p><?php print t('<strong>CIP i NHC</strong>, en cas de pacients que existeixin al <strong>HIS</strong>.'); ?></p>
-        <p><?php print t('<strong>CIP, NHC, NIF, NIE, passaport, nom, cognoms i telèfon</strong>, en cas de pacients que existeixin al <strong>Open Health Practice</strong>.'); ?></p>
+        <p><?php print t('Pels identificadors <strong>CIP</strong> i <strong>NHC</strong> dels pacients emmagatzemats al <strong>HIS</strong>.'); ?></p>
       </div>
     </div>
     <div id="confirmNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal confirmation hide fade">

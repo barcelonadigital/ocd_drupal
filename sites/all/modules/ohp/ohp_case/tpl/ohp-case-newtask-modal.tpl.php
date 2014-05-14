@@ -38,7 +38,7 @@
         <h3>Avís</h3>
       </div>
       <div class="modal-body">
-        <p>Si us plau, seleccioni la tasca que vol realitzar:</p>
+        <p>Si us plau, seleccioni la avaluació que vol realitzar:</p>
       </div>
       <div class="modal-footer">
         <div class="btn-block">

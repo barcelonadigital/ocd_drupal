@@ -45,7 +45,7 @@
 	      var val3 = +array[5];
 	      if (typeof a1 !== "undefined" && a1!=null &&
 	          typeof a0 !== "undefined" && a0!=null) {
-	    	var a1n = +(a1.value);
+	    	var a1n = +(a1.value.replace(/\./g, '').replace(',', '.'));
 	    	//alert(a1n);
 	    	if(a1n<min){
 	    	  a0.value=val1;

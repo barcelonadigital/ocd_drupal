@@ -35,6 +35,7 @@ function ohp_case_formcatsalut_page() {
   if(isset($_SESSION['admission_bean']) && isset($_SESSION['admission_bean']->id_admission) &&
       isset($_SESSION['case_bean']) && isset($_SESSION['case_bean']->id_case) &&
       isset($_GET['id_task']) && isset($_GET['id_form'])){
+
     $id_admission = $_SESSION['admission_bean']->id_admission;
     $id_case      = $_SESSION['case_bean']->id_case;
     $id_task      = $_GET['id_task'];
@@ -42,7 +43,6 @@ function ohp_case_formcatsalut_page() {
     $questions_map = array();
     load_form(NULL ,$id_form, $form_xml, $questions_map);
 
-    if($form_xml->data->name=='Variables'){
 
       $form['columns_container'] = array(
         '#type' => 'container',
@@ -181,30 +181,40 @@ function ohp_case_formcatsalut_page() {
       $form['columns_container']['column_right']['content'][] = array(
         '#markup' => '<span class="question">'.t('Observacions').'</span> <span class="answer">'.$observacions.'</span><br/>',
       );
-    }else if($form_xml->data->name=='CVSO'){
 
-    }
   }
   $form['ohp_case_formcatsalut_arguments'] = array(
     //Title serves as page subtitle
     '#title' => t('Sol·licitud d\'OCD a CatSalut'),
-    '#markup' => '<iframe src="https://salut.gencat.net/pls/gsa/gsapk030.portal" style="width:690px; height:375px;"></iframe>',
+    '#markup' => '<iframe src="https://salut.gencat.net/pls/gsa/gsapk030.portal" style="width:1000px; height:375px;"></iframe>',
   );
 
   $page_array['main'] = array(
     '#theme' => 'ohp_case_body',
   );
-  $page_array['main']['menu_container'] = array(
-    '#theme' => 'ohp_case_menu',
-    'is_active_menu_formularis' => TRUE,
-  );
+//   $page_array['main']['menu_container'] = array(
+//     '#theme' => 'ohp_case_menu',
+//     'is_active_menu_formularis' => TRUE,
+//   );
   $page_array['main']['pager_container'] = array(
     '#type' => 'container',
     '#attributes' => array(
-      'class' => array('content'),
+      'class' => array('content','full'),
     ),
   );
-  $form['#prefix'] = '<h2 class="newsession">'.t('Sol·licitud d\'OCD a CatSalut').'</h2>';
+
+  $task_status='';
+  if(isset($id_task) && $id_task!=''){
+    $id_task = $_GET['id_task'];
+    $task_bean = get_task($id_task);
+    $task_status = $task_bean->status;
+  }
+  $page_array['main']['pager_container']['controls'] = array(
+    '#theme' => 'ohp_case_formctrl',
+    '#selected_option' => t('Sol·licitud d\'OCD a CatSalut'),
+    '#task_status' => $task_status,
+  );
+  //$form['#prefix'] = '<h2 class="newsession">'.t('Sol·licitud d\'OCD a CatSalut').'</h2>';
   $page_array['main']['pager_container']['pager_table'] = $form;
 //   array(
 //     '#theme' => 'table',
@@ -218,26 +228,26 @@ function ohp_case_formcatsalut_page() {
   return $page_array;
 }
 
-function get_value_description($question_id, $questions_map) {
-  //var_dump(2);
-  if(isset($questions_map[$question_id])){
-    $question_obj = $questions_map[$question_id];
-    //var_dump($question_obj);
-    if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
-      foreach ($question_obj->options->option as $option) {
-        if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
-          return (string)$option->description;
-        }
-      }
-    }else if($question_obj->type=='DATE'){
-      //var_dump($question_obj);
-      return date('d/m/Y',(string)$question_obj->value);
-    }else{
-      return (string)$question_obj->value;
-    }
-  }
-  return "";
-}
+// function get_value_description($question_id, $questions_map) {
+//   //var_dump(2);
+//   if(isset($questions_map[$question_id])){
+//     $question_obj = $questions_map[$question_id];
+//     //var_dump($question_obj);
+//     if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
+//       foreach ($question_obj->options->option as $option) {
+//         if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
+//           return (string)$option->description;
+//         }
+//       }
+//     }else if($question_obj->type=='DATE'){
+//       //var_dump($question_obj);
+//       return date('d/m/Y',(string)$question_obj->value);
+//     }else{
+//       return (string)$question_obj->value;
+//     }
+//   }
+//   return "";
+// }
 
 
 

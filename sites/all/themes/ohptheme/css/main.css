@@ -9367,7 +9367,7 @@ fieldset .help-inline {
     width: 318px;
 }
 .columnboxes .column.por2 {
-    width: 364px;
+    width: 489px;
 }
 .columnboxes .column fieldset .question {
     font-weight:bold;
@@ -10245,6 +10245,32 @@ a.back {
 	line-height: 15px;
 	color: #989898;
 }
+#task_controls a {
+    vertical-align: middle;
+}
+#task_controls div.dropdown {
+    display: inline-block;
+    margin-left: 20px;
+}
+#task_controls a.btn-finish {
+	padding: 5px 0px 5px 0px;
+	width: 67px;
+	margin-left: 10px;
+	font-size: 12px;
+	text-transform: none;
+	text-align: center;
+	text-indent: 0;
+	height: auto;
+	float: right;
+}
+#table_task tr td span.status {
+    display: block;
+    padding: 25px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 38px;
+    width: 255px;
+}
 #table_task tr td span.month {
 	display: block;
 	padding: 13px 10px 0 22px;
@@ -10272,6 +10298,9 @@ a.back {
 }
 #table_task tr td:nth-child(2) {
     width: 659px;
+}
+#table_task tr td:nth-child(3) {
+    width: 255px;
 }
 #table_result tr.even {
     background-color: #f5f6f7;
