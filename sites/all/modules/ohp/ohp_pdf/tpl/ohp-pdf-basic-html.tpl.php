@@ -1,29 +1,19 @@
-<?php
-/**
- * @file
- * Example template file for TCPDF Example module.
- */
-?>
 <html>
   <body>
+    <p></p>
     <table border="0">
 	  <tr>
-        <td> </td>
-		<td ALIGN="center"><b> CONSULTA DE VALIDACIÓ </b></td>
-        <td> </td>
-      </tr>
-	  <tr>
-        <td> </td>
-		<td ALIGN="center"><b> I SEGUIMENT D'OXIGENOTERÀPIA </b></td>
-        <td> </td>
-      </tr>
-      <tr>
-        <td><b>PACIENT: <?php  print $cognom_nom; ?></b></td>
-		<td> </td>
-        <td><b>NHC: <?php  print $nhc; ?></b></td>
+		<td ALIGN="center"><span style="font-family:<?php print $GLOBALS['fontname_2'] ?>;font-size:12pt;">CONSULTA DE VALIDACIÓ<br>I SEGUIMENT D'OXIGENOTERÀPIA</span></td>
       </tr>
 	</table>
-	<p></p>
+    <table border="0">
+      <tr>
+        <td><span style="font-family:<?php print $GLOBALS['fontname_2'] ?>;font-size:12pt;"><?php  print $cognom_nom; ?></span></td>
+		<td> </td>
+        <td><span style="font-family:<?php print $GLOBALS['fontname_2'] ?>;font-size:12pt;">NHC: <?php  print $nhc; ?></span></td>
+      </tr>
+	</table>
+	<br>
 	<hr>
 	<table border="0">
       <tr>
@@ -32,8 +22,7 @@
         <td>Edad/Edat: <?php  print $age; ?></td>
       </tr>
       <tr>
-        <td>Dirección/Adreça: <?php  print $address; ?></td>
-		<td> </td>
+        <td colspan="2">Dirección/Adreça: <?php  print $address; ?></td>
         <td>CP: <?php  print $postcode; ?></td>
       </tr>
       <tr>
@@ -62,11 +51,11 @@
         <td> </td>
       </tr>
      </table>
-	 <p></p>
+	 <br>
 	 <hr>
 	<table border="0">
     <tr>
-       <td><b>Realización/Realització</b></td>
+       <td><span style="font-family:<?php print $GLOBALS['fontname_2'] ?>;font-size:12pt;">Realización/Realització</span></td>
        <td>Fecha/Data: <?php print date("j.m.Y"); ?></td>
        <td>Hora: <?php print date("H:i:s"); ?></td>
      </tr>
@@ -76,7 +65,6 @@
        <td> </td>
      </tr>
 	<hr>
-	<p ALIGN="center"><b>INFORME SOL-LICITUT / CANVIS / RETIRADA / RENOVACIÓ</b></p>
+	<p ALIGN="center"><span style="font-family:<?php print $GLOBALS['fontname_2'] ?>;font-size:12pt;">INFORME SOL-LICITUT / CANVIS / RETIRADA / RENOVACIÓ</span></p>
 	<?php  print $body; ?>
-  </body>
 </html>

@@ -61,7 +61,7 @@ function load_form($token ,$id_form, &$form_xml, &$questions_map) {
 }
 
 function get_numeric_array(){
-  return array('21','22','23','24','25','28','29','32','33','35','38','46','47','48','49','66','67','72','73','74','82','83','84','85','86','103');
+  return array('21','22','23','24','25','28','29','32','33','35','38','46','47','48','49','66','67','72','73','74','76','82','83','84','85','86','103');
 }
 
 function get_form_object($form_id){
@@ -95,8 +95,13 @@ function get_form_struct(){
             'items'=>array(array("14","15"),array("16","17"),array("18")),
             'hidden'=>array(),
         ),
+        'factors'=>array(
+            'title'=>t('Factors de risc i hàbits de vida'),
+            'items'=>array(array("64"),array("65","66"),array("67"),array("68"),array("69")),
+            'hidden'=>array(),
+        ),
         'proves'=>array(
-            'title'=>t('Proves complementàries'),
+            'title'=>t('Proves funcionals respiratòries'),
             'groups'=>array(
                 'test'=>array(
                     'title'=>t('Test de la marxa (6 minuts)'),
@@ -127,19 +132,6 @@ function get_form_struct(){
                 "50"),array("51"),array("52","53"),array("54")),
             'hidden'=>array("45"),
         ),
-        'planificacio'=>array(
-            'title'=>t('Pla terapèutic'),
-            'items'=>array(array("55","56"),array("57","58"),array("59"),array("60"),
-                array("104","105"),array("106","107"),array("108","109"),
-                array("110"),array("111"),array("112"),array("113","114"),array("115","116"),array("117","118"),array("119",
-                "120"),array("121","122"),array("123","124"),array("125","126"),array("127")),
-            'hidden'=>array(),
-        ),
-        'factors'=>array(
-            'title'=>t('Factors de risc i hàbits de vida'),
-            'items'=>array(array("64"),array("65","66"),array("67"),array("68"),array("69")),
-            'hidden'=>array(),
-        ),
         'adherencia'=>array(
             'title'=>t('Adequació i adherència'),
             'items'=>array(array("90","91"),array("92"),array("93","94"),
@@ -149,6 +141,19 @@ function get_form_struct(){
         'percepcio'=>array(
             'title'=>t('Percepció del pacient'),
             'items'=>array(array("101","102"),array("103")),
+            'hidden'=>array(),
+        ),
+        'planificacio'=>array(
+            'title'=>t('Pla terapèutic'),
+            'items'=>array(array("55","56"),array("57","58"),array("59"),
+                array("104","105"),array("106","107"),array("108","109"),
+                array("110"),array("111"),array("112"),array("113","114"),array("115","116"),array("117","118"),array("119",
+                "120"),array("121","122"),array("123","124"),array("125","126"),array("127")),
+            'hidden'=>array(),
+        ),
+        'comentaris'=>array(
+            'title'=>t('Comentaris'),
+            'items'=>array(array("60")),
             'hidden'=>array(),
         ));
 }

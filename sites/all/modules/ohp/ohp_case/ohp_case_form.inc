@@ -1,7 +1,5 @@
 <?php
 
-include 'ohp_case_form.utils.inc';
-
 /**
  * @file
  * Module file for case_task_module.
@@ -141,9 +139,20 @@ function ohp_case_form_page() {
           )
         ),
       );
+      $form['columns_container']['column_middle']['comentaris'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Comentaris'),
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
       $form['columns_container']['column_right']['proves'] = array(
         '#type' => 'fieldset',
-        '#title' => t('Proves complementàries'),
+        '#title' => t('Proves funcionals respiratòries'),
         '#attributes' => array (
           'class' => array(
             'collapsible','ohp-form-summary'
@@ -187,7 +196,12 @@ function ohp_case_form_page() {
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_bean->status);
 
       $id_title = NULL;
-      $ids_array = array("55","56","57","58","59","60");
+      $ids_array = array("60");
+      add_group_form('comentaris',$form['columns_container']['column_middle']['comentaris'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_bean->status);
+
+      $id_title = NULL;
+      $ids_array = array("55","56","57","58","59");
       add_group_form('planificacio',$form['columns_container']['column_middle']['planificacio'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_bean->status);
       //var_dump($questions_map);
@@ -291,9 +305,20 @@ function ohp_case_form_page() {
           )
         ),
       );
+      $form['columns_container']['right_container']['column_left']['comentaris'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Comentaris'),
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+        '#attributes' => array (
+          'class' => array(
+            'collapsible','ohp-form-summary'
+          )
+        ),
+      );
       $form['columns_container']['right_container']['column_right']['proves'] = array(
         '#type' => 'fieldset',
-        '#title' => t('Proves complementàries'),
+        '#title' => t('Proves funcionals respiratòries'),
         '#attributes' => array (
           'class' => array(
             'collapsible','ohp-form-summary'
@@ -370,7 +395,12 @@ function ohp_case_form_page() {
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_bean->status);
 
       $id_title = NULL;
-      $ids_array = array("55","56","57","58","59","60",
+      $ids_array = array("60");
+      add_group_form('comentaris',$form['columns_container']['right_container']['column_left']['comentaris'],
+          $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_bean->status);
+
+      $id_title = NULL;
+      $ids_array = array("55","56","57","58","59",
           "104","105","106","107","108","109",
           "110","111","112","113","114","115","116","117","118","119",
           "120","121","122","123","124","125","126","127");

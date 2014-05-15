@@ -47,12 +47,13 @@
             </div>
           </li>
           <li><a href="#" data-toggle="dropdown" class="tasks">
-              <strong><?php print t('Avaluacions'); ?></strong><span><?php print t('Pendents, ...'); ?></span></a>
+              <strong><?php print t('Avaluacions'); ?></strong><span><?php print t('Pendents, finalitzades, ...'); ?></span></a>
             <div class="dropdown-menu">
 
               <div class="task_links">
                 <ul>
-                <li><a href="<?php echo url('ohp/ohp_task_assigned'); ?>"><?php print t('Pendents'); ?></a></li>
+                <li><a href="<?php echo url('ohp/ohp_task_assigned_active'); ?>"><?php print t('Pendents'); ?></a></li>
+                <li><a href="<?php echo url('ohp/ohp_task_assigned_done'); ?>"><?php print t('Finalitzades'); ?></a></li>
                 <!--
                 <logic:present name="caseBean">
 			    <logic:present name="actionsTransfer">

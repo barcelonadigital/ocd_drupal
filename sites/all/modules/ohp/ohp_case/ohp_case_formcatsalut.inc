@@ -1,7 +1,5 @@
 <?php
 
-include 'ohp_case_form.utils.inc';
-
 /**
  * @file
  * Module file for case_task_module.
@@ -29,7 +27,7 @@ function ohp_case_formcatsalut_page() {
   $form = array();
   ohp_case_load_common($form);
   $page_array['page_header'] = array(
-    '#theme' => 'ohp_case_header',
+    '#theme' => 'ohp_case_header_form',
   );
 
   if(isset($_SESSION['admission_bean']) && isset($_SESSION['admission_bean']->id_admission) &&

@@ -23,6 +23,7 @@ function ohp_user_login(&$edit, $account) {
     $_SESSION['user_full_name'] = '';
   }
   $_SESSION['user_center'] = 'Hospital Clínic';
+  $_SESSION['id_user'] = $account->uid;
   $_SESSION['case_bean'] = NULL;
   $_SESSION['admission_bean'] = NULL;
 }

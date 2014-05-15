@@ -56,7 +56,7 @@ function ohp_case_result_page() {
     $page_array['pager_table'] = array(
       '#theme' => 'table',
       '#header' => array(t('CIP'), t('NIF'), t('Nom complert')),
-      '#attributes' => array('id' => array('table_result'),),
+      '#attributes' => array('class' => array('table_result'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
     );

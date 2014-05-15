@@ -46,7 +46,7 @@ function get_cognom_nom($given_name, $middle_name, $family_name, $family_name2) 
   $result .= " ".$family_name2;
   $result .= ", ".$given_name;
   $result .= " ".$middle_name;
-  return $result;
+  return strtoupper($result);
 }
 
 function get_birthday($birthday) {
@@ -109,16 +109,57 @@ function add_group_docform(&$count_questions,$questions_map,$ids_array,$hiddens_
   return $result;
 }
 
+// GLOBALS
+$fontname;
+$fontname_2;
+
 /**
  * Generates a pdf file using TCPDF module.
  *
  * @return string Binary string of the generated pdf.
  */
 function ohp_pdf_prescription_pdf($id_form) {
+
+  // Never make an instance of TCPDF or TCPDFDrupal classes manually.
+  // Use tcpdf_get_instance() instead.
+  $tcpdf = tcpdf_get_instance();
+  /* DrupalInitialize() is an extra method added to TCPDFDrupal that initializes
+  *  some TCPDF variables (like font types), and makes possible to change the
+  *  default header or footer without creating a new class.
+  */
+  $tcpdf->DrupalInitialize(array(
+    'footer' => array(
+      'callback' => array(
+        'function' => 'ohp_pdf_default_footer',
+        // You can pass extra data to your callback.
+        'context' => array(
+          'welcome_message' => 'hea dsajh kjas hdjak der',
+        ),
+      ),
+    ),
+    'header' => array(
+      'callback' => array(
+        'function' => 'ohp_pdf_default_header',
+        // You can pass extra data to your callback.
+        'context' => array(
+          'welcome_message' => 'hea dsajh kjas hdjak der',
+        ),
+      ),
+    ),
+  ));
+
+  $tcpdf->SetFooterMargin(28);
+  $tcpdf->SetMargins(20, 50, 20);
+  $tcpdf->SetAutoPageBreak(TRUE, 28);
+
+  $GLOBALS['fontname'] = $tcpdf->addTTFfont(drupal_realpath(drupal_get_path('module', 'ohp') . '/ohp_pdf/fonts/trebuc.ttf'), 'Trebuchet', '', 32);
+  $GLOBALS['fontname_2'] = $tcpdf->addTTFfont(drupal_realpath(drupal_get_path('module', 'ohp') . '/ohp_pdf/fonts/trebucbd.ttf'), 'TrebuchetBOLD', '', 32);
+  // use the font
+  $tcpdf->SetFont($GLOBALS['fontname'], '', 10, '', false);
+
   // Get the content we want to convert into pdf.
   $html = '';
   $variables = array();
-  //var_dump($_GET['id_form']);
   if(isset($_SESSION['case_bean'])){
     $case_bean_stored  = $_SESSION['case_bean'];
 
@@ -152,22 +193,20 @@ function ohp_pdf_prescription_pdf($id_form) {
     $body  = '';
     foreach ($struct_form as $struct_item) {
       if(!isset($struct_item['groups'])){
-// var_dump(!isset($struct_item['groups']));
-// drupal_set_message(!isset($struct_item['groups']));
         $count_questions=0;
         $result = add_group_docform($count_questions,$questions_map,$struct_item['items'],$struct_item['hidden']);
         if($count_questions>0){
           if(isset($struct_item['hide_title']) && $struct_item['hide_title']==TRUE){
-            $body .= '<table>'.$result.'</table>';
+            $body .= '<table>'.$result.'</table><br><br>';
           }else{
-            $body .= '<p><strong>'.$struct_item['title'].'</strong></p>';
             $body .= '<table>';
+            $body .= '<tr><td><span style="font-family:'.$GLOBALS['fontname_2'].';font-size:10pt;">'.$struct_item['title'].'</span></td><td>&nbsp;</td></tr>';
             if($result==''){
               $body .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td></tr>';
             }else{
               $body .= $result;
             }
-            $body .= '</table>';
+            $body .= '</table><br><br>';
           }
         }
       }else{
@@ -190,12 +229,12 @@ function ohp_pdf_prescription_pdf($id_form) {
           }
         }
         if($groups_result!=''){
-          $body .= '<p><strong>'.$struct_item['title'].'</strong></p>';
-          $body .= '<table>'.$groups_result.'</table>';
+          $body .= '<table>';
+          $body .= '<tr><td><span style="font-family:'.$GLOBALS['fontname_2'].';font-size:10pt;">'.$struct_item['title'].'</span></td><td>&nbsp;</td></tr>';
+          $body .= ''.$groups_result.'</table><br><br>';
         }
       }
     }
-    //drupal_set_message($body);
 
     $variables = array(
       'sex'        => $sex_for_report,
@@ -212,57 +251,8 @@ function ohp_pdf_prescription_pdf($id_form) {
     );
   }
   $html = theme('ohp_pdf_basic_html',$variables);
+  //drupal_set_message($html);
 
-
-  // Never make an instance of TCPDF or TCPDFDrupal classes manually.
-  // Use tcpdf_get_instance() instead.
-  $tcpdf = tcpdf_get_instance();
-  $tcpdf->SetMargins(125.0, 140, 25.0);
-  /* DrupalInitialize() is an extra method added to TCPDFDrupal that initializes
-  *  some TCPDF variables (like font types), and makes possible to change the
-  *  default header or footer without creating a new class.
-  */
-  $tcpdf->DrupalInitialize(array(
-    'footer' => array(
-      'html' => '<table border="0">
-				  <tr>
-					<td>El Hospital Clínic ha incorporado sus datos al Fichero de</td>
-					<td ALIGN="center">HOSPITAL CLÍNIC DE BARCELONA</td>
-					<td>L\' Hospital Clínic ha incorporat les seves dades al</td>
-				  </tr>
-				  <tr>
-					<td>Pacientes, para tratarlos con fines sanitarios.</td>
-					<td ALIGN="center">Villarroel,170 08036-Barcelona (España)</td>
-					<td>Fitxer de Pacients, per a tractar-los amb finalitats</td>
-				  </tr>
-				  <tr>
-					<td>Puede ejercer sus derechos de acceso, rectificación,</td>
-					<td ALIGN="center">Sabino de Arana ,1 08028-Barcelona (España)</td>
-					<td>sanitàries. Pot exercir els seus drets d\'accés,</td>
-				  </tr>
-				  <tr>
-					<td>cancelación y oposición, así como obtener mas información</td>
-					<td ALIGN="center">Tel. 93 227 54 00 Fax 93 227 54 54</td>
-					<td>rectificació, cancel-lació i oposició, i obtenir més</td>
-				  </tr>
-				  <tr>
-					<td>en la Unidad de \Atención al Cliente.</td>
-					<td ALIGN="center">http://www.hospitalclinic.org/</td>
-					<td>informació a la Unitat d\'Atenció al Client.</td>
-				  </tr>
-				</table>',
-
-    ),
-    'header' => array(
-      'callback' => array(
-        'function' => 'ohp_pdf_default_header',
-        // You can pass extra data to your callback.
-        'context' => array(
-          'welcome_message' => 'hea dsajh kjas hdjak der',
-        ),
-      ),
-    ),
-  ));
   // Insert the content. Note that DrupalInitialize automaticly adds the first
   // page to the pdf document.
   $tcpdf->writeHTML($html);
@@ -270,22 +260,36 @@ function ohp_pdf_prescription_pdf($id_form) {
   return $tcpdf->Output('', 'S');
 }
 
-
-// Page footer
- function footer() {
-	// Position at 15 mm from bottom
-	$this->SetY(-15);
-	// Set font
-	$this->SetFont('Trebuchet', '', 8);
-	// Page number
-
-	$pageNumbers = 'Page '.$this->getAliasNumPage().' of '.$this->getAliasNbPages();
-
-	$this->Cell(0, 10, $pageNumbers, 0, false, 'C', 0, '', 0, false, 'T', 'M');
-
+function ohp_pdf_default_footer(&$tcpdf, $context) {
+  $text_column_1  = "El Hospital Clínic ha incorporado sus datos al Fichero de\n";
+  $text_column_1 .= "Pacientes, para tratarlos con fines sanitarios.\n";
+  $text_column_1 .= "Puede ejercer sus derechos de acceso, rectificación,\n";
+  $text_column_1 .= "cancelación y oposición, así como obtener mas información\n";
+  $text_column_1 .= "en la Unidad de Atención al Cliente.";
+  $text_column_2  = "HOSPITAL CLÍNIC DE BARCELONA\n";
+  $text_column_2 .= "Villarroel,170 08036-Barcelona (España)\n";
+  $text_column_2 .= "Sabino de Arana ,1 08028-Barcelona (España)\n";
+  $text_column_2 .= "Tel. 93 227 54 00 Fax 93 227 54 54\n";
+  $text_column_2 .= "http://www.hospitalclinic.org/";
+  $text_column_3  = "L'Hospital Clínic ha incorporat les seves dades al\n";
+  $text_column_3 .= "Fitxer de Pacients, per a tractar-los amb finalitats\n";
+  $text_column_3 .= "sanitàries. Pot exercir els seus drets d'accés,\n";
+  $text_column_3 .= "rectificació, cancel·lació i oposició, i obtenir més\n";
+  $text_column_3 .= "informació a la Unitat d\'Atenció al Client.";
+  $tcpdf->SetFont($GLOBALS['fontname'], '', 10, '', false);
+  $tcpdf->MultiCell(60, 3, '', 0, 'L', 0, false,20);
+  $tcpdf->MultiCell(60, 3, "Vers.", 0, 'C', 0, false);
+  $tcpdf->MultiCell(60, 3, '', 0, 'L', 0, false);
+  $tcpdf->Ln();
+  $tcpdf->MultiCell(60, 3, '', 0, 'L', 0, false,20);
+  $tcpdf->MultiCell(60, 3, "              Pag. ".$tcpdf->getAliasNumPage()." de ".$tcpdf->getAliasNbPages(), 0, 'C', 0, false);
+  $tcpdf->MultiCell(60, 3, '', 0, 'L', 0, false);
+  $tcpdf->SetFont($GLOBALS['fontname'], '', 6, '', false);
+  $tcpdf->Ln();
+  $tcpdf->MultiCell(60, 0, $text_column_1, 0, 'L', 0, false,20);
+  $tcpdf->MultiCell(60, 0, $text_column_2, 0, 'C', 0, false);
+  $tcpdf->MultiCell(60, 0, $text_column_3, 0, 'L', 0, false);
 }
-
-
 /**
  * Callback for generating the header. This function acts like if it overridded
  *   the Header() function of tcpdf class except the tcpdf instance is not $this
@@ -296,14 +300,5 @@ function ohp_pdf_prescription_pdf($id_form) {
  */
 function ohp_pdf_default_header(&$tcpdf, $context) {
   // $args contains passed variable...
-  $theme_settings = variable_get('theme_' . variable_get('theme_default', '') . '_settings', '');
-  if (isset($theme_settings['logo_path']) && (file_exists($theme_settings['logo_path']))) {
-    $tcpdf->Image(drupal_realpath($theme_settings['logo_path']), 10, 10, 30, 0, '', variable_get('site_url', ''), '', TRUE, 150, '', FALSE, FALSE, 0, FALSE, FALSE, FALSE);
-  }
-
-  $fontname = $tcpdf->addTTFfont(drupal_realpath(drupal_get_path('module', 'ohp') . '/ohp_pdf/fonts/trebuc.ttf'), '', '', 32);
-  // use the font
-  $tcpdf->SetFont($fontname, '', 14, '', false);
-
-  $tcpdf->Write(0, $context['welcome_message'], '', 0, 'J', true, 0, false, true, 0);
+  $tcpdf->Image(drupal_realpath(drupal_get_path('module', 'ohp') . '/ohp_pdf/image/HOSPITAL.jpg'), 10, 10, 43, 0, '', '', '', TRUE, 150, '', FALSE, FALSE, 0, FALSE, FALSE, FALSE);
 }

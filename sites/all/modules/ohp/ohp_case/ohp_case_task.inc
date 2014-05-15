@@ -42,12 +42,12 @@ function ohp_case_task_page() {
       $month = date('M',$row->date);
       $year = date('Y',$row->date);
       $long_desc = NULL;
-      if("VARIABLES"==strtoupper($row->description)){
-        $row->description = 'Prescripció d\'OCD';
-        $long_desc = 'QÜESTIONARI VARIABLES. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
-      }else if("CVSO"==strtoupper($row->description)){
-        $row->description = 'Visita de seguiment';
-        $long_desc = 'QÜESTIONARI CVSO. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
+      if("Prescripció d'OCD"==$row->description){
+        //$row->description = 'Prescripció d\'OCD';
+        $long_desc = 'Característiques de la sol·licitud. Diagnòstic. Proves funcionals respiratòries. Equips de teràpia respiratòria. Pla terapèutic.';
+      }else if("Visita de seguiment"==$row->description){
+        //$row->description = 'Visita de seguiment';
+        $long_desc = 'Característiques de la sol·licitud. Diagnòstic. Factors de risc i hábits de vida. Proves funcionals respiratòries. Equips de teràpia respiratòria. Adequació i adherència. Percepció del pacient. Pla terapèutic.';
       }else if("DISCHARGE"==$row->type){
         $long_desc = 'QÜESTIONARI REGISTRE D\'ALTA DEL PROGRAMA. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
       }

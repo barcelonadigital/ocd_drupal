@@ -221,6 +221,41 @@ function get_admission($admission_id) {
 /**
  * Custom content function.
  *
+ * Retrieve user tasks from database.
+ *
+ * @return
+ *   A set of tasks from the admission.
+ */
+function get_user_tasks($id_user,$status) {
+
+  $query = db_select('ohp_task', 'n');
+  $query->join('ohp_task_role', 'p', 'n.id_task = p.id_task');
+  $query->join('ohp_user_role', 'q', 'q.id_role = p.id_role');
+  $query->join('ohp_activity', 'o', 'o.id_activity = n.id_activity');
+  $query->join('ohp_identification', 'r', 'r.user_uid = q.user_uid');
+  $query->addField('n', 'status');
+  $query->addField('n', 'date');
+  $query->addField('n', 'type');
+  $query->addField('n', 'id_task');
+  $query->addField('n', 'id_activity');
+  $query->addField('n', 'id_admission');
+  $query->addField('o', 'description');
+  $query->addField('r', 'given_name');
+  $query->addField('r', 'middle_name');
+  $query->addField('r', 'family_name');
+  $query->addField('r', 'family_name2');
+  $query->condition('q.user_uid',$id_user,'=');
+  $query->condition('n.status',$status,'=');
+  $query->orderBy('n.date', 'DESC');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
  * Retrieve admission tasks from database.
  *
  * @return
@@ -440,6 +475,26 @@ function update_task_status($id_task, $status) {
  *
  * Insert task in database.
  */
+function update_task_role($id_task,$id_role) {
+  $query = db_select('ohp_task_role');
+  $query->addExpression('MAX(id_task_role)');
+  $max= $query->execute()->fetchField();
+
+  $entry = array(
+    'id_task_role' => $max+1,
+    'id_role' => $id_role,
+    'id_task' => $id_task,
+  );
+  $count = db_insert('ohp_task_role')
+    ->fields($entry)
+    ->execute();
+}
+
+/**
+ * Custom update function.
+ *
+ * Insert task in database.
+ */
 function insert_task($id_admission,$id_activity) {
 
   $query = db_select('ohp_task');
@@ -449,14 +504,9 @@ function insert_task($id_admission,$id_activity) {
   $value = getdate();
   $today = mktime(0, 0, 0, $value['mon'], $value['mday'], $value['year']);
 
-  if($id_activity=="#TASK:N261"){
-    $id_activity = 2;
-  }else if($id_activity=="#TASK:N253"){
-    $id_activity = 1;
-  }
   $id_task = $max+1;
   $entry = array(
-    'id_task' => $max+1,
+    'id_task' => $id_task,
     'id_activity' => $id_activity,
     'id_admission' => $id_admission,
     'status' => 'ACTIVE',
@@ -568,6 +618,8 @@ function insert_task($id_admission,$id_activity) {
     $enrol_date = mktime($value['hours'], $value['minutes'], 0, $value['mon'], $value['mday'], $value['year']);
     update_admission($id_admission,$enrol_date,'ACTIVE');
   }
+
+  return $id_task;
 }
 
 function get_age( $then_ts )

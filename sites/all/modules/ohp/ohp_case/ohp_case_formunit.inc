@@ -1,7 +1,5 @@
 <?php
 
-require 'ohp_case_form.utils.inc';
-
 /**
  * @file
  * Module file for case_task_module.
