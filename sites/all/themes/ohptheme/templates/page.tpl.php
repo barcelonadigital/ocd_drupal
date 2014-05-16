@@ -38,8 +38,11 @@
               <div class="user_data">
                 <div><strong><?php print t('Pacient actual'); ?></strong></div>
                 <div class="user"><?php print $_SESSION['case_bean']->fullname; ?></div>
-              </div>
-              <div class="newpacient"><a class="brand" href="<?php echo url('ohp/ohp_case'); ?>"><?php print t('Seleccionar un <br>altre pacient'); ?></a></div>
+                <ul>
+                  <li><a href="<?php echo url('ohp/ohp_case_main'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>"><?php print t('Fitxa del pacient'); ?></a></li>
+                </ul>
+                </div>
+              <div class="newpacient"><a class="brand" href="<?php echo url('ohp/ohp_case_unselect'); ?>"><?php print t('Seleccionar un <br>altre pacient'); ?></a></div>
               <?php endif; ?>
               <?php if (!isset($_SESSION['case_bean'])): ?>
               <div class="newpacient"><a class="brand" href="<?php echo url('ohp/ohp_case'); ?>"><?php print t('Seleccionar <br>pacient'); ?></a></div>

@@ -168,8 +168,26 @@ function ohp_case_menu() {
     'access arguments' => array('access ohp_case_search content'),
     'file' => 'ohp_case_taskstatus.inc',
   );
+  $items['ohp/ohp_case_taskdelete'] = array(
+    'title' => 'Eliminar tasca',
+    'page callback' => 'ohp_case_task_delete',
+    'access arguments' => array('access ohp_case_search content'),
+    'file' => 'ohp_case_taskstatus.inc',
+  );
+  $items['ohp/ohp_case_unselect'] = array(
+    'title' => 'Seleccionar un altre pacient',
+    'page callback' => 'ohp_case_unselect_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+  );
   
   return $items;
+}
+
+function ohp_case_unselect_page() {
+  $_SESSION['case_bean'] = NULL;
+  $_SESSION['admission_bean'] = NULL;
+  drupal_goto('ohp/ohp_case');
 }
 
 /**
@@ -219,6 +237,10 @@ function ohp_case_theme() {
         'selected_option' => NULL,
         'task_status' => NULL,
       ),
+    ),
+    'ohp_case_confirm'  => array(
+      'render element' => 'elements',
+      'template' => 'tpl/ohp-case-confirm-modal',
     ),
   );
 }

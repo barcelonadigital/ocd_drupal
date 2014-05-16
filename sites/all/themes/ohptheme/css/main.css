@@ -10353,6 +10353,9 @@ a.back {
 .table_result.table_assigned tr td:nth-child(3) {
     width: 364px;
 }
+.menuizqlayout>.container>.content.full.centered {
+    width: 90%;
+}
 .pagination .status {
     background-image:none;
     background-color: transparent;

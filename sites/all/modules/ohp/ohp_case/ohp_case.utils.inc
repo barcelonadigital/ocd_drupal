@@ -256,6 +256,27 @@ function get_user_tasks($id_user,$status) {
 /**
  * Custom content function.
  *
+ * Retrieve user roles from database.
+ *
+ * @return
+ *   A set of roles from the user.
+ */
+function get_user_roles($id_user) {
+
+  $query = db_select('ohp_user_role', 'n');
+  $query->join('ohp_role', 'p', 'n.id_role = p.id_role');
+  $query->addField('p', 'description');
+  $query->condition('n.user_uid',$id_user,'=');
+  $query->orderBy('p.description', 'ASC');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
  * Retrieve admission tasks from database.
  *
  * @return
@@ -464,6 +485,43 @@ function update_task_status($id_task, $status) {
   );
   $count = db_update('ohp_task')
     ->fields($entry)
+    ->condition('id_task', $id_task)
+    ->execute();
+
+  return $count;
+}
+
+
+
+/**
+ * Custom update function.
+ *
+ * Delete task in database.
+ */
+function delete_task($id_task) {
+
+
+  $query = db_select('ohp_form', 'n');
+  $query->addField('n', 'id_form');
+  $query->condition('n.id_task',$id_task,'=');
+
+  $result = $query->execute();
+
+  foreach ($result as $row) {
+    $count = db_delete('ohp_answer')
+      ->condition('id_form', $row->id_form)
+      ->execute();
+  }
+
+  $count = db_delete('ohp_form')
+    ->condition('id_task', $id_task)
+    ->execute();
+
+  $count = db_delete('ohp_task_role')
+    ->condition('id_task', $id_task)
+    ->execute();
+
+  $count = db_delete('ohp_task')
     ->condition('id_task', $id_task)
     ->execute();
 

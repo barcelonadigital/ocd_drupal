@@ -22,6 +22,39 @@
  *
  * Our menu maps this function to the path 'ohp/tasks_assigned'.
  */
+function ohp_case_task_delete() {
+
+  if(isset($_SESSION['admission_bean']) && isset($_SESSION['admission_bean']->id_admission) &&
+      isset($_SESSION['case_bean']) && isset($_SESSION['case_bean']->id_case) &&
+      isset($_GET['id_task']) && isset($_GET['id_form'])){
+    $id_admission = $_SESSION['admission_bean']->id_admission;
+    $id_case      = $_SESSION['case_bean']->id_case;
+    $id_task      = $_GET['id_task'];
+    $id_form      = $_GET['id_form'];
+
+    delete_task($id_task);
+
+    drupal_set_message(t('Els canvis s\'han desat correctament.'));
+    drupal_goto('ohp/ohp_case_main', array('query' => array(
+                'id_admission' => $id_admission, 'id_case' => $id_case)));
+  }else{
+    $page_array = array();
+    ohp_case_load_common($page_array);
+    $page_array['page_header'] = array(
+      '#theme' => 'ohp_case_header',
+    );
+    $page_array['main'] = array(
+      '#theme' => 'ohp_case_body',
+    );
+    $page_array['main']['pager_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array('content'),
+      ),
+    );
+    return $page_array;
+  }
+}
 function ohp_case_task_reopen() {
   return ohp_case_task_update('OPEN', 'ACTIVE');
 }

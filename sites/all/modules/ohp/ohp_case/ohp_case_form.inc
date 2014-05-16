@@ -419,6 +419,9 @@ function ohp_case_form_page() {
     ),
   );
   $page_array['main']['pager_container']['pager_table'] = $form;
+  $page_array['confirm_modal'] = array(
+    '#theme' => 'ohp_case_confirm',
+  );
 
   drupal_add_css(drupal_get_path('module', 'ohp_case') . '/css/ohp_case_form.css');
   return $page_array;

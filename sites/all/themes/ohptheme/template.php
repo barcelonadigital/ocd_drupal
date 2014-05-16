@@ -54,3 +54,32 @@ function ohp_pager($tags = array(), $limit = 10, $element = 0, $parameters = arr
         return $output;
     }
 }
+
+function ohptheme_preprocess_html(&$variables) {
+  $variables['classes_array'][] = $variables['logged_in'] ? '' : 'login';
+}
+
+function ohptheme_theme(&$existing, $type, $theme, $path) {
+  $items = array();
+  // create custom user-login.tpl.php
+  $items['user_login'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'ohptheme') . '/templates',
+    'template' => 'user-login',
+    'preprocess functions' => array(
+      'ohptheme_preprocess_user_login'
+    ),
+  );
+  $items['user'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'ohptheme') . '/templates',
+    'template' => 'user-login',
+    'preprocess functions' => array(
+      'ohptheme_preprocess_user_login'
+    ),
+  );
+  return $items;
+}
+// function ohptheme_preprocess_user_login(&$variables) {
+//   $variables['classes_array'][] = 'new-class';
+// }

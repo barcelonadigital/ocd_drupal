@@ -40,7 +40,7 @@ function ohp_case_formunit_page() {
     ),
   );
   $page_array['main']['pager_container']['pager_table'] = drupal_get_form('ohp_case_formunit');
-  $page_array['main']['pager_container']['formhints_modal'] = array(
+  $page_array['formhints_modal'] = array(
     '#theme' => 'ohp_case_formhints',
   );
 

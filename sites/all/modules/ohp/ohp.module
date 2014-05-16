@@ -26,4 +26,10 @@ function ohp_user_login(&$edit, $account) {
   $_SESSION['id_user'] = $account->uid;
   $_SESSION['case_bean'] = NULL;
   $_SESSION['admission_bean'] = NULL;
+  drupal_goto('ohp/ohp_case');
+}
+
+function ohp_user_logout($account) {
+  session_destroy();
+  drupal_goto('user/login');
 }

@@ -37,7 +37,7 @@
             <?php endif; ?>
           </div>
           <div class="actionstop">
-            <a href="<?php echo url('ohp/ohp_case'); ?>" class="btn btn-large"><?php echo t('Seleccionar un altre pacient'); ?></a>
+            <a href="<?php echo url('ohp/ohp_case_unselect'); ?>" class="btn btn-large"><?php echo t('Seleccionar un altre pacient'); ?></a>
           </div>
           <div class="contactinfo">
             <div class="dropdown">

@@ -35,12 +35,7 @@
     </div>
     <div class="menuizqlayout gris2 recentlayout">
       <div class="container">
-        <div class="bloqueizq">
-          <div class="recentbox">
-            <h4><?php print t('Recent'); ?>...</h4>
-          </div>
-        </div>
-        <div class="content">
+        <div class="content full centered">
 
 	      	  <?php print $table_results; ?>
 

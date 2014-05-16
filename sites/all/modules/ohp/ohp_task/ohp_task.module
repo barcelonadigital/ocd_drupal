@@ -186,6 +186,21 @@ function ohp_task_assigned_page($status,$subtitle_section) {
   if(isset($_SESSION['id_user'])){
     $id_user = $_SESSION['id_user'];
     
+//     $result = get_user_roles($id_user);
+//     $text_roles = '';
+//     if($result->rowCount()>0){
+//       $idx = 0;
+//       foreach ($result as $role) {
+//         if($idx>0){
+//           $text_roles .= ', ';
+//         }
+//         $text_roles .= '<strong>'.$role->description.'</strong>';
+//         $idx++;
+//       }
+//     }else{
+//       $text_roles = '<i>L\'usuari connectat no té cap rol</i>';
+//     }
+    
     $result = get_user_tasks($id_user,$status);
   
     if($result->rowCount()>0){
@@ -215,6 +230,7 @@ function ohp_task_assigned_page($status,$subtitle_section) {
         '#attributes' => array('class' => array('table_result','table_assigned'),),
         '#rows' => $chunks[$current_page],
         '#empty' => t('No hi ha elements per mostrar.'),
+//         '#prefix' => t('Mostrant avaluacions assignades als següents rols: ').$text_roles.'<br><br>',
       );
   
       // Attach the pager theme.
@@ -224,6 +240,7 @@ function ohp_task_assigned_page($status,$subtitle_section) {
       $content[] = array(
         '#type' => 'item',
         '#markup' => t('No hi ha elements per mostrar.'),
+//         '#prefix' => t('Mostrant avaluacions assignades als següents rols: ').$text_roles.'<br><br>',
       );
       $page_array['table'] = $content;
     }

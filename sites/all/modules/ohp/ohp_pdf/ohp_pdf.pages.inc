@@ -202,7 +202,7 @@ function ohp_pdf_prescription_pdf($id_form) {
             $body .= '<table>';
             $body .= '<tr><td><span style="font-family:'.$GLOBALS['fontname_2'].';font-size:10pt;">'.$struct_item['title'].'</span></td><td>&nbsp;</td></tr>';
             if($result==''){
-              $body .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td></tr>';
+              $body .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td><td>&nbsp;</td></tr>';
             }else{
               $body .= $result;
             }
@@ -217,11 +217,11 @@ function ohp_pdf_prescription_pdf($id_form) {
           $result = add_group_docform($count_questions,$questions_map,$struct_group['items'],$struct_group['hidden']);
           if($count_questions>0){
             if($k>0){
-              $groups_result .= '<tr><td>&nbsp;</td></tr>';
+              $groups_result .= '<tr><td>&nbsp;</td><td>&nbsp;</td></tr>';
             }
             $groups_result .= '<tr><td>'.$struct_group['title'].'</td><td>&nbsp;</td></tr>';
             if($result==''){
-              $groups_result .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td></tr>';
+              $groups_result .= '<tr><td>'.t('No hi ha elements per mostrar.').'</td><td>&nbsp;</td></tr>';
             }else{
               $groups_result .= $result;
             }
@@ -284,8 +284,8 @@ function ohp_pdf_default_footer(&$tcpdf, $context) {
   $tcpdf->MultiCell(60, 3, '', 0, 'L', 0, false,20);
   $tcpdf->MultiCell(60, 3, "              Pag. ".$tcpdf->getAliasNumPage()." de ".$tcpdf->getAliasNbPages(), 0, 'C', 0, false);
   $tcpdf->MultiCell(60, 3, '', 0, 'L', 0, false);
-  $tcpdf->SetFont($GLOBALS['fontname'], '', 6, '', false);
   $tcpdf->Ln();
+  $tcpdf->SetFont($GLOBALS['fontname'], '', 6, '', false);
   $tcpdf->MultiCell(60, 0, $text_column_1, 0, 'L', 0, false,20);
   $tcpdf->MultiCell(60, 0, $text_column_2, 0, 'C', 0, false);
   $tcpdf->MultiCell(60, 0, $text_column_3, 0, 'L', 0, false);

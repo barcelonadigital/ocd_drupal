@@ -40,4 +40,5 @@
 	<?php if ($task_status=='DONE') { ?>
 	<a href="<?php echo url('ohp/ohp_case_taskopen'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>&id_form=<?php if (isset($_GET['id_form'])): print $_GET['id_form']; endif; ?>&id_task=<?php if (isset($_GET['id_task'])): print $_GET['id_task']; endif; ?>" class="btn btn-large btn-warning btn-finish">Reobrir</a>
 	<?php } ?>
+	<a href="#confirmModal" role="button" data-toggle="modal" class="btn btn-large btn-warning btn-finish"><?php print t('Eliminar'); ?></a>
 </div>
