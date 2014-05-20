@@ -294,6 +294,7 @@ function get_admission_tasks($admission_id) {
   $query->addField('n', 'id_admission');
   $query->addField('p', 'description');
   $query->condition('n.id_admission',$admission_id,'=');
+  $query->condition('n.status','DELETED','<>');
   $query->orderBy('n.id_task', 'DESC');
 
   $result = $query->execute();
@@ -498,34 +499,41 @@ function update_task_status($id_task, $status) {
  *
  * Delete task in database.
  */
-function delete_task($id_task) {
+function delete_task($id_task,$type = 'VOID') {
 
+  if($type=='VOID'){
+    $entry = array(
+      'status' => 'DELETED',
+    );
+    $count = db_update('ohp_task')
+      ->fields($entry)
+      ->condition('id_task', $id_task)
+      ->execute();
+  }else{
+    $query = db_select('ohp_form', 'n');
+    $query->addField('n', 'id_form');
+    $query->condition('n.id_task',$id_task,'=');
 
-  $query = db_select('ohp_form', 'n');
-  $query->addField('n', 'id_form');
-  $query->condition('n.id_task',$id_task,'=');
+    $result = $query->execute();
 
-  $result = $query->execute();
+    foreach ($result as $row) {
+      $count = db_delete('ohp_answer')
+        ->condition('id_form', $row->id_form)
+        ->execute();
+    }
 
-  foreach ($result as $row) {
-    $count = db_delete('ohp_answer')
-      ->condition('id_form', $row->id_form)
+    $count = db_delete('ohp_form')
+      ->condition('id_task', $id_task)
+      ->execute();
+
+    $count = db_delete('ohp_task_role')
+      ->condition('id_task', $id_task)
+      ->execute();
+
+    $count = db_delete('ohp_task')
+      ->condition('id_task', $id_task)
       ->execute();
   }
-
-  $count = db_delete('ohp_form')
-    ->condition('id_task', $id_task)
-    ->execute();
-
-  $count = db_delete('ohp_task_role')
-    ->condition('id_task', $id_task)
-    ->execute();
-
-  $count = db_delete('ohp_task')
-    ->condition('id_task', $id_task)
-    ->execute();
-
-  return $count;
 }
 
 /**

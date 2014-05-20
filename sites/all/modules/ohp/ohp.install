@@ -3,7 +3,1242 @@
 /**
  * Implements hook_schema().
  */
-// function ohp_schema() {
-//   //extreure codi de SCHEMA API  
-//   return $schema;
-// }
+function ohp_schema() {
+  $schema = array();
+  $schema['ohp_activity'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_activity' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'description' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_activity'),
+);
+
+  $schema['ohp_address'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_address' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'user_uid' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ),
+    'kind' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+    'street' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'number' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '100',
+      'not null' => FALSE,
+    ),
+    'floor' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '100',
+      'not null' => FALSE,
+    ),
+    'suite' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '100',
+      'not null' => FALSE,
+    ),
+    'district' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+    'city' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'postcode' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '100',
+      'not null' => FALSE,
+    ),
+    'state' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'country' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'comment' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_address'),
+  'indexes' => array(
+    'fk_ohp_case_address_user_idx' => array('user_uid'),
+  ),
+);
+  $schema['ohp_admission'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_admission' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'user_uid' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ),
+    'enrol_date' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'admission_date' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'discharge_date' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'status' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_admission'),
+  'indexes' => array(
+    'fk_ohp_admission_user1_idx' => array('user_uid'),
+  ),
+);
+  
+  $schema['ohp_answer'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_answer' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_form' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_question' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_option' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'value' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_answer'),
+  'indexes' => array(
+    'fk_ohp_answer_ohp_form1_idx' => array('id_form'),
+    'fk_ohp_answer_ohp_option1_idx' => array('id_option'),
+    'fk_ohp_answer_ohp_question1_idx' => array('id_question'),
+  ),
+);
+  
+  $schema['ohp_form'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_form' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_template' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_task' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'status' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_form'),
+  'indexes' => array(
+    'fk_ohp_form_ohp_task1_idx' => array('id_task'),
+    'fk_ohp_form_ohp_template1_idx' => array('id_template'),
+  ),
+);
+  
+  $schema['ohp_identification'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'user_uid' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ),
+    'linkcare_username' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'linkcare_password' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'cip' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'nhc' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'nif' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'nie' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'pas' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '20',
+      'not null' => FALSE,
+    ),
+    'given_name' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '50',
+      'not null' => FALSE,
+    ),
+    'middle_name' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '50',
+      'not null' => FALSE,
+    ),
+    'family_name' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '50',
+      'not null' => FALSE,
+    ),
+    'family_name2' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '50',
+      'not null' => FALSE,
+    ),
+    'birthdate' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'gender' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'char',
+      'length' => '1',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('user_uid'),
+);
+  
+  $schema['ohp_option'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_option' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_question' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'description' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'value' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_option'),
+  'indexes' => array(
+    'fk_ohp_option_ohp_question1_idx' => array('id_question'),
+  ),
+);
+  $schema['ohp_phone'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_phone' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'user_uid' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ),
+    'number' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '200',
+      'not null' => FALSE,
+    ),
+    'type' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+    'comment' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_phone'),
+  'indexes' => array(
+    'fk_ohp_phone_user1_idx' => array('user_uid'),
+  ),
+);
+  $schema['ohp_question'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_question' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'formula' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'requirement' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '200',
+      'not null' => FALSE,
+    ),
+    'description' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+    'min_value' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'max_value' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'mandatory' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'char',
+      'length' => '1',
+      'not null' => FALSE,
+    ),
+    'type' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+    'min_length' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'max_length' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'num_decimals' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_question'),
+);
+  $schema['ohp_role'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_role' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'description' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_role'),
+);
+  $schema['ohp_task'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_task' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_activity' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_admission' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'status' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+    'date' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => FALSE,
+    ),
+    'type' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '45',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_task'),
+  'indexes' => array(
+    'fk_ohp_task_ohp_activity1_idx' => array('id_activity'),
+    'fk_ohp_task_ohp_admission1_idx' => array('id_admission'),
+  ),
+);
+  $schema['ohp_task_role'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_task' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_role' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_task_role' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+  ),
+  'primary key' => array('id_task_role'),
+  'indexes' => array(
+    'fk_ohp_task_role_ohp_role1_idx' => array('id_role'),
+    'fk_ohp_task_role_ohp_task1_idx' => array('id_task'),
+  ),
+);
+  $schema['ohp_template'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_template' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_activity' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'description' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'varchar',
+      'length' => '2000',
+      'not null' => FALSE,
+    ),
+  ),
+  'primary key' => array('id_template'),
+  'indexes' => array(
+    'fk_ohp_template_ohp_activity1_idx' => array('id_activity'),
+  ),
+);
+  $schema['ohp_template_question'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_template_question' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_template' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'id_question' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+  ),
+  'primary key' => array('id_template_question'),
+  'indexes' => array(
+    'fk_ohp_template_question_ohp_question1_idx' => array('id_question'),
+    'fk_ohp_template_question_ohp_template1_idx' => array('id_template'),
+  ),
+);
+  $schema['ohp_user_role'] = array(
+  'description' => 'TODO: please describe this table!',
+  'fields' => array(
+    'id_role' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+    'user_uid' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ),
+    'id_user_role' => array(
+      'description' => 'TODO: please describe this field!',
+      'type' => 'int',
+      'not null' => TRUE,
+    ),
+  ),
+  'primary key' => array('id_user_role'),
+  'indexes' => array(
+    'fk_ohp_user_role_ohp_role1_idx' => array('id_role'),
+    'fk_ohp_user_role_users1_idx' => array('user_uid'),
+  ),
+);
+  
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function ohp_install() {
+  $count = db_insert('ohp_identification')
+    ->fields(array(
+        'user_uid' => 1,
+        'linkcare_username' => 'consulta.validacio',
+        'linkcare_password' => 'bdigital',
+        'cip' => 'ROVI0000001',
+        'nhc' => '126455',
+        'nif' => '46764732F',
+        'nie' => NULL,
+        'pas' => NULL,
+        'given_name' => 'Jordi',
+        'middle_name' => NULL,
+        'family_name' => 'Roda',
+        'family_name2' => 'Vilella',
+        'birthdate' => 0,
+        'gender' => 'M',))
+    ->execute();
+//   $count = db_insert('ohp_identification')
+//     ->fields(array(
+//         'user_uid' => 2,
+//         'linkcare_username' => 'antecio.integrada',
+//         'linkcare_password' => 'bdigital',
+//         'cip' => 'ROVI0000002',
+//         'nhc' => '126456',
+//         'nif' => '46764733F',
+//         'nie' => NULL,
+//         'pas' => NULL,
+//         'given_name' => 'Joan',
+//         'middle_name' => NULL,
+//         'family_name' => 'Roda',
+//         'family_name2' => 'Vilella',
+//         'birthdate' => 0,
+//         'gender' => 'M',))
+//     ->execute();
+  $count = db_insert('ohp_phone')
+    ->fields(array(
+        'id_phone' => 1,
+        'user_uid' => 1,
+        'number' => '000001',
+        'type' => 'home',
+        'comment' => NULL,))
+    ->execute();
+  $count = db_insert('ohp_phone')
+    ->fields(array(
+        'id_phone' => 2,
+        'user_uid' => 1,
+        'number' => '000002',
+        'type' => 'work',
+        'comment' => NULL,))
+    ->execute();
+  $count = db_insert('ohp_phone')
+    ->fields(array(
+        'id_phone' => 3,
+        'user_uid' => 1,
+        'number' => '000003',
+        'type' => 'mobile',
+        'comment' => NULL,))
+    ->execute();
+  $count = db_insert('ohp_address')
+    ->fields(array(
+        'id_address' => 1,
+        'user_uid' => 1,
+        'kind' => '000003',
+        'street' => 'Muntaner',
+        'number' => 10,
+        'floor' => 1,
+        'suite' => 3,
+        'district' => NULL,
+        'city' => 'Barcelona',
+        'postcode' => '08032',
+        'state' => NULL,
+        'country' => 'Spain',
+        'comment' => NULL,))
+    ->execute();
+  $count = db_insert('ohp_activity')
+    ->fields(array(
+        'id_activity' => 1,
+        'description' => 'Prescripció d\'OCD',))
+    ->execute();
+  $count = db_insert('ohp_activity')
+    ->fields(array(
+        'id_activity' => 2,
+        'description' => 'Visita de seguiment',))
+    ->execute();
+  $count = db_insert('ohp_template')
+    ->fields(array(
+        'id_template' => 1,
+        'id_activity' => 1,
+        'description' => 'Variables',))
+    ->execute();
+  $count = db_insert('ohp_template')
+    ->fields(array(
+        'id_template' => 2,
+        'id_activity' => 2,
+        'description' => 'CVSO',))
+    ->execute();
+  $count = db_insert('ohp_role')
+    ->fields(array(
+        'id_role' => 1,
+        'description' => 'Consulta de validació',))
+    ->execute();
+  $count = db_insert('ohp_user_role')
+    ->fields(array(
+        'id_user_role' => 1,
+        'id_role' => 1,
+        'user_uid' => 1,))
+    ->execute();
+  
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 1, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 2, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Inici OCD', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 3, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Seguiment amb OCD', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 4, 'formula' => NULL, 'requirement' => '$3,S', 'description' => 'Es modifica tractament OCD?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 5, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Alta OCD', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 6, 'formula' => NULL, 'requirement' => '$5,S', 'description' => 'Motiu de l’alta', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 7, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Situació del pacient', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 8, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Identificació del Servei prescriptor', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 9, 'formula' => NULL, 'requirement' => '$8,7', 'description' => 'Indiqui quin altre', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 10, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es un pacient d’una Mutua?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 11, 'formula' => NULL, 'requirement' => '$10,S', 'description' => 'Indiqui quina', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 12, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Proveïdor', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 13, 'formula' => NULL, 'requirement' => '$12,5', 'description' => 'Indiqui quin altre', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 14, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Diagnòstic principal', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 15, 'formula' => NULL, 'requirement' => '$14,6', 'description' => 'Indiqui quin altre', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 16, 'formula' => NULL, 'requirement' => '$14,1', 'description' => 'Diagnòstic respiratori', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 17, 'formula' => NULL, 'requirement' => '$16,6', 'description' => 'Indiqui quin altre', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 18, 'formula' => NULL, 'requirement' => '$14,2', 'description' => 'Diagnòstic cardiològic', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 19, 'formula' => NULL, 'requirement' => '$16,1', 'description' => 'Es realitza espirometria?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 20, 'formula' => NULL, 'requirement' => '$19,S', 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 21, 'formula' => NULL, 'requirement' => '$19,S', 'description' => 'FEV<sub>1</sub> (litres)', 'min_value' => NULL, 'max_value' => '7', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '2')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 22, 'formula' => NULL, 'requirement' => '$19,S', 'description' => 'FEV<sub>1</sub> (%)', 'min_value' => NULL, 'max_value' => '100', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '2')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 23, 'formula' => NULL, 'requirement' => '$19,S', 'description' => 'FVC (litres)', 'min_value' => NULL, 'max_value' => '7', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '2')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 24, 'formula' => NULL, 'requirement' => '$19,S', 'description' => 'FVC (%)', 'min_value' => NULL, 'max_value' => '100', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '2')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 25, 'formula' => '#DIVIDE,$21,$23', 'requirement' => '$19,S', 'description' => 'FEV<sub>1</sub> / FVC (%)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'FORMULA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 26, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza gasometria?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 27, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 28, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'pH', 'min_value' => '1', 'max_value' => '14', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '2')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 29, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'PO<sub>2</sub> (mmHg)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 30, 'formula' => '#RANGE($29,56,59,0,1,0)', 'requirement' => '$26,S', 'description' => 'PO<sub>2</sub> entre 56-59 mmHg', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'FORMULA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 31, 'formula' => NULL, 'requirement' => '$30,1', 'description' => 'Indicar malaltia (Si PO<sub>2</sub> entre 56-59 mmHg)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 32, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'PCO<sub>2</sub> (mmHg)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 33, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'EB /EB- (mEq/L)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 34, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'Condicions', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 35, 'formula' => NULL, 'requirement' => '$34,2', 'description' => 'Fluxe de O<sub>2</sub> (litres/minut)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 36, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza pulsioximetria?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 37, 'formula' => NULL, 'requirement' => '$36,S', 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 38, 'formula' => NULL, 'requirement' => '$36,S', 'description' => 'Saturació de O<sub>2</sub> Basal (%)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 39, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Equip prescrit 1', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 40, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Equip prescrit 2', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 41, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Equip prescrit 3', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 42, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Equip prescrit 4', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 43, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Equip prescrit 5', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 44, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Sistema per a l’administració d’oxigen', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 45, 'formula' => '#RANGE($44,2,3,0,1,0)', 'requirement' => NULL, 'description' => 'Sistema amb percentatge', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'FORMULA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 46, 'formula' => NULL, 'requirement' => '$45,1', 'description' => 'Percentatge (%)', 'min_value' => NULL, 'max_value' => '100', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 47, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Fluxe en repòs', 'min_value' => NULL, 'max_value' => '3.5', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 48, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Fluxe al exercici', 'min_value' => NULL, 'max_value' => '3.5', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 49, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Fluxe a la nit', 'min_value' => NULL, 'max_value' => '3.5', 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 50, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Hores/dia', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 51, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Humidificador', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 52, 'formula' => NULL, 'requirement' => NULL, 'description' => 'CPAP', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 53, 'formula' => NULL, 'requirement' => NULL, 'description' => 'BIPAP', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 54, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Altres', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 55, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Pneumòleg de referència', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 56, 'formula' => NULL, 'requirement' => '$55,4', 'description' => 'Indiqui quin altre', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 57, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Duració del tractament', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 58, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Propera visita validació OCD', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 59, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Lloc', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 60, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Comentaris', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 61, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 62, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Lloc de la visita de validació', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 63, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Identificació del professional', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 64, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Existeix hàbit tabàquic?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 65, 'formula' => NULL, 'requirement' => '$64,S', 'description' => 'Fumador/Exfumador', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 66, 'formula' => NULL, 'requirement' => '$64,S', 'description' => 'paq/any', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 67, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Índex de massa corporal', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 68, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Camina fora del domicili de forma habitual', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 69, 'formula' => NULL, 'requirement' => '$68,N', 'description' => 'Motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 70, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza test de la marxa (6 minuts)?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 71, 'formula' => NULL, 'requirement' => '$70,S', 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 72, 'formula' => NULL, 'requirement' => '$70,S', 'description' => 'Sat0<sub>2</sub> inicial', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 73, 'formula' => NULL, 'requirement' => '$70,S', 'description' => 'Sat0<sub>2</sub> final', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 74, 'formula' => NULL, 'requirement' => '$70,S', 'description' => 'Distància recorreguda (metres)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 75, 'formula' => NULL, 'requirement' => '$70,S', 'description' => 'Condicions', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 76, 'formula' => NULL, 'requirement' => '$75,2', 'description' => 'Fluxe de O<sub>2</sub> (litres/minut)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 77, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza pulsioximetria nocturna', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 78, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 79, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'Condicions', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 80, 'formula' => NULL, 'requirement' => '$79,2', 'description' => 'Fluxe de O<sub>2</sub> (litres/minut)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 81, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'El pacient refereix que ha dormit', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 82, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'Hores de registre analitzades', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 83, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'Sat0<sub>2</sub> inicial', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 84, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'Sat0<sub>2</sub> final', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 85, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'Saturació O<sub>2</sub> mitjana', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 86, 'formula' => NULL, 'requirement' => '$77,S', 'description' => 'CT-90', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 87, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es modifiquen els equips o les característiques de les teràpies respiratòries?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 88, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es detecten problemes amb l’empresa proveïdora de serveis?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 89, 'formula' => NULL, 'requirement' => '$88,S', 'description' => 'Motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 90, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Compleix els criteris segons la normativa vigent per OCD (gasometria arterial)?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 91, 'formula' => '#RANGE($90,2,3,0,1,0)', 'requirement' => NULL, 'description' => 'Requereix motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'FORMULA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 92, 'formula' => NULL, 'requirement' => '$91,1', 'description' => 'Motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 93, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Compleix mínim > 15 hores al dia d’OCD?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 94, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Manté i en té cura dels equips?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 95, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Utilitza els equips prescrits?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 96, 'formula' => NULL, 'requirement' => '$95,3', 'description' => 'Motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 97, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Els equips prescrits cobreixen les necessitats del pacient segons la normativa vigent?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 98, 'formula' => '#RANGE($97,2,3,0,1,0)', 'requirement' => NULL, 'description' => 'Requereix motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'FORMULA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 99, 'formula' => NULL, 'requirement' => '$98,1', 'description' => 'Motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 100, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza programa de educació terapèutica bàsica?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 101, 'formula' => NULL, 'requirement' => '$14,1', 'description' => 'MRC', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 102, 'formula' => NULL, 'requirement' => '$14,2', 'description' => 'NYHA', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 103, 'formula' => NULL, 'requirement' => '$16,1', 'description' => 'CAT', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 104, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es sol·licita alguna prova?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 105, 'formula' => NULL, 'requirement' => '$104,S', 'description' => 'Gasometria arterial?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 106, 'formula' => NULL, 'requirement' => '$104,S', 'description' => 'Test de la marxa?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 107, 'formula' => NULL, 'requirement' => '$104,S', 'description' => 'Espirometria forçada?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 108, 'formula' => NULL, 'requirement' => '$104,S', 'description' => 'Pulsioximetria nocturna?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 109, 'formula' => NULL, 'requirement' => '$104,S', 'description' => 'Funció pulmonar complerta?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 110, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es sol·licita visita especialista pneumologia?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 111, 'formula' => NULL, 'requirement' => '$110,S', 'description' => 'Motiu', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT_AREA', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 112, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza estratificació del pacient?', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 113, 'formula' => NULL, 'requirement' => '$112,1', 'description' => '&ge; 65 anys', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 114, 'formula' => NULL, 'requirement' => '$112,1', 'description' => '&ge; 4 comorbiditats', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 115, 'formula' => NULL, 'requirement' => '$112,1', 'description' => 'Índex Charlson > 2', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 116, 'formula' => NULL, 'requirement' => '$112,1', 'description' => '&ge; 5 fàrmacs', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 117, 'formula' => NULL, 'requirement' => '$112,1', 'description' => 'Dependència Barthel < 60 ', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 118, 'formula' => NULL, 'requirement' => '$112,1', 'description' => 'Alt nivell d’Ansietat (HAD (ansietat) > 6 )', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 119, 'formula' => NULL, 'requirement' => '$112,1', 'description' => '>1 episodi descompensació (ingrés o urgències) en els 12 últims mesos', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 120, 'formula' => NULL, 'requirement' => '$112,1', 'description' => 'Procés terminal. Pronòstic inferior a 6 mesos sense derivació a PADES', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 121, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Primer ingrés hospitalari per descompensació ', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 122, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Inici d’oxigenoteràpia crònica domiciliària durant l’ingrés', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 123, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Necessitat d’ingrés en UCI/ unitat de cures intermèdies durant l’ingrés hospitalari', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 124, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Tractaments complexos a domicili:', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 125, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Tractaments amb dispensació farmàcia ambulatòria hospitalària', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 126, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Pacient amb malaltia avançada tributari de transplantament pulmonar i/o altres tractaments quirúrgics', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 127, 'formula' => NULL, 'requirement' => '$112,2', 'description' => 'Pacient que en el moment de la visita requereix d’una atenció especialitzada', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+
+    $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 1, 'id_question' => 1, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 2, 'id_question' => 2, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 3, 'id_question' => 3, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 4, 'id_question' => 4, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 5, 'id_question' => 5, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 6, 'id_question' => 6, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 7, 'id_question' => 7, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 8, 'id_question' => 8, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 9, 'id_question' => 9, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 10, 'id_question' => 10, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 11, 'id_question' => 11, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 12, 'id_question' => 12, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 13, 'id_question' => 13, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 14, 'id_question' => 14, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 15, 'id_question' => 15, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 16, 'id_question' => 16, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 17, 'id_question' => 17, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 18, 'id_question' => 18, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 19, 'id_question' => 19, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 20, 'id_question' => 20, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 21, 'id_question' => 21, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 22, 'id_question' => 22, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 23, 'id_question' => 23, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 24, 'id_question' => 24, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 25, 'id_question' => 25, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 26, 'id_question' => 26, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 27, 'id_question' => 27, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 28, 'id_question' => 28, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 29, 'id_question' => 29, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 30, 'id_question' => 30, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 31, 'id_question' => 31, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 32, 'id_question' => 32, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 33, 'id_question' => 33, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 34, 'id_question' => 34, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 35, 'id_question' => 35, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 36, 'id_question' => 36, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 37, 'id_question' => 37, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 38, 'id_question' => 38, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 39, 'id_question' => 39, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 40, 'id_question' => 40, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 41, 'id_question' => 41, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 42, 'id_question' => 42, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 43, 'id_question' => 43, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 44, 'id_question' => 44, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 45, 'id_question' => 45, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 46, 'id_question' => 46, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 47, 'id_question' => 47, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 48, 'id_question' => 48, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 49, 'id_question' => 49, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 50, 'id_question' => 50, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 51, 'id_question' => 51, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 52, 'id_question' => 52, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 53, 'id_question' => 53, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 54, 'id_question' => 54, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 55, 'id_question' => 55, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 56, 'id_question' => 56, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 57, 'id_question' => 57, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 58, 'id_question' => 58, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 59, 'id_question' => 59, 'id_template' => 1)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 60, 'id_question' => 60, 'id_template' => 1)) ->execute();
+    $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 61, 'id_question' => 1, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 62, 'id_question' => 2, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 63, 'id_question' => 3, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 64, 'id_question' => 4, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 65, 'id_question' => 5, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 66, 'id_question' => 6, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 67, 'id_question' => 7, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 68, 'id_question' => 8, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 69, 'id_question' => 9, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 70, 'id_question' => 10, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 71, 'id_question' => 11, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 72, 'id_question' => 12, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 73, 'id_question' => 13, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 74, 'id_question' => 14, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 75, 'id_question' => 15, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 76, 'id_question' => 16, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 77, 'id_question' => 17, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 78, 'id_question' => 18, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 79, 'id_question' => 19, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 80, 'id_question' => 20, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 81, 'id_question' => 21, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 82, 'id_question' => 22, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 83, 'id_question' => 23, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 84, 'id_question' => 24, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 85, 'id_question' => 25, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 86, 'id_question' => 26, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 87, 'id_question' => 27, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 88, 'id_question' => 28, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 89, 'id_question' => 29, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 90, 'id_question' => 30, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 91, 'id_question' => 31, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 92, 'id_question' => 32, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 93, 'id_question' => 33, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 94, 'id_question' => 34, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 95, 'id_question' => 35, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 96, 'id_question' => 36, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 97, 'id_question' => 37, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 98, 'id_question' => 38, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 99, 'id_question' => 39, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 100, 'id_question' => 40, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 101, 'id_question' => 41, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 102, 'id_question' => 42, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 103, 'id_question' => 43, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 104, 'id_question' => 44, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 105, 'id_question' => 45, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 106, 'id_question' => 46, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 107, 'id_question' => 47, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 108, 'id_question' => 48, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 109, 'id_question' => 49, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 110, 'id_question' => 50, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 111, 'id_question' => 51, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 112, 'id_question' => 52, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 113, 'id_question' => 53, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 114, 'id_question' => 54, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 115, 'id_question' => 55, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 116, 'id_question' => 56, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 117, 'id_question' => 57, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 118, 'id_question' => 58, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 119, 'id_question' => 59, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 120, 'id_question' => 60, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 121, 'id_question' => 61, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 122, 'id_question' => 62, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 123, 'id_question' => 63, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 124, 'id_question' => 64, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 125, 'id_question' => 65, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 126, 'id_question' => 66, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 127, 'id_question' => 67, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 128, 'id_question' => 68, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 129, 'id_question' => 69, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 130, 'id_question' => 70, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 131, 'id_question' => 71, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 132, 'id_question' => 72, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 133, 'id_question' => 73, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 134, 'id_question' => 74, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 135, 'id_question' => 75, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 136, 'id_question' => 76, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 137, 'id_question' => 77, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 138, 'id_question' => 78, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 139, 'id_question' => 79, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 140, 'id_question' => 80, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 141, 'id_question' => 81, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 142, 'id_question' => 82, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 143, 'id_question' => 83, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 144, 'id_question' => 84, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 145, 'id_question' => 85, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 146, 'id_question' => 86, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 147, 'id_question' => 87, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 148, 'id_question' => 88, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 149, 'id_question' => 89, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 150, 'id_question' => 90, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 151, 'id_question' => 91, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 152, 'id_question' => 92, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 153, 'id_question' => 93, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 154, 'id_question' => 94, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 155, 'id_question' => 95, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 156, 'id_question' => 96, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 157, 'id_question' => 97, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 158, 'id_question' => 98, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 159, 'id_question' => 99, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 160, 'id_question' => 100, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 161, 'id_question' => 101, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 162, 'id_question' => 102, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 163, 'id_question' => 103, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 164, 'id_question' => 104, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 165, 'id_question' => 105, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 166, 'id_question' => 106, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 167, 'id_question' => 107, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 168, 'id_question' => 108, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 169, 'id_question' => 109, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 170, 'id_question' => 110, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 171, 'id_question' => 111, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 172, 'id_question' => 112, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 173, 'id_question' => 113, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 174, 'id_question' => 114, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 175, 'id_question' => 115, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 176, 'id_question' => 116, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 177, 'id_question' => 117, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 178, 'id_question' => 118, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 179, 'id_question' => 119, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 180, 'id_question' => 120, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 181, 'id_question' => 121, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 182, 'id_question' => 122, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 183, 'id_question' => 123, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 184, 'id_question' => 124, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 185, 'id_question' => 125, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 186, 'id_question' => 126, 'id_template' => 2)) ->execute();
+  $count = db_insert('ohp_template_question') ->fields(array('id_template_question' => 187, 'id_question' => 127, 'id_template' => 2)) ->execute();
+  
+  
+    $count = db_insert('ohp_option') ->fields(array('id_option' => 1, 'id_question' => 3, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 2, 'id_question' => 3, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 3, 'id_question' => 4, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 4, 'id_question' => 4, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 5, 'id_question' => 5, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 6, 'id_question' => 5, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 7, 'id_question' => 6, 'description' => 'No necessita', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 8, 'id_question' => 6, 'description' => 'Mort', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 9, 'id_question' => 6, 'description' => 'No accepta el tractament', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 10, 'id_question' => 7, 'description' => 'Estable', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 11, 'id_question' => 7, 'description' => 'Alta hospitalària', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 12, 'id_question' => 7, 'description' => 'Hospitalització a domicili', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 13, 'id_question' => 8, 'description' => 'Pneumologia', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 14, 'id_question' => 8, 'description' => 'Atenció Integrada', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 15, 'id_question' => 8, 'description' => 'Cardiologia', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 16, 'id_question' => 8, 'description' => 'Medicina Interna', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 17, 'id_question' => 8, 'description' => 'Oncologia', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 18, 'id_question' => 8, 'description' => 'Urgències', 'value' => '6')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 19, 'id_question' => 8, 'description' => 'Altres', 'value' => '7')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 20, 'id_question' => 10, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 21, 'id_question' => 10, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 22, 'id_question' => 12, 'description' => 'Esteve Teijin', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 23, 'id_question' => 12, 'description' => 'Vitalaire', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 24, 'id_question' => 12, 'description' => 'Linde', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 25, 'id_question' => 12, 'description' => 'Oximesa', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 26, 'id_question' => 12, 'description' => 'Altres', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 27, 'id_question' => 14, 'description' => 'Respiratori', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 28, 'id_question' => 14, 'description' => 'Cardiològic', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 29, 'id_question' => 14, 'description' => 'Malalties Neuromusculars', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 30, 'id_question' => 14, 'description' => 'Malalties Caixa toràcica', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 31, 'id_question' => 14, 'description' => 'Càncer', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 32, 'id_question' => 14, 'description' => 'Altres', 'value' => '6')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 33, 'id_question' => 16, 'description' => 'MPOC', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 34, 'id_question' => 16, 'description' => 'Fibrosi pulmonar', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 35, 'id_question' => 16, 'description' => 'Bronquièctasis', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 36, 'id_question' => 16, 'description' => 'Asma', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 37, 'id_question' => 16, 'description' => 'Apnea del son', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 38, 'id_question' => 16, 'description' => 'Altres', 'value' => '6')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 39, 'id_question' => 18, 'description' => 'Insuficiència cardíaca', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 40, 'id_question' => 18, 'description' => 'Transplantament cardíac', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 41, 'id_question' => 19, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 42, 'id_question' => 19, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 43, 'id_question' => 26, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 44, 'id_question' => 26, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 45, 'id_question' => 31, 'description' => 'Hipertensió pulmonar', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 46, 'id_question' => 31, 'description' => 'Cor pulmonale', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 47, 'id_question' => 31, 'description' => 'Policitèmia', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 48, 'id_question' => 34, 'description' => 'Basal', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 49, 'id_question' => 34, 'description' => 'Oxigen', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 50, 'id_question' => 36, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 51, 'id_question' => 36, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 52, 'id_question' => 39, 'description' => 'Concentrador fix', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 53, 'id_question' => 39, 'description' => 'Concentrador portàtil (vàlvula a demanda)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 54, 'id_question' => 39, 'description' => 'Concentrador portàtil (flux continu)', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 55, 'id_question' => 39, 'description' => 'Oxigen líquid', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 56, 'id_question' => 39, 'description' => 'Bombona d’oxigen', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 57, 'id_question' => 40, 'description' => 'Concentrador fix', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 58, 'id_question' => 40, 'description' => 'Concentrador portàtil (vàlvula a demanda)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 59, 'id_question' => 40, 'description' => 'Concentrador portàtil (flux continu)', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 60, 'id_question' => 40, 'description' => 'Oxigen líquid', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 61, 'id_question' => 40, 'description' => 'Bombona d’oxigen', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 62, 'id_question' => 41, 'description' => 'Concentrador fix', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 63, 'id_question' => 41, 'description' => 'Concentrador portàtil (vàlvula a demanda)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 64, 'id_question' => 41, 'description' => 'Concentrador portàtil (flux continu)', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 65, 'id_question' => 41, 'description' => 'Oxigen líquid', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 66, 'id_question' => 41, 'description' => 'Bombona d’oxigen', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 67, 'id_question' => 42, 'description' => 'Concentrador fix', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 68, 'id_question' => 42, 'description' => 'Concentrador portàtil (vàlvula a demanda)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 69, 'id_question' => 42, 'description' => 'Concentrador portàtil (flux continu)', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 70, 'id_question' => 42, 'description' => 'Oxigen líquid', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 71, 'id_question' => 42, 'description' => 'Bombona d’oxigen', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 72, 'id_question' => 43, 'description' => 'Concentrador fix', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 73, 'id_question' => 43, 'description' => 'Concentrador portàtil (vàlvula a demanda)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 74, 'id_question' => 43, 'description' => 'Concentrador portàtil (flux continu)', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 75, 'id_question' => 43, 'description' => 'Oxigen líquid', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 76, 'id_question' => 43, 'description' => 'Bombona d’oxigen', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 77, 'id_question' => 44, 'description' => 'Cànula nasal', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 78, 'id_question' => 44, 'description' => 'Mascareta', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 79, 'id_question' => 44, 'description' => 'Traqueotomia/ Laringectomia', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 80, 'id_question' => 50, 'description' => '15 h', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 81, 'id_question' => 50, 'description' => '&ge; 15 h (mínim recomanable)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 82, 'id_question' => 50, 'description' => '18 h', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 83, 'id_question' => 50, 'description' => '24 h', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 84, 'id_question' => 51, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 85, 'id_question' => 51, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 86, 'id_question' => 52, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 87, 'id_question' => 52, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 88, 'id_question' => 53, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 89, 'id_question' => 53, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 90, 'id_question' => 55, 'description' => 'RAE', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 91, 'id_question' => 55, 'description' => 'Hospital', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 92, 'id_question' => 55, 'description' => 'Mutua', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 93, 'id_question' => 55, 'description' => 'Altres', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 94, 'id_question' => 57, 'description' => 'A llarg termini', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 95, 'id_question' => 57, 'description' => 'A curt termini - 3m', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 96, 'id_question' => 57, 'description' => 'A curt termini - 6m', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 97, 'id_question' => 57, 'description' => 'Pal·liatiu', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 98, 'id_question' => 59, 'description' => 'Hospital', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 99, 'id_question' => 59, 'description' => 'Domicili', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 100, 'id_question' => 59, 'description' => 'Seguiment telefònic', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 101, 'id_question' => 62, 'description' => 'Consulta', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 102, 'id_question' => 62, 'description' => 'Domicili', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 103, 'id_question' => 62, 'description' => 'Telèfon', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 104, 'id_question' => 64, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 105, 'id_question' => 64, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 106, 'id_question' => 65, 'description' => 'Fumador', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 107, 'id_question' => 65, 'description' => 'Exfumador', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 108, 'id_question' => 68, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 109, 'id_question' => 68, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 110, 'id_question' => 70, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 111, 'id_question' => 70, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 112, 'id_question' => 75, 'description' => 'Basal', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 113, 'id_question' => 75, 'description' => 'Oxigen', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 114, 'id_question' => 77, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 115, 'id_question' => 77, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 116, 'id_question' => 79, 'description' => 'Basal', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 117, 'id_question' => 79, 'description' => 'Oxigen', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 118, 'id_question' => 81, 'description' => 'Bé', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 119, 'id_question' => 81, 'description' => 'Malament', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 120, 'id_question' => 87, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 121, 'id_question' => 87, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 122, 'id_question' => 88, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 123, 'id_question' => 88, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 124, 'id_question' => 90, 'description' => 'Si - Es manté el tractament', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 125, 'id_question' => 90, 'description' => 'Si - No es manté el tractament', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 126, 'id_question' => 90, 'description' => 'No - Es manté el tractament', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 127, 'id_question' => 90, 'description' => 'No - No es manté el tractament', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 128, 'id_question' => 93, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 129, 'id_question' => 93, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 130, 'id_question' => 94, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 131, 'id_question' => 94, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 132, 'id_question' => 95, 'description' => 'Si', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 133, 'id_question' => 95, 'description' => 'No - Es retiren', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 134, 'id_question' => 95, 'description' => 'No - No es retiren', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 135, 'id_question' => 97, 'description' => 'Si - Es mantenen els mateixos equips', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 136, 'id_question' => 97, 'description' => 'Si - No es mantenen els mateixos equips', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 137, 'id_question' => 97, 'description' => 'No - Es mantenen els mateixos equips', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 138, 'id_question' => 97, 'description' => 'No - No es mantenen els mateixos equips', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 139, 'id_question' => 100, 'description' => 'Si - S’entrega documentació, i s’educa al pacient per optimitzar el tractament d’OCD', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 140, 'id_question' => 100, 'description' => 'Si - Es realitza demostració dels equips de OCD', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 141, 'id_question' => 100, 'description' => 'Si - S’ inclou en un programa de grup de educació en OCD', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 142, 'id_question' => 100, 'description' => 'No, perquè es retira la OCD', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 143, 'id_question' => 101, 'description' => '0', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 144, 'id_question' => 101, 'description' => '1', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 145, 'id_question' => 101, 'description' => '2', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 146, 'id_question' => 101, 'description' => '3', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 147, 'id_question' => 101, 'description' => '4', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 148, 'id_question' => 102, 'description' => '0', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 149, 'id_question' => 102, 'description' => '1', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 150, 'id_question' => 102, 'description' => '2', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 151, 'id_question' => 102, 'description' => '3', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 152, 'id_question' => 102, 'description' => '4', 'value' => '5')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 153, 'id_question' => 104, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 154, 'id_question' => 104, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 155, 'id_question' => 105, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 156, 'id_question' => 105, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 157, 'id_question' => 106, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 158, 'id_question' => 106, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 159, 'id_question' => 107, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 160, 'id_question' => 107, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 161, 'id_question' => 108, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 162, 'id_question' => 108, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 163, 'id_question' => 109, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 164, 'id_question' => 109, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 165, 'id_question' => 110, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 166, 'id_question' => 110, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 167, 'id_question' => 112, 'description' => 'Si - Atenció Primària /RAE', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 168, 'id_question' => 112, 'description' => 'Si - Pneumologia (Àrea de Suport Respiratori (ASR) + Atenció Integrada (AI))', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 169, 'id_question' => 112, 'description' => 'No', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 170, 'id_question' => 113, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 171, 'id_question' => 113, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 172, 'id_question' => 114, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 173, 'id_question' => 114, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 174, 'id_question' => 115, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 175, 'id_question' => 115, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 176, 'id_question' => 116, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 177, 'id_question' => 116, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 178, 'id_question' => 117, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 179, 'id_question' => 117, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 180, 'id_question' => 118, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 181, 'id_question' => 118, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 182, 'id_question' => 119, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 183, 'id_question' => 119, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 184, 'id_question' => 120, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 185, 'id_question' => 120, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 186, 'id_question' => 121, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 187, 'id_question' => 121, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 188, 'id_question' => 122, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 189, 'id_question' => 122, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 190, 'id_question' => 123, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 191, 'id_question' => 123, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 192, 'id_question' => 124, 'description' => 'Si - Antibiòtics nebulitzats', 'value' => '1')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 193, 'id_question' => 124, 'description' => 'Si - Ventilació mecànica no invasiva (BIPAP)', 'value' => '2')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 194, 'id_question' => 124, 'description' => 'Si - Fàrmacs que requereixin via parenteral per a la seva administració', 'value' => '3')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 195, 'id_question' => 124, 'description' => 'No', 'value' => '4')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 196, 'id_question' => 125, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 197, 'id_question' => 125, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 198, 'id_question' => 126, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 199, 'id_question' => 126, 'description' => 'No', 'value' => 'N')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 200, 'id_question' => 127, 'description' => 'Si', 'value' => 'S')) ->execute();
+  $count = db_insert('ohp_option') ->fields(array('id_option' => 201, 'id_question' => 127, 'description' => 'No', 'value' => 'N')) ->execute();
+  
+}

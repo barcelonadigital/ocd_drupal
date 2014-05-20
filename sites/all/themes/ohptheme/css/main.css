@@ -10218,6 +10218,7 @@ a.back {
 #table_task tr a {
 	display: table;
     color: #2c3e50;
+    height: 84px;
 }
 #table_task tr a:hover {
     text-decoration: none;
@@ -10269,7 +10270,7 @@ a.back {
     font-size: 16px;
     font-weight: 700;
     line-height: 38px;
-    width: 255px;
+    width: 155px;
 }
 #table_task tr td span.month {
 	display: block;
@@ -10297,10 +10298,10 @@ a.back {
     width: 90px;
 }
 #table_task tr td:nth-child(2) {
-    width: 659px;
+    width: 759px;
 }
 #table_task tr td:nth-child(3) {
-    width: 255px;
+    width: 155px;
 }
 .table_result tr.even {
     background-color: #f5f6f7;

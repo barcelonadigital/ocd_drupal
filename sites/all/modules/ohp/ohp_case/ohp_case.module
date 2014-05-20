@@ -238,10 +238,6 @@ function ohp_case_theme() {
         'task_status' => NULL,
       ),
     ),
-    'ohp_case_confirm'  => array(
-      'render element' => 'elements',
-      'template' => 'tpl/ohp-case-confirm-modal',
-    ),
   );
 }
 

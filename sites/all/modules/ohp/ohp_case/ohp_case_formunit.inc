@@ -290,6 +290,7 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
         isset($question_obj->options->option)){
       $form_array[$question_id]['#type'] = 'select';
       $form_array[$question_id]['#empty_value'] = '';
+      $form_array[$question_id]['#empty_option'] = t('-');
       //$form_array[$question_id]['#empty_option'] = TRUE;
       foreach ($question_obj->options->option as $option) {
         $form_array[$question_id]['#options'][(string)$option->value]=drupal_html_to_text($option->description);

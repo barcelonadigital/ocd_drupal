@@ -42,3 +42,23 @@
 	<?php } ?>
 	<a href="#confirmModal" role="button" data-toggle="modal" class="btn btn-large btn-warning btn-finish"><?php print t('Eliminar'); ?></a>
 </div>
+<script type="text/javascript">
+function doFinish(){
+	window.location='<?php echo url('ohp/ohp_case_taskdelete'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>&id_form=<?php if (isset($_GET['id_form'])): print $_GET['id_form']; endif; ?>&id_task=<?php if (isset($_GET['id_task'])): print $_GET['id_task']; endif; ?>';
+}
+</script>
+<div id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal confirmation hide fade">
+  <div class="modal-header">
+    <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Tancar'); ?></button>
+    <h3><?php print t('Eliminar avaluació?'); ?></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      <?php print t('Estàs segur que vols eliminar aquesta avaluació i suprimir-ne el contingut?'); ?>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button data-dismiss="modal" aria-hidden="true" class="btn btn-success custom-btn btn-large"><?php print t('Revisar'); ?></button>
+    <button onclick="doFinish()" class="btn btn-primary custom-btn btn-large"><?php print t('D\'acord, continuar'); ?></button>
+  </div>
+</div>
