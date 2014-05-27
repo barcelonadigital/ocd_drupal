@@ -1,4 +1,4 @@
-name = OHP Task
+name = OHP Tasks
 description = A module to manage OHP tasks
 package = OHP modules
 core = 7.x

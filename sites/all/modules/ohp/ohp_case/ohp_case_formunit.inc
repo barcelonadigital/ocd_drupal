@@ -1,26 +1,27 @@
 <?php
 
 /**
- * @file
- * Module file for case_task_module.
- */
-
-/**
- * @defgroup case_task Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
  *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @see menu_example
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Constructs a descriptive page.
  *
- * Our menu maps this function to the path 'ohp/tasks_assigned'.
+ * Our menu maps this function to the path 'ohp/ohp_case_formunit'.
  */
 function ohp_case_formunit_page() {
 
@@ -47,11 +48,6 @@ function ohp_case_formunit_page() {
   return $page_array;
 }
 
-/**
- * Constructs a descriptive page.
- *
- * Our menu maps this function to the path 'ohp/tasks_assigned'.
- */
 function ohp_case_formunit($form, &$form_state) {
 
   if(isset($_SESSION['admission_bean']) && isset($_SESSION['admission_bean']->id_admission) &&
@@ -92,12 +88,7 @@ function ohp_case_formunit($form, &$form_state) {
         'class' => array('btn','btn-warning','link'),
       ),
     );
-//       $form['column_left'] = array(
-//         '#type' => 'container',
-//         '#attributes' => array(
-//           'class' => array('column-left'),
-//         ),
-//       );
+
     $form['form_container'] = array(
       '#type' => 'fieldset',
       '#collapsible' => FALSE,
@@ -126,19 +117,18 @@ function add_group_question(&$form_array,&$questions_map,$ids_array,$copy_of_que
       ),
     );
     foreach ($row_question as $id_question) {
-//     foreach ($ids_array as $id_question) {
       $hidden = FALSE;
       if(in_array($id_question, $hiddens_array)){
         $hidden = TRUE;
       }
-      //add_question($form_array,$questions_map,$id_question,$copy_of_questions_map,$hidden);
       add_question($form_array['row_'.$i],$questions_map,$id_question,$copy_of_questions_map,$hidden);
     }
     $i++;
    }
 }
+
 /**
- * Submit handler for ohp_case_form().
+ * Submit handler for ohp_case_formunit().
  */
 function ohp_case_formunit_submit($form, &$form_state) {
 
@@ -212,7 +202,6 @@ function ohp_case_formunit_submit($form, &$form_state) {
           $value = $question_value;
         }
 
-        //drupal_set_message($answer_id.', '.$option_id.', '.$value);
         try {
           update_answer($answer_id,$option_id,$value);
         }
@@ -291,7 +280,6 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
       $form_array[$question_id]['#type'] = 'select';
       $form_array[$question_id]['#empty_value'] = '';
       $form_array[$question_id]['#empty_option'] = t('-');
-      //$form_array[$question_id]['#empty_option'] = TRUE;
       foreach ($question_obj->options->option as $option) {
         $form_array[$question_id]['#options'][(string)$option->value]=drupal_html_to_text($option->description);
       }
@@ -319,22 +307,6 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
     }
     $form_array[$question_id]['#attributes'] = $attributes_array;
     $rules_array = array();
-//     if(isset($question_obj->num_decimals)){
-//       $rules_array[]='limit_decimals['.$question_obj->num_decimals.']';
-//     }
-//     if(isset($question_obj->min_value)){
-//       $min_value = $question_obj->min_value;
-//     }else{
-//       $min_value = '*';
-//     }
-//     if(isset($question_obj->max_value)){
-//       $max_value = $question_obj->max_value;
-//     }else{
-//       $max_value = '*';
-//     }
-//     if(isset($question_obj->min_value) || isset($question_obj->max_value)){
-//       $rules_array[]='range['.$min_value.', '.$max_value.']';
-//     }
     if(isset($question_obj->min_value) || isset($question_obj->max_value) || isset($question_obj->num_decimals)){
       $form_array[$question_id]['#type'] = 'numericfield';
       if(isset($question_obj->num_decimals)){
@@ -360,7 +332,6 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
     if(isset($question_obj->min_length) || isset($question_obj->max_length)){
       $rules_array[]='length['.$min_length.', '.$max_length.']';
     }
-    //var_dump($rules_array);
     if($hidden){
       $form_array[$question_id]['#prefix'] = '<div style="display:none;">';
       $form_array[$question_id]['#suffix'] = '</div>';
@@ -383,46 +354,29 @@ function add_question(&$form_array, &$questions_map, $question_id,$copy_of_quest
     if(isset($question_obj->requirement)&&!empty($question_obj->requirement)){
       $elems = explode(",", (string)$question_obj->requirement);
       $id_question = substr($elems[0], 1);
-      //$oper = $elems[1];
-      //if($oper=='EQUAL'){
       $questionThatEnables = $copy_of_questions_map[$id_question];
       $valueThatEnables = $elems[1];
-      //if($idOptionThatEnables!=NULL){
-        $conditions_array = array();
-        $conditions_array['enabled'] = array(
-      	        ':input[name="'.$id_question.'"]' => array(
-      	            array('value' => $valueThatEnables),
-                ));
-        if(isset($questionThatEnables->requirement)&&!empty($questionThatEnables->requirement)){
-          $elems_2 = explode(",", (string)$questionThatEnables->requirement);
-          $id_question_2 = substr($elems_2[0], 1);
-          $questionThatEnables_2 = $copy_of_questions_map[$id_question_2];
-          $valueThatEnables_2 = $elems_2[1];
-          $conditions_array['enabled'][':input[name="'.$id_question_2.'"]'] = array(
-      	            array('value' => $valueThatEnables_2),
-                );
-        }
-        $form_array[$question_id]['#states'] = $conditions_array;
-//       	$form_array[$question_id]['#states'] = array(
-//       	    'enabled' => array(
-//       	        ':input[name="'.$id_question.'"]' => array(
-//       	            array('value' => $valueThatEnables),
-//                 ),
-//       	        ':input[name="14"]' => array(
-//       	            array('value' => 1),
-//                 ),
-//             ),
-//         );
-        $form_array['question_condition_'.$question_id] = array(
-          '#value' => (string)$question_obj->requirement,
-          '#type' => 'hidden',
-        );
-      //}
+      $conditions_array = array();
+      $conditions_array['enabled'] = array(
+    	        ':input[name="'.$id_question.'"]' => array(
+    	            array('value' => $valueThatEnables),
+              ));
+      if(isset($questionThatEnables->requirement)&&!empty($questionThatEnables->requirement)){
+        $elems_2 = explode(",", (string)$questionThatEnables->requirement);
+        $id_question_2 = substr($elems_2[0], 1);
+        $questionThatEnables_2 = $copy_of_questions_map[$id_question_2];
+        $valueThatEnables_2 = $elems_2[1];
+        $conditions_array['enabled'][':input[name="'.$id_question_2.'"]'] = array(
+    	            array('value' => $valueThatEnables_2),
+              );
+      }
+      $form_array[$question_id]['#states'] = $conditions_array;
+
+      $form_array['question_condition_'.$question_id] = array(
+        '#value' => (string)$question_obj->requirement,
+        '#type' => 'hidden',
+      );
     }
     unset($questions_map[$question_id]);
   }
 }
-
-/**
- * @} End of "defgroup case_task".
- */

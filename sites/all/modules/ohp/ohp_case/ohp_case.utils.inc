@@ -1,8 +1,26 @@
 <?php
 
 /**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
+ *
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
  * @file
- * A file with form utils.
+ * A file with case utils.
  */
 
 /**
@@ -47,7 +65,7 @@ function search_case($search_str) {
 /**
  * Custom content function.
  *
- * Retrieve one single case from database.
+ * Retrieve one single case identification from database.
  *
  * @return
  *   An object of the targeted case.
@@ -198,10 +216,10 @@ function get_case_admission($case_id) {
 /**
  * Custom content function.
  *
- * Retrieve case admissions from database.
+ * Retrieve admission from database.
  *
  * @return
- *   A set of admissions from the case.
+ *   An object of the targeted admission.
  */
 function get_admission($admission_id) {
 
@@ -224,7 +242,7 @@ function get_admission($admission_id) {
  * Retrieve user tasks from database.
  *
  * @return
- *   A set of tasks from the admission.
+ *   A set of tasks from the user.
  */
 function get_user_tasks($id_user,$status) {
 
@@ -232,7 +250,8 @@ function get_user_tasks($id_user,$status) {
   $query->join('ohp_task_role', 'p', 'n.id_task = p.id_task');
   $query->join('ohp_user_role', 'q', 'q.id_role = p.id_role');
   $query->join('ohp_activity', 'o', 'o.id_activity = n.id_activity');
-  $query->join('ohp_identification', 'r', 'r.user_uid = q.user_uid');
+  $query->join('ohp_admission', 's', 's.id_admission = n.id_admission');
+  $query->join('ohp_identification', 'r', 'r.user_uid = s.user_uid');
   $query->addField('n', 'status');
   $query->addField('n', 'date');
   $query->addField('n', 'type');
@@ -244,9 +263,93 @@ function get_user_tasks($id_user,$status) {
   $query->addField('r', 'middle_name');
   $query->addField('r', 'family_name');
   $query->addField('r', 'family_name2');
+  $query->addField('r', 'user_uid');
   $query->condition('q.user_uid',$id_user,'=');
   $query->condition('n.status',$status,'=');
   $query->orderBy('n.date', 'DESC');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve form answers from database.
+ *
+ * @return
+ *   A set of form answers.
+ */
+function get_answers() {
+
+  $result = db_query("select b.id_question AS id_question_1,
+      f.id_form AS id_form_1, a.*,
+      CASE
+          WHEN b.type<>'VERTICAL_RADIO' AND
+               (a.value IS NULL OR a.value = '') THEN ''
+          WHEN b.type='DATE' THEN DATE_FORMAT(FROM_UNIXTIME(a.value), '%d-%m-%Y')
+          WHEN b.type='TEXT' AND
+               b.id_question IN (".implode(",", get_numeric_array()).")
+               THEN REPLACE(a.value, '.', ',')
+          WHEN b.type='TEXT' THEN a.value
+          WHEN b.type='FORMULA' THEN a.value
+          WHEN b.type='TEXT_AREA' THEN a.value
+          WHEN b.type='VERTICAL_RADIO' THEN g.description
+          ELSE 'error'
+        end AS type_text
+      from ohp_question b
+      cross join ohp_form f
+      left join ohp_answer a on b.id_question = a.id_question and f.id_form = a.id_form
+      left join ohp_option g on g.id_option = a.id_option
+      ORDER BY f.id_form,b.id_question");
+
+  //$result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve forms from database.
+ *
+ * @return
+ *   A set of forms.
+ */
+function get_forms() {
+
+  $query = db_select('ohp_form', 'a');
+  $query->join('ohp_task', 'b', 'b.id_task = a.id_task');
+  $query->join('ohp_admission', 'c', 'c.id_admission = b.id_admission');
+  $query->join('ohp_identification', 'd', 'd.user_uid = c.user_uid');
+  $query->addField('d', 'cip');
+  $query->addField('d', 'given_name');
+  $query->addField('d', 'middle_name');
+  $query->addField('d', 'family_name');
+  $query->addField('d', 'family_name2');
+  $query->addField('d', 'gender');
+  $query->addField('a', 'id_form');
+
+  $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve questions from database.
+ *
+ * @return
+ *   A set of questions.
+ */
+function get_questions() {
+
+  $query = db_select('ohp_question', 'n');
+  $query->addField('n', 'description');
+  $query->addField('n', 'id_question');
+  $query->orderBy('n.id_question', 'ASC');
 
   $result = $query->execute();
 
@@ -477,7 +580,7 @@ function update_taskform_status($id_task, $status) {
 /**
  * Custom update function.
  *
- * Update task in database.
+ * Update task status in database.
  */
 function update_task_status($id_task, $status) {
 
@@ -539,7 +642,7 @@ function delete_task($id_task,$type = 'VOID') {
 /**
  * Custom update function.
  *
- * Insert task in database.
+ * Update task role in database.
  */
 function update_task_role($id_task,$id_role) {
   $query = db_select('ohp_task_role');
@@ -557,7 +660,7 @@ function update_task_role($id_task,$id_role) {
 }
 
 /**
- * Custom update function.
+ * Custom insert function.
  *
  * Insert task in database.
  */
@@ -602,16 +705,6 @@ function insert_task($id_admission,$id_activity) {
     $query->condition('o.id_activity',array(1,2),'IN');
 
     $maxform= $query->execute()->fetchField();
-// if(!isset($maxform)){
-// drupal_set_message('A'.' '.$id_admission);
-// var_dump('A'.' '.$id_admission);
-// }else if($maxform==null){
-// drupal_set_message('B');
-// var_dump('B');
-// }else{
-// drupal_set_message($maxform);
-// var_dump($maxform);
-// }
 
     $query = db_select('ohp_form');
     $query->addExpression('MAX(id_form)');
@@ -641,15 +734,8 @@ function insert_task($id_admission,$id_activity) {
       $query->addField('p', 'value');
     }
     $query->condition('n.id_template',$id_template,'=');
-//     if(isset($maxform)){
-//       $query->condition('p.id_form',$maxform,'=');
-// var_dump('$maxform '.$maxform);
-// drupal_set_message('$maxform '.$maxform);
-//     }
 
     $result_tq = $query->execute();
-//var_dump('$$query-> '.$query->__toString());
-//drupal_set_message('$$query-> '.$query->__toString());
 
     foreach ($result_tq as $row_tq) {
       $query = db_select('ohp_answer');
@@ -688,6 +774,19 @@ function insert_task($id_admission,$id_activity) {
   return $id_task;
 }
 
+function get_gender( $sex )
+{
+  $result = '';
+  if($sex == "M"){
+    $result = t('Home');
+  }else if($sex == "F"){
+    $result = t('Dona');
+  }else{
+    $result = $sex;
+  }
+  return $result;
+}
+
 function get_age( $then_ts )
 {
   $then_year = date('Y', $then_ts);
@@ -711,6 +810,3 @@ function get_fullname ($given_name, $middle_name, $family_name, $family_name2) {
   return $full_name;
 }
 
-/**
- * @} End of "defgroup case_task".
- */

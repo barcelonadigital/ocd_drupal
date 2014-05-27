@@ -1,12 +1,29 @@
 <?php
 
 /**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
+ *
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
  * @file
  * A file with utils and constants.
  */
 
 $GLOBALS["WS-ENDPOINT"]="http://dev3.linkcare.es/ws/ServerWSDL.php";
-
 
 function colgar_hijo( $doc, $padre, $etiqueta, $valor = "", $numeric = false )
 {
@@ -22,22 +39,9 @@ function colgar_hijo( $doc, $padre, $etiqueta, $valor = "", $numeric = false )
     return $aux1;
 }
 
-
-/**
- * Constructs a descriptive page.
- *
- * Our menu maps this function to the path 'ohp/tasks_assigned'.
- */
 function load_form($token ,$id_form, &$form_xml, &$questions_map) {
 
   $form_xml = get_form($id_form);
-
-//   $form_xml['form_id1']=$id_form;
-//   $form_xml['form_id2']=$id_form;
-//   $form_xml['form_id3']=$id_form;
-//   $form_xml['form_id4']=$id_form;
-//   $form_xml['form_id5']=$id_form;
-//   $form_xml['form_id6']=$id_form;
 
   $result = get_form_answers($id_form);
   foreach ($result as $row) {
@@ -61,7 +65,7 @@ function load_form($token ,$id_form, &$form_xml, &$questions_map) {
 }
 
 function get_numeric_array(){
-  return array('21','22','23','24','25','28','29','32','33','35','38','46','47','48','49','66','67','72','73','74','76','82','83','84','85','86','103');
+  return array('21','22','23','24','25','28','29','32','33','35','38','46','47','48','49','66','67','72','73','74','76','80','82','83','84','85','86','103');
 }
 
 function get_form_object($form_id){
@@ -75,6 +79,7 @@ function get_form_object($form_id){
   }
   return NULL;
 }
+
 function get_form_struct(){
   return array(
         'info'=>array(
@@ -117,7 +122,7 @@ function get_form_struct(){
                     'hidden'=>array()),
                 'gaso'=>array(
                     'title'=>t('Gasometria'),
-                    'items'=>array(array("26","27"),array("28","29"),array("30","31"),array("32","33"),array("34","35")),
+                    'items'=>array(array("26","27"),array("28"),array("29","30","31"),array("32","33"),array("34","35")),
                     'hidden'=>array("30")),
                 'pulsio'=>array(
                     'title'=>t('Pulsioximetria'),
@@ -159,28 +164,27 @@ function get_form_struct(){
 }
 
 function get_value_description($question_id, $questions_map) {
-  //var_dump(2);
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
-    //var_dump($question_obj);
-    if(in_array($question_id, get_numeric_array())){
-      $num_decimals = 0;
-      if(isset($question_obj->num_decimals)){
-        $num_decimals = $question_obj->num_decimals;
-      }
-      return number_format((float)$question_obj->value,$num_decimals,",",".");
-    }else
-    if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
-      foreach ($question_obj->options->option as $option) {
-        if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
-          return (string)$option->description;
+    if(isset($question_obj->value)&&!empty($question_obj->value)){
+      if(in_array($question_id, get_numeric_array())){
+        $num_decimals = 0;
+        if(isset($question_obj->num_decimals)){
+          $num_decimals = $question_obj->num_decimals;
         }
+        return number_format((float)$question_obj->value,$num_decimals,",",".");
+      }else
+      if($question_obj->type=='VERTICAL_RADIO' || $question_obj->type=='HORIZONTAL_RADIO'){
+        foreach ($question_obj->options->option as $option) {
+          if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
+            return (string)$option->description;
+          }
+        }
+      }else if($question_obj->type=='DATE'){
+        return date('d/m/Y',(string)$question_obj->value);
+      }else{
+        return (string)$question_obj->value;
       }
-    }else if($question_obj->type=='DATE'){
-      //var_dump($question_obj);
-      return date('d/m/Y',(string)$question_obj->value);
-    }else{
-      return (string)$question_obj->value;
     }
   }
   return "";

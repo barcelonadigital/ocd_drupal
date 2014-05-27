@@ -3,20 +3,21 @@
 include_once 'ohp_case.utils.inc';
 
 /**
- * @file
- * Module file for case_search_module.
- */
-
-/**
- * @defgroup case_search Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
  *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @see menu_example
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -61,9 +62,6 @@ function ohp_case_search_page() {
  * @see ohp-case-search-form.tpl.php
  */
 function template_preprocess_ohp_case_search(&$variables) {
-//   $search_form = drupal_get_form('ohp_case_search_form');
-//   $search_form_box = drupal_render($search_form);
-//   $variables['search_box'] = $search_form_box;
   $variables['search_box'] = drupal_render($variables['elements']['pager_container']);
 }
 
@@ -87,7 +85,3 @@ function ohp_case_search_form_submit($form, &$form_state) {
     drupal_goto('ohp/ohp_case_result', array('query' => array('search_str' => $search_str)));
   }
 }
-
-/**
- * @} End of "defgroup case_search".
- */

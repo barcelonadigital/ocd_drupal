@@ -1,26 +1,27 @@
 <?php
 
 /**
- * @file
- * Module file for case_task_module.
- */
-
-/**
- * @defgroup case_task Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
  *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @see menu_example
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Constructs a descriptive page.
  *
- * Our menu maps this function to the path 'ohp/tasks_assigned'.
+ * Our menu maps this function to the path 'ohp/ohp_case_main'.
  */
 function ohp_case_task_page() {
 
@@ -44,10 +45,10 @@ function ohp_case_task_page() {
       $long_desc = NULL;
       if("Prescripció d'OCD"==$row->description){
         //$row->description = 'Prescripció d\'OCD';
-        $long_desc = 'Característiques de la sol·licitud. Diagnòstic. Proves funcionals respiratòries. Equips de teràpia respiratòria. Pla terapèutic.';
+        $long_desc = 'Característiques de la sol·licitud. Diagnòstic. Proves funcionals respiratòries. Equips de teràpia respiratòria. Pla terapèutic. Comentaris.';
       }else if("Visita de seguiment"==$row->description){
         //$row->description = 'Visita de seguiment';
-        $long_desc = 'Característiques de la sol·licitud. Diagnòstic. Factors de risc i hábits de vida. Proves funcionals respiratòries. Equips de teràpia respiratòria. Adequació i adherència. Percepció del pacient. Pla terapèutic.';
+        $long_desc = 'Característiques de la sol·licitud. Diagnòstic. Factors de risc i hábits de vida. Proves funcionals respiratòries. Equips de teràpia respiratòria. Adequació i adherència. Percepció del pacient envers la seva salut. Pla terapèutic. Comentaris.';
       }else if("DISCHARGE"==$row->type){
         $long_desc = 'QÜESTIONARI REGISTRE D\'ALTA DEL PROGRAMA. REPORT Enviament de document a la història clínica. REPORT Sol·licitud d\'OCD a CatSalut.';
       }
@@ -55,6 +56,8 @@ function ohp_case_task_page() {
         $desc_status=t('Pendent');
       }else if($row->status=='DONE'){
         $desc_status=t('Finalitzat');
+      }else if($row->status=='DELETED'){
+        $desc_status=t('Eliminat');
       }else{
         $desc_status=$row->status;
       }
@@ -80,7 +83,6 @@ function ohp_case_task_page() {
 
     $content[] = array(
       '#theme' => 'table',
-      //'#header' => array(t('Data'), t('Tasca')),
       '#attributes' => array('id' => array('table_task'),),
       '#rows' => $chunks[$current_page],
       '#empty' => t('No hi ha elements per mostrar.'),
@@ -94,7 +96,6 @@ function ohp_case_task_page() {
       '#markup' => t('No hi ha elements per mostrar.'),
       '#prefix' => '<h2 class="asses">Històric d\'avaluacions</h2><br><br>',
     );
-    //$page_array['table'] = $content;
   }
 
   // Create a render array ($page_array) which will be themed as a table with a
@@ -102,10 +103,6 @@ function ohp_case_task_page() {
   $page_array['main'] = array(
     '#theme' => 'ohp_case_body',
   );
-//   $page_array['main']['menu_container'] = array(
-//     '#theme' => 'ohp_case_menu',
-//     'is_active_menu_formularis' => TRUE,
-//   );
   $page_array['main']['pager_container'] = array(
     '#type' => 'container',
     '#attributes' => array(
@@ -122,7 +119,3 @@ function ohp_case_task_page() {
 
   return $page_array;
 }
-
-/**
- * @} End of "defgroup case_task".
- */

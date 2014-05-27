@@ -5190,7 +5190,6 @@ nav.custom-menuprincipal div.container ul.nav>li>a.tasks {
     background-image:url(../img/ico-tasks-menuprincipal.png)
 }
 nav.custom-menuprincipal div.container ul.nav>li>a.report {
-    visibility:hidden;
     background-image:url(../img/ico-report-menuprincipal.png)
 }
 nav.custom-menuprincipal div.container ul.nav>li>a.community {
@@ -10373,4 +10372,112 @@ a.back {
 .h3actions a.help:hover {
     opacity:.7;
     filter:alpha(opacity=70)
+}
+ul.forena-doclinks {
+	margin-left: auto;
+	width: 1000px;
+	margin-right: auto;
+	float: none;
+}
+ul.forena-doclinks li {
+	float: right;
+	margin-top: 50px;
+}
+table.table_report th, table.table_report td{
+    overflow: hidden;
+	white-space: nowrap;
+	padding: 10px 10px 10px 10px;
+	max-width: 195px;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #ccc;
+	padding: 0.1em 0.6em;
+}
+table.table_report th{
+	font-weight:bold;
+	font-size: 14px;
+	background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+table.table_report tr.first-row td{
+    font-weight:bold;
+    font-size: 14px;
+    background-color: #eee;
+    border-bottom: 3px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+table.table_report th:first-child, table.table_report tr.first-row td:first-child{
+    border-left: 0px solid #ccc;
+}
+.pager-first a {
+  font-size: 16px;
+  padding: 12px 24px 12px 24px;
+  outline: none;
+  color: #0088cc;
+  text-decoration: none;
+  cursor: auto;
+}
+.item-list .pager li {
+	display:inline-block;
+
+}
+.pagination ul>li>a,.pagination ul>li>a:hover,.pagination ul>li>a:focus {
+	background-color: transparent;
+    border: 0px none transparent;
+}
+.item-list .pager .pager-ellipsis.first {
+	display: none;
+}
+.item-list .pager .pager-ellipsis {
+	visibility: hidden;
+	width: 235px;
+}
+.item-list .pager .pager-previous a, .item-list .pager .pager-next a {
+    background-color: #1c82eb;
+    border-bottom: 2px solid #1064b9;
+	background-repeat: no-repeat;
+	margin-right: 10px;
+	display: inline-block;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-left-width: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #fff;
+}
+.item-list .pager .pager-previous a {
+    padding: 12px 12px 12px 37px;
+    width: 65px;
+    background-position: left center;
+}
+.item-list .pager .pager-next a {
+	padding: 12px 37px 12px 12px;
+	width: 65px;
+	text-align: right;
+	background-position: right center;
+}
+.item-list .pager .pager-previous a {
+    background-image: url(../img/flecha-left-btn.png);
+}
+.item-list .pager .pager-next a {
+    background-image: url(../img/flecha-right-btn.png);
+}
+.item-list .pager .pager-previous a:hover, 
+.item-list .pager .pager-previous a:focus, 
+.item-list .pager .pager-previous a:active,
+.item-list .pager .pager-next a:hover, 
+.item-list .pager .pager-next a:focus, 
+.item-list .pager .pager-next a:active {
+	color: #fff;
+	text-decoration: none;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.tbl-scroll {
+	width: 1000px;
+	overflow: auto;
+}
+div.doc-links {
+    float: right;
 }

@@ -1,27 +1,28 @@
-  <?php
-  /**
- * @file
- * Template file for the theming example text form.
+<?php
+
+/**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
  *
- * Available custom variables:
- * - $text_form: A string containing the pre-rendered form.
- * - $text_form_content: An array of form elements keyed by the element name.
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * The default example below renders the entire form and its form elements in
- * a default order provided by Drupal.
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- * Alternatively, you may print each form element in the order you desire,
- * adding any extra html markup you wish to decorate the form like this:
- *
- * <?php print $text_form_content['element_name']; ?>
- *
- * The following snippet will print the contents of the $text_form_content
- * array, hidden in the source of the page, for you to discover the individual
- * element names.
- *
- * <?php print '<!--' . print_r($text_form_content, TRUE) . '-->'; ?>
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-  ?>
+
+/**
+ * @file
+ * Template file for theming the case form controls.
+ */
+?>
 <div id="task_controls">
 	<a href="<?php echo url('ohp/ohp_case_main'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>"
 		class="h2 back clearfix"><span><?php echo t('Tornar'); ?></span></a>

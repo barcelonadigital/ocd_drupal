@@ -1,12 +1,30 @@
 <?php
 
 /**
- * @file
- * Contains page callbacks and related functions of TCPDF module.
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
+ *
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
- * Page callback for downloading example pdf files.
+ * @file
+ * Generation of pdf files using TCPDF module.
+ */
+
+/**
+ * Page callback for downloading the pdf files.
  */
 function ohp_pdf_download($example_name,$id_form) {
   switch ($example_name) {
@@ -96,16 +114,7 @@ function add_group_docform(&$count_questions,$questions_map,$ids_array,$hiddens_
       $result .= '<tr>'.$row_result.'</tr>';
     }
   }
-//   if($j>0){
-//     $container_result .= '<p><strong>'.$title.'</strong></p>';
-//     $container_result .= '<table>';
-//     if($result==''){
-//       $container_result .= t('No hi ha elements per mostrar.');
-//     }else{
-//       $container_result .= $result;
-//     }
-//     $container_result .= '</table>';
-//   }
+
   return $result;
 }
 
@@ -251,7 +260,6 @@ function ohp_pdf_prescription_pdf($id_form) {
     );
   }
   $html = theme('ohp_pdf_basic_html',$variables);
-  //drupal_set_message($html);
 
   // Insert the content. Note that DrupalInitialize automaticly adds the first
   // page to the pdf document.

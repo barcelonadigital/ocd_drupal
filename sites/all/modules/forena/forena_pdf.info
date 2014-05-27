@@ -1,0 +1,13 @@
+name = Forena PDF Generation
+description = Generate PDF documents using external PDF generators.  Currenlty only supports PrinceXML which is a commercial product. 
+core = 7.x
+dependencies[] = forena
+package = Forena
+
+
+; Information added by Drupal.org packaging script on 2014-05-14
+version = "7.x-4.0-beta2"
+core = "7.x"
+project = "forena"
+datestamp = "1400106228"
+

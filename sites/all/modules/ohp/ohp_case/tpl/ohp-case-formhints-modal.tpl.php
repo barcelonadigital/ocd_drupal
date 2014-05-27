@@ -1,31 +1,32 @@
-  <?php
+<?php
+
+/**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
+ *
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 /**
  * @file
- * Template file for the theming example text form.
- *
- * Available custom variables:
- * - $text_form: A string containing the pre-rendered form.
- * - $text_form_content: An array of form elements keyed by the element name.
- *
- * The default example below renders the entire form and its form elements in
- * a default order provided by Drupal.
- *
- * Alternatively, you may print each form element in the order you desire,
- * adding any extra html markup you wish to decorate the form like this:
- *
- * <?php print $text_form_content['element_name']; ?>
- *
- * The following snippet will print the contents of the $text_form_content
- * array, hidden in the source of the page, for you to discover the individual
- * element names.
- *
- * <?php print '<!--' . print_r($text_form_content, TRUE) . '-->'; ?>
+ * Template file for theming the case form hints modals.
  */
 ?>
     <!-- Lightbox-->
     <div id="helpGasometriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">
@@ -76,7 +77,7 @@
     </div>
     <div id="helpPulsioModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">
@@ -100,7 +101,7 @@
     </div>
     <div id="helpEspiroModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">
@@ -118,7 +119,7 @@
     </div>
     <div id="helpTabaqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">
@@ -134,7 +135,7 @@
     </div>
     <div id="helpImcModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">
@@ -144,7 +145,7 @@
     </div>
     <div id="helpPulsioNoctModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">
@@ -166,7 +167,7 @@
     </div>
     <div id="helpAdequacioModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal loadsession hide fade">
       <div class="modal-header">
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><bean:message key="label.window.close"/></button>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><?php print t('Close'); ?></button>
         <h3>Informació</h3>
       </div>
       <div class="modal-body">

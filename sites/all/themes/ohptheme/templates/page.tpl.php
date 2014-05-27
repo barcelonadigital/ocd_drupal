@@ -13,9 +13,6 @@
               </a>
               <div class="dropdown-menu">
                 <ul>
-                  <!--
-                  <li><html:link action="/logoutAction"><bean:message key="label.myAccount"/></html:link></li>
-                  -->
                   <li><?php print l(t('Tancar sessió'), 'user/logout'); ?></li>
                 </ul>
               </div>
@@ -57,39 +54,23 @@
                 <ul>
                 <li><a href="<?php echo url('ohp/ohp_task_assigned_active'); ?>"><?php print t('Pendents'); ?></a></li>
                 <li><a href="<?php echo url('ohp/ohp_task_assigned_done'); ?>"><?php print t('Finalitzades'); ?></a></li>
-                <!--
-                <logic:present name="caseBean">
-			    <logic:present name="actionsTransfer">
-			    <logic:iterate name="actionsTransfer" id="actionItem" type="org.bdigital.ocd.model.form.ActionAf" >
-					<li><html:link action="/caseTaskInsertAction?idAdmission=${admissionBean.idAdmission}&idCase=${caseBean.idCase}" paramId="idActivity" paramName="actionItem" paramProperty="ref" onclick="return confirm('Es finalitzarà (DISCHARGE) el protocol actiu actualment. Desitja continuar?');"><bean:write name="actionItem" property="name"/></html:link></li>
-				</logic:iterate>
-				</logic:present>
-			    <logic:present name="actions">
-			    <logic:iterate name="actions" id="actionItem" type="org.bdigital.ocd.model.form.ActionAf" >
-					<li><html:link action="/caseTaskInsertAction?idAdmission=${admissionBean.idAdmission}&idCase=${caseBean.idCase}" paramId="idActivity" paramName="actionItem" paramProperty="ref"><bean:write name="actionItem" property="name"/></html:link></li>
-				</logic:iterate>
-				</logic:present>
-				</logic:present>
-				-->
                 </ul>
               </div>
             </div>
           </li>
           <li><a href="#" data-toggle="dropdown" class="report">
-              <strong><bean:message key="menu.reports"/></strong><span><bean:message key="menu.reports.desc"/></span></a>
+              <strong><?php print t('Informes'); ?></strong><span><?php print t('Tots els qüestionaris'); ?></span></a>
             <div class="dropdown-menu">
 
               <div class="links">
                 <ul>
-                  <li><a href="#"><?php print t('Link'); ?> 1</a></li>
-                  <li><a href="#"><?php print t('Link'); ?> 2</a></li>
-                  <li><a href="#"><?php print t('Link'); ?> 3</a></li>
+                  <li><a href="<?php echo url('ohp/ohp_case_report'); ?>"><?php print t('Tots els qüestionaris'); ?></a></li>
                 </ul>
               </div>
             </div>
           </li>
           <li><a href="#" data-toggle="dropdown" class="community">
-              <!-- botón--><strong><bean:message key="menu.community"/></strong><span><bean:message key="menu.community.desc"/></span></a>
+              <!-- botón--><strong><?php print t('Community'); ?></strong><span><?php print t('Forum, news, ranking'); ?></span></a>
             <div class="dropdown-menu">
               <!-- dropdown menu-->
               <div class="links">
@@ -105,7 +86,7 @@
             </div>
           </li>
           <li><a href="#" data-toggle="dropdown" class="more">
-              <strong><bean:message key="menu.more"/></strong><span><bean:message key="menu.more.desc"/></span></a>
+              <strong><?php print t('Altres'); ?></strong><span><?php print t('Item1, Item2'); ?></span></a>
             <div class="dropdown-menu">
 
               <div class="links">

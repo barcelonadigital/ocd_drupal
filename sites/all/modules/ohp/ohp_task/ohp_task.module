@@ -1,63 +1,35 @@
 <?php
 
 /**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet  
+ * Barcelona Digital Technology Centre, 2014 
+ * 
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
  * @file
- * Module file for ohp_task_module.
+ * Module file for ohp_task module.
  */
-
-/**
- * @defgroup ohp_task Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
- *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
- *
- * @see menu_example
- */
-
-/**
- * Implements hook_help().
- *
- * Through hook_help(), a module can make documentation available to the user
- * for the module as a whole or for specific paths. Where the help appears
- * depends on the $path specified.
- *
- * In the first example below, the help text will appear on the simple page
- * defined in hook_menu below in the region designated for help text.
- *
- * In the second example, the text will be available through the module page as
- * a link beside the module or on the admin help page (admin/help) in the list
- * of help topics using the name of the module. To specify help in the admin
- * section use the module name in the path as in the second case below.
- *
- * @see hook_help()
- */
-function ohp_task_help($path, $arg) {
-  switch ($path) {
-    case 'ohp/ohp_task/simple':
-      // Help text for the simple page registered for this path.
-      return t('This is help text for the simple page.');
-
-    case 'admin/help#ohp_task':
-      // Help text for the admin section, using the module name in the path.
-      return t("This is help text created in the page example's second case.");
-  }
-}
 
 /**
  * Implements hook_permission().
- *
- * Since the access to our new custom pages will be granted based on
- * special permissions, we need to define what those permissions are here.
- * This ensures that they are available to enable on the user role
- * administration pages.
  */
 function ohp_task_permission() {
   return array(
     'access ohp_task_assigned content' => array(
-      'title' => t('Acces tasks assigned'),
+      'title' => t('Acces OHP tasks'),
       'description' => t('Allow users to access tasks assigned page'),
     ),
   );
@@ -65,40 +37,9 @@ function ohp_task_permission() {
 
 /**
  * Implements hook_menu().
- *
- * Because hook_menu() registers URL paths for items defined by the function, it
- * is necessary for modules that create pages. Each item can also specify a
- * callback function for a given URL. The menu items returned here provide this
- * information to the menu system.
- *
- * We will define some menus, and their paths will be interpreted as follows:
- *
- * If the user accesses http://example.com/?q=ohp/ohp_task/simple,
- * the menu system will first look for a menu item with that path. In this case
- * it will find a match, and execute ohp_task_simple().
- *
- * If the user accesses http://example.com/?q=ohp/ohp_task/arguments,
- * the menu system will find no explicit match, and will fall back to the
- * closest match, 'ohp/ohp_task', executing ohp_task_description().
- *
- * If the user accesses
- * http://example.com/?q=ohp/ohp_task/arguments/1/2, the menu
- * system will first look for ohp/ohp_task/arguments/1/2. Not finding
- * a match, it will look for ohp/ohp_task/arguments/1/%. Again not
- * finding a match, it will look for ohp/ohp_task/arguments/%/2.
- * Yet again not finding a match, it will look for
- * ohp/ohp_task/arguments/%/%. This time it finds a match, and so will
- * execute ohp_task_arguments(1, 2). Since the parameters are passed to
- * the function after the match, the function can do additional checking or
- * make use of them before executing the callback function.
- *
- * @see hook_menu()
- * @see menu_example
  */
 function ohp_task_menu() {
 
-  // This is the minimum information you can provide for a menu item. This menu
-  // item will be created in the default menu, usually Navigation.
   $items['ohp/ohp_task_assigned_active'] = array(
     'title' => 'Assignades pendents',
     'page callback' => 'ohp_task_assigned_active_page',
@@ -122,7 +63,7 @@ function ohp_task_menu() {
 /**
  * Constructs a descriptive page.
  *
- * Our menu maps this function to the path 'ohp/ohp_task_assigned'.
+ * Our menu maps this function to the path 'ohp/ohp_task_insert'.
  */
 function ohp_task_insert_page() {
   if(isset($_GET['id_case']) && isset($_GET['id_activity'])){
@@ -175,31 +116,11 @@ function ohp_task_assigned_done_page() {
   return ohp_task_assigned_page('DONE',t('Finalitzades'));
 }
 
-/**
- * Constructs a descriptive page.
- *
- * Our menu maps this function to the path 'ohp/ohp_task_assigned'.
- */
 function ohp_task_assigned_page($status,$subtitle_section) {
   
   $page_array = array();
   if(isset($_SESSION['id_user'])){
     $id_user = $_SESSION['id_user'];
-    
-//     $result = get_user_roles($id_user);
-//     $text_roles = '';
-//     if($result->rowCount()>0){
-//       $idx = 0;
-//       foreach ($result as $role) {
-//         if($idx>0){
-//           $text_roles .= ', ';
-//         }
-//         $text_roles .= '<strong>'.$role->description.'</strong>';
-//         $idx++;
-//       }
-//     }else{
-//       $text_roles = '<i>L\'usuari connectat no té cap rol</i>';
-//     }
     
     $result = get_user_tasks($id_user,$status);
   
@@ -213,9 +134,9 @@ function ohp_task_assigned_page($status,$subtitle_section) {
       foreach ($result as $task) {
         $items[] = array(
           'data' => array(
-            'id' => l(date('d/m/Y', $task->date), 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id_task, 'id_admission' => $task->id_admission, 'id_case' => $id_user))),
-            'item_description' => l($task->description, 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id_task, 'id_admission' => $task->id_admission, 'id_case' => $id_user))),
-            'bundle' => l(get_fullname ($task->given_name, $task->middle_name, $task->family_name, $task->family_name2), 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id_task, 'id_admission' => $task->id_admission, 'id_case' => $id_user))),
+            'id' => l(date('d/m/Y', $task->date), 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id_task, 'id_admission' => $task->id_admission, 'id_case' => $task->user_uid))),
+            'item_description' => l($task->description, 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id_task, 'id_admission' => $task->id_admission, 'id_case' => $task->user_uid))),
+            'bundle' => l(get_fullname ($task->given_name, $task->middle_name, $task->family_name, $task->family_name2), 'ohp/ohp_case_taskunit', array('query' => array('id_task' => $task->id_task, 'id_admission' => $task->id_admission, 'id_case' => $task->user_uid))),
           ),
         );
       }
@@ -230,7 +151,6 @@ function ohp_task_assigned_page($status,$subtitle_section) {
         '#attributes' => array('class' => array('table_result','table_assigned'),),
         '#rows' => $chunks[$current_page],
         '#empty' => t('No hi ha elements per mostrar.'),
-//         '#prefix' => t('Mostrant avaluacions assignades als següents rols: ').$text_roles.'<br><br>',
       );
   
       // Attach the pager theme.
@@ -240,7 +160,6 @@ function ohp_task_assigned_page($status,$subtitle_section) {
       $content[] = array(
         '#type' => 'item',
         '#markup' => t('No hi ha elements per mostrar.'),
-//         '#prefix' => t('Mostrant avaluacions assignades als següents rols: ').$text_roles.'<br><br>',
       );
       $page_array['table'] = $content;
     }
@@ -282,6 +201,3 @@ function ohp_task_theme() {
   );
 }
 
-/**
- * @} End of "defgroup ohp_task".
- */

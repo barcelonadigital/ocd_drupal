@@ -1,12 +1,26 @@
+// Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet  
+// Barcelona Digital Technology Centre, 2014 
+// 
+// Open Health Practice is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Open Health Practice is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
 
 (function($){
 	$(document).ready(function(){
-		//alert('aa');
 		checkFormulas();
 	});
 }(window.jQuery));
 	function checkFormulas(){
-		//alert('b');
 	  var field_formulas = Drupal.settings.field_formulas;
 	  for (var key in field_formulas) {
 	    var value = field_formulas[key];
@@ -31,7 +45,6 @@
 		  var value2 = value.substring(7,value.length-1);
 		  array = value2.split(",");
 		  var type = document.querySelector("input[name='question_type_"+array[0].substring(1)+"']");
-		  //alert(array[0].substring(1));
 		  if(type.value==='VERTICAL_RADIO' || type.value==='HORIZONTAL_RADIO'){
 	        a1= document.querySelector("select[name='"+array[0].substring(1)+"']");
 		  }else{
@@ -46,7 +59,6 @@
 	      if (typeof a1 !== "undefined" && a1!=null &&
 	          typeof a0 !== "undefined" && a0!=null) {
 	    	var a1n = +(a1.value.replace(/\./g, '').replace(',', '.'));
-	    	//alert(a1n);
 	    	if(a1n<min){
 	    	  a0.value=val1;
 	    	}else if(a1n>=min && a1n<=max){

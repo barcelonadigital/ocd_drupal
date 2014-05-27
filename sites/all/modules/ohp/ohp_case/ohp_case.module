@@ -3,54 +3,29 @@
 include_once 'ohp_case.utils.inc';
 
 /**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
+ *
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
  * @file
- * Module file for ohp_case_module.
- */
-
-/**
- * @defgroup ohp_case Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
- *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
- *
- * @see menu_example
- */
-
-/**
- * Implements hook_help().
- *
- * Through hook_help(), a module can make documentation available to the user
- * for the module as a whole or for specific paths. Where the help appears
- * depends on the $path specified.
- *
- * In the first example below, the help text will appear on the simple page
- * defined in hook_menu below in the region designated for help text.
- *
- * In the second example, the text will be available through the module page as
- * a link beside the module or on the admin help page (admin/help) in the list
- * of help topics using the name of the module. To specify help in the admin
- * section use the module name in the path as in the second case below.
- *
- * @see hook_help()
- */
-function ohp_case_help($path, $arg) {
-  switch ($path) {
-    case 'ohp/ohp_case/simple':
-      // Help text for the simple page registered for this path.
-      return t('This is help text for the simple page.');
-  }
-}
+ * Module file for ohp_case module.
 
 /**
  * Implements hook_permission().
- *
- * Since the access to our new custom pages will be granted based on
- * special permissions, we need to define what those permissions are here.
- * This ensures that they are available to enable on the user role
- * administration pages.
  */
 function ohp_case_permission() {
   return array(
@@ -63,35 +38,6 @@ function ohp_case_permission() {
 
 /**
  * Implements hook_menu().
- *
- * Because hook_menu() registers URL paths for items defined by the function, it
- * is necessary for modules that create pages. Each item can also specify a
- * callback function for a given URL. The menu items returned here provide this
- * information to the menu system.
- *
- * We will define some menus, and their paths will be interpreted as follows:
- *
- * If the user accesses http://example.com/?q=ohp/ohp_case/simple,
- * the menu system will first look for a menu item with that path. In this case
- * it will find a match, and execute ohp_case_simple().
- *
- * If the user accesses http://example.com/?q=ohp/ohp_case/arguments,
- * the menu system will find no explicit match, and will fall back to the
- * closest match, 'ohp/ohp_case', executing ohp_case_description().
- *
- * If the user accesses
- * http://example.com/?q=ohp/ohp_case/arguments/1/2, the menu
- * system will first look for ohp/ohp_case/arguments/1/2. Not finding
- * a match, it will look for ohp/ohp_case/arguments/1/%. Again not
- * finding a match, it will look for ohp/ohp_case/arguments/%/2.
- * Yet again not finding a match, it will look for
- * ohp/ohp_case/arguments/%/%. This time it finds a match, and so will
- * execute ohp_case_arguments(1, 2). Since the parameters are passed to
- * the function after the match, the function can do additional checking or
- * make use of them before executing the callback function.
- *
- * @see hook_menu()
- * @see menu_example
  */
 function ohp_case_menu() {
 
@@ -100,8 +46,6 @@ function ohp_case_menu() {
   $items['ohp/ohp_case'] = array(
     'title' => 'Cercar pacient',
     'page callback'    => 'ohp_case_search_page',
-    //'page callback' => 'drupal_get_form',
-    //'page arguments'   => array('ohp_case_search_form'),
     'access arguments' => array('access ohp_case_search content'),
     'file' => 'ohp_case_search.inc',
   );
@@ -143,8 +87,6 @@ function ohp_case_menu() {
   $items['ohp/ohp_case_form'] = array(
     'title' => 'Fitxa del pacient',
     'page callback' => 'ohp_case_form_page',
-    //'page callback' => 'drupal_get_form',
-    //'page arguments' => array('ohp_case_form_page'),
     'access arguments' => array('access ohp_case_search content'),
     'type' => MENU_CALLBACK,
     'file' => 'ohp_case_form.inc',
@@ -180,6 +122,20 @@ function ohp_case_menu() {
     'access arguments' => array('access ohp_case_search content'),
     'type' => MENU_CALLBACK,
   );
+  $items['ohp/ohp_case_report'] = array(
+    'title' => 'Report resum',
+    'page callback' => 'ohp_case_report_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_report.inc',
+  );
+  $items['ohp/ohp_case_report_xls'] = array(
+    'title' => 'Report resum XLS',
+    'page callback' => 'ohp_case_report_xls_page',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_report.inc',
+  );
   
   return $items;
 }
@@ -192,8 +148,6 @@ function ohp_case_unselect_page() {
 
 /**
  * Implements hook_theme().
- *
- * Defines the theming capabilities provided by this module.
  */
 function ohp_case_theme() {
   return array(
@@ -238,13 +192,21 @@ function ohp_case_theme() {
         'task_status' => NULL,
       ),
     ),
+    'ohp_case_report'  => array(
+      'file' => 'ohp_case_report.inc',
+      'template' => 'tpl/ohp-case-report-layout',
+      'variables' => array(
+        'subtitle_section' => NULL,
+        'page_content' => NULL,
+      ),
+    ),
   );
 }
 
 /**
- * Process variables for theming-example-text-form.tpl.php
+ * Process variables for ohp-case-menu-layout.tpl.php
  *
- * @see theming-example-text-form.tpl.php
+ * @see ohp-case-menu-layout.tpl.php
  */
 function template_preprocess_ohp_case_menu(&$variables) {
   if(isset($variables['elements']['is_active_menu_formularis'])){
@@ -256,9 +218,9 @@ function template_preprocess_ohp_case_menu(&$variables) {
 }
 
 /**
- * Process variables for ohp-case-search-form.tpl.php
+ * Process variables for ohp-case-body-layout.tpl.php
  *
- * @see ohp-case-search-form.tpl.php
+ * @see ohp-case-body-layout.tpl.php
  */
 function template_preprocess_ohp_case_body(&$variables) {
   $variables['body_style'] = '';
@@ -267,18 +229,18 @@ function template_preprocess_ohp_case_body(&$variables) {
 }
 
 /**
- * Process variables for theming-example-text-form.tpl.php
+ * Process variables for ohp-case-header-form-layout.tpl.php
  *
- * @see theming-example-text-form.tpl.php
+ * @see ohp-case-header-form-layout.tpl.php
  */
 function template_preprocess_ohp_case_header_form(&$variables) {
   template_preprocess_ohp_case_header($variables);
 }
 
 /**
- * Process variables for theming-example-text-form.tpl.php
+ * Process variables for ohp-case-header-layout.tpl.php
  *
- * @see theming-example-text-form.tpl.php
+ * @see ohp-case-header-layout.tpl.php
  */
 function template_preprocess_ohp_case_header(&$variables) {
 
@@ -351,7 +313,6 @@ function template_preprocess_ohp_case_header(&$variables) {
     }
     $variables['ident_treatment'] .=  '&nbsp;</span>';
   }
-//   print "hello";
 }
 
 function ohp_case_load_common(&$page_array) {
@@ -380,13 +341,7 @@ function ohp_case_load_common(&$page_array) {
       $case_bean->birthday = date('d/m/Y', $result['birthdate']);
       $case_bean->age = get_age( $result['birthdate'] );
       $case_bean->sex = $result['gender'];
-      if($case_bean->sex == "M"){
-        $case_bean->desc_sex = t('Home');
-      }else if($case_bean->sex == "F"){
-        $case_bean->desc_sex = t('Dona');
-      }else{
-        $case_bean->desc_sex = $case_bean->sex;
-      }
+      $case_bean->desc_sex = get_gender( $result['gender'] );
       $case_bean->cip = $result['cip'];
       $case_bean->nif = $result['nif'];
       $case_bean->nie = $result['nie'];
@@ -486,7 +441,3 @@ function replace_ids($input_string, $ids_array){
     return $input_string;
   }
 }
-
-/**
- * @} End of "defgroup ohp_case".
- */

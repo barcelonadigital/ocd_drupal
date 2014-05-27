@@ -1,4 +1,4 @@
 name = Open Health Practice
-description = Management of treatment of deseases.
+description = Website of the Open Health Practice.
 package = OHP modules
 core = 7.x

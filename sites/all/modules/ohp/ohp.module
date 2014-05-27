@@ -1,8 +1,26 @@
 <?php
 
 /**
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet  
+ * Barcelona Digital Technology Centre, 2014 
+ * 
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
  * @file
- * A module that displays let you manage the treatment of deseases.
+ * Open Health Practice module.
  */
 
 require_once 'ohp.utils.inc';
@@ -29,7 +47,31 @@ function ohp_user_login(&$edit, $account) {
   drupal_goto('ohp/ohp_case');
 }
 
+/**
+ * Implements hook_user_logout().
+ */
 function ohp_user_logout($account) {
   session_destroy();
   drupal_goto('user/login');
+}
+
+/**
+ * Implements hook_forena_repos_alter().
+ */
+function ohp_forena_repos_alter(&$repos) {
+  $m_path = drupal_get_path('module', 'ohp'); 
+  $repos['ohp'] = array(
+    'path' => $m_path . '/data',
+    'title' => 'OHP repository',
+    'access callback' => 'user_access',
+    'user callback' => 'forena_current_user_id', 
+    'data provider' => 'FrxDrupal', 
+  );
+}
+
+/**
+ * Implements hook_forena_report_directory().
+ */
+function ohp_forena_report_directory() {
+  return drupal_get_path('module', 'ohp') . '/reports';
 }

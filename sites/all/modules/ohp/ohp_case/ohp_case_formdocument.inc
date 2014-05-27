@@ -1,26 +1,27 @@
 <?php
 
 /**
- * @file
- * Module file for case_task_module.
- */
-
-/**
- * @defgroup case_task Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
  *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @see menu_example
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Constructs a descriptive page.
  *
- * Our menu maps this function to the path 'ohp/tasks_assigned'.
+ * Our menu maps this function to the path 'ohp/ohp_case_formdocument'.
  */
 function ohp_case_formdocument_page() {
 
@@ -31,10 +32,6 @@ function ohp_case_formdocument_page() {
   $page_array['main'] = array(
     '#theme' => 'ohp_case_body',
   );
-//   $page_array['main']['menu_container'] = array(
-//     '#theme' => 'ohp_case_menu',
-//     'is_active_menu_formularis' => TRUE,
-//   );
   $page_array['main']['pager_container'] = array(
     '#type' => 'container',
     '#attributes' => array(
@@ -59,15 +56,9 @@ function ohp_case_formdocument_page() {
     '#task_status' => $task_status,
   );
   $page_array['main']['pager_container']['pager_table'] = array(
-    //Title serves as page subtitle
     '#title' => t('Enviament de document a la història clínica'),
     '#markup' => '<br><iframe src="'.$path.'" style="width:1000px; height:500px;"></iframe>',
-    //'#prefix' => '<h2 class="newsession">'.t('Enviament de document a la història clínica').'</h2>',
   );
   return $page_array;
 }
 
-
-/**
- * @} End of "defgroup case_task".
- */

@@ -1,26 +1,27 @@
 <?php
 
 /**
- * @file
- * Module file for case_task_module.
- */
-
-/**
- * @defgroup case_task Example: Page
- * @ingroup examples
- * @{
- * This example demonstrates how a module can display a page at a given URL.
+ * Author: Jordi Roda, Ernest Pastor, Filip Velickovski, Magí Lluch-Ariet
+ * Barcelona Digital Technology Centre, 2014
  *
- * It's important to understand how the menu system works in order to
- * implement your own pages. See the Menu Example module for some insight.
+ * Open Health Practice is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @see menu_example
+ * Open Health Practice is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * Constructs a descriptive page.
  *
- * Our menu maps this function to the path 'ohp/tasks_assigned'.
+ * Our menu maps this function to the path 'ohp/ohp_case_form'.
  */
 function ohp_case_form_page() {
 
@@ -47,30 +48,6 @@ function ohp_case_form_page() {
       '#selected_option' => t('Qüestionari'),
       '#task_status' => $task_bean->status,
     );
-
-//     $form['controls'] = array(
-//       '#type' => 'container',
-//       '#attributes' => array('id' => array('task_controls')),
-//     );
-//     $form['controls']['cancel'] = array(
-//       '#type' => 'link',
-//       '#title' => "<span>" . t("Tornar") . "</span>",
-//       '#href' => 'ohp/ohp_case_main',
-//       '#attributes' => array(
-//         'class' => array('h2','back','clearfix'),
-//       ),
-//       '#options' => array(
-//         'html' => TRUE,
-//         'query' => array(
-//             'id_admission' => $id_admission, 'id_case' => $id_case),
-//       ),
-//     );
-//       $form['cancel'] = array(
-//         '#markup' => l("<span>" . t("Tornar") . "</span>",
-//             'ohp/ohp_case_taskunit',
-//             array('attributes' => array('class' => array('h2','back','clearfix')),
-//                 'query' => array('id_task' => $id_task,
-//                     'id_admission' => $id_admission, 'id_case' => $id_case))));
 
     $form['columns_container'] = array(
       '#type' => 'container',
@@ -204,7 +181,6 @@ function ohp_case_form_page() {
       $ids_array = array("55","56","57","58","59");
       add_group_form('planificacio',$form['columns_container']['column_middle']['planificacio'],
           $questions_map,$id_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_bean->status);
-      //var_dump($questions_map);
 
     }else if($form_xml->data->name=='CVSO'){
 
@@ -425,9 +401,7 @@ function ohp_case_form_page() {
 }
 
 function add_group_form($group_name,&$form_array,$questions_map,$text_title,$ids_array,$id_form,$id_task,$id_admission,$id_case,$task_status){
-//   if($task_status=='DONE'){
-//     style="display:none
-//     }
+
   $link_attributes = array('class' => array('btn-primary', 'btn', 'btn-editform'));
   if($task_status=='DONE'){
     $link_attributes['style'] = 'display:none';
@@ -458,7 +432,6 @@ function add_group_form($group_name,&$form_array,$questions_map,$text_title,$ids
 function add_resume_question(&$form_array, $questions_map, $question_id, $hidden = false){
   if(isset($questions_map[$question_id])){
     $question_obj = $questions_map[$question_id];
-    //var_dump($question_obj);
     if($question_obj->type=='STATIC_TEXT' ||
         $question_obj->value!=NULL && $question_obj->value!=""){
       $form_array[] = array(
@@ -467,7 +440,3 @@ function add_resume_question(&$form_array, $questions_map, $question_id, $hidden
     }
   }
 }
-
-/**
- * @} End of "defgroup case_task".
- */

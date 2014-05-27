@@ -1,4 +1,4 @@
-name = aOHP Theme
+name = OHP Theme
 description = Custom theme for Open Health Practice.
 core = 7.x
 stylesheets[all][] = css/main.css
