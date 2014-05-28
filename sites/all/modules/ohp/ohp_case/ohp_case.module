@@ -30,8 +30,8 @@ include_once 'ohp_case.utils.inc';
 function ohp_case_permission() {
   return array(
     'access ohp_case_search content' => array(
-      'title' => t('Acces ohp_case_search'),
-      'description' => t('Allow users to access ohp_case_search page'),
+      'title' => t('Acces OHP cases'),
+      'description' => t('Allow users to access cases pages'),
     ),
   );
 }

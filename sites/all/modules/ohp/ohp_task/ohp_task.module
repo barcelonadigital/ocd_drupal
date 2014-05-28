@@ -30,7 +30,7 @@ function ohp_task_permission() {
   return array(
     'access ohp_task_assigned content' => array(
       'title' => t('Acces OHP tasks'),
-      'description' => t('Allow users to access tasks assigned page'),
+      'description' => t('Allow users to access tasks pages'),
     ),
   );
 }

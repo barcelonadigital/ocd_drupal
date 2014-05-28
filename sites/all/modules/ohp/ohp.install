@@ -635,33 +635,101 @@ function ohp_install() {
   $count = db_insert('ohp_identification')
     ->fields(array(
         'user_uid' => 1,
-        'linkcare_username' => 'consulta.validacio',
-        'linkcare_password' => 'bdigital',
-        'cip' => 'ROVI0000001',
-        'nhc' => '126455',
-        'nif' => '46764732F',
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => '0',
+        'nhc' => '0',
+        'nif' => '0',
         'nie' => NULL,
         'pas' => NULL,
-        'given_name' => 'Jordi',
+        'given_name' => 'Linkcare',
         'middle_name' => NULL,
-        'family_name' => 'Roda',
-        'family_name2' => 'Vilella',
+        'family_name' => 'System',
+        'family_name2' => 'Administrator',
         'birthdate' => 0,
         'gender' => 'M',))
     ->execute();
   $count = db_insert('ohp_identification')
     ->fields(array(
         'user_uid' => 2,
-        'linkcare_username' => 'atencio.integrada',
-        'linkcare_password' => 'bdigital',
-        'cip' => 'ROVI0000002',
-        'nhc' => '126456',
-        'nif' => '46764733F',
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => 'FLAL0000002',
+        'nhc' => '026496',
+        'nif' => '16764733G',
         'nie' => NULL,
         'pas' => NULL,
         'given_name' => 'Alexander',
         'middle_name' => NULL,
         'family_name' => 'Fleming',
+        'family_name2' => NULL,
+        'birthdate' => 0,
+        'gender' => 'M',))
+    ->execute();
+  $count = db_insert('ohp_identification')
+    ->fields(array(
+        'user_uid' => 3,
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => 'ROVI0000002',
+        'nhc' => '126456',
+        'nif' => '46764733F',
+        'nie' => NULL,
+        'pas' => NULL,
+        'given_name' => 'Jordi',
+        'middle_name' => NULL,
+        'family_name' => 'Roda',
+        'family_name2' => NULL,
+        'birthdate' => 0,
+        'gender' => 'M',))
+    ->execute();
+  $count = db_insert('ohp_identification')
+    ->fields(array(
+        'user_uid' => 4,
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => 'PAER0000002',
+        'nhc' => '654321',
+        'nif' => '36364133A',
+        'nie' => NULL,
+        'pas' => NULL,
+        'given_name' => 'Ernest',
+        'middle_name' => NULL,
+        'family_name' => 'Pastor',
+        'family_name2' => NULL,
+        'birthdate' => 0,
+        'gender' => 'M',))
+    ->execute();
+  $count = db_insert('ohp_identification')
+    ->fields(array(
+        'user_uid' => 5,
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => 'LLMA0000004',
+        'nhc' => '987654',
+        'nif' => '26364115B',
+        'nie' => NULL,
+        'pas' => NULL,
+        'given_name' => 'Magí',
+        'middle_name' => NULL,
+        'family_name' => 'Lluch-Ariet',
+        'family_name2' => NULL,
+        'birthdate' => 0,
+        'gender' => 'M',))
+    ->execute();
+  $count = db_insert('ohp_identification')
+    ->fields(array(
+        'user_uid' => 6,
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => 'FIVE0000006',
+        'nhc' => '456789',
+        'nif' => '89761583C',
+        'nie' => NULL,
+        'pas' => NULL,
+        'given_name' => 'Filip',
+        'middle_name' => NULL,
+        'family_name' => 'Velickovski',
         'family_name2' => NULL,
         'birthdate' => 0,
         'gender' => 'M',))
@@ -775,7 +843,7 @@ function ohp_install() {
   $count = db_insert('ohp_question') ->fields(array('id_question' => 33, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'EB /EB- (mEq/L)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
   $count = db_insert('ohp_question') ->fields(array('id_question' => 34, 'formula' => NULL, 'requirement' => '$26,S', 'description' => 'Condicions', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
   $count = db_insert('ohp_question') ->fields(array('id_question' => 35, 'formula' => NULL, 'requirement' => '$34,2', 'description' => 'Fluxe de O<sub>2</sub> (litres/minut)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => '1')) ->execute();
-  $count = db_insert('ohp_question') ->fields(array('id_question' => 36, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza pulsioximetria? (si pal·liatiu/ final de vida)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
+  $count = db_insert('ohp_question') ->fields(array('id_question' => 36, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Es realitza pulsioximetria? (en cas de pal·liatiu/ final de vida)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
   $count = db_insert('ohp_question') ->fields(array('id_question' => 37, 'formula' => NULL, 'requirement' => '$36,S', 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
   $count = db_insert('ohp_question') ->fields(array('id_question' => 38, 'formula' => NULL, 'requirement' => '$36,S', 'description' => 'Saturació de O<sub>2</sub> Basal (%)', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'TEXT', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
   $count = db_insert('ohp_question') ->fields(array('id_question' => 39, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Equip prescrit 1', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'VERTICAL_RADIO', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();

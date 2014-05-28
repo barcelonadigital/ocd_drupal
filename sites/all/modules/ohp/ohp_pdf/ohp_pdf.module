@@ -73,8 +73,8 @@ function ohp_pdf_theme($existing, $type, $theme, $path) {
 function ohp_pdf_permission() {
   return array(
     'use tcpdf example' => array(
-      'title' => t('Use TCPDF Examples'),
-      'description' => t('Generate the example pdfs that are provided by TCPDF Example module'),
+      'title' => t('Acces OHP pdf'),
+      'description' => t('Allow users to access PDF pages'),
     ),
   );
 }

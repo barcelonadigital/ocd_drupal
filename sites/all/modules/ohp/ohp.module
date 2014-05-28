@@ -38,7 +38,7 @@ function ohp_user_login(&$edit, $account) {
   if (!empty($entries)) {
     $_SESSION['user_full_name'] = $entries["given_name"].' '.$entries["family_name"];
   }else{
-    $_SESSION['user_full_name'] = '';
+    $_SESSION['user_full_name'] = '(sense identificar)';
   }
   $_SESSION['user_center'] = 'Hospital Clínic';
   $_SESSION['id_user'] = $account->uid;

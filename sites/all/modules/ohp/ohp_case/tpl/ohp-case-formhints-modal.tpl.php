@@ -87,10 +87,14 @@
             <li>Comprovar que la qualitat de la senyal es òptima (amplitud de la onda de pols) en cas contrari pot produir valors erronis.</li>
             <li>El pacient ha d’estar assegut o incorporat al llit i tranquil.</li>
             <li>Comprovar que les ungles de les mans estan netes i sense esmalt.</li>
-            <li>La medició de la pulsioximetria ha de realitzar-se (si no s’indica el contrari) en las següents condicions:</li>
-            <li>Basal (sense oxigen)</li>
-            <li>Ha de quedar registrat en quines condicions s’ha realitzat la medició al costat del resultat.
-                <br>Exemple: Cànules nasals 2 litres/mi (SatO<sub>2</sub> 95%);  Basal (SatO<sub>2</sub> 96%)
+            <li>La medició de la pulsioximetria ha de realitzar-se (si no s’indica el contrari) en las següents condicions:
+              <ol class="sub-level" type="a">
+                <li>Si el pacient és portador d’oxigen domiciliari, la medició es realitza amb oxigen després d’una <strong>administració de 20 minuts</strong>.</li>
+                <li>Basal (sense oxigen)</li>
+                <li>Ha de quedar registrat en quines condicions s’ha realitzat la medició al costat del resultat.
+                    <br>Exemple: Cànules nasals 2 litres/mi (SatO<sub>2</sub> 95%);  Basal (SatO<sub>2</sub> 96%)
+                </li>
+              </ol>
             </li>
             <li>Col·locar el didal tal como mostra la figura y posar en marxa el pulsioxímetre.
                 <br><img src="<?php print $GLOBALS['base_url'] . '/' . drupal_get_path('theme', 'ohptheme'); ?>/img-contenido/pulsioximetria.png"></li>
