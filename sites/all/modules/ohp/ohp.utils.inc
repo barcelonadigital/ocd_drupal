@@ -68,6 +68,17 @@ function get_numeric_array(){
   return array('21','22','23','24','25','28','29','32','33','35','38','46','47','48','49','66','67','72','73','74','76','80','82','83','84','85','86','103');
 }
 
+function get_form_items($form_id){
+  $form_object=get_form_object($form_id);
+  if($form_object!=NULL){
+    $questions_all = call_user_func_array('array_merge', $form_object['items']);
+    $questions_merged = array_diff($questions_all,$form_object['hidden']);
+    return $questions_merged;
+  }else{
+    return NULL;
+  }
+}
+
 function get_form_object($form_id){
   $struct_form=get_form_struct();
   if(isset($struct_form[$form_id])){
