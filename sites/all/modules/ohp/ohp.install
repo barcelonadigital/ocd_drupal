@@ -734,6 +734,23 @@ function ohp_install() {
         'birthdate' => 0,
         'gender' => 'M',))
     ->execute();
+  $count = db_insert('ohp_identification')
+    ->fields(array(
+        'user_uid' => 7,
+        'linkcare_username' => NULL,
+        'linkcare_password' => NULL,
+        'cip' => 'CAHE0000006',
+        'nhc' => '456784',
+        'nif' => '89761585C',
+        'nie' => NULL,
+        'pas' => NULL,
+        'given_name' => 'Carme',
+        'middle_name' => NULL,
+        'family_name' => 'Hernández',
+        'family_name2' => NULL,
+        'birthdate' => 0,
+        'gender' => 'F',))
+    ->execute();
   $count = db_insert('ohp_phone')
     ->fields(array(
         'id_phone' => 1,
@@ -806,6 +823,12 @@ function ohp_install() {
         'id_user_role' => 1,
         'id_role' => 1,
         'user_uid' => 2,))
+    ->execute();
+  $count = db_insert('ohp_user_role')
+    ->fields(array(
+        'id_user_role' => 2,
+        'id_role' => 1,
+        'user_uid' => 7,))
     ->execute();
   
   $count = db_insert('ohp_question') ->fields(array('id_question' => 1, 'formula' => NULL, 'requirement' => NULL, 'description' => 'Data', 'min_value' => NULL, 'max_value' => NULL, 'mandatory' => NULL, 'type' => 'DATE', 'min_length' => NULL, 'max_length' => NULL, 'num_decimals' => NULL)) ->execute();
