@@ -26,6 +26,9 @@ require_once "phpwebdriver/WebDriver.php";
  * Our menu maps this function to the path 'ohp/ohp_case_formcatsalut_robot'.
  */
 function ohp_case_formcatsalut_robot() {
+  //********************************************************************
+  //IT REQUIRES TO RUN: java -jar selenium-server-standalone-2.42.2.jar
+  //********************************************************************
   $webdriver = new WebDriver("localhost", "4444");
   $webdriver->connect("firefox");
   $webdriver->get("https://salut.gencat.net/pls/gsa/gsapk030.inici_portal");
