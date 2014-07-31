@@ -77,6 +77,13 @@ function ohp_case_menu() {
     'type' => MENU_CALLBACK,
     'file' => 'ohp_case_formcatsalut.inc',
   );
+  $items['ohp/ohp_case_robotcatsalut'] = array(
+    'title' => 'Robot d\'OCD a CatSalut',
+    'page callback' => 'ohp_case_formcatsalut_robot',
+    'access arguments' => array('access ohp_case_search content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ohp_case_formcatsalut.inc',
+  );
   $items['ohp/ohp_case_formdocument'] = array(
     'title' => 'Enviament de document a la història clínica',
     'page callback' => 'ohp_case_formdocument_page',
@@ -192,7 +199,13 @@ function ohp_case_theme() {
         'task_status' => NULL,
       ),
     ),
-    'ohp_case_report'  => array(
+    'ohp_case_catsalutctrl'  => array(
+      'template' => 'tpl/ohp-case-catsalutctrl-layout',
+      'variables' => array(
+        'selected_option' => NULL,
+      ),
+    ),
+      'ohp_case_report'  => array(
       'file' => 'ohp_case_report.inc',
       'template' => 'tpl/ohp-case-report-layout',
       'variables' => array(
