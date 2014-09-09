@@ -1,0 +1,391 @@
+<html>
+<head>
+<base href="https://salut.gencat.net/">
+<title>Portal d'Aplicacions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="https://salut.gencat.net/apps/portal/js/portalapli.css" type="text/css">
+<script language="JavaScript" src="https://salut.gencat.net/apps/portal/js/portalapli.js"></script>
+</head>
+<Script LANGUAGE="JavaScript">
+function suport_usuari()
+{
+   window.open('https://salut.gencat.net/apps/portal/correu.html','','top=0,left=0,resizable=no,toolbar=yes,location=no,status=no,menubar=no,width=570,height=95');
+ return;
+}
+</script>
+<BODY>
+<table border="0" cellpadding="0" cellspacing="0" width="736">
+<tr><td colspan="3">
+  <tr>
+    <td width="3%">&nbsp;</td>
+  </tr>
+<table width="547" height="100" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td valign="top">&nbsp;</td> 
+    <td valign="top">
+    <table border="0" width="100%" >
+    <td valign="top"><img src="https://salut.gencat.net/apps/portal/graf/logo_generalitat3.gif" /></td> 
+    <td valign="center">&nbsp;</td> 
+    </table>
+    </td>
+  </tr> 
+  <tr> 
+    <td valign="bottom">&nbsp;</td> 
+    <td valign="bottom"><span class="cap"><br /> 
+      Portal d'aplicacions</span><br /> 
+      <img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="1" height="8" /></td> 
+  </tr> 
+  <tr> 
+    <td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="189" height="1" /></td> 
+    <td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="547" height="1" /></td> 
+  </tr> 
+</table>
+<SCRIPT LANGUAGE=JAVASCRIPT>
+var noerror=true;
+var ne=0;
+
+
+function submitenter(id)
+{
+ var keycode;
+ if (navigator.appName=="Netscape")
+ {
+  window.captureEvents(Event.KEYPRESS);
+  window.onkeypress = pulsada;
+
+ }
+ else
+ {
+    if (window.event) keycode = window.event.keyCode;
+    if (keycode == 13)  { navegacio(id); return false;}
+ }
+}
+
+function pulsada(e)
+{
+ keycode = e.which;
+ if (keycode == 13)  {navegacio(ne); return false;}
+}
+
+
+function navegacio(id)
+{
+    switch (id)
+    {
+     case 1 : {window.document.iden.v_clau.focus();
+                  ne=2;}
+       break;
+     case 2 :  {veri_ora(window.document.form,0);
+                ne=3;}
+       break;
+     case 3 :  {window.document.iden.nv_clau.focus();
+                if (navigator.appName=="Netscape") checkPwd();
+                ne=4;}
+       break;
+      case 4 : {
+
+                if (navigator.appName=="Netscape") checkPwd();
+                veri_ora(window.document.form,2);
+                ne=4;}
+       break;
+    } //switch
+}
+
+function tancar(form)
+{
+  window.self.close();
+  return;
+}
+function checkNum(str){
+    for (var i=0; i<str.length; i++){
+      var ch=str.substring(i, i+1)
+     if( ch<"0" || ch>"9"){ return false; }
+  }
+  return true  ;
+}
+function veri(form,canvi)
+{
+if (window.document.iden.v_nom_usu.value=="")
+              {
+            alert("El nom d'usuari és obligatori.");
+            window.document.iden.v_nom_usu.focus();
+            return;
+            }
+if (window.document.iden.v_clau.value=="")
+              {
+            alert("La contrasenya és obligatoria.");
+            window.document.iden.v_clau.focus();
+            return;
+            }
+            else
+            {
+             window.document.iden.submit();
+            }
+return;
+}
+function veri_ora(form,valor)
+{
+window.document.iden.submit();
+return;
+}
+function veri_ora2(form)
+{
+window.document.iden.submit();
+return;
+}
+function VerifyNoNumeric(text){
+    for(var i=0; i<2; i++) {
+        var ch=text.substring(i,i+1);
+        //Inici modificació: La contrasenya no pot començar amb asterisc (AFL 07/12/2007)
+        if (ch != "*")
+        {
+           if((ch < "0") || (ch > "9")){
+               return true;
+           }
+           else {
+               alert("La contrasenya no pot començar amb numèric.");
+               noerror=false;
+               return false;
+           }
+         }
+         else
+         {
+           alert("La contrasenya no pot començar amb asterisc.");
+           noerror=false;
+           return false;
+         }
+         //Final modificació: La contrasenya no pot començar amb asterisc (AFL 07/12/2007)
+    }
+}
+
+function VerifyLength(text){
+       //Modificació tasca 83266:longitud mínima passa de 5 a 8 (AFL 18/07/2007)
+       //if(text.length > 4)
+       if(text.length > 7)
+       {
+         return true;
+        }
+        else {
+        //Modificació tasca 83266:longitud mínima passa de 5 a 8 (AFL 18/07/2007)
+        //alert("La contrasenya ha de tenir almenys 5 caràcters.");
+        alert("La contrasenya ha de tenir almenys 8 caràcters.");
+        noerror=false;
+        return false;
+        }
+}
+
+function sCaractersRepetits(sCadena){
+  //Creada per tasca 83266:No pot haver més d'un caràcter repetit seguit (AFL 18/07/2007)
+  if (sCadena != null && sCadena != '') {
+      var sAnterior = "";
+      var sActual = "";
+      var vIndRep = "N";
+      for (var iCont = 0 ; iCont < sCadena.length ; iCont++)
+      {
+         sActual = sCadena.substr(iCont,1);
+         if (sAnterior==sActual){
+            vIndRep="S";
+         }
+         sAnterior = sCadena.substr(iCont,1);
+      }
+      if (vIndRep=="S")
+      {
+         alert(" La contrasenya conté caràcters repetits seguits.");
+         noerror=false;
+         return false;
+       }
+  }
+}
+
+function checkSpace(text) {
+//Modificació tasca 83266:validació de grups de caràcters (AFL 18/07/2007)
+/* expressió regular per trobar en la cadena només alfanumerics
+var plant = /[^\w]+/gi
+if((plant.test(text))||(text.indexOf("ç",0)!=-1) || (text.indexOf("}",0)!=-1) ||(text.indexOf(" ",0)!=-1)){
+     alert(" La contrasenya conté caràcters no alfanumerics o espais");
+     noerror=false;
+     return false;}
+else{
+     return true;
+}*/
+  if (text != null && text != '') {
+     var RegExPattern1 = /[a-zA-Z]/;
+     var RegExPattern2 = /[0-9]/;
+     var RegExPattern3 = /[_\*\-\!%\^\{\}\[\]\?ç]/;
+     var RegExPattern4 = /^[\S][\S]+[\S]$/;
+     var RegExPattern5 = /[^a-zA-Z0-9 _\*\-\!%\^\{\}\[\]\?ç]/; //inclou l'espai en blanc
+
+    if (RegExPattern1.test(text)&&
+        RegExPattern2.test(text)&&
+        RegExPattern3.test(text)&&
+        text.value!='')
+     {
+         if (RegExPattern5.test(text))
+        {
+           alert(" Mínim 8 caràcters, un caràcter de cadascun dels grups següents: numèric, alfabètic i caràcters especials (només *,-,!,%,^,{,},[,],?,_) no usar espais en blanc.");
+           noerror=false;
+           return false;
+        }
+        else
+        {
+          if (RegExPattern4.test(text))
+          {
+             return true;
+          }
+          else
+          {
+             alert(" La contrasenya conté espais en blanc");
+             noerror=false;
+             return false;
+          }
+        }
+     }
+     else
+     {
+        alert(" Mínim 8 caràcters, un caràcter de cadascun dels grups següents: numèric, alfabètic i caràcters especials (només *,-,!,%,^,{,},[,],?,_) no usar espais en blanc.");
+        noerror=false;
+        return false;
+     }
+  }
+}
+function checkPwd(){
+  text = window.document.iden.nv_nom_usu.value;
+   VerifyNoNumeric(text);
+   VerifyLength(text);
+   checkSpace(text);
+   //Modificació tasca 83266:nova política de contrasenyes (AFL 18/07/2007)
+   sCaractersRepetits(text)
+   if (noerror==false){
+     window.document.iden.nv_nom_usu.value="";
+     window.document.iden.nv_nom_usu.focus();
+     noerror=true;
+     }
+}
+function sortir()
+{
+top.location='/pls/gsa/gsapk030.portal';
+}
+
+</SCRIPT>
+<table width="736" border="0" align="center" cellpadding="0" cellspacing="0" class="cosFosc">
+<tr>
+<td width="169" valign="top">
+&nbsp;</td>
+<td>&nbsp;</td>
+<td><table width="547" height="16" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="cosBlanc" bgcolor="#1B5BA3">&nbsp;&nbsp;&nbsp;Identificació</td> 
+</tr>
+</table>
+<br />
+<table width="547" border="0" cellpadding="0" cellspacing="0" class="cosFosc">
+<form name="iden" id="iden" method="get" action="http://localhost/buildkit/oxigen/100CercaPacient.htm"></form>
+<tbody><tr>
+<td valign="top"></td>
+<td>&nbsp;</td>
+<td valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top"><table width="169" border="0" cellpadding="0" cellspacing="0" class="cosFosc">
+<tbody><tr valign="top">
+<td><a href="javascript:veri_ora(window.document.form,1);"><img src="https://salut.gencat.net/apps/portal/graf/ico_canviarpas.gif" width="16" height="16" border="0"></a></td>
+<td>&nbsp;</td>
+<td><a tabindex="15" href="javascript:veri_ora(window.document.form,1);" class="cosMarro">Registre de pacients</a> </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="6" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="131" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+</tr>
+</tbody></table></td>
+<td>&nbsp;</td>
+<td valign="top"><table width="169" border="0" cellpadding="0" cellspacing="0" class="cosFosc">
+<tbody><tr valign="top">
+<td><a href="javascript:veri_ora(window.document.form,1);"><img src="https://salut.gencat.net/apps/portal/graf/ico_canviarpas.gif" width="16" height="16" border="0"></a></td>
+<td>&nbsp;</td>
+<td><a tabindex="6" href="javascript:veri_ora(window.document.form,1);" class="cosMarro">Documentaci&oacute;</a> </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="6" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="131" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+</tr>
+</tbody></table></td>
+</tr>
+<tr>
+<td valign="top">
+<input type="hidden" tabindex="-1" name="v_accio" value="0">
+</td>
+<td>&nbsp;</td>
+<td valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top"><table width="169" border="0" cellpadding="0" cellspacing="0" class="cosFosc">
+<tbody><tr valign="top">
+<td><a href="javascript:veri_ora(window.document.form,1);"><img src="https://salut.gencat.net/apps/portal/graf/ico_canviarpas.gif" width="16" height="16" border="0"></a></td>
+<td>&nbsp;</td>
+<td><a tabindex="16" href="javascript:veri_ora(window.document.form,1);" class="cosMarro">Ter&agrave;pies Respirat&ograve;ries Domiciliaries - Nova versi&oacute;</a> </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="6" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="131" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+</tr>
+</tbody></table></td>
+<td>&nbsp;</td>
+<td valign="top"><table width="169" border="0" cellpadding="0" cellspacing="0" class="cosFosc">
+<tbody><tr valign="top">
+<td><a href="Javascript:suport_usuari()"><img src="https://salut.gencat.net/apps/portal/graf/ico_user.gif" width="16" height="16" border="0"></a></td>
+<td>&nbsp;</td>
+<td><a tabindex="7" href="Javascript:suport_usuari()" class="cosMarro">Eines i ajudes</a> </td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="6" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="131" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="16" height="1"></td>
+</tr>
+</tbody></table></td>
+</tr>
+<tr>
+<td valign="top"><br>
+<br></td>
+<td>&nbsp;</td>
+<td valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="358" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="20" height="1"></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="169" height="1"></td>
+</tr>
+
+</tbody></table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td align="right" bgcolor="#f4f4f3" class="cosFosc">&copy; 2005 Departament de Salut&nbsp;&nbsp; </td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="169" height="1" /></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="20" height="1" /></td>
+<td><img src="https://salut.gencat.net/apps/portal/graf/spacer.gif" width="547" height="1" /></td>
+</tr>
+</table>
+</table>
+</body>
+</html>

@@ -1,0 +1,1951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <base href="https://salut.gencat.net/">
+    	<link id="stylesheet" rel="stylesheet" type="text/css" media="all" href="/rsa/scripts/resources/stylesheet.css"/>
+        <script type="text/javascript" src="/rsa/scripts/support.js"></script>
+    	
+<script language="javascript">
+	
+</script>
+
+<script type="text/javascript" src="/rsa/scripts/WarningManagement.js"></script>
+<script language="javascript">
+	
+</script>
+
+<meta content="no-cache" http-equiv="Pragma" />
+<meta content="no-cache" http-equiv="Cache-Control" />
+<meta content="no-store" http-equiv="Cache-Control" />
+<meta content="max-age=0" http-equiv="Cache-Control" />
+<meta content="1" http-equiv="Expires" />
+
+<script type="text/javascript" src="/rsa/theme/com/sun/rave/web/ui/defaulttheme/javascript/formElements.js"></script>
+<link rel="stylesheet" type="text/css" href="/rsa/theme/com/sun/rave/web/ui/defaulttheme/css/css_master.css" />
+
+<script type="text/javascript">
+var sjwuic_ScrollCookie = new sjwuic_ScrollCookie('/pages/EditOccurrence.jsp', '/rsa/AppJava/faces/pages/EditOccurrence.jsp'); 
+</script>
+<link id="link" rel="stylesheet" type="text/css" href="/rsa/scripts/resources/stylesheet.css" />
+<link id="link2" rel="stylesheet" type="text/css" href="/rsa/scripts/resources/TreeJSFComponent.css" />
+<script id="styleScript">metStyle = {
+'BANDA_MARRO':'font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#A17400;text-align:left;display:block',
+'DRETA':'text-align:right;display:block',
+'BARRA_NEGRE':'font-family:arial;font-size:11px;font-weight:bold;color:black;height:16px;text-align:center; border-bottom: 3px solid black; display:block',
+'TITULAR_GRAN':'font-family:arial;font-size:14px;font-weight:bold;color:#1B5BA3;text-align:left;display:block',
+'ESQUERRA':'text-align:left;display:block',
+'BANDA_BLAVA':'font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#1B5BA3;text-align:left;display:block',
+'TITULAR':'font-family:arial;font-size:11px;font-weight:bold;color:#1B5BA3;text-align:left;display:block',
+'BANDA_GRIS':'font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#AEA892;text-align:left;display:block'
+};
+
+var css = '';
+css += '.BANDA_MARRO{font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#A17400;text-align:left;display:block}';
+css += '.DRETA{text-align:right;display:block}';
+css += '.BARRA_NEGRE{font-family:arial;font-size:11px;font-weight:bold;color:black;height:16px;text-align:center; border-bottom: 3px solid black; display:block}';
+css += '.TITULAR_GRAN{font-family:arial;font-size:14px;font-weight:bold;color:#1B5BA3;text-align:left;display:block}';
+css += '.ESQUERRA{text-align:left;display:block}';
+css += '.BANDA_BLAVA{font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#1B5BA3;text-align:left;display:block}';
+css += '.TITULAR{font-family:arial;font-size:11px;font-weight:bold;color:#1B5BA3;text-align:left;display:block}';
+css += '.BANDA_GRIS{font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#AEA892;text-align:left;display:block}';
+var styleElement = document.createElement('style');
+styleElement.type = 'text/css';
+if(styleElement.styleSheet) styleElement.styleSheet.cssText = css;
+else styleElement.appendChild(document.createTextNode(css));
+styleElement.id='estils_metataula';
+document.getElementsByTagName('head')[0].appendChild(styleElement);
+</script><script id="iframescript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/iframe.js"></script>
+<script id="calendarbasescript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/Calendar-base.js"></script>
+<script id="calendarenscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/Calendar-en.js"></script>
+<script id="calendarsetupscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/Calendar-setup.js"></script>
+<script id="xmlscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/xmlUtils.js"></script>
+<script id="loaderscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/ajax/Loader.js"></script>
+<script id="formulascript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/formulaTargets.js"></script>
+<script id="idScriptLoadingPopUp" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/loadingEditPopup.js"></script>
+<script id="idScriptNavigationPopUp" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/navigationPopUp.js"></script>
+<script id="idScriptPopup" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/popup.js"></script>
+<script id="idScriptCustomComponents" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/CustomComponents.js"></script>
+<script id="editscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/editOccurrence.js"></script>
+<script id="funcionsScript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/formulaFuncions.js"></script>
+<link id="idCssCustomComponentsStyle" rel="stylesheet" type="text/css" href="/rsa/scripts/resources/CustomComponentsStyle.css" />
+<style type="text/css">.ColMessageCenter21{width: 700px; text-align: center;}
+.ColVacio21{width: 700px;}
+.ColLabel61{width: 350px; text-align: right;}
+.ColData61{width: 350px; text-align: left;}
+.ColLabel71{width: 350px; text-align: right;}
+.ColData71{width: 350px; text-align: left;}
+.ColLabel81{width: 350px; text-align: right;}
+.ColData81{width: 350px; text-align: left;}
+.ColLabel91{width: 350px; text-align: right;}
+.ColData91{width: 350px; text-align: left;}
+.ColLabel101{width: 350px; text-align: right;}
+.ColData101{width: 350px; text-align: left;}
+.ColLabel111{width: 350px; text-align: right;}
+.ColData111{width: 350px; text-align: left;}
+.ColLabel121{width: 350px; text-align: right;}
+.ColData121{width: 350px; text-align: left;}
+.ColLabel131{width: 350px; text-align: right;}
+.ColData131{width: 350px; text-align: left;}
+.ColLabel141{width: 350px; text-align: right;}
+.ColData141{width: 350px; text-align: left;}
+.ColLabel151{width: 350px; text-align: right;}
+.ColData151{width: 350px; text-align: left;}
+.ColLabel161{width: 350px; text-align: right;}
+.ColData161{width: 350px; text-align: left;}
+.ColLabel171{width: 350px; text-align: right;}
+.ColData171{width: 350px; text-align: left;}
+.ColLabel181{width: 350px; text-align: right;}
+.ColData181{width: 350px; text-align: left;}
+.ColLabel191{width: 350px; text-align: right;}
+.ColData191{width: 350px; text-align: left;}
+.ColLabel201{width: 350px; text-align: right;}
+.ColData201{width: 350px; text-align: left;}
+.ColLabel211{width: 350px; text-align: right;}
+.ColData211{width: 350px; text-align: left;}
+.ColLabel221{width: 350px; text-align: right;}
+.ColData221{width: 350px; text-align: left;}
+.ColLabel231{width: 350px; text-align: right;}
+.ColData231{width: 350px; text-align: left;}
+.ColLabel241{width: 350px; text-align: right;}
+.ColData241{width: 350px; text-align: left;}
+.ColLabel251{width: 350px; text-align: right;}
+.ColData251{width: 350px; text-align: left;}
+.ColLabel271{width: 350px; text-align: right;}
+.ColData271{width: 350px; text-align: left;}
+</style>
+    </head>
+    <body id="body2" onload="setSizeWhenIframe();">
+    	<div id="page">
+    		<div id="body">
+    			
+<form id="form" class="form" method="post" action="https://salut.gencat.net:443/rsa/AppJava/faces/pages/EditOccurrence.jsp" enctype="multipart/form-data" onsubmit="window.scroll(0,0);return true;return validateForm(this);">
+<div id="form:overlayDiv" style="position: relative;-rave-layout: grid;"></div>
+
+
+
+	<script id="form:HeadTab:_id1" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/formElements.js"></script>
+
+	<div><a id="optsskipLink_skipHyperlinkId" href="#optsskipLink_skipHyperlinkId"><img id="optsskipLink_skipHyperlinkId_image" src="https://salut.gencat.net:443/rsa/theme/com/sun/rave/web/ui/defaulttheme/images/other/dot.gif" alt="Omitir el &aacute;rea de navegaci&oacute;n con tabulador. La selecci&oacute;n actual es " border="0" /></a><div class="Tab1Div"><table border="0" cellspacing="0" cellpadding="0" class="Tab1Tbl3New" title=""><tr><td class="Tab1TblSelTd"><div class="Tab1SelTxtNew" title="Selecci&oacute;n actual: 1.- Pacients"><span id="form:HeadTab:opts:TABSET_0" class=" disabled">1.- Pacients</span></div></td><td><a id="form:HeadTab:opts:TABSET_2" class="Tab1Lnk" onclick="showNavigationPopUp('Cercant...');return hyperlink_submit(this, 'form', null);" href="#">2.- Consultes Prescriptor</a></td></tr></table></div><div class="Tab2Div"><table border="0" cellspacing="0" cellpadding="0" class="Tab2Tbl3New" title=""><tr><td class="Tab2TblSelTd"><div class="Tab2SelTxt" title="Selecci&oacute;n actual: Cerca de Pacient"><span id="form:HeadTab:opts:TABSET_0:TABSET_1" class=" disabled">Cerca de Pacient</span></div></td></tr></table></div><div><a id="optsskipLink_skipHyperlinkId" name="optsskipLink_skipHyperlinkId"></a></div></div>
+	<!-- br-->
+<span id="form:titolB" class="titolBarres" style="left: 0px; top: 0px; margin-bottom: 10px; width:100%;height:20px;"><span id="form:headerTitle" class="titolBarresText" style="width: 700px;">Consulta: 2.- Prescripci&oacute; de tractament</span>
+<span id="form:_id2" style="margin-top: 5px; width:15%; float: right"><a id="form:helpFile" style="float: right;" onclick="return hyperlink_submit(this, 'form', null);" href="#"></a>
+<a id="form:linkLink" style="float: right;" onclick="return hyperlink_submit(this, 'form', null);" href="#"></a></span></span><div id="form:ariadna" style="position: relative;-rave-layout: grid;"><span id="form:LArTornarA" class="TitolAriadna LblLev2Txt">
+Tornar a:  
+</span><a id="form:LAr0" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(0);return hyperlink_submit(this, 'form', null);" href="#">Criteri</a><span id="form:Sep1_nullsearchResults" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr1" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(1);return hyperlink_submit(this, 'form', null);" href="#">Llistat</a><span id="form:Sep2_nullcaseTree" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr2" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(2);return hyperlink_submit(this, 'form', null);" href="#">Arbre</a><span id="form:Sep3_nulleditOccurrence" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr3" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(3);return hyperlink_submit(this, 'form', null);" href="#">1.- Dades de Pacient</a></div><input type="text" size="20" id="form:idNav" name="form:idNav" class="hidden TxtFld" value="" /><table id="form:headerGrid" cellpadding="0" cellspacing="0" style="position: relative; margin-top: 5px; margin-bottom: 5px; width:700px;">
+<tbody>
+<tr>
+<td><?xml version="1.0" encoding="UTF-8"?><style>			
+			table.capcalera      {  font-family: verdana; font-size: 11px; border: inset 1px black; empty-cells: show; width: 100%;}
+			td.capcalera {border: inset 0px ;}
+			.barraGris{FONT-SIZE: 11px; COLOR: #FFFFFF; TEXT-DECORATION: none; background:#AEA892; text-align:left; font-weight:normal; padding-left: 5px;}
+			.titol{FONT-SIZE: 11px; COLOR: #535847; text-decoration:none; text-align:left; font-weight:normal; font-family: Arial, Helvetica, sans-serif;}
+			.text{font-size:11px; COLOR: #535847;font-weight: bold;}
+			.textBarraGris{font-size:11px; COLOR: #FFFFFF;}
+		</style><table class="capcalera"><tr><td colspan="2" class="barraGris"><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris">Pacient</span><span class="textBarraGris"/></td><td colspan="8" class="barraGris"><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris">Domicili</span><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/></td></tr><tr><td colspan=""><span class="titol">Nom</span></td><td colspan=""/><td colspan=""><span class="titol">Adreça</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""/><td colspan="8"><span class="titol"/><span class="titol"/><span class="text">CARRER XXXXX , 90 1 2</span></td></tr><tr><td colspan=""><span class="titol">Cognoms</span></td><td colspan=""/><td colspan=""><span class="titol">CP i localitat residència</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol">Telèfon 1</span></td><td colspan=""/><td colspan=""><span class="titol">Telèfon 2</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""><span class="titol"> </span><span class="titol"/><span class="text">08011</span><span class="titol"> </span><span class="text">BARCELONA</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""/><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol">DNI/NIE</span></td><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan="8" class="barraGris"><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris">Assegurament</span><span class="textBarraGris"/></td></tr><tr><td colspan=""><span class="titol">Dates, d'alta</span></td><td colspan=""><span class="titol">de naixement</span></td><td colspan=""><span class="titol">Entitat de cotització</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol">Tipus d'afiliació</span></td><td colspan=""/><td colspan=""><span class="titol">Règim d'afiliació</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">14/12/2001</span></td><td colspan=""><span class="titol"/><span class="text">28/12/1947</span></td><td colspan=""><span class="titol"> </span><span class="text">INSTITUT NACIONAL DE LA SEGURETAT SOCIAL</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol"/><span class="text">Pensionista</span></td><td colspan=""/><td colspan=""><span class="titol"/><span class="text">RÈGIM GENERAL</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol">CIP</span></td><td colspan=""><span class="titol">Estat i data</span></td><td colspan=""><span class="titol">Àrea bàsica de salut</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol">Sector sanitari</span></td><td colspan=""/><td colspan=""><span class="titol">Regió sanitària</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">VAGAXXXXXXXXXX</span></td><td colspan=""><span class="titol"/><span class="text">A</span><span class="titol"> </span><span class="text">25/08/2004</span></td><td colspan=""><span class="titol"/><span class="text">BARCELONA 2-E</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol"/><span class="text">BARCELONA EIXAMPLE</span></td><td colspan=""/><td colspan=""><span class="titol"/><span class="text">BARCELONA</span></td><td colspan=""/></tr></table></td>
+</tr>
+</tbody>
+</table>
+<table id="form:errorGroup" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><span id="form:errorMsg" class="ITError"></span></td>
+</tr>
+</tbody>
+</table>
+<input type="text" size="20" id="form:h_registerid" name="form:h_registerid" class="hidden TxtFld" value="2227" /><input type="text" size="20" id="form:h_levelid" name="form:h_levelid" class="hidden TxtFld" value="37144" /><input type="text" size="20" id="form:h_parentoccurrence" name="form:h_parentoccurrence" class="hidden TxtFld" value="7691476" /><input type="text" size="20" id="form:h_occurrence" name="form:h_occurrence" class="hidden TxtFld" value="7691477" /><input type="text" size="20" id="form:h_nextregisterid" name="form:h_nextregisterid" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextplevelid" name="form:h_nextplevelid" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextlevelid" name="form:h_nextlevelid" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextparentoccurrence" name="form:h_nextparentoccurrence" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextoccurrence" name="form:h_nextoccurrence" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_xmlField" name="form:h_xmlField" class="hidden TxtFld" value="" /><input type="hidden" id="form:h_currentuser" name="form:h_currentuser" value="RMARRADES" /><input type="hidden" id="form:h_baseURL" name="form:h_baseURL" value="https://salut.gencat.net:443/rsa/AppJava/faces/" /><input type="hidden" id="form:h_currentapplication" name="form:h_currentapplication" value="RTRD" /><input type="hidden" id="form:h_currentprofile" name="form:h_currentprofile" value="CENTRE PRESCRIPTOR" /><input type="text" size="20" id="form:selectedDomainQuery" name="form:selectedDomainQuery" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:selectedDomainQueryValue" name="form:selectedDomainQueryValue" class="hidden TxtFld" value="" /><input type="hidden" id="form:h_PreinfField" name="form:h_PreinfField" value="" /><input type="hidden" id="form:valorsAtributs" name="form:valorsAtributs" value="" /><input type="hidden" id="form:selectedFile" name="form:selectedFile" value="" /><input type="hidden" id="form:hiddenDadaCanviada" name="form:hiddenDadaCanviada" value="" /><input type="text" size="20" id="form:nextAction" name="form:nextAction" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:nextPermission" name="form:nextPermission" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:saveActual" name="form:saveActual" class="hidden TxtFld" value="" /><script id="form:varsAncesters">var ATTR_2227_37143_497='<value reg_creg="2227" nrs_cnrs="37143" vnr_cvnr="497"><CODI>025</CODI><DESCRIPCIO>BARCELONA 2-E</DESCRIPCIO></value>';var ATTR_2227_37143_605='<value reg_creg="2227" nrs_cnrs="37143" vnr_cvnr="605"><CODI></CODI><DESCRIPCIO>XXXXX</DESCRIPCIO></value>';</script><script id="form:varsValuesXML">
+var valorsCarregatsXml='2227_37144_30473:$REQ$@|@$REQ$@|@N@|@INI@|@TRUE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37144_114165:@|@Motiu de Baixa: Baixa clínica (Prescriptor) ; Data de baixa:  09/03/2011 @|@VARCHAR2@|@FALSE@|@TRUE@|@FALSE@|@INI@|@REQ@|@BANDA_MARRO@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="114165"><CODI></CODI><DESCRIPCIO>Motiu de Baixa: Baixa clínica (Prescriptor) ; Data de baixa:  09/03/2011 </DESCRIPCIO></value>|#|2227_37144_113467:@|@04/03/2011@|@DATE@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113467"><CODI></CODI><DESCRIPCIO>04/03/2011</DESCRIPCIO></value>|#|2227_37144_114906:@|@@|@DATE@|@FALSE@|@FALSE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="114906"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37144_113468:00718@|@HOSPITAL CLÍNIC I PROVINCIAL BARCELONA@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113468"><CODI>00718</CODI><DESCRIPCIO>HOSPITAL CLÍNIC I PROVINCIAL BARCELONA</DESCRIPCIO><EP>0174</EP><TIPUSUP>10</TIPUSUP><SUBTIPUS>11</SUBTIPUS><ABS>025</ABS><COMARCA>13</COMARCA><LOCALITAT>0801900</LOCALITAT><SECTOR>7851</SECTOR><RS>78</RS></value>|#|2227_37144_113488:449210-00718@|@CONCENTRADOR ESTÀTIC@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@ UP = \'00718\'@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113488"><CODI>449210-00718</CODI><DESCRIPCIO>CONCENTRADOR ESTÀTIC</DESCRIPCIO><UP>00718</UP><TRACTAMENT>449210</TRACTAMENT>&#10;</value>|#|2227_37144_113469:449210@|@CONCENTRADOR ESTÀTIC@|@VARCHAR2@|@TRUE@|@FALSE@|@FALSE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113469"><CODI>449210</CODI><DESCRIPCIO>CONCENTRADOR ESTÀTIC</DESCRIPCIO>&#10;</value>|#|2227_37144_113470:03@|@OXIGENOTERÀPIA@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113470"><CODI>03</CODI><DESCRIPCIO>OXIGENOTERÀPIA</DESCRIPCIO>&#10;</value>|#|2227_37144_113471:@|@70324111@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113471"><CODI></CODI><DESCRIPCIO>70324111</DESCRIPCIO></value>|#|2227_37144_113472:@|@935560789@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113472"><CODI></CODI><DESCRIPCIO>935560789</DESCRIPCIO></value>|#|2227_37144_113473:496.0@|@MPOC@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113473"><CODI>496.0</CODI><DESCRIPCIO>MPOC</DESCRIPCIO>&#10;</value>|#|2227_37144_113474:S@|@Si@|@BOOLEAN@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113474"><CODI>S</CODI><DESCRIPCIO>Si</DESCRIPCIO></value>|#|2227_37144_113475:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113475"><CODI/>&#10;<DESCRIPCIO/>&#10;</value>|#|2227_37144_113476:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113476"><CODI/>&#10;<DESCRIPCIO/>&#10;</value>|#|2227_37144_113828:025@|@05162@|@VARCHAR2@|@FALSE@|@FALSE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113828"><CODI>025</CODI><DESCRIPCIO>05162</DESCRIPCIO>&#10;</value>|#|2227_37144_113478:05162@|@ESTEVE TEIJIN LOT - 14@|@VARCHAR2@|@TRUE@|@TRUE@|@FALSE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113478"><CODI>05162</CODI><DESCRIPCIO>ESTEVE TEIJIN LOT - 14</DESCRIPCIO><EMAILS>jvirgili@esteveteijin.com;manoli.cabelloropero@atento.es;pedidos@esteveteijin.com</EMAILS></value>|#|2227_37144_113479:108250377@|@MARRADES SICART RAMON@|@VARCHAR2@|@TRUE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113479"><CODI>108250377</CODI><DESCRIPCIO>MARRADES SICART RAMON</DESCRIPCIO><EMAIL>MARRADES@clinic.ub.es</EMAIL><URGENCIES>N</URGENCIES>&#10;</value>|#|2227_37144_113480:@|@09/03/2011@|@DATE@|@FALSE@|@FALSE@|@FALSE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113480"><CODI></CODI><DESCRIPCIO>09/03/2011</DESCRIPCIO></value>|#|2227_37144_114164:B@|@Baixa clínica (Prescriptor)@|@VARCHAR2@|@FALSE@|@FALSE@|@FALSE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="114164"><CODI>B</CODI><DESCRIPCIO>Baixa clínica (Prescriptor)</DESCRIPCIO>&#10;</value>|#|2227_37144_113481:@|@@|@VARCHAR2@|@FALSE@|@FALSE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113481"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37144_113477:@|@3@|@NUMBER@|@TRUE@|@TRUE@|@FALSE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113477"><CODI></CODI><DESCRIPCIO>3</DESCRIPCIO></value>|#|2227_37144_113487:@|@04/06/2011@|@DATE@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113487"><CODI></CODI><DESCRIPCIO>04/06/2011</DESCRIPCIO></value>|#|2227_37144_114908:B@|@Baixa@|@VARCHAR2@|@FALSE@|@FALSE@|@FALSE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="114908"><CODI>B</CODI><DESCRIPCIO>Baixa</DESCRIPCIO>&#10;</value>|#|';</script><span id="form:HCCpanel"></span><span id="form:editLayer" style="width: 700px;"><table id="form:errorTxtGrid" class="ITError">
+<tbody>
+<tr>
+<td><span id="form:errorTxt0" class="ITError"></span></td>
+</tr>
+</tbody>
+</table>
+
+<div id="form:ROW_2227_37144_0" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_114165" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColHiddenNoWidth"><span id="form:LABEL_2227_37144_114165" class="hidden LblLev2Txt">
+Missatge Baixa de prescripci&oacute;:  
+</span></td>
+<td class="ColMessageCenter21"><table width="700px">
+<tbody>
+<tr>
+<td class="ColVacio21"><span id="form:INPUT_COMPONENT_2227_37144_114165" class="TAMessageVariable LblLev2Txt" style="width:100%;" title="Missatge Baixa de prescripci&oacute;">
+ 
+</span></td>
+<td class="ColOther"><div id="form:_id4" style="width: 22px; display: none;" style="position: relative;-rave-layout: grid; width: 22px; display: none;"></div></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColHiddenNoWidth"><span id="form:INPUT_COMPONENT2_2227_37144_114165" class="LblLev2Txt">
+ 
+</span></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_114165" type="hidden" name="form:DATATYPE_2227_37144_114165" value="VARCHAR2 150" /></td>
+<td class="ColOther"><input id="form:COMPONENTTYPE_2227_37144_114165" type="hidden" name="form:COMPONENTTYPE_2227_37144_114165" value="COMENTARI" /></td>
+<td class="ColHiddenNoWidth"><div id="form:DIV_OCULTO_2227_37144_114165" class="DivOculto"><input type="text" size="20" id="form:INPUT2_2227_37144_114165" name="form:INPUT2_2227_37144_114165" class="TxtFld" value="" AUTOCOMPLETE="off" /><textarea rows="2" cols="20" id="form:INPUT_2227_37144_114165" name="form:INPUT_2227_37144_114165" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37144_114165', this.value);if(!estatCarregant){ }" onkeydown="if(!estatCarregant){changeValue();}" class="TxtAra"></textarea><input id="form:INPUT_2227_37144_114165_MOD" type="hidden" name="form:INPUT_2227_37144_114165_MOD" value="N" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_114165" name="form:COLLAPSED_2227_37144_114165" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div id="form:ROW_REQ_2227_37144_1" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37144_30473" style="width: 700px; float: left; display: block;"><div id="form:REQ_2227_37144_30473" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37144_30473" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37144_30473'); return false;" /><span id="form:REQ_2227_37144_30473_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+Prescripci&oacute; activa de tractament 
+</span><div id="form:REQ_FOLD_2227_37144_30473"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37144_30473" name="form:COMPONENTTYPEREQ_2227_37144_30473" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37144_30473_MOD" name="form:REQ_2227_37144_30473_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37144_30473" name="form:COLLAPSEDREQ_2227_37144_30473" value="N" /><div id="form:ROW_2227_37144_1" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113467" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel61"><span id="form:LABEL_2227_37144_113467" class="LblLev2Txt" style="color:" title="Data de Prescripci&oacute;">
+Data de Prescripci&oacute;:  
+</span></td>
+<td class="ColData61"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="11" id="form:INPUT_2227_37144_113467" name="form:INPUT_2227_37144_113467" maxlength="10" title="Data de Prescripci&oacute;" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37144_113467', this.value);if(!estatCarregant){ calculaF56090(this.id);}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></td>
+<td><img id="form:IMAGE_2227_37144_113467" class="TblTdLyt" style="cursor:hand; magin-left: 2px;" src="https://salut.gencat.net:443/rsa/images/calendar.gif" alt="" title="Data de Prescripci&oacute;" border="0" onmouseover="iniciarCalendario('form:INPUT_2227_37144_113467','form:IMAGE_2227_37144_113467');" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113467" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113467" name="form:MANDATORY_2227_37144_113467" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113467" name="form:COLLAPSED_2227_37144_113467" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113467" type="hidden" name="form:DATATYPE_2227_37144_113467" value="DATE 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel61"><input id="form:COMPONENTTYPE_2227_37144_113467" type="hidden" name="form:COMPONENTTYPE_2227_37144_113467" value="DATE" /></td>
+<td class="ColData61"><input id="form:REQ_VAR_2227_37144_113467" type="hidden" name="form:REQ_VAR_2227_37144_113467" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113467_MOD" type="hidden" name="form:INPUT_2227_37144_113467_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_2" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_114906" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel71"><span id="form:LABEL_2227_37144_114906" class="LblLev2Txt" title="Data de Renovaci&oacute;">
+Data de Renovaci&oacute;:  
+</span></td>
+<td class="ColData71"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="11" id="form:INPUT_2227_37144_114906" name="form:INPUT_2227_37144_114906" maxlength="10" title="Data de Renovaci&oacute;" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37144_114906', this.value);if(!estatCarregant){ calculaF57169(this.id);calculaF56090(this.id);}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+<td><img id="form:IMAGE_2227_37144_114906" class="TblTdLyt" style="cursor:hand; magin-left: 2px;" src="https://salut.gencat.net:443/rsa/images/calendar.gif" alt="" title="Data de Renovaci&oacute;" border="0" onmouseover="iniciarCalendario('form:INPUT_2227_37144_114906','form:IMAGE_2227_37144_114906');" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_114906" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_114906" name="form:COLLAPSED_2227_37144_114906" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_114906" type="hidden" name="form:DATATYPE_2227_37144_114906" value="DATE 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel71"><input id="form:COMPONENTTYPE_2227_37144_114906" type="hidden" name="form:COMPONENTTYPE_2227_37144_114906" value="DATE" /></td>
+<td class="ColData71"><input id="form:REQ_VAR_2227_37144_114906" type="hidden" name="form:REQ_VAR_2227_37144_114906" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_114906_MOD" type="hidden" name="form:INPUT_2227_37144_114906_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_3" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113468" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel81"><span id="form:LABEL_2227_37144_113468" class="LblLev2Txt" title="Unitat Prove&iuml;dora">
+Unitat Prove&iuml;dora:  
+</span></td>
+<td class="ColData81"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113468" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113468" name="form:INPUT_2227_37144_113468" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113468');if(!estatCarregant){ calculaF55837(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_113468','form:INPUT_SELECT_2227_37144_113468');;dropDown_changed('form:INPUT_2227_37144_113468');  return false;" onmouseover="this.title='Unitat Prove&iuml;dora';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="00001">00001|HOSPITAL U. ARNAU DE VILANOVA DE LLEIDA</option>
+	<option class="MnuStdOpt" value="00039">00039|HOSPITAL U JOAN XXIII DE TARRAGONA</option>
+	<option class="MnuStdOpt" value="00086">00086|HOSPITAL VERGE DE LA CINTA DE TORTOSA</option>
+	<option class="MnuStdOpt" value="00100">00100|HOSPITAL U DOCTOR JOSEP TRUETA DE GIRONA</option>
+	<option class="MnuStdOpt" value="00146">00146|HOSPITAL DE VILADECANS</option>
+	<option class="MnuStdOpt" value="00148">00148|HOSPITAL UNIVERSITARI DE BELLVITGE</option>
+	<option class="MnuStdOpt" value="00247">00247|HOSPITAL QUIRURGIC ADRIA</option>
+	<option class="MnuStdOpt" value="00272">00272|H. U. GERMANS TRIAS I PUJOL DE BADALONA</option>
+	<option class="MnuStdOpt" value="00434">00434|H. U. TRAUMATOLOGIA  DE LA VALL D'HEBRON</option>
+	<option class="MnuStdOpt" value="00435">00435|HOSPITAL  U. GENERAL DE LA VALL D'HEBRON</option>
+	<option class="MnuStdOpt" value="00436">00436|H.U. MATERNOINFANTIL DE LA VALL D'HEBRON</option>
+	<option class="MnuStdOpt" value="00607">00607|CASA PROVINCIAL DE MATERNITAT</option>
+	<option class="MnuStdOpt" value="00634">00634|CENTRE HOSPITALARI  (ALTHAIA)</option>
+	<option class="MnuStdOpt" value="00636">00636|CENTRE MEDIC DELFOS</option>
+	<option class="MnuStdOpt" value="00640">00640|CENTRE PERECAMPS</option>
+	<option class="MnuStdOpt" value="00641">00641|CLÍNICA DEL PILAR</option>
+	<option class="MnuStdOpt" value="00659">00659|CLINICA CORACHAN</option>
+	<option class="MnuStdOpt" value="00661">00661|CLINICA DAURO</option>
+	<option class="MnuStdOpt" value="00663">00663|CLINICA DEL PILAR</option>
+	<option class="MnuStdOpt" value="00668">00668|CLÍNICA GIRONA</option>
+	<option class="MnuStdOpt" value="00670">00670|CLINICA INFANTIL STAUROS</option>
+	<option class="MnuStdOpt" value="00675">00675|CLINICA NOSTRA SENYORA PERPETU SOCORS</option>
+	<option class="MnuStdOpt" value="00678">00678|CLÍNICA SALUS INFIRMORUM</option>
+	<option class="MnuStdOpt" value="00707">00707|ESPITAU VAL D'ARAN</option>
+	<option class="MnuStdOpt" value="00718">00718|HOSPITAL CLÍNIC I PROVINCIAL BARCELONA</option>
+	<option class="MnuStdOpt" value="00719">00719|HOSPITAL COMARCAL DE BLANES</option>
+	<option class="MnuStdOpt" value="00723">00723|HOSPITAL DE CAMPDEVÀNOL</option>
+	<option class="MnuStdOpt" value="00724">00724|HOSPITAL DE FIGUERES</option>
+	<option class="MnuStdOpt" value="00725">00725|HOSPITAL GENERAL DE L'HOSPITALET</option>
+	<option class="MnuStdOpt" value="00726">00726|HOSPITAL DOS DE MAIG ( BARCELONA )</option>
+	<option class="MnuStdOpt" value="00729">00729|HOSPITAL  MÚTUA DE TERRASSA</option>
+	<option class="MnuStdOpt" value="00732">00732|FUNDACIÓ SANT HOSPITAL</option>
+	<option class="MnuStdOpt" value="00733">00733|HOSPITAL DE L'ESPERANÇA</option>
+	<option class="MnuStdOpt" value="00734">00734|FUNDACIÓ HOSPITAL DE L ESPERIT SANT</option>
+	<option class="MnuStdOpt" value="00737">00737|HOSPITAL COMARCAL MÓRA D'EBRE</option>
+	<option class="MnuStdOpt" value="00738">00738|HOSPITAL DE NENS</option>
+	<option class="MnuStdOpt" value="00739">00739|HOSPITAL DE PALAMÓS</option>
+	<option class="MnuStdOpt" value="00740">00740|HOSPITAL DE PUIGCERDÀ</option>
+	<option class="MnuStdOpt" value="00741">00741|HOSPITAL DE SABADELL</option>
+	<option class="MnuStdOpt" value="00742">00742|HG PARC SANITARI S. JOAN DE DÉU - S. BOI</option>
+	<option class="MnuStdOpt" value="00743">00743|HOSPITAL DE SANT CELONI</option>
+	<option class="MnuStdOpt" value="00744">00744|HOSPITAL DE TERRASSA</option>
+	<option class="MnuStdOpt" value="00745">00745|HOSPITAL GENERAL DE VIC</option>
+	<option class="MnuStdOpt" value="00746">00746|HOSPITAL DEL MAR (PARC SALUT MAR)</option>
+	<option class="MnuStdOpt" value="00748">00748|HOSPITAL COMARCAL DEL PALLARS</option>
+	<option class="MnuStdOpt" value="00750">00750|HOSPITAL GENERAL DE GRANOLLERS</option>
+	<option class="MnuStdOpt" value="00751">00751|HOSPITAL SANT JOAN DE DÉU DE MANRESA</option>
+	<option class="MnuStdOpt" value="00753">00753|HOSPITAL MUNICIPAL DE BADALONA</option>
+	<option class="MnuStdOpt" value="00754">00754|FUNDACIÓ HOSPITAL RESIDÈNCIA SANT CAMIL</option>
+	<option class="MnuStdOpt" value="00756">00756|FUND. H. C. SANT ANTONI ABAT-URGÈNCIES</option>
+	<option class="MnuStdOpt" value="00757">00757|HOSPITAL COMARCAL DE SANT BERNABÉ</option>
+	<option class="MnuStdOpt" value="00759">00759|H.C. ST. JAUME CALELLA i H.C. DE BLANES</option>
+	<option class="MnuStdOpt" value="00762">00762|HOSPITAL SANT JAUME D'OLOT</option>
+	<option class="MnuStdOpt" value="00763">00763|HOSPITAL UNIVERSITARI SANT JOAN DE REUS</option>
+	<option class="MnuStdOpt" value="00764">00764|HOSPITAL SANT JOAN DE DÉU ( MARTORELL )</option>
+	<option class="MnuStdOpt" value="00765">00765|HOSPITAL SANT JOAN DE DÉU ( ESPLUGUES )</option>
+	<option class="MnuStdOpt" value="00767">00767|HOSPITAL SANT PAU I SANTA TECLA</option>
+	<option class="MnuStdOpt" value="00768">00768|HOSPITAL SANT PERE CLAVER</option>
+	<option class="MnuStdOpt" value="00769">00769|HOSPITAL SANT RAFAEL</option>
+	<option class="MnuStdOpt" value="00770">00770|HOSPITAL SANTA CATERINA</option>
+	<option class="MnuStdOpt" value="00771">00771|HOSPITAL SANTA MARIA</option>
+	<option class="MnuStdOpt" value="00772">00772|HOSPITAL DE LA SANTA CREU I SANT PAU</option>
+	<option class="MnuStdOpt" value="00777">00777|FUNDACIÓ PUIGVERT - IUNA</option>
+	<option class="MnuStdOpt" value="00781">00781|INSTITUT CATALA DE LA RETINA</option>
+	<option class="MnuStdOpt" value="00785">00785|HOSPITAL UNIVERSITARIO QUIRON DEXEUS</option>
+	<option class="MnuStdOpt" value="00786">00786|INSTITUT GUTTMANN</option>
+	<option class="MnuStdOpt" value="00826">00826|PIUS HOSPITAL DE VALLS</option>
+	<option class="MnuStdOpt" value="00827">00827|HOSPITAL PLATÓ</option>
+	<option class="MnuStdOpt" value="00828">00828|POLICLINICA DEL VALLÈS</option>
+	<option class="MnuStdOpt" value="00833">00833|HOSPITAL UNIVERSITARI SAGRAT COR</option>
+	<option class="MnuStdOpt" value="00834">00834|CLÍNICA DE PONENT</option>
+	<option class="MnuStdOpt" value="00836">00836|CLINICA TERRES DE L'EBRE</option>
+	<option class="MnuStdOpt" value="00837">00837|CLINICA DE VIC</option>
+	<option class="MnuStdOptSel" value="00908" selected="selected">00908|FUNDACIÓ PRIVADA HOSPITAL DE MOLLET</option>
+	<option class="MnuStdOpt" value="00913">00913|UDIAT Centre Diagnòstic. CSU Parc Taulí</option>
+	<option class="MnuStdOpt" value="00916">00916|HOSPITAL GENERAL D'IGUALADA</option>
+	<option class="MnuStdOpt" value="00975">00975|HOSPITAL COMARCAL D'AMPOSTA</option>
+	<option class="MnuStdOpt" value="01012">01012|HOSPITAL COMARCAL DE L'ALT PENEDÈS</option>
+	<option class="MnuStdOpt" value="01063">01063|ICO L'HOSPITALET DE LLOBREGAT</option>
+	<option class="MnuStdOpt" value="01331">01331|Banc de Sang i Teixits</option>
+	<option class="MnuStdOpt" value="01346">01346|CENTRE MQ REUS</option>
+	<option class="MnuStdOpt" value="01425">01425|HOSPITAL DE MATARÓ</option>
+	<option class="MnuStdOpt" value="01579">01579|HOSPITAL GENERAL  DE CATALUNYA</option>
+	<option class="MnuStdOpt" value="02046">02046|PLA ALTES PIUC SOCIOSANITÀRIES</option>
+	<option class="MnuStdOpt" value="02970">02970|ICO GIRONA</option>
+	<option class="MnuStdOpt" value="02987">02987|POLICLINICA BARCELONA</option>
+	<option class="MnuStdOpt" value="03378">03378|CLÍNICA QUIRÚRGICA ONYAR</option>
+	<option class="MnuStdOpt" value="03400">03400|CLÍNICA QUIRÓN</option>
+	<option class="MnuStdOpt" value="03401">03401|CENTRE MÈDIC TEKNON</option>
+	<option class="MnuStdOpt" value="03511">03511|CLINICA MONEGAL</option>
+	<option class="MnuStdOpt" value="03512">03512|CENTRE PREVENCIÓ I REHABILITACIÓ ASEPEYO</option>
+	<option class="MnuStdOpt" value="03515">03515|CLÍNICA SAGRADA FAMÍLIA</option>
+	<option class="MnuStdOpt" value="03516">03516|CLÍNICA TRES TORRES</option>
+	<option class="MnuStdOpt" value="03517">03517|CLÍNICA FUNDACIÓ FIATC</option>
+	<option class="MnuStdOpt" value="03518">03518|HOSPITAL FREMAP BARCELONA</option>
+	<option class="MnuStdOpt" value="03519">03519|CLÍNICA NOSTRA SENYORA DEL REMEI</option>
+	<option class="MnuStdOpt" value="03520">03520|HOSPITAL DE BARCELONA</option>
+	<option class="MnuStdOpt" value="03529">03529|INSTITUT ONCOLÒGIC CORACHAN</option>
+	<option class="MnuStdOpt" value="03536">03536|ICO BADALONA</option>
+	<option class="MnuStdOpt" value="03581">03581|CENTRE D'OFTALMOLOGIA BARRAQUER</option>
+	<option class="MnuStdOpt" value="03621">03621|CLINICA SANT JOSEP DE MANRESA</option>
+	<option class="MnuStdOpt" value="03638">03638|AT. INT. ACONDROPLÀSIA I ALT. CREIXEMENT</option>
+	<option class="MnuStdOpt" value="03862">03862|CLÍNICA SANT HONORAT</option>
+	<option class="MnuStdOpt" value="03863">03863|CLÍNICA SAN JOSÉ - BARCELONA</option>
+	<option class="MnuStdOpt" value="03864">03864|INSTITUT BOSTON D'OFTALMOLOGIA S.L.</option>
+	<option class="MnuStdOpt" value="03872">03872|INSTITUT DE MICROCIRURGIA OCULAR S.A.</option>
+	<option class="MnuStdOpt" value="03874">03874|CENTRO DE OFTALMOLOGIA BONAFONTE S.L.</option>
+	<option class="MnuStdOpt" value="03875">03875|INSTITUT OFTALMOLÒGIC DE BARCELONA S.L.</option>
+	<option class="MnuStdOpt" value="03881">03881|CLÍNICA BONANOVA DE CIRURGIA OCULAR S.L.</option>
+	<option class="MnuStdOpt" value="03882">03882|C. BAVIERA INSTITUT OFTALMOLÒGIC EUROPEU</option>
+	<option class="MnuStdOpt" value="03972">03972|INSTITUTO OFTALMOLÓGICO CLINSAFA</option>
+	<option class="MnuStdOpt" value="03982">03982|FUNDACIÓ JOSEP CARRERAS - REDMO</option>
+	<option class="MnuStdOpt" value="04081">04081|CLINICA SANT JOSEP DE VIC</option>
+	<option class="MnuStdOpt" value="04082">04082|CENTRE MÈDIC SANT JORDI DE SANT ANDREU</option>
+	<option class="MnuStdOpt" value="04199">04199|CENTRO INTERNACIONAL MEDICINA AVANZADA</option>
+	<option class="MnuStdOpt" value="04373">04373|HOSPITAL DEL VENDRELL</option>
+	<option class="MnuStdOpt" value="04392">04392|HOSPITAL MONTSERRAT</option>
+	<option class="MnuStdOpt" value="04651">04651|BARNACLINIC</option>
+	<option class="MnuStdOpt" value="05775">05775|MUTUAL MIDAT CYCLOPS</option>
+	<option class="MnuStdOpt" value="05994">05994|HOSPITAL SANT JOAN DESPÍ MOISÉS BROGGI</option>
+	<option class="MnuStdOpt" value="06037">06037|CLÍNICA DEL VALLÈS</option>
+	<option class="MnuStdOpt" value="06046">06046|HOSPITAL UNIVERSITARI LA VALL D'HEBRON</option>
+	<option class="MnuStdOpt" value="07087">07087|CLÍNICA ACTIVA MÚTUA 2008</option>
+	<option class="MnuStdOpt" value="07202">07202|Institut d'Investigació Biomèdica Girona</option>
+	<option class="MnuStdOpt" value="07222">07222|I.M. Predictiva i Personalit. del Càncer</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113468" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113468" name="form:INPUT_SELECT_2227_37144_113468" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113468" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113468" name="form:MANDATORY_2227_37144_113468" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113468" name="form:COLLAPSED_2227_37144_113468" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113468" type="hidden" name="form:DATATYPE_2227_37144_113468" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel81"><input id="form:COMPONENTTYPE_2227_37144_113468" type="hidden" name="form:COMPONENTTYPE_2227_37144_113468" value="SELECT" /></td>
+<td class="ColData81"><input id="form:REQ_VAR_2227_37144_113468" type="hidden" name="form:REQ_VAR_2227_37144_113468" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113468_MOD" type="hidden" name="form:INPUT_2227_37144_113468_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_4" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113488" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel91"><span id="form:LABEL_2227_37144_113488" class="LblLev2Txt" title="Codi de Tractament">
+Codi de Tractament:  
+</span></td>
+<td class="ColData91"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113488" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113488" name="form:INPUT_2227_37144_113488" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113488');if(!estatCarregant){ calculaF55841(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_113488','form:INPUT_SELECT_2227_37144_113488');;dropDown_changed('form:INPUT_2227_37144_113488');  return false;" onmouseover="this.title='Relaci&oacute; UP_Codi de Tractament';">
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113488" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113488" name="form:INPUT_SELECT_2227_37144_113488" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113488" class="DivOculto"><input type="text" size="20" id="form:COND_2227_37144_113488" name="form:COND_2227_37144_113488" onchange="recarregaValorsDomini('2227_37144_113488','4957',this.value);" class="TxtFld" value="UP = '00908'" /><input type="text" size="20" id="form:MANDATORY_2227_37144_113488" name="form:MANDATORY_2227_37144_113488" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113488" name="form:COLLAPSED_2227_37144_113488" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113488" type="hidden" name="form:DATATYPE_2227_37144_113488" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel91"><input id="form:COMPONENTTYPE_2227_37144_113488" type="hidden" name="form:COMPONENTTYPE_2227_37144_113488" value="SELECT" /></td>
+<td class="ColData91"><input id="form:REQ_VAR_2227_37144_113488" type="hidden" name="form:REQ_VAR_2227_37144_113488" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113488_MOD" type="hidden" name="form:INPUT_2227_37144_113488_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_5" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113469" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel101"><span id="form:LABEL_2227_37144_113469" class="LblLev2Txt" title="Codi de Tractament">
+Codi de Tractament:  
+</span></td>
+<td class="ColData101"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113469" style="display:none"><select class="EDITObligatoriNoModificable MnuStdDis" id="form:INPUT_2227_37144_113469" name="form:INPUT_2227_37144_113469" size="1" disabled="disabled" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37144_113469', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37144_113469','form:INPUT_SELECT_2227_37144_113469');;dropDown_changed('form:INPUT_2227_37144_113469');  return false;" onmouseover="this.title='Codi de Tractament';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="449210">CONCENTRADOR ESTÀTIC</option>
+	<option class="MnuStdOpt" value="449215">CONCENTRADOR ESTÀTIC AMB RECARREGADOR DE BOMBONA</option>
+	<option class="MnuStdOpt" value="449310">BOMBONA PORTÀTIL</option>
+	<option class="MnuStdOpt" value="449410">OXIGEN LÍQUID</option>
+	<option class="MnuStdOpt" value="449415">CONCENTRADOR PORTÀTIL</option>
+	<option class="MnuStdOpt" value="449510">CPAP</option>
+	<option class="MnuStdOpt" value="449515">PRESSIÓ BINIVELL</option>
+	<option class="MnuStdOpt" value="449630">NEBULITZADOR ELECTRÒNIC</option>
+	<option class="MnuStdOpt" value="449640">NEBULITZADOR ULTRASÒNIC</option>
+	<option class="MnuStdOpt" value="449710">MONITORATGE INFANTIL</option>
+	<option class="MnuStdOpt" value="449810">VENTILACIÓ MECÀNICA 24 H</option>
+	<option class="MnuStdOpt" value="449820">VENTILACIÓ MECÀNICA NOCTURNA</option>
+	<option class="MnuStdOpt" value="449910">SISTEMA MECÀNIC D'ELIMINACIÓ DE SECRECIONS BRONQUI</option>
+	<option class="MnuStdOpt" value="449920">SISTEMA MECÀNIC D'ACLARIMENT MUCOCIL·LIAR</option>
+	<option class="MnuStdOpt" value="449930">ASPIRADOR</option>
+	<option class="MnuStdOpt" value="449940">POLSIOXIMETRE</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113469" style="display: inline;"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113469" name="form:INPUT_SELECT_2227_37144_113469" onfocus="this.blur()" class="EDITObligatoriNoModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113469" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113469" name="form:MANDATORY_2227_37144_113469" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113469" name="form:COLLAPSED_2227_37144_113469" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113469" type="hidden" name="form:DATATYPE_2227_37144_113469" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel101"><input id="form:COMPONENTTYPE_2227_37144_113469" type="hidden" name="form:COMPONENTTYPE_2227_37144_113469" value="SELECT" /></td>
+<td class="ColData101"><input id="form:REQ_VAR_2227_37144_113469" type="hidden" name="form:REQ_VAR_2227_37144_113469" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113469_MOD" type="hidden" name="form:INPUT_2227_37144_113469_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_6" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113470" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel111"><span id="form:LABEL_2227_37144_113470" class="LblLev2Txt" title="Tipus de prestaci&oacute;">
+Tipus de prestaci&oacute;:  
+</span></td>
+<td class="ColData111"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113470" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113470" name="form:INPUT_2227_37144_113470" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113470');if(!estatCarregant){ calculaF56089(this.id);calculaF56091(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_113470','form:INPUT_SELECT_2227_37144_113470');;dropDown_changed('form:INPUT_2227_37144_113470');  return false;" onmouseover="this.title='Tipus de prestaci&oacute;';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="01">VM R.VOLUMÈTRIC</option>
+	<option class="MnuStdOpt" value="02">VM R.PRESSIÓ</option>
+	<option class="MnuStdOptSel" value="03" selected="selected">OXIGENOTERÀPIA</option>
+	<option class="MnuStdOpt" value="04">CPAP</option>
+	<option class="MnuStdOpt" value="05">NEBULITZADOR</option>
+	<option class="MnuStdOpt" value="06">MONITORATGE</option>
+	<option class="MnuStdOpt" value="07">SIST MECÀNIC ELIMINACIÓ SECRECIONS BRONQ</option>
+	<option class="MnuStdOpt" value="08">SISTEMA MECÀNIC D'ACARIMENT MUCOCIL·LIAR</option>
+	<option class="MnuStdOpt" value="09">ASPIRADOR</option>
+	<option class="MnuStdOpt" value="10">POLSIOXIMETRE</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113470" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113470" name="form:INPUT_SELECT_2227_37144_113470" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113470" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113470" name="form:MANDATORY_2227_37144_113470" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113470" name="form:COLLAPSED_2227_37144_113470" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113470" type="hidden" name="form:DATATYPE_2227_37144_113470" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel111"><input id="form:COMPONENTTYPE_2227_37144_113470" type="hidden" name="form:COMPONENTTYPE_2227_37144_113470" value="SELECT" /></td>
+<td class="ColData111"><input id="form:REQ_VAR_2227_37144_113470" type="hidden" name="form:REQ_VAR_2227_37144_113470" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113470_MOD" type="hidden" name="form:INPUT_2227_37144_113470_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_7" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113471" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel121"><span id="form:LABEL_2227_37144_113471" class="LblLev2Txt" title="N&uacute;mero d'Hist&ograve;ria Cl&iacute;nica">
+N&uacute;mero d'Hist&ograve;ria Cl&iacute;nica:  
+</span></td>
+<td class="ColData121"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37144_113471" name="form:INPUT_2227_37144_113471" maxlength="10" title="N&uacute;mero d'Hist&ograve;ria Cl&iacute;nica" onchange="carregaAtributSimple('ATTR_2227_37144_113471', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113471" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113471" name="form:MANDATORY_2227_37144_113471" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113471" name="form:COLLAPSED_2227_37144_113471" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113471" type="hidden" name="form:DATATYPE_2227_37144_113471" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel121"><input id="form:COMPONENTTYPE_2227_37144_113471" type="hidden" name="form:COMPONENTTYPE_2227_37144_113471" value="VARCHAR" /></td>
+<td class="ColData121"><input id="form:REQ_VAR_2227_37144_113471" type="hidden" name="form:REQ_VAR_2227_37144_113471" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113471_MOD" type="hidden" name="form:INPUT_2227_37144_113471_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_8" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113472" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel131"><span id="form:LABEL_2227_37144_113472" class="LblLev2Txt" title="Tel&egrave;fon de pacient">
+Tel&egrave;fon de pacient:  
+</span></td>
+<td class="ColData131"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="9" id="form:INPUT_2227_37144_113472" name="form:INPUT_2227_37144_113472" maxlength="9" title="Tel&egrave;fon de pacient" onchange="carregaAtributSimple('ATTR_2227_37144_113472', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113472" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113472" name="form:MANDATORY_2227_37144_113472" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113472" name="form:COLLAPSED_2227_37144_113472" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113472" type="hidden" name="form:DATATYPE_2227_37144_113472" value="VARCHAR2 9" /></td>
+</tr>
+<tr>
+<td class="ColLabel131"><input id="form:COMPONENTTYPE_2227_37144_113472" type="hidden" name="form:COMPONENTTYPE_2227_37144_113472" value="VARCHAR" /></td>
+<td class="ColData131"><input id="form:REQ_VAR_2227_37144_113472" type="hidden" name="form:REQ_VAR_2227_37144_113472" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113472_MOD" type="hidden" name="form:INPUT_2227_37144_113472_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_9" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113473" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel141"><span id="form:LABEL_2227_37144_113473" class="LblLev2Txt" title="Diagn&ograve;stic">
+Diagn&ograve;stic:  
+</span></td>
+<td class="ColData141"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113473" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113473" name="form:INPUT_2227_37144_113473" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37144_113473', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37144_113473','form:INPUT_SELECT_2227_37144_113473');;dropDown_changed('form:INPUT_2227_37144_113473');  return false;" onmouseover="this.title='Diagn&ograve;stic';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="V42.6">TRASPLANTAMENT DE PULMÓ</option>
+	<option class="MnuStdOpt" value="000.0">TRACTAMENT PAL·LIATIU</option>
+	<option class="MnuStdOpt" value="136.3">MALALTIA INTERSTICIAL AGUDA</option>
+	<option class="MnuStdOpt" value="137.0">TBC RESPIRATORIA</option>
+	<option class="MnuStdOpt" value="173.4">SEQÜELES  TBC ALTRES ORGANS ESPECIFICATS</option>
+	<option class="MnuStdOptSel" value="278.8" selected="selected">SINDROMES D'OBESITAT / HIPOVENTILACIÓ</option>
+	<option class="MnuStdOpt" value="346.2">CEFALEA DE HORTON</option>
+	<option class="MnuStdOpt" value="349.90">MALALTIES NEUROMUSCULARS</option>
+	<option class="MnuStdOpt" value="354.8">PARÀLISI FRÈNICA</option>
+	<option class="MnuStdOpt" value="414.9">CARDIOPATIA ISQUÈMICA</option>
+	<option class="MnuStdOpt" value="415.0">COR PULMONALE AG</option>
+	<option class="MnuStdOpt" value="416.0">HIPERTENSIÓ PULMONAR PRIMARIA</option>
+	<option class="MnuStdOpt" value="416.8">HIPERTENSIÓ PULMONAR SECUNDARIA</option>
+	<option class="MnuStdOpt" value="416.9">COR PULMONALE CR</option>
+	<option class="MnuStdOpt" value="428.0">INSUFICIENCIA CARDIACA</option>
+	<option class="MnuStdOpt" value="492.8">EMFISEMA</option>
+	<option class="MnuStdOpt" value="493.2">ASMA</option>
+	<option class="MnuStdOpt" value="494">BRONQUIÈCTASI</option>
+	<option class="MnuStdOpt" value="494.1">BRONQUIECTASIES DESCOMPENSADA</option>
+	<option class="MnuStdOpt" value="494.2">BRONQUIÈCTASIES NO DESCOMPENSADA</option>
+	<option class="MnuStdOpt" value="496.0">MPOC</option>
+	<option class="MnuStdOpt" value="515">FIBROSI QUÍSTICA</option>
+	<option class="MnuStdOpt" value="515.0">MALALTIA  INTERSTICIAL INESPECIFICA</option>
+	<option class="MnuStdOpt" value="518.89">MALALTIA RESTRICTIVA</option>
+	<option class="MnuStdOpt" value="519.1">MALALTIA BRONQUIOLAR</option>
+	<option class="MnuStdOpt" value="770.80">APNEA DEL NADÓ</option>
+	<option class="MnuStdOpt" value="780.57">APNEES OBSTRUCTIVES (SAHOS)</option>
+	<option class="MnuStdOpt" value="786.03">APNEES CENTRALS</option>
+	<option class="MnuStdOpt" value="786.09">HIPERCÀPNIA CRÒNICA</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113473" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113473" name="form:INPUT_SELECT_2227_37144_113473" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113473" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113473" name="form:MANDATORY_2227_37144_113473" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113473" name="form:COLLAPSED_2227_37144_113473" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113473" type="hidden" name="form:DATATYPE_2227_37144_113473" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel141"><input id="form:COMPONENTTYPE_2227_37144_113473" type="hidden" name="form:COMPONENTTYPE_2227_37144_113473" value="SELECT" /></td>
+<td class="ColData141"><input id="form:REQ_VAR_2227_37144_113473" type="hidden" name="form:REQ_VAR_2227_37144_113473" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113473_MOD" type="hidden" name="form:INPUT_2227_37144_113473_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_10" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113474" style="width: 700px; float: left; display: block;"><table class="RowStyle" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel151"><span id="form:LABEL_2227_37144_113474" class="LblLev2Txt" title="Indicador de primera prescripci&oacute;">
+Indicador de primera prescripci&oacute;:  
+</span></td>
+<td class="ColData151"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:INPUT2_2227_37144_113474_span" class="EDITModificableNoObligatori CbSpn"><input type="checkbox" id="form:INPUT2_2227_37144_113474" name="form:INPUT2_2227_37144_113474" value="true" title="Indicador de primera prescripci&oacute;" onclick="checkOnclick('2227_37144_113474');" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113474" class="DivOculto"><input type="text" size="10" id="form:INPUT_2227_37144_113474" name="form:INPUT_2227_37144_113474" maxlength="10" title="Indicador de primera prescripci&oacute;" onchange="if(!estatCarregant){changeValue();}carregaAtributCheck('ATTR_2227_37144_113474', this.value); changeCheck('2227_37144_113474');if(!estatCarregant){ calculaF56089(this.id);}" class="EDITObligatoriModificable TxtFld" value="N" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113474" name="form:COLLAPSED_2227_37144_113474" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113474" type="hidden" name="form:DATATYPE_2227_37144_113474" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel151"><input id="form:COMPONENTTYPE_2227_37144_113474" type="hidden" name="form:COMPONENTTYPE_2227_37144_113474" value="BOOLEAN" /></td>
+<td class="ColData151"><input id="form:REQ_VAR_2227_37144_113474" type="hidden" name="form:REQ_VAR_2227_37144_113474" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT2_2227_37144_113474_MOD" type="hidden" name="form:INPUT2_2227_37144_113474_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_11" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113475" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel161"><span id="form:LABEL_2227_37144_113475" class="LblLev2Txt" title="Tipus de malalt (per tractament SAHOS)">
+Tipus de malalt (per tractament SAHOS):  
+</span></td>
+<td class="ColData161"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113475" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113475" name="form:INPUT_2227_37144_113475" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113475');if(!estatCarregant){ calculaF56089(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_113475','form:INPUT_SELECT_2227_37144_113475');;dropDown_changed('form:INPUT_2227_37144_113475');  return false;" onmouseover="this.title='Tipus de malalt (per tractament SAHOS)';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="1">GROC</option>
+	<option class="MnuStdOpt" value="2">VERD</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113475" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113475" name="form:INPUT_SELECT_2227_37144_113475" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113475" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113475" name="form:MANDATORY_2227_37144_113475" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113475" name="form:COLLAPSED_2227_37144_113475" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113475" type="hidden" name="form:DATATYPE_2227_37144_113475" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel161"><input id="form:COMPONENTTYPE_2227_37144_113475" type="hidden" name="form:COMPONENTTYPE_2227_37144_113475" value="SELECT" /></td>
+<td class="ColData161"><input id="form:REQ_VAR_2227_37144_113475" type="hidden" name="form:REQ_VAR_2227_37144_113475" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113475_MOD" type="hidden" name="form:INPUT_2227_37144_113475_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_12" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113476" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel171"><span id="form:LABEL_2227_37144_113476" class="LblLev2Txt" title="Tractament Ambulatori/Domiciliari">
+Tractament Ambulatori/Domiciliari:  
+</span></td>
+<td class="ColData171"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113476" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37144_113476" name="form:INPUT_2227_37144_113476" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37144_113476', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37144_113476','form:INPUT_SELECT_2227_37144_113476');;dropDown_changed('form:INPUT_2227_37144_113476');  return false;" onmouseover="this.title='Tractament Ambulatori/Domiciliari';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="A">Ambulatori</option>
+	<option class="MnuStdOpt" value="D">Domiciliari</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113476" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113476" name="form:INPUT_SELECT_2227_37144_113476" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113476" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_113476" name="form:COLLAPSED_2227_37144_113476" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113476" type="hidden" name="form:DATATYPE_2227_37144_113476" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel171"><input id="form:COMPONENTTYPE_2227_37144_113476" type="hidden" name="form:COMPONENTTYPE_2227_37144_113476" value="SELECT" /></td>
+<td class="ColData171"><input id="form:REQ_VAR_2227_37144_113476" type="hidden" name="form:REQ_VAR_2227_37144_113476" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113476_MOD" type="hidden" name="form:INPUT_2227_37144_113476_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_13" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113477" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel181"><span id="form:LABEL_2227_37144_113477" class="LblLev2Txt" title="Periode de validesa del tractament">
+Periode de validesa del tractament:  
+</span></td>
+<td class="ColData181"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="2" id="form:INPUT_2227_37144_113477" name="form:INPUT_2227_37144_113477" maxlength="2" title="Periode de validesa del tractament" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37144_113477', this.value);if(!estatCarregant){ calculaF56090(this.id);validateRank('2227_37144_113477', null, null, true);
+}" onfocus="this.blur()" onkeydown="if(!estatCarregant){changeValue();}" class="EDITObligatoriNoModificable TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113477" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113477" name="form:MANDATORY_2227_37144_113477" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113477" name="form:COLLAPSED_2227_37144_113477" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113477" type="hidden" name="form:DATATYPE_2227_37144_113477" value="NUMBER 2-0" /></td>
+</tr>
+<tr>
+<td class="ColLabel181"><input id="form:COMPONENTTYPE_2227_37144_113477" type="hidden" name="form:COMPONENTTYPE_2227_37144_113477" value="NUMBER" /></td>
+<td class="ColData181"><input id="form:REQ_VAR_2227_37144_113477" type="hidden" name="form:REQ_VAR_2227_37144_113477" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113477_MOD" type="hidden" name="form:INPUT_2227_37144_113477_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_14" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113487" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel191"><span id="form:LABEL_2227_37144_113487" class="LblLev2Txt" title="Data del nou control">
+Data del nou control:  
+</span></td>
+<td class="ColData191"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="11" id="form:INPUT_2227_37144_113487" name="form:INPUT_2227_37144_113487" maxlength="10" title="Data del nou control" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37144_113487', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+<td><img id="form:IMAGE_2227_37144_113487" class="TblTdLyt" style="cursor:hand; magin-left: 2px;" src="https://salut.gencat.net:443/rsa/images/calendar.gif" alt="" title="Data del nou control" border="0" onmouseover="iniciarCalendario('form:INPUT_2227_37144_113487','form:IMAGE_2227_37144_113487');" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113487" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_113487" name="form:COLLAPSED_2227_37144_113487" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113487" type="hidden" name="form:DATATYPE_2227_37144_113487" value="DATE 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel191"><input id="form:COMPONENTTYPE_2227_37144_113487" type="hidden" name="form:COMPONENTTYPE_2227_37144_113487" value="DATE" /></td>
+<td class="ColData191"><input id="form:REQ_VAR_2227_37144_113487" type="hidden" name="form:REQ_VAR_2227_37144_113487" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113487_MOD" type="hidden" name="form:INPUT_2227_37144_113487_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_15" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113828" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel201"><span id="form:LABEL_2227_37144_113828" class="LblLev2Txt" title="Relaci&oacute; EP_ABS">
+Relaci&oacute; EP_ABS:  
+</span></td>
+<td class="ColData201"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113828" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37144_113828" name="form:INPUT_2227_37144_113828" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113828');if(!estatCarregant){ calculaF55843(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_113828','form:INPUT_SELECT_2227_37144_113828');;dropDown_changed('form:INPUT_2227_37144_113828');  return false;" onmouseover="this.title='Relaci&oacute; EP_ABS';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="001">05151</option>
+	<option class="MnuStdOpt" value="002">05151</option>
+	<option class="MnuStdOpt" value="003">05151</option>
+	<option class="MnuStdOpt" value="004">05155</option>
+	<option class="MnuStdOpt" value="005">05152</option>
+	<option class="MnuStdOpt" value="007">05150</option>
+	<option class="MnuStdOpt" value="008">05152</option>
+	<option class="MnuStdOpt" value="009">05160</option>
+	<option class="MnuStdOpt" value="010">05160</option>
+	<option class="MnuStdOpt" value="011">05165</option>
+	<option class="MnuStdOpt" value="012">05151</option>
+	<option class="MnuStdOpt" value="013">05154</option>
+	<option class="MnuStdOpt" value="014">05151</option>
+	<option class="MnuStdOpt" value="015">05152</option>
+	<option class="MnuStdOpt" value="016">05153</option>
+	<option class="MnuStdOpt" value="017">05153</option>
+	<option class="MnuStdOpt" value="018">05153</option>
+	<option class="MnuStdOpt" value="019">05153</option>
+	<option class="MnuStdOpt" value="020">05153</option>
+	<option class="MnuStdOpt" value="021">05162</option>
+	<option class="MnuStdOpt" value="022">05162</option>
+	<option class="MnuStdOpt" value="023">05162</option>
+	<option class="MnuStdOpt" value="024">05162</option>
+	<option class="MnuStdOpt" value="025">05162</option>
+	<option class="MnuStdOpt" value="027">07212</option>
+	<option class="MnuStdOpt" value="028">07212</option>
+	<option class="MnuStdOpt" value="029">07212</option>
+	<option class="MnuStdOpt" value="030">07212</option>
+	<option class="MnuStdOpt" value="031">07212</option>
+	<option class="MnuStdOpt" value="032">05162</option>
+	<option class="MnuStdOpt" value="033">05162</option>
+	<option class="MnuStdOpt" value="034">05162</option>
+	<option class="MnuStdOpt" value="035">05162</option>
+	<option class="MnuStdOpt" value="036">05162</option>
+	<option class="MnuStdOpt" value="038">05162</option>
+	<option class="MnuStdOpt" value="039">05162</option>
+	<option class="MnuStdOpt" value="040">05162</option>
+	<option class="MnuStdOpt" value="041">05162</option>
+	<option class="MnuStdOpt" value="042">05162</option>
+	<option class="MnuStdOpt" value="043">05162</option>
+	<option class="MnuStdOpt" value="044">05162</option>
+	<option class="MnuStdOpt" value="045">05162</option>
+	<option class="MnuStdOpt" value="046">05156</option>
+	<option class="MnuStdOpt" value="047">07212</option>
+	<option class="MnuStdOpt" value="048">07212</option>
+	<option class="MnuStdOpt" value="049">07212</option>
+	<option class="MnuStdOpt" value="050">05156</option>
+	<option class="MnuStdOpt" value="051">07212</option>
+	<option class="MnuStdOpt" value="052">07212</option>
+	<option class="MnuStdOpt" value="053">05156</option>
+	<option class="MnuStdOpt" value="054">05156</option>
+	<option class="MnuStdOpt" value="055">05156</option>
+	<option class="MnuStdOpt" value="056">05156</option>
+	<option class="MnuStdOpt" value="057">05156</option>
+	<option class="MnuStdOpt" value="058">05156</option>
+	<option class="MnuStdOpt" value="059">05156</option>
+	<option class="MnuStdOpt" value="060">05156</option>
+	<option class="MnuStdOpt" value="061">05156</option>
+	<option class="MnuStdOpt" value="062">05156</option>
+	<option class="MnuStdOpt" value="063">05156</option>
+	<option class="MnuStdOpt" value="064">05156</option>
+	<option class="MnuStdOpt" value="065">07212</option>
+	<option class="MnuStdOpt" value="067">07212</option>
+	<option class="MnuStdOpt" value="068">05156</option>
+	<option class="MnuStdOpt" value="069">05156</option>
+	<option class="MnuStdOpt" value="070">05156</option>
+	<option class="MnuStdOpt" value="071">05153</option>
+	<option class="MnuStdOpt" value="072">05153</option>
+	<option class="MnuStdOpt" value="073">05153</option>
+	<option class="MnuStdOpt" value="074">05153</option>
+	<option class="MnuStdOpt" value="075">07212</option>
+	<option class="MnuStdOpt" value="076">07212</option>
+	<option class="MnuStdOpt" value="077">05153</option>
+	<option class="MnuStdOpt" value="078">05153</option>
+	<option class="MnuStdOpt" value="079">05153</option>
+	<option class="MnuStdOpt" value="080">05152</option>
+	<option class="MnuStdOpt" value="081">05151</option>
+	<option class="MnuStdOpt" value="082">05165</option>
+	<option class="MnuStdOpt" value="083">05152</option>
+	<option class="MnuStdOpt" value="084">05152</option>
+	<option class="MnuStdOpt" value="085">05152</option>
+	<option class="MnuStdOptSel" value="086" selected="selected">05151</option>
+	<option class="MnuStdOpt" value="087">05154</option>
+	<option class="MnuStdOpt" value="088">05165</option>
+	<option class="MnuStdOpt" value="089">05160</option>
+	<option class="MnuStdOpt" value="090">05152</option>
+	<option class="MnuStdOpt" value="091">05154</option>
+	<option class="MnuStdOpt" value="092">05152</option>
+	<option class="MnuStdOpt" value="093">05152</option>
+	<option class="MnuStdOpt" value="095">05160</option>
+	<option class="MnuStdOpt" value="096">05165</option>
+	<option class="MnuStdOpt" value="097">05161</option>
+	<option class="MnuStdOpt" value="098">05165</option>
+	<option class="MnuStdOpt" value="100">05152</option>
+	<option class="MnuStdOpt" value="101">05152</option>
+	<option class="MnuStdOpt" value="102">05165</option>
+	<option class="MnuStdOpt" value="103">05150</option>
+	<option class="MnuStdOpt" value="104">05161</option>
+	<option class="MnuStdOpt" value="105">05161</option>
+	<option class="MnuStdOpt" value="106">05151</option>
+	<option class="MnuStdOpt" value="107">05154</option>
+	<option class="MnuStdOpt" value="108">07211</option>
+	<option class="MnuStdOpt" value="109">07211</option>
+	<option class="MnuStdOpt" value="110">07211</option>
+	<option class="MnuStdOpt" value="111">07211</option>
+	<option class="MnuStdOpt" value="112">05154</option>
+	<option class="MnuStdOpt" value="113">05155</option>
+	<option class="MnuStdOpt" value="114">05152</option>
+	<option class="MnuStdOpt" value="115">05158</option>
+	<option class="MnuStdOpt" value="116">07211</option>
+	<option class="MnuStdOpt" value="117">07211</option>
+	<option class="MnuStdOpt" value="118">05154</option>
+	<option class="MnuStdOpt" value="119">05152</option>
+	<option class="MnuStdOpt" value="120">05155</option>
+	<option class="MnuStdOpt" value="121">05160</option>
+	<option class="MnuStdOpt" value="122">05158</option>
+	<option class="MnuStdOpt" value="123">05158</option>
+	<option class="MnuStdOpt" value="124">05152</option>
+	<option class="MnuStdOpt" value="125">05152</option>
+	<option class="MnuStdOpt" value="126">05152</option>
+	<option class="MnuStdOpt" value="127">05152</option>
+	<option class="MnuStdOpt" value="128">05165</option>
+	<option class="MnuStdOpt" value="129">05151</option>
+	<option class="MnuStdOpt" value="130">05165</option>
+	<option class="MnuStdOpt" value="131">05165</option>
+	<option class="MnuStdOpt" value="132">05165</option>
+	<option class="MnuStdOpt" value="133">05152</option>
+	<option class="MnuStdOpt" value="134">05152</option>
+	<option class="MnuStdOpt" value="135">05151</option>
+	<option class="MnuStdOpt" value="136">05151</option>
+	<option class="MnuStdOpt" value="137">05151</option>
+	<option class="MnuStdOpt" value="138">05151</option>
+	<option class="MnuStdOpt" value="139">05151</option>
+	<option class="MnuStdOpt" value="140">05151</option>
+	<option class="MnuStdOpt" value="141">05151</option>
+	<option class="MnuStdOpt" value="142">05152</option>
+	<option class="MnuStdOpt" value="143">05152</option>
+	<option class="MnuStdOpt" value="144">05165</option>
+	<option class="MnuStdOpt" value="145">05165</option>
+	<option class="MnuStdOpt" value="146">05165</option>
+	<option class="MnuStdOpt" value="147">05165</option>
+	<option class="MnuStdOpt" value="148">05165</option>
+	<option class="MnuStdOpt" value="149">05158</option>
+	<option class="MnuStdOpt" value="150">05160</option>
+	<option class="MnuStdOpt" value="152">05160</option>
+	<option class="MnuStdOpt" value="153">05160</option>
+	<option class="MnuStdOpt" value="154">05160</option>
+	<option class="MnuStdOpt" value="155">05160</option>
+	<option class="MnuStdOpt" value="156">05160</option>
+	<option class="MnuStdOpt" value="157">05160</option>
+	<option class="MnuStdOpt" value="158">05160</option>
+	<option class="MnuStdOpt" value="159">05165</option>
+	<option class="MnuStdOpt" value="160">07211</option>
+	<option class="MnuStdOpt" value="161">05151</option>
+	<option class="MnuStdOpt" value="162">05154</option>
+	<option class="MnuStdOpt" value="163">05154</option>
+	<option class="MnuStdOpt" value="164">05160</option>
+	<option class="MnuStdOpt" value="165">05155</option>
+	<option class="MnuStdOpt" value="166">05154</option>
+	<option class="MnuStdOpt" value="167">05165</option>
+	<option class="MnuStdOpt" value="168">05158</option>
+	<option class="MnuStdOpt" value="169">05150</option>
+	<option class="MnuStdOpt" value="171">05152</option>
+	<option class="MnuStdOpt" value="172">05152</option>
+	<option class="MnuStdOpt" value="173">05152</option>
+	<option class="MnuStdOpt" value="174">05150</option>
+	<option class="MnuStdOpt" value="175">05160</option>
+	<option class="MnuStdOpt" value="176">05158</option>
+	<option class="MnuStdOpt" value="177">05152</option>
+	<option class="MnuStdOpt" value="178">05155</option>
+	<option class="MnuStdOpt" value="179">05150</option>
+	<option class="MnuStdOpt" value="180">05150</option>
+	<option class="MnuStdOpt" value="181">05151</option>
+	<option class="MnuStdOpt" value="182">07211</option>
+	<option class="MnuStdOpt" value="183">07211</option>
+	<option class="MnuStdOpt" value="184">07211</option>
+	<option class="MnuStdOpt" value="185">05165</option>
+	<option class="MnuStdOpt" value="186">05160</option>
+	<option class="MnuStdOpt" value="187">05152</option>
+	<option class="MnuStdOpt" value="188">05154</option>
+	<option class="MnuStdOpt" value="189">05152</option>
+	<option class="MnuStdOpt" value="190">05161</option>
+	<option class="MnuStdOpt" value="191">05161</option>
+	<option class="MnuStdOpt" value="192">05161</option>
+	<option class="MnuStdOpt" value="193">05161</option>
+	<option class="MnuStdOpt" value="194">05161</option>
+	<option class="MnuStdOpt" value="196">05161</option>
+	<option class="MnuStdOpt" value="197">05161</option>
+	<option class="MnuStdOpt" value="198">05161</option>
+	<option class="MnuStdOpt" value="199">05152</option>
+	<option class="MnuStdOpt" value="200">05165</option>
+	<option class="MnuStdOpt" value="201">05158</option>
+	<option class="MnuStdOpt" value="202">05158</option>
+	<option class="MnuStdOpt" value="203">05158</option>
+	<option class="MnuStdOpt" value="204">05158</option>
+	<option class="MnuStdOpt" value="205">05158</option>
+	<option class="MnuStdOpt" value="206">05155</option>
+	<option class="MnuStdOpt" value="207">05160</option>
+	<option class="MnuStdOpt" value="208">05152</option>
+	<option class="MnuStdOpt" value="209">07211</option>
+	<option class="MnuStdOpt" value="210">07211</option>
+	<option class="MnuStdOpt" value="211">05165</option>
+	<option class="MnuStdOpt" value="212">05165</option>
+	<option class="MnuStdOpt" value="213">07211</option>
+	<option class="MnuStdOpt" value="214">07211</option>
+	<option class="MnuStdOpt" value="215">05165</option>
+	<option class="MnuStdOpt" value="216">07211</option>
+	<option class="MnuStdOpt" value="217">05165</option>
+	<option class="MnuStdOpt" value="218">05158</option>
+	<option class="MnuStdOpt" value="219">05165</option>
+	<option class="MnuStdOpt" value="220">05158</option>
+	<option class="MnuStdOpt" value="221">05152</option>
+	<option class="MnuStdOpt" value="222">05158</option>
+	<option class="MnuStdOpt" value="223">05159</option>
+	<option class="MnuStdOpt" value="224">05159</option>
+	<option class="MnuStdOpt" value="225">05159</option>
+	<option class="MnuStdOpt" value="226">05159</option>
+	<option class="MnuStdOpt" value="228">05165</option>
+	<option class="MnuStdOpt" value="229">05165</option>
+	<option class="MnuStdOpt" value="230">05161</option>
+	<option class="MnuStdOpt" value="231">05152</option>
+	<option class="MnuStdOpt" value="232">05151</option>
+	<option class="MnuStdOpt" value="233">05150</option>
+	<option class="MnuStdOpt" value="234">05152</option>
+	<option class="MnuStdOpt" value="235">05158</option>
+	<option class="MnuStdOpt" value="236">05165</option>
+	<option class="MnuStdOpt" value="237">05165</option>
+	<option class="MnuStdOpt" value="238">05165</option>
+	<option class="MnuStdOpt" value="239">05154</option>
+	<option class="MnuStdOpt" value="240">05154</option>
+	<option class="MnuStdOpt" value="241">05154</option>
+	<option class="MnuStdOpt" value="242">05154</option>
+	<option class="MnuStdOpt" value="243">05154</option>
+	<option class="MnuStdOpt" value="244">05154</option>
+	<option class="MnuStdOpt" value="245">05151</option>
+	<option class="MnuStdOpt" value="246">05155</option>
+	<option class="MnuStdOpt" value="247">05163</option>
+	<option class="MnuStdOpt" value="248">05163</option>
+	<option class="MnuStdOpt" value="249">05163</option>
+	<option class="MnuStdOpt" value="250">05163</option>
+	<option class="MnuStdOpt" value="251">05163</option>
+	<option class="MnuStdOpt" value="252">05163</option>
+	<option class="MnuStdOpt" value="253">05165</option>
+	<option class="MnuStdOpt" value="254">05165</option>
+	<option class="MnuStdOpt" value="255">05155</option>
+	<option class="MnuStdOpt" value="256">05155</option>
+	<option class="MnuStdOpt" value="257">05154</option>
+	<option class="MnuStdOpt" value="258">05152</option>
+	<option class="MnuStdOpt" value="259">05150</option>
+	<option class="MnuStdOpt" value="260">05155</option>
+	<option class="MnuStdOpt" value="261">07211</option>
+	<option class="MnuStdOpt" value="262">05154</option>
+	<option class="MnuStdOpt" value="263">05154</option>
+	<option class="MnuStdOpt" value="265">05158</option>
+	<option class="MnuStdOpt" value="266">05158</option>
+	<option class="MnuStdOpt" value="267">05152</option>
+	<option class="MnuStdOpt" value="268">05158</option>
+	<option class="MnuStdOpt" value="269">05165</option>
+	<option class="MnuStdOpt" value="271">05160</option>
+	<option class="MnuStdOpt" value="272">05159</option>
+	<option class="MnuStdOpt" value="273">05159</option>
+	<option class="MnuStdOpt" value="274">05159</option>
+	<option class="MnuStdOpt" value="275">05159</option>
+	<option class="MnuStdOpt" value="276">05159</option>
+	<option class="MnuStdOpt" value="277">05159</option>
+	<option class="MnuStdOpt" value="279">05159</option>
+	<option class="MnuStdOpt" value="280">05159</option>
+	<option class="MnuStdOpt" value="281">05159</option>
+	<option class="MnuStdOpt" value="282">05159</option>
+	<option class="MnuStdOpt" value="283">05159</option>
+	<option class="MnuStdOpt" value="284">05160</option>
+	<option class="MnuStdOpt" value="285">05160</option>
+	<option class="MnuStdOpt" value="286">05160</option>
+	<option class="MnuStdOpt" value="287">05160</option>
+	<option class="MnuStdOpt" value="288">07211</option>
+	<option class="MnuStdOpt" value="289">07211</option>
+	<option class="MnuStdOpt" value="290">07211</option>
+	<option class="MnuStdOpt" value="291">07211</option>
+	<option class="MnuStdOpt" value="292">07211</option>
+	<option class="MnuStdOpt" value="293">07211</option>
+	<option class="MnuStdOpt" value="294">07211</option>
+	<option class="MnuStdOpt" value="295">07211</option>
+	<option class="MnuStdOpt" value="296">07211</option>
+	<option class="MnuStdOpt" value="297">07211</option>
+	<option class="MnuStdOpt" value="298">07211</option>
+	<option class="MnuStdOpt" value="299">07211</option>
+	<option class="MnuStdOpt" value="300">05160</option>
+	<option class="MnuStdOpt" value="302">05161</option>
+	<option class="MnuStdOpt" value="303">05154</option>
+	<option class="MnuStdOpt" value="304">05154</option>
+	<option class="MnuStdOpt" value="305">05154</option>
+	<option class="MnuStdOpt" value="306">05154</option>
+	<option class="MnuStdOpt" value="307">05154</option>
+	<option class="MnuStdOpt" value="308">05161</option>
+	<option class="MnuStdOpt" value="309">05163</option>
+	<option class="MnuStdOpt" value="310">05163</option>
+	<option class="MnuStdOpt" value="311">05159</option>
+	<option class="MnuStdOpt" value="312">05159</option>
+	<option class="MnuStdOpt" value="313">05163</option>
+	<option class="MnuStdOpt" value="314">05154</option>
+	<option class="MnuStdOpt" value="315">05160</option>
+	<option class="MnuStdOpt" value="316">05158</option>
+	<option class="MnuStdOpt" value="317">05158</option>
+	<option class="MnuStdOpt" value="318">05158</option>
+	<option class="MnuStdOpt" value="319">05159</option>
+	<option class="MnuStdOpt" value="320">05161</option>
+	<option class="MnuStdOpt" value="322">05161</option>
+	<option class="MnuStdOpt" value="323">05156</option>
+	<option class="MnuStdOpt" value="324">05154</option>
+	<option class="MnuStdOpt" value="325">05152</option>
+	<option class="MnuStdOpt" value="326">07212</option>
+	<option class="MnuStdOpt" value="327">05156</option>
+	<option class="MnuStdOpt" value="328">05155</option>
+	<option class="MnuStdOpt" value="329">05151</option>
+	<option class="MnuStdOpt" value="330">05152</option>
+	<option class="MnuStdOpt" value="331">05153</option>
+	<option class="MnuStdOpt" value="333">05154</option>
+	<option class="MnuStdOpt" value="334">05151</option>
+	<option class="MnuStdOpt" value="335">05160</option>
+	<option class="MnuStdOpt" value="336">05152</option>
+	<option class="MnuStdOpt" value="337">05165</option>
+	<option class="MnuStdOpt" value="338">05165</option>
+	<option class="MnuStdOpt" value="339">05154</option>
+	<option class="MnuStdOpt" value="340">05154</option>
+	<option class="MnuStdOpt" value="341">05159</option>
+	<option class="MnuStdOpt" value="342">05159</option>
+	<option class="MnuStdOpt" value="343">05152</option>
+	<option class="MnuStdOpt" value="344">05161</option>
+	<option class="MnuStdOpt" value="345">05161</option>
+	<option class="MnuStdOpt" value="346">05152</option>
+	<option class="MnuStdOpt" value="347">05152</option>
+	<option class="MnuStdOpt" value="348">05160</option>
+	<option class="MnuStdOpt" value="349">05160</option>
+	<option class="MnuStdOpt" value="350">05165</option>
+	<option class="MnuStdOpt" value="351">05165</option>
+	<option class="MnuStdOpt" value="352">05154</option>
+	<option class="MnuStdOpt" value="353">05160</option>
+	<option class="MnuStdOpt" value="354">05154</option>
+	<option class="MnuStdOpt" value="355">05160</option>
+	<option class="MnuStdOpt" value="356">05163</option>
+	<option class="MnuStdOpt" value="357">05154</option>
+	<option class="MnuStdOpt" value="358">07212</option>
+	<option class="MnuStdOpt" value="359">05158</option>
+	<option class="MnuStdOpt" value="360">05158</option>
+	<option class="MnuStdOpt" value="361">05160</option>
+	<option class="MnuStdOpt" value="362">05160</option>
+	<option class="MnuStdOpt" value="363">05163</option>
+	<option class="MnuStdOpt" value="364">05154</option>
+	<option class="MnuStdOpt" value="365">05158</option>
+	<option class="MnuStdOpt" value="366">05158</option>
+	<option class="MnuStdOpt" value="367">05158</option>
+	<option class="MnuStdOpt" value="368">05160</option>
+	<option class="MnuStdOpt" value="369">07211</option>
+	<option class="MnuStdOpt" value="370">05158</option>
+	<option class="MnuStdOpt" value="371">05165</option>
+	<option class="MnuStdOpt" value="372">05165</option>
+	<option class="MnuStdOpt" value="373">05158</option>
+	<option class="MnuStdOpt" value="374">05158</option>
+	<option class="MnuStdOpt" value="375">05158</option>
+	<option class="MnuStdOpt" value="376">05160</option>
+	<option class="MnuStdOpt" value="377">05165</option>
+	<option class="MnuStdOpt" value="378">05163</option>
+	<option class="MnuStdOpt" value="380">05158</option>
+	<option class="MnuStdOpt" value="383">05162</option>
+	<option class="MnuStdOpt" value="384">05161</option>
+	<option class="MnuStdOpt" value="385">05156</option>
+	<option class="MnuStdOpt" value="386">05161</option>
+	<option class="MnuStdOpt" value="387">05161</option>
+	<option class="MnuStdOpt" value="388">05163</option>
+	<option class="MnuStdOpt" value="389">05163</option>
+	<option class="MnuStdOpt" value="390">05163</option>
+	<option class="MnuStdOpt" value="391">05161</option>
+	<option class="MnuStdOpt" value="392">05161</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113828" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113828" name="form:INPUT_SELECT_2227_37144_113828" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113828" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_113828" name="form:COLLAPSED_2227_37144_113828" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113828" type="hidden" name="form:DATATYPE_2227_37144_113828" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel201"><input id="form:COMPONENTTYPE_2227_37144_113828" type="hidden" name="form:COMPONENTTYPE_2227_37144_113828" value="SELECT" /></td>
+<td class="ColData201"><input id="form:REQ_VAR_2227_37144_113828" type="hidden" name="form:REQ_VAR_2227_37144_113828" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113828_MOD" type="hidden" name="form:INPUT_2227_37144_113828_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_16" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113478" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel211"><span id="form:LABEL_2227_37144_113478" class="LblLev2Txt" title="Empresa prove&iuml;dora">
+Empresa prove&iuml;dora:  
+</span></td>
+<td class="ColData211"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113478" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113478" name="form:INPUT_2227_37144_113478" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113478');if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37144_113478','form:INPUT_SELECT_2227_37144_113478');;dropDown_changed('form:INPUT_2227_37144_113478');  return false;" onmouseover="this.title='Empresa prove&iuml;dora';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="05150">05150|OXIGEN SALUD - LOT 1</option>
+	<option class="MnuStdOpt" value="05151">05151|OXIGEN SALUD - LOT 2</option>
+	<option class="MnuStdOpt" value="05152">05152|OXIGEN SALUD - LOT 5</option>
+	<option class="MnuStdOpt" value="05153">05153|OXIGEN SALUD - LOT 13</option>
+	<option class="MnuStdOpt" value="05154">05154|GASMEDI 2000 - LOT 3</option>
+	<option class="MnuStdOpt" value="05155">05155|GASMEDI 2000 - LOT 4</option>
+	<option class="MnuStdOpt" value="05156">05156|GASMEDI 2000 - LOT 16</option>
+	<option class="MnuStdOpt" value="05157">05157|AIR PRODUCTS LOT 7</option>
+	<option class="MnuStdOpt" value="05158">05158|ESTEVE TEIJIN LOT - 8</option>
+	<option class="MnuStdOpt" value="05159">05159|ESTEVE TEIJIN LOT - 9</option>
+	<option class="MnuStdOptSel" value="05160" selected="selected">05160|ESTEVE TEIJIN LOT - 10</option>
+	<option class="MnuStdOpt" value="05161">05161|OXIMESA LOT - 11</option>
+	<option class="MnuStdOpt" value="05162">05162|ESTEVE TEIJIN LOT - 14</option>
+	<option class="MnuStdOpt" value="05163">05163|OXIMESA LOT - 12</option>
+	<option class="MnuStdOpt" value="05164">05164|AIR PRODUCTS LOT 15</option>
+	<option class="MnuStdOpt" value="05165">05165|AIR LIQUIDE - LOT 6</option>
+	<option class="MnuStdOpt" value="07211">07211|LINDE MEDICINAL LOT 1 (C2012)</option>
+	<option class="MnuStdOpt" value="07212">07212|LINDE MEDICINAL LOT 2 (C2012)</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113478" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113478" name="form:INPUT_SELECT_2227_37144_113478" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113478" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113478" name="form:MANDATORY_2227_37144_113478" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113478" name="form:COLLAPSED_2227_37144_113478" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113478" type="hidden" name="form:DATATYPE_2227_37144_113478" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel211"><input id="form:COMPONENTTYPE_2227_37144_113478" type="hidden" name="form:COMPONENTTYPE_2227_37144_113478" value="SELECT" /></td>
+<td class="ColData211"><input id="form:REQ_VAR_2227_37144_113478" type="hidden" name="form:REQ_VAR_2227_37144_113478" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113478_MOD" type="hidden" name="form:INPUT_2227_37144_113478_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_17" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113479" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel221"><span id="form:LABEL_2227_37144_113479" class="LblLev2Txt" title="Metge prescriptor">
+Metge prescriptor:  
+</span></td>
+<td class="ColData221"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_113479" style="display: inline;"><select class="EDITObligatoriModificable MnuStd" id="form:INPUT_2227_37144_113479" name="form:INPUT_2227_37144_113479" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_113479');if(!estatCarregant){ calculaF56089(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_113479','form:INPUT_SELECT_2227_37144_113479');;dropDown_changed('form:INPUT_2227_37144_113479');  return false;" onmouseover="this.title='Metge prescriptor';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="108193813">ABAD CAPA JORGE</option>
+	<option class="MnuStdOpt" value="35060">ABEIJON INSUA BENEDICTA</option>
+	<option class="MnuStdOpt" value="26012">ABELEDO NUÑEZ CARMEN</option>
+	<option class="MnuStdOpt" value="14336730">AGUILAR BARGALLO XAVIER</option>
+	<option class="MnuStdOpt" value="108201766">AGUSTI CARLES</option>
+	<option class="MnuStdOpt" value="108129766">ALBA SERRANO JAUME</option>
+	<option class="MnuStdOpt" value="108210957">ALOY DUCH ANDREU</option>
+	<option class="MnuStdOpt" value="125033978">ALVAREZ ALBO JESUS</option>
+	<option class="MnuStdOpt" value="108281271">ANTON ALBISU ANTONIO</option>
+	<option class="MnuStdOpt" value="34825">ARELLANO MARCUELLO ELISABETH</option>
+	<option class="MnuStdOpt" value="208052750">ARMENGOL SANCHEZ JOSEP</option>
+	<option class="MnuStdOpt" value="41533">AUSIN HERRERO MARIA PILAR</option>
+	<option class="MnuStdOpt" value="108326204">AVILES HUERTAS BERTA</option>
+	<option class="MnuStdOpt" value="108293162">BADIA JOBAL JOAN RAMON</option>
+	<option class="MnuStdOpt" value="108281537">BALCELLS VILARNAU EVA</option>
+	<option class="MnuStdOpt" value="108111619">BALLESTER RODES EUGENI</option>
+	<option class="MnuStdOpt" value="40604">BALMES ESTRADA SANTI</option>
+	<option class="MnuStdOpt" value="02286">BARBE ILLA FERRAN</option>
+	<option class="MnuStdOpt" value="108153526">BARBERA MIR JOAN A.</option>
+	<option class="MnuStdOpt" value="208115930">BARBETA SANCHEZ ENRIC</option>
+	<option class="MnuStdOpt" value="108072820">BARDAGI FORNS SANTIAGO</option>
+	<option class="MnuStdOpt" value="208247183">BARREIRO LOPEZ BIENVENIDO</option>
+	<option class="MnuStdOpt" value="108163966">BAUCELLS AZCONA JOSE MANUEL</option>
+	<option class="MnuStdOpt" value="117049846">BELDA DIAZ SONIA</option>
+	<option class="MnuStdOpt" value="108276815">BELDA RAMIREZ JOSE</option>
+	<option class="MnuStdOpt" value="40717">BERASTEGUI GARCIA CRISTINA</option>
+	<option class="MnuStdOpt" value="10831567">BERNADICH MARQUEZ OSCAR</option>
+	<option class="MnuStdOpt" value="108310172">BLANCO LOPEZ LUISA</option>
+	<option class="MnuStdOpt" value="208167645">BLAVIA ALOY ROSSANNA</option>
+	<option class="MnuStdOpt" value="108174643">BOADA PORT JOSEP ENRIC</option>
+	<option class="MnuStdOpt" value="10818044">BOFILL BROSSA JOSEP MARIA</option>
+	<option class="MnuStdOpt" value="12113">BONET ALCAINA MARIONA</option>
+	<option class="MnuStdOpt" value="108299991">BONET PAPELL GLORIA</option>
+	<option class="MnuStdOpt" value="0836964">BONIN VILAPLANA MARC</option>
+	<option class="MnuStdOpt" value="108069242">BORQUETAS DOÑATE JOAN</option>
+	<option class="MnuStdOpt" value="208085442">BOSQUE MONTSERRAT</option>
+	<option class="MnuStdOpt" value="108131026">BUGES BUGES JORDI</option>
+	<option class="MnuStdOpt" value="7889">BUSQUETS MONJE ROSA MARIA</option>
+	<option class="MnuStdOpt" value="11705147">CALDERON LOPEZ JUAN CARLOS</option>
+	<option class="MnuStdOpt" value="108070851">CALIZ BUSTAMANTE ANTONIO</option>
+	<option class="MnuStdOpt" value="108560800">CALVET MADRIGAL RAFAEL</option>
+	<option class="MnuStdOpt" value="108285335">CAÑETE RAMOS CONCEPCIO</option>
+	<option class="MnuStdOpt" value="108074833">CARBONELL HOERLER ELSA</option>
+	<option class="MnuStdOpt" value="108171360">CARDONA IGUACÉN M JOSEP</option>
+	<option class="MnuStdOpt" value="8888888">CARNE MASLLORENS ISABEL</option>
+	<option class="MnuStdOpt" value="108027260">CASADEVALL ESCAYOLA JOAN</option>
+	<option class="MnuStdOpt" value="17016243">CASAMITJA SOT MARIA TERESA</option>
+	<option class="MnuStdOpt" value="108095184">CASAN CLARA PERE</option>
+	<option class="MnuStdOpt" value="108133065">CASAS GARCIA XAVIER</option>
+	<option class="MnuStdOpt" value="125011527">CASASUS RAMON ADOLFO</option>
+	<option class="MnuStdOpt" value="108037990">CASTELLA RIERA JOAN</option>
+	<option class="MnuStdOpt" value="108063807">CASTELLANO VILLARREAL ABILIO</option>
+	<option class="MnuStdOpt" value="37943">CASTILLO VILLEGAS DIEGO</option>
+	<option class="MnuStdOpt" value="5428">CATALA PEREZ RAQUEL</option>
+	<option class="MnuStdOpt" value="14344480">CEGOÑINO DE SUS JOAQUIN</option>
+	<option class="MnuStdOpt" value="30834">CELORRIO JIMENEZ NURIA</option>
+	<option class="MnuStdOpt" value="125011710">CERVERA DEL PINO MANUEL</option>
+	<option class="MnuStdOpt" value="12503830">CHINE SEGURA MARIA</option>
+	<option class="MnuStdOpt" value="083616704">CILVETI PORTILLO ROBERT</option>
+	<option class="MnuStdOpt" value="108163134">CISNEROS ANTO JOSEP LLUIS</option>
+	<option class="MnuStdOpt" value="00827">CLINICA PLATO REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="143017963">CLOSA MONASTEROLO RICARDO</option>
+	<option class="MnuStdOpt" value="108418364">COBOS BARROSO NICOLAS</option>
+	<option class="MnuStdOpt" value="108088671">COLL ARTES RAMON</option>
+	<option class="MnuStdOpt" value="108147103">COLL KLEIN FELIPE</option>
+	<option class="MnuStdOpt" value="10834026">COLS ROIG MARIA</option>
+	<option class="MnuStdOpt" value="10839773">COLUCCIO PEREIRA EDUARDO</option>
+	<option class="MnuStdOpt" value="38400">CORDOBA IZQUIERDO ANA</option>
+	<option class="MnuStdOpt" value="125028570">CORTIJO FERNANDEZ ANUNCIACION</option>
+	<option class="MnuStdOpt" value="38730">COSTA COLOMER JORDI</option>
+	<option class="MnuStdOpt" value="36017">CRISTINA EMBID LOPEZ</option>
+	<option class="MnuStdOpt" value="45727">CUBERO DE FRUTOS NOELIA</option>
+	<option class="MnuStdOpt" value="34996">CULEBRAS AMIGO MARIO</option>
+	<option class="MnuStdOpt" value="108163303">CURULL SERRANO VICTOR</option>
+	<option class="MnuStdOpt" value="108317528">DAMBRAVA RODRIGUEZ POVILAS</option>
+	<option class="MnuStdOpt" value="10837916">DE GISPERT DE NICOLAU XAVIER</option>
+	<option class="MnuStdOpt" value="108114714">DE GRACIA ROLDAN XAVIER</option>
+	<option class="MnuStdOpt" value="33383">DE LA ROSA CARRILLO DAVID</option>
+	<option class="MnuStdOpt" value="208164844">DEULOFEU FONTANILLAS FRANCESC</option>
+	<option class="MnuStdOpt" value="208214625">DOMINGO RIBAS CRISTIAN</option>
+	<option class="MnuStdOpt" value="36832">DOMINGUEZ ALVAREZ MARISOL</option>
+	<option class="MnuStdOpt" value="108160895">DORCA SARGATAL JORDI</option>
+	<option class="MnuStdOpt" value="125018280">DURAN ALAMA JOSE M</option>
+	<option class="MnuStdOpt" value="108120136">ESCARRABILL SANGLAS JOAN</option>
+	<option class="MnuStdOpt" value="108129880">ESPLUGUES ABÓS JORDI</option>
+	<option class="MnuStdOpt" value="000888">ESQUERRA MONTSENY GRISELDA</option>
+	<option class="MnuStdOpt" value="208225357">ESTEBAN TEJERO LUIS</option>
+	<option class="MnuStdOpt" value="10897623">ESTIRADO VERA CRISTINA</option>
+	<option class="MnuStdOpt" value="108066070">ESTOPA MIRO RAMON</option>
+	<option class="MnuStdOpt" value="108260301">FARRERO MUÑOZ EVA</option>
+	<option class="MnuStdOpt" value="108121510">FASHEH YOUSSEF WAEL</option>
+	<option class="MnuStdOpt" value="108223142">FELEZ FLOR MIQUEL</option>
+	<option class="MnuStdOpt" value="38597">FERNANDEZ DE SEVILLA MARIONA</option>
+	<option class="MnuStdOpt" value="108290552">FERNANDEZ SERRANO SILVIA</option>
+	<option class="MnuStdOpt" value="208183057">FERRER MONREAL ANTONI</option>
+	<option class="MnuStdOpt" value="108183057">FERRER MONREAL MIQUEL</option>
+	<option class="MnuStdOpt" value="19305">FERRER SANCHO JAUME</option>
+	<option class="MnuStdOpt" value="10816898">FERRES MATARO JERONI</option>
+	<option class="MnuStdOpt" value="108090335">FITE REIG ENRIQUETA</option>
+	<option class="MnuStdOpt" value="108212320">FIZ FERNANDEZ EDUARD</option>
+	<option class="MnuStdOpt" value="12504625">FORCEN VICENTE DE VERA, ELENA</option>
+	<option class="MnuStdOpt" value="10837080">FORTUNA GUTIÉRREZ ANA</option>
+	<option class="MnuStdOpt" value="35338">FUERTES VALLCORBA ITZIAR</option>
+	<option class="MnuStdOpt" value="108052636">GALARZA ARRAZOLA ITZIAR</option>
+	<option class="MnuStdOpt" value="08370573">GALEA COLON YOLANDA</option>
+	<option class="MnuStdOpt" value="208239307">GALLEGO DIAZ MIGUEL</option>
+	<option class="MnuStdOpt" value="0838826">GARCIA OLIVE IGNASI</option>
+	<option class="MnuStdOpt" value="37701">GARGALLO BURRIEL EVA</option>
+	<option class="MnuStdOpt" value="108268952">GARTNER SILVIA</option>
+	<option class="MnuStdOpt" value="38699">GASA GALMEZ MERCE</option>
+	<option class="MnuStdOpt" value="108143119">GEA GUIRAL JOAQUIM</option>
+	<option class="MnuStdOpt" value="17136642">GIMENO DOMINGUEZ ALFRED</option>
+	<option class="MnuStdOpt" value="35279">GIRON ALONSO Mª PILAR</option>
+	<option class="MnuStdOpt" value="108329318">GOMEZ DE ARGILA ISABEL</option>
+	<option class="MnuStdOpt" value="254231">GOMEZ FALGUERA SILVIA</option>
+	<option class="MnuStdOpt" value="125035550">GOMEZ IGLESIAS JOAN MANEL</option>
+	<option class="MnuStdOpt" value="10302">GONZALEZ GUTIERREZ Mª VICTORIA</option>
+	<option class="MnuStdOpt" value="14315540">GONZALEZ OLIVELLA JUDITH</option>
+	<option class="MnuStdOpt" value="108145832">GRANEL TENA CARMEN</option>
+	<option class="MnuStdOpt" value="108135037">GRAU SANMARTI NURIA</option>
+	<option class="MnuStdOpt" value="6263">GUELL FIGUERAS ERNEST</option>
+	<option class="MnuStdOpt" value="108192676">GUELL ROUS ROSA M</option>
+	<option class="MnuStdOpt" value="1038023">GUEVARA HOLGUÍN CLAUDIA</option>
+	<option class="MnuStdOpt" value="117046303">HARO ESTARRIOL MANUEL</option>
+	<option class="MnuStdOpt" value="208141815">HEREDIA BUDO JOSE LUIS</option>
+	<option class="MnuStdOpt" value="108101506">HERNANDEL DEL REY IRENE</option>
+	<option class="MnuStdOpt" value="050505">HERNANDEZ ANNA</option>
+	<option class="MnuStdOpt" value="14329250">HERNANDEZ FLIX SALVADOR</option>
+	<option class="MnuStdOpt" value="108266623">HERNANDEZ LOURDES</option>
+	<option class="MnuStdOpt" value="37368">HERNANDO SALVADOR ROSANA</option>
+	<option class="MnuStdOpt" value="00000029">HOS MATARO REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000012">HOSP ARNAU DE VILANOVA REGISTRES HISTORI</option>
+	<option class="MnuStdOpt" value="00000011">HOSP DE BLANES REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000008">HOSP DE CAMPDEVANOL REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000007">HOSP DE FIGUERES REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000005">HOSP DE LA SEU D'URGELL</option>
+	<option class="MnuStdOpt" value="00000004">HOSP DE L'ESPERANÇA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000014">HOSP DE MOLLET REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000037">HOSP DE OLOT REGISTRE HISTORIC</option>
+	<option class="MnuStdOpt" value="00000015">HOSP DE VALLS REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000046">HOSP DEL MAR REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000019">HOSP DEL SAGRAT COR REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000045">HOSP DOS DE MAIG REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000028">HOSP ESPERIT SANT REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000020">HOSP GERMANS TRIAS I PUJOL REGISTRES HIS</option>
+	<option class="MnuStdOpt" value="00000040">HOSP GRAL VALL D'EHBRON REGISTRES HISTOR</option>
+	<option class="MnuStdOpt" value="00000043">HOSP HOSPITALET REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000039">HOSP MATERNO INF VALL D'HEBRON REGISTRES</option>
+	<option class="MnuStdOpt" value="00000010">HOSP MORA D'EBRE REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000013">HOSP MUTUA DE TERRASSA</option>
+	<option class="MnuStdOpt" value="00000027">HOSP PALAMOS REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000025">HOSP SABADELL REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000021">HOSP SANAT MARIA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000009">HOSP SANT BERNABE REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000024">HOSP SANT CELONI REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000038">HOSP SANT JAUME CALELLA REGISTRE HISTOR</option>
+	<option class="MnuStdOpt" value="00000018">HOSP SANT JOAN DE REUS</option>
+	<option class="MnuStdOpt" value="00000023">HOSP SANT PAU I STA TECLA REGISTRES HIST</option>
+	<option class="MnuStdOpt" value="00000022">HOSP SANT RAFAEL REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000016">HOSP SANTA CATERINA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000006">HOSP SANTA CREU I SANT PAU REGISTRES</option>
+	<option class="MnuStdOpt" value="00000035">HOSP SJD ESPLUGUES REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000034">HOSP SJDE MANRESA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000047">HOSP TERRASSA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000044">HOSP TRUETA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000017">HOSP VERGE DE LA CINTA</option>
+	<option class="MnuStdOpt" value="00000033">HOSP VILADECANS REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000030">HOSPITAL ALT PENEDES REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000049">HOSPITAL BADALONA REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000031">HOSPITAL CLINIC REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00148">HOSPITAL DE BELLVITGE REGISTRES HISTORIC</option>
+	<option class="MnuStdOpt" value="00000032">HOSPITAL DE GRANOLLERS REGISTRES HISTORI</option>
+	<option class="MnuStdOpt" value="00000041">HOSPITAL DE IGUALADA REGISTRES HISTORIC</option>
+	<option class="MnuStdOpt" value="00000026">HOSPITAL DE PUIGDERDA REGISTRES HISTORIC</option>
+	<option class="MnuStdOpt" value="00000003">HOSPITAL DE SANT BOI REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000048">HOSPITAL DE SANT CAMIL REGISTRES HISTORI</option>
+	<option class="MnuStdOpt" value="00000042">HOSPITAL DE VIC REGISTRES HISTORICS</option>
+	<option class="MnuStdOpt" value="00000036">HOSPITAL MARTORELL REGISTRE HISTORIC</option>
+	<option class="MnuStdOpt" value="191919">HOSPITALITZACIO A DOMICILI BELLVITGE</option>
+	<option class="MnuStdOpt" value="108039733">IGLESIAS BERENGUE JUAN</option>
+	<option class="MnuStdOpt" value="21293">IRIONDO SANZ MARTI</option>
+	<option class="MnuStdOpt" value="108074337">IZQUIERDO RAMIREZ JOSE</option>
+	<option class="MnuStdOpt" value="117039891">JOLIS OLIVÉ ROSA</option>
+	<option class="MnuStdOpt" value="3217">JOVER SAENZ ALFREDO</option>
+	<option class="MnuStdOpt" value="21548">JULIO MORENO HERNANDO</option>
+	<option class="MnuStdOpt" value="254266">KETTOU DALILA</option>
+	<option class="MnuStdOpt" value="2504412">LARA GALLEGO BEATRIZ</option>
+	<option class="MnuStdOptSel" value="45710" selected="selected">LASERNA MARTINEZ ELENA</option>
+	<option class="MnuStdOpt" value="108051152">LIÑAN CORTES SANTOS</option>
+	<option class="MnuStdOpt" value="000999">LLENAS CHAPARRO DANIEL</option>
+	<option class="MnuStdOpt" value="108153335">LLOBERES CANADELL PATRICIA</option>
+	<option class="MnuStdOpt" value="35952">LLORET QUERALTO JUAN ANTONIO</option>
+	<option class="MnuStdOpt" value="208204196">LLUNELL CASANOVAS ANTONIA</option>
+	<option class="MnuStdOpt" value="37588">LOPEZ LISBONA ROSA MARIA</option>
+	<option class="MnuStdOpt" value="38932">LOPEZ MESEGUER MANUEL</option>
+	<option class="MnuStdOpt" value="108068864">LOPEZ MUÑOZ ANTONIO JOSE</option>
+	<option class="MnuStdOpt" value="108134051">LOPEZ SANCHEZ MARTA</option>
+	<option class="MnuStdOpt" value="108294387">LORES OBRADORS LUIS</option>
+	<option class="MnuStdOpt" value="108339861">LOZANO BAILEN LOURDES</option>
+	<option class="MnuStdOpt" value="208254890">LUJAN TORNE MANUEL</option>
+	<option class="MnuStdOpt" value="253926">LUMBIERRES BURGUES MARINA</option>
+	<option class="MnuStdOpt" value="108051747">MANRESA PRESAS FREDERICO</option>
+	<option class="MnuStdOpt" value="14300823">MANRESA PRESAS JOSEP MARIA</option>
+	<option class="MnuStdOpt" value="108331470">MARIN ARGUEDES ALEJANDRA</option>
+	<option class="MnuStdOpt" value="208067407">MARIN PEREZ ALBERT</option>
+	<option class="MnuStdOpt" value="108074394">MARIN RIPOLL JOSEP LLUIS</option>
+	<option class="MnuStdOpt" value="28943">MARIN TAPIA ALICIA</option>
+	<option class="MnuStdOpt" value="208095858">MARQUILLES FIGUERES EMILI</option>
+	<option class="MnuStdOpt" value="108250377">MARRADES SICART RAMON</option>
+	<option class="MnuStdOpt" value="108286164">MARTI BELTRAN SERGI</option>
+	<option class="MnuStdOpt" value="108205557">MARTI LOPEZ JOAN</option>
+	<option class="MnuStdOpt" value="39128">MARTIN DE VICENTE CARLOS</option>
+	<option class="MnuStdOpt" value="5858">MARTIN GONZALEZ MANUEL</option>
+	<option class="MnuStdOpt" value="208258128">MARTÍN PÉREZ ALBERT</option>
+	<option class="MnuStdOpt" value="10108635">MARTIN RODRIGO JOSE MARIA</option>
+	<option class="MnuStdOpt" value="8635">MARTIN RODRIGO JOSE MARIA</option>
+	<option class="MnuStdOpt" value="101080808">MARTIN ZAPATERO ESPERANZA</option>
+	<option class="MnuStdOpt" value="108065124">MARTINEZ BALLARIN JOSE IGANCIO</option>
+	<option class="MnuStdOpt" value="33121">MARTINEZ LLORENS JUANA MARIA</option>
+	<option class="MnuStdOpt" value="36970">MARTINEZ OLONDRIS PILAR</option>
+	<option class="MnuStdOpt" value="96989">MARTINEZ OLONDRIS PILAR</option>
+	<option class="MnuStdOpt" value="39631">MARTINEZ PLANAS AINA</option>
+	<option class="MnuStdOpt" value="108290023">MARTINEZ RIVERA CARLOS</option>
+	<option class="MnuStdOpt" value="108224986">MARTOS VELASCO JOSE ALBERTO</option>
+	<option class="MnuStdOpt" value="208293127">MARZO RODRIGO NURIA</option>
+	<option class="MnuStdOpt" value="208318046">MASDEU MARGALEF M JOSE</option>
+	<option class="MnuStdOpt" value="117023882">MAYOL CANALS LLUIS</option>
+	<option class="MnuStdOpt" value="44030">MAYORAL AGUILERA ANA</option>
+	<option class="MnuStdOpt" value="20246">MAYORDOMO LACAMBRA CRISTINA</option>
+	<option class="MnuStdOpt" value="108190944">MAYOS PEREZ MERCEDES</option>
+	<option class="MnuStdOpt" value="2853092">MEDIANOSAN ANDRÉS OLGA</option>
+	<option class="MnuStdOpt" value="666666666">METGE AT.DOMICILIARIA LLEIDA</option>
+	<option class="MnuStdOpt" value="888888888">METGE URGENCIES HOSPITAL ARNAU VILANOVA</option>
+	<option class="MnuStdOpt" value="555555555">METGE URGENCIES HOSPITAL CLINIC</option>
+	<option class="MnuStdOpt" value="333333333">METGE URGENCIES HOSPITAL DE BELLVITGE</option>
+	<option class="MnuStdOpt" value="999999999">METGE URGENCIES ICO</option>
+	<option class="MnuStdOpt" value="111111111">METGE URGENCIES SANT PAU</option>
+	<option class="MnuStdOpt" value="222222222">METGE URGENCIES VALL D'HEBRON</option>
+	<option class="MnuStdOpt" value="444444444">METGE URGENCIES 061</option>
+	<option class="MnuStdOpt" value="5147">METGE1</option>
+	<option class="MnuStdOpt" value="11705171">METGE2</option>
+	<option class="MnuStdOpt" value="24993">MIR MESA INES</option>
+	<option class="MnuStdOpt" value="40796">MOLA AUSIRO ANNA</option>
+	<option class="MnuStdOpt" value="117039755">MOLINA AGUILERA SILVIA</option>
+	<option class="MnuStdOpt" value="34080">MOLINA MOLINA MARIA</option>
+	<option class="MnuStdOpt" value="10827997">MOLINER CALDERON ELISENDA</option>
+	<option class="MnuStdOpt" value="108251233">MONASTERIO PONSA CARME</option>
+	<option class="MnuStdOpt" value="26936">MONFORTE TORRES VICTOR</option>
+	<option class="MnuStdOpt" value="108152604">MONSO MOLAS EDUARD</option>
+	<option class="MnuStdOpt" value="108216706">MONTOLIU TARRAMERA ROSA</option>
+	<option class="MnuStdOpt" value="208274767">MONTON SOLER CONCEPCION</option>
+	<option class="MnuStdOpt" value="108085778">MONTSERRAT CANAL JOSEP M</option>
+	<option class="MnuStdOpt" value="108212871">MORENO GALDO ANTONIO</option>
+	<option class="MnuStdOpt" value="36796">MORENO GOMEZ DE BONILLA AMALIA</option>
+	<option class="MnuStdOpt" value="108049677">MORERA PRAT JOSEP</option>
+	<option class="MnuStdOpt" value="117045008">MOTA CASALS SUSANA</option>
+	<option class="MnuStdOpt" value="108260975">MUÑOZ GALL XAVIER</option>
+	<option class="MnuStdOpt" value="10814595">NADAL AMAT JOAN</option>
+	<option class="MnuStdOpt" value="41284">NAVARRO JIMENEZ CRISTINA</option>
+	<option class="MnuStdOpt" value="208292958">NAVARRO OLLER ANNA</option>
+	<option class="MnuStdOpt" value="108430884">NAVARRO VILARRUBI SERGIO</option>
+	<option class="MnuStdOpt" value="434301565">NUALART BERBEL LLUIS</option>
+	<option class="MnuStdOpt" value="117014713">OBRADOR LAGARES ANTON</option>
+	<option class="MnuStdOpt" value="108081190">ORIOL SABATER JAUME</option>
+	<option class="MnuStdOpt" value="208117627">ORMAZA LANDABASO JOSUNE</option>
+	<option class="MnuStdOpt" value="108295513">OROZCO LEVI MAURICIO</option>
+	<option class="MnuStdOpt" value="108117753">ORRIOLS MARTINEZ RAMON</option>
+	<option class="MnuStdOpt" value="108273351">ORTEGA CASTILLO PILAR</option>
+	<option class="MnuStdOpt" value="38618">ORTIZ RODRIGUEZ JESSICA</option>
+	<option class="MnuStdOpt" value="32555">OVEJERO GARCIA LAURA</option>
+	<option class="MnuStdOpt" value="38732">PABLOS MATEOS NOELIA</option>
+	<option class="MnuStdOpt" value="108330613">PADRONES SANCHEZ SUSANA</option>
+	<option class="MnuStdOpt" value="38803">PAJARES RUIZ VIRGINIA</option>
+	<option class="MnuStdOpt" value="108259761">PALAU BENAVENT MERCÈ</option>
+	<option class="MnuStdOpt" value="35557">PALLERO CASTILLO MERCEDES</option>
+	<option class="MnuStdOpt" value="108225155">PARRA ORLAZ OLGA</option>
+	<option class="MnuStdOpt" value="125023172">PARRAMON BREGOLAT ASSUMPTA</option>
+	<option class="MnuStdOpt" value="43253">PASCUAL CASCO RAQUEL</option>
+	<option class="MnuStdOpt" value="38739">PASCUAL GUARDIA SERGI</option>
+	<option class="MnuStdOpt" value="31245">PASCUAL PAPE TERESA</option>
+	<option class="MnuStdOpt" value="10819369">PASQUAL SANCHEZ TERESA</option>
+	<option class="MnuStdOpt" value="117049655">PEÑAS ANDREU</option>
+	<option class="MnuStdOpt" value="108301892">PERELLÓ ARAGONÉS SALVADOR</option>
+	<option class="MnuStdOpt" value="208167105">PÉREZ DOMÍNGUEZ CONXA</option>
+	<option class="MnuStdOpt" value="35899">PERICH JACKSON DAMIÀ</option>
+	<option class="MnuStdOpt" value="108275825">PERRAMON MONTOLIU XAVIER</option>
+	<option class="MnuStdOpt" value="108062716">PICADO CESAR</option>
+	<option class="MnuStdOpt" value="125029202">PIFARRÉ TEIXIDÓ RICARD</option>
+	<option class="MnuStdOpt" value="3350">PINO RAMIREZ ROSA M</option>
+	<option class="MnuStdOpt" value="36794">PIZARRO SERRA</option>
+	<option class="MnuStdOpt" value="108060488">PLA CLAVELL FRANCESC</option>
+	<option class="MnuStdOpt" value="15528">PLANAS COMERMA FRANCESC</option>
+	<option class="MnuStdOpt" value="11701505">PLANELL SOLER CARME</option>
+	<option class="MnuStdOpt" value="108085880">PLANS BOLIBAR CONCHA</option>
+	<option class="MnuStdOpt" value="108206468">PLAZA MORAL VICENTE</option>
+	<option class="MnuStdOpt" value="108338702">POMARES AMIGO XAVIER</option>
+	<option class="MnuStdOpt" value="108275847">PONS ODENA MARTI</option>
+	<option class="MnuStdOpt" value="36179">PORTILLO CARROZ KARINA</option>
+	<option class="MnuStdOpt" value="108167072">PRATS BARDAJI M SOL</option>
+	<option class="MnuStdOpt" value="108226922">PRATS SORO ENRIC</option>
+	<option class="MnuStdOpt" value="10835950">PUY RIÓN Mª CARME</option>
+	<option class="MnuStdOpt" value="108091022">PUZO ARDANUY M CARMEN</option>
+	<option class="MnuStdOpt" value="108308427">RAÑO PEREZ ANA</option>
+	<option class="MnuStdOpt" value="0834101">RECUERO GONZALEZ RAQUEL</option>
+	<option class="MnuStdOpt" value="28554">REDONDO MARTIN M. JOSE</option>
+	<option class="MnuStdOpt" value="20202020">REGIO SANITARIA BARCELONA</option>
+	<option class="MnuStdOpt" value="10101010">REGIO SANITARIA COSTA DE PONENT</option>
+	<option class="MnuStdOpt" value="13131313">REGIO SANITARIA DE GIRONA</option>
+	<option class="MnuStdOpt" value="777777777">REGIO SANITARIA DE LLEIDA</option>
+	<option class="MnuStdOpt" value="10814837">RETANA CASTAN ADELA</option>
+	<option class="MnuStdOpt" value="108234619">REYES ORTIZ LEONARDO JOSE</option>
+	<option class="MnuStdOpt" value="108180133">RIBA BLANCH ANTONI</option>
+	<option class="MnuStdOpt" value="10826680">RIBAS SOLA JESUS</option>
+	<option class="MnuStdOpt" value="37439">RICART CAMPOS SILVIA</option>
+	<option class="MnuStdOpt" value="108342494">RIVERA ORTUN M LUIS</option>
+	<option class="MnuStdOpt" value="108094486">ROCA JOSEP</option>
+	<option class="MnuStdOpt" value="10804159">ROCA MONTANARI ANTONI</option>
+	<option class="MnuStdOpt" value="9851">RODES SERNA GLORIA</option>
+	<option class="MnuStdOpt" value="108198673">RODO MUÑOZ MARTA</option>
+	<option class="MnuStdOpt" value="13072">RODRIGO DE LIRIA CARLOS</option>
+	<option class="MnuStdOpt" value="108863530">RODRIGO JOSE MARIA</option>
+	<option class="MnuStdOpt" value="42484">RODRIGUEZ DIEGO AGUSTIN</option>
+	<option class="MnuStdOpt" value="108136325">RODRIGUEZ FLORES EUGENI</option>
+	<option class="MnuStdOpt" value="31816">RODRIGUEZ GONZÁLEZ ESTHER</option>
+	<option class="MnuStdOpt" value="108310058">RODRIGUEZ JEREZ FRANCISCO</option>
+	<option class="MnuStdOpt" value="08349390">RODRIGUEZ LAZARO NURIA</option>
+	<option class="MnuStdOpt" value="38788">RODRIGUEZ RIVERA CRISTINA</option>
+	<option class="MnuStdOpt" value="108061287">RODRIGUEZ ROISIN ROBERT</option>
+	<option class="MnuStdOpt" value="108106513">RODRIGUEZ SANCHON BENIGNO</option>
+	<option class="MnuStdOpt" value="108076835">RODRIGUEZ-ARIAS GARCIA JOSE M</option>
+	<option class="MnuStdOpt" value="108026480">ROGER CASALS NURIA</option>
+	<option class="MnuStdOpt" value="30817">ROGER REIG ALEX</option>
+	<option class="MnuStdOpt" value="36778">ROLDAN LOPEZ NICOLAS</option>
+	<option class="MnuStdOpt" value="1000001">ROLDAN NICOLAS</option>
+	<option class="MnuStdOpt" value="35934">ROLDAN SANCHEZ JUAN</option>
+	<option class="MnuStdOpt" value="108220837">ROMAN BROTO ANTONIO</option>
+	<option class="MnuStdOpt" value="08410441">ROS CELIS SANDRA</option>
+	<option class="MnuStdOpt" value="25081">ROSELL GRATACÓS ANTONI</option>
+	<option class="MnuStdOpt" value="108250816">ROSELL GRATCOS JORGE</option>
+	<option class="MnuStdOpt" value="42402">ROVIRA AMIGO SANDRA</option>
+	<option class="MnuStdOpt" value="125018910">ROZADILLA SACANELL JOAN RAMON</option>
+	<option class="MnuStdOpt" value="108070671">RUBIO GIL JULIO</option>
+	<option class="MnuStdOpt" value="117015466">RUBIO GODAY MANUEL</option>
+	<option class="MnuStdOpt" value="108094508">RUIZ MANZANO JOAN</option>
+	<option class="MnuStdOpt" value="38662">RUIZ MORI FERNANDO</option>
+	<option class="MnuStdOpt" value="117047833">SABADELL NIETO CARLES</option>
+	<option class="MnuStdOpt" value="11705328">SABATER TALAVERANO GLADIS</option>
+	<option class="MnuStdOpt" value="22366">SABRIA MESTRES JOSEFINA</option>
+	<option class="MnuStdOpt" value="108077050">SALMERON CARO FRANCISCO</option>
+	<option class="MnuStdOpt" value="35188">SALORD OLEO NEUS</option>
+	<option class="MnuStdOpt" value="5298">SALVADOR ADELL, IMMACULADA</option>
+	<option class="MnuStdOpt" value="108245361">SAMPABLO LAURO ITALO</option>
+	<option class="MnuStdOpt" value="108212678">SAMPOL RUBIO GABRIEL</option>
+	<option class="MnuStdOpt" value="36014">SANCHEZ FONT ALBERT</option>
+	<option class="MnuStdOpt" value="108198188">SANCHEZ JIMENEZ JOSEP</option>
+	<option class="MnuStdOpt" value="43258">SANCHEZ MARTINEZ ESTEFANIA</option>
+	<option class="MnuStdOpt" value="108075114">SANCHIS ALDAS JOAQUIM</option>
+	<option class="MnuStdOpt" value="39703">SANCHO CALVACHE MARIA</option>
+	<option class="MnuStdOpt" value="33246">SANGENÍS DÍEZ SANDRA</option>
+	<option class="MnuStdOpt" value="108123894">SANJUAS BENITO CARLES</option>
+	<option class="MnuStdOpt" value="2503501">SANJURJO GOLPE EDUARDO</option>
+	<option class="MnuStdOpt" value="208264856">SANS TORRES JORDI</option>
+	<option class="MnuStdOpt" value="108292688">SANTIVERI GELABERT CARME</option>
+	<option class="MnuStdOpt" value="10830962">SANTOS PEREZ MARIA SALUD</option>
+	<option class="MnuStdOpt" value="108063346">SAURET VALET JESUS M</option>
+	<option class="MnuStdOpt" value="108067690">SECULI PALACIOS JOSE LUIS</option>
+	<option class="MnuStdOpt" value="96210">SELLARES TORRES, JACOBO</option>
+	<option class="MnuStdOpt" value="117018188">SENDRA SALILLAS SALVI</option>
+	<option class="MnuStdOpt" value="208156856">SERRA BATLLES JOAN</option>
+	<option class="MnuStdOpt" value="125034944">SERRANO GODOY MARCOS</option>
+	<option class="MnuStdOpt" value="37734">SERRANO KIECKEBUSCH MARIO ALVARO</option>
+	<option class="MnuStdOpt" value="19999999">SERVEIS MATRIUS CATSALUT</option>
+	<option class="MnuStdOpt" value="35018">SIBILA VIDAL ORIOL</option>
+	<option class="MnuStdOpt" value="30470">SOLANES GARCIA INGRID</option>
+	<option class="MnuStdOpt" value="108088028">SOLANS CARDUS MARGARITA</option>
+	<option class="MnuStdOpt" value="108286041">SOLER PORCAR ROBERT</option>
+	<option class="MnuStdOpt" value="10810116">SOMOZA GONZALEZ MARIA</option>
+	<option class="MnuStdOpt" value="108143424">SOPEÑA NUALART JOAN JOSEP</option>
+	<option class="MnuStdOpt" value="117034581">SUBIRÀ FARRÉ NATIVITAT</option>
+	<option class="MnuStdOpt" value="217020684">SUBIRATS BAYEGO ENRIC</option>
+	<option class="MnuStdOpt" value="208307786">TARREGA JULIA</option>
+	<option class="MnuStdOpt" value="108232366">TARRRES AGUSTIN</option>
+	<option class="MnuStdOpt" value="08408351">TAVERA GOMEZ ERIKA</option>
+	<option class="MnuStdOpt" value="14336900">TEIXIDO BRUGUERA ANNA</option>
+	<option class="MnuStdOpt" value="125010910">TEIXIDO FO BRAULI</option>
+	<option class="MnuStdOpt" value="36863">TOBEÑA RUE MARC</option>
+	<option class="MnuStdOpt" value="14310090">TOMAS MAS ROSA</option>
+	<option class="MnuStdOpt" value="000777">TORRA GIRALT MARC</option>
+	<option class="MnuStdOpt" value="108114411">TORRAS SALINAS MIQUEL</option>
+	<option class="MnuStdOpt" value="208275487">TORRELLA MARTA</option>
+	<option class="MnuStdOpt" value="38434">TORRENT VERNETTA</option>
+	<option class="MnuStdOpt" value="108114422">TORRES ANTONI</option>
+	<option class="MnuStdOpt" value="108246193">TUDELA HITA PERE</option>
+	<option class="MnuStdOpt" value="38450">VALDES CASTIELLO CESAR</option>
+	<option class="MnuStdOpt" value="108122230">VALLDEPERAS COMBAS JOAN</option>
+	<option class="MnuStdOpt" value="36168">VALVERDE FORCADA EDUARD</option>
+	<option class="MnuStdOpt" value="108279785">VEGA GARCIA JOSEP LLUIS</option>
+	<option class="MnuStdOpt" value="17042736">VENDRELL RELAT MONTSERRAT</option>
+	<option class="MnuStdOpt" value="39796">VICENS ZYGMUNT VANESA</option>
+	<option class="MnuStdOpt" value="108108008">VIDAL BALAÑA JOSEP M</option>
+	<option class="MnuStdOpt" value="108044795">VIDAL-QUADRAS ROSALES IGNASI</option>
+	<option class="MnuStdOpt" value="33888">VIGIL GIMÉNEZ LAURA</option>
+	<option class="MnuStdOpt" value="108285444">VILA GIRALTE XAVIER</option>
+	<option class="MnuStdOpt" value="125027165">VILA JUSTRIBO MANEL</option>
+	<option class="MnuStdOpt" value="117018785">VILAPLANA SOLER MIQUEL</option>
+	<option class="MnuStdOpt" value="208089661">VILASECA BELLSOLÀ JOAN</option>
+	<option class="MnuStdOpt" value="39790">VILLAR GOMEZ ANA</option>
+	<option class="MnuStdOpt" value="108077955">XAUBET MIR ANTONI</option>
+	<option class="MnuStdOpt" value="108180134">ZZ-ANTONI RIBA BLANCH</option>
+	<option class="MnuStdOpt" value="199136325">ZZ-EUGENI RODRIGUEZ FLORES</option>
+	<option class="MnuStdOpt" value="199120136">ZZ-JOAN ESACRRABILL SANGLAS</option>
+	<option class="MnuStdOpt" value="199279785">ZZ-JOSEP LLUIS VEGA GARCIA</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_113479" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_113479" name="form:INPUT_SELECT_2227_37144_113479" onfocus="" class="EDITObligatoriModificable TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113479" class="DivOculto"><input type="text" size="20" id="form:MANDATORY_2227_37144_113479" name="form:MANDATORY_2227_37144_113479" class="TxtFld" value="S" AUTOCOMPLETE="off" /><input type="text" size="20" id="form:COLLAPSED_2227_37144_113479" name="form:COLLAPSED_2227_37144_113479" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113479" type="hidden" name="form:DATATYPE_2227_37144_113479" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel221"><input id="form:COMPONENTTYPE_2227_37144_113479" type="hidden" name="form:COMPONENTTYPE_2227_37144_113479" value="SELECT" /></td>
+<td class="ColData221"><input id="form:REQ_VAR_2227_37144_113479" type="hidden" name="form:REQ_VAR_2227_37144_113479" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113479_MOD" type="hidden" name="form:INPUT_2227_37144_113479_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_18" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113480" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel231"><span id="form:LABEL_2227_37144_113480" class="LblLev2Txt" title="Data baixa de tractament">
+Data baixa de tractament:  
+</span></td>
+<td class="ColData231"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="11" id="form:INPUT_2227_37144_113480" name="form:INPUT_2227_37144_113480" maxlength="10" title="Data baixa de tractament" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37144_113480', this.value);if(!estatCarregant){ calculaF56102(this.id);}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+<td><img id="form:IMAGE_2227_37144_113480" class="TblTdLyt" style="cursor:hand; magin-left: 2px;" src="https://salut.gencat.net:443/rsa/images/calendar.gif" alt="" title="Data baixa de tractament" border="0" onmouseover="iniciarCalendario('form:INPUT_2227_37144_113480','form:IMAGE_2227_37144_113480');" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113480" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_113480" name="form:COLLAPSED_2227_37144_113480" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113480" type="hidden" name="form:DATATYPE_2227_37144_113480" value="DATE 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel231"><input id="form:COMPONENTTYPE_2227_37144_113480" type="hidden" name="form:COMPONENTTYPE_2227_37144_113480" value="DATE" /></td>
+<td class="ColData231"><input id="form:REQ_VAR_2227_37144_113480" type="hidden" name="form:REQ_VAR_2227_37144_113480" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113480_MOD" type="hidden" name="form:INPUT_2227_37144_113480_MOD" value="F" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_19" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_114164" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel241"><span id="form:LABEL_2227_37144_114164" class="LblLev2Txt" title="Motiu de Baixa">
+Motiu de Baixa:  
+</span></td>
+<td class="ColData241"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_114164" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37144_114164" name="form:INPUT_2227_37144_114164" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_114164');if(!estatCarregant){ calculaF56102(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_114164','form:INPUT_SELECT_2227_37144_114164');;dropDown_changed('form:INPUT_2227_37144_114164');  return false;" onmouseover="this.title='Motiu de Baixa';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="A">Altres motius de baixa</option>
+	<option class="MnuStdOpt" value="B">Baixa clínica (Prescriptor)</option>
+	<option class="MnuStdOpt" value="V">Baixa voluntària del pacient</option>
+	<option class="MnuStdOpt" value="E">Exitus del pacient</option>
+	<option class="MnuStdOpt" value="N">No compliment de la teràpia pescrita</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_114164" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_114164" name="form:INPUT_SELECT_2227_37144_114164" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_114164" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_114164" name="form:COLLAPSED_2227_37144_114164" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_114164" type="hidden" name="form:DATATYPE_2227_37144_114164" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel241"><input id="form:COMPONENTTYPE_2227_37144_114164" type="hidden" name="form:COMPONENTTYPE_2227_37144_114164" value="SELECT" /></td>
+<td class="ColData241"><input id="form:REQ_VAR_2227_37144_114164" type="hidden" name="form:REQ_VAR_2227_37144_114164" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_114164_MOD" type="hidden" name="form:INPUT_2227_37144_114164_MOD" value="F" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_20" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_113481" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel251"><span id="form:LABEL_2227_37144_113481" class="LblLev2Txt" title="Observacions">
+Observacions:  
+</span></td>
+<td class="ColData251"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="50" id="form:INPUT_2227_37144_113481" name="form:INPUT_2227_37144_113481" maxlength="50" title="Observacions" onchange="carregaAtributSimple('ATTR_2227_37144_113481', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_113481" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_113481" name="form:COLLAPSED_2227_37144_113481" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_113481" type="hidden" name="form:DATATYPE_2227_37144_113481" value="VARCHAR2 50" /></td>
+</tr>
+<tr>
+<td class="ColLabel251"><input id="form:COMPONENTTYPE_2227_37144_113481" type="hidden" name="form:COMPONENTTYPE_2227_37144_113481" value="VARCHAR" /></td>
+<td class="ColData251"><input id="form:REQ_VAR_2227_37144_113481" type="hidden" name="form:REQ_VAR_2227_37144_113481" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_113481_MOD" type="hidden" name="form:INPUT_2227_37144_113481_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37144_21" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37144_114908" style="width: 700px; float: left; display: none;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel271"><span id="form:LABEL_2227_37144_114908" class="LblLev2Txt" title="Estat de la prescripci&oacute;">
+Estat de la prescripci&oacute;:  
+</span></td>
+<td class="ColData271"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37144_114908" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37144_114908" name="form:INPUT_2227_37144_114908" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtribut('2227_37144_114908');if(!estatCarregant){ calculaF56102(this.id);}copyDataFromSelectToText('form:INPUT_2227_37144_114908','form:INPUT_SELECT_2227_37144_114908');;dropDown_changed('form:INPUT_2227_37144_114908');  return false;" onmouseover="this.title='Estat de la prescripci&oacute;';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="A">Prescripció activa</option>
+	<option class="MnuStdOpt" value="B">Baixa</option>
+	<option class="MnuStdOpt" value="R">Prescripció activa - Tractament renovat</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37144_114908" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37144_114908" name="form:INPUT_SELECT_2227_37144_114908" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37144_114908" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37144_114908" name="form:COLLAPSED_2227_37144_114908" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37144_114908" type="hidden" name="form:DATATYPE_2227_37144_114908" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel271"><input id="form:COMPONENTTYPE_2227_37144_114908" type="hidden" name="form:COMPONENTTYPE_2227_37144_114908" value="SELECT" /></td>
+<td class="ColData271"><input id="form:REQ_VAR_2227_37144_114908" type="hidden" name="form:REQ_VAR_2227_37144_114908" value="REQ_2227_37144_30473" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37144_114908_MOD" type="hidden" name="form:INPUT_2227_37144_114908_MOD" value="F" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<script id="form:scriptVarsLevel">var ATTR_2227_37144_114165='<value></value>';var ATTR_2227_37144_113467='<value></value>';var ATTR_2227_37144_114906='<value></value>';var ATTR_2227_37144_113468='<value></value>';var ATTR_2227_37144_113488='<value></value>';var ATTR_2227_37144_113469='<value></value>';var ATTR_2227_37144_113470='<value></value>';var ATTR_2227_37144_113471='<value></value>';var ATTR_2227_37144_113472='<value></value>';var ATTR_2227_37144_113473='<value></value>';var ATTR_2227_37144_113474='<value></value>';var ATTR_2227_37144_113475='<value></value>';var ATTR_2227_37144_113476='<value></value>';var ATTR_2227_37144_113477='<value></value>';var ATTR_2227_37144_113487='<value></value>';var ATTR_2227_37144_113828='<value></value>';var ATTR_2227_37144_113478='<value></value>';var ATTR_2227_37144_113479='<value></value>';var ATTR_2227_37144_113480='<value></value>';var ATTR_2227_37144_114164='<value></value>';var ATTR_2227_37144_113481='<value></value>';var ATTR_2227_37144_114908='<value></value>';</script></span><span id="form:buit" style="height: 10px"></span><iframe id="form:taulaOcurrencies:taulaFrame" src="https://salut.gencat.net:443/rsa/AppJava/faces/pages/ChildOccurrenceTable.jsp" name="taulaFrame" scrolling="no" frameborder="0" marginheight="5" align="center" width="100%"></iframe>
+<div id="form:botons" style="width: 702px; margin-top: 5px; text-align: center;"><input id="form:save" name="form:save" class="botonsText hidden Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" title="Validar i desar les dades informades a l'ocurr&egrave;ncia" onclick="showNavigationPopUp('Desant els canvis...');return validaAndDiv();" onmousedown="eliminaNextAction();" type="submit" value="Desar"></input><script type="text/javascript">sjwuic_assign_button('form:save', defaultButtonStrings, true, false, false);</script><input id="form:back" name="form:back" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" title="Tornar enrere i no desar les dades informades a l'ocurr&egrave;ncia" onclick="showNavigationPopUp('Carregant...'); return true;" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" type="submit" value="Tornar"></input><script type="text/javascript">sjwuic_assign_button('form:back', defaultButtonStrings, true, false, false);</script></div><div id="popUp" style="visibility:hidden;width:235px; background: #F4F4F3; border: solid 1px #000000; position:absolute; top:50px; left:150px; z-index: 2;"><span id="form:popUpTitle" class="titolBarresPopUp">Desar abans de continuar?</span><span id="form:popUpMessage" style="display: block; padding: 10px;">Voleu desar els canvis a l'ocurr&egrave;ncia actual abans de continuar?\n\nPremi Si per desar els canvis i editar l'ocurr&egrave;ncia filla.\nPremi No per rebutjar els canvis i editar l'ocurr&egrave;ncia filla\nPremi Cancel&middot;lar per tornar a la pantalla</span><div id="desarButons" align="center"><input id="form:popUpConfirm" name="form:popUpConfirm" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" onclick="if(!doConfirmValidaIDesa()) 	 return false;" style="margin: 10px; width: 100px;" type="submit" value="  Si  "></input><script type="text/javascript">sjwuic_assign_button('form:popUpConfirm', defaultButtonStrings, true, false, false);</script><input id="form:popUpCancel" name="form:popUpCancel" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" onclick="if(!doConfirmValidaINoDesa()) return false;" style="margin: 10px 10px 10px 0px; width: 100px;" type="submit" value="  No  "></input><script type="text/javascript">sjwuic_assign_button('form:popUpCancel', defaultButtonStrings, true, false, false);</script><input id="form:popUpNothing" name="form:popUpNothing" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" title="No desar l'ocurr&egrave;ncia actual ni anar a l'ocurr&egrave;ncia filla" onclick="if(doCancel())				 return false;" style="margin: 10px 10px 10px 0px; width: 100px;" type="submit" value="Cancel&middot;lar"></input><script type="text/javascript">sjwuic_assign_button('form:popUpNothing', defaultButtonStrings, true, false, false);</script></div><input type="hidden" id="form:popUpActionMessage" name="form:popUpActionMessage" value="Desant els canvis..." /></div><div id="form:popUpAjudaOcultar" style="background-color:black;position:absolute; visibility:hidden; display:none; display:none; z-index: 3;" style="position: relative;-rave-layout: grid; background-color:black;position:absolute; visibility:hidden; display:none; display:none; z-index: 3;"></div><div id="form:popUpAjuda" style="position:absolute; visibility:hidden; display:none; background: #F4F4F3; border: solid 1px #000000; z-index: 4;" style="position: relative;-rave-layout: grid; position:absolute; visibility:hidden; display:none; background: #F4F4F3; border: solid 1px #000000; z-index: 4;"><table id="form:popUpAjudaCapcalera" class="titolBarresPopUp" width="100%">
+<tbody>
+<tr>
+<td><span id="form:popUpAjudaTitle" style="FONT-SIZE: 12px; font-weight: bold; COLOR: #FFFFFF; display:inline"></span></td>
+<td><a id="form:popUpAjudaClose" style="float:right" onclick="ocultDiv();return false;return hyperlink_submit(this, 'form', null);" href="#"><img id="form:popUpAjudaClose_image" src="https://salut.gencat.net:443/rsa/images/close_div.gif" alt="Tancar" border="0" /></a></td>
+</tr>
+</tbody>
+</table>
+<span id="form:popUpAjudaMessage" style="display: block;margin-top:10px;margin-bottom:10px;margin-right:10px;margin-left:10px;"></span></div>
+<input id="form_hidden" name="form_hidden" value="form_hidden" type="hidden" />
+
+</form>
+<div id="divFormPopUp" style="display: none"><form id="formPopUp" method="post" action="https://salut.gencat.net:443/rsa/AppJava/faces/pages/EditOccurrence.jsp" enctype="application/x-www-form-urlencoded" onsubmit="modalWin('formPopUp');" target="V967DD6">
+<input name="com_sun_rave_web_ui_appbase_renderer_CommandLinkRendererer" type="hidden" value="" /><a id="formPopUp:igual" href="#" onclick="document.forms['formPopUp']['com_sun_rave_web_ui_appbase_renderer_CommandLinkRendererer'].value='formPopUp:igual';document.forms['formPopUp'].submit(); return false;">link</a><input id="formPopUp:selectedDomain" type="text" name="formPopUp:selectedDomain" /><input id="formPopUp:selectedString" type="text" name="formPopUp:selectedString" /><input id="formPopUp:selectedCondition" type="text" name="formPopUp:selectedCondition" /><input id="formPopUp:selectedFindValues" type="text" name="formPopUp:selectedFindValues" /><input id="formPopUp:idVista" type="text" name="formPopUp:idVista" value="V967DD6" /><input id="formPopUp:HIDDEN_INPUT_MODIFICABLE" type="text" name="formPopUp:HIDDEN_INPUT_MODIFICABLE" /><input type="hidden" name="formPopUp" value="formPopUp" /></form></div><script id="formulaCallsScript">
+ 
+
+ 
+var res= carregaValorsOccurrencia(valorsCarregatsXml);
+function calculaF55555(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('55555', null, inputId);
+var resultat = '';
+var missatgeError = '';
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF55576(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37143_605','DESCRIPCIO'));var resposta = convierte(respAtratar, 'VARCHAR2');var resultat = '';
+var missatgeError = '';
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF55837(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('55837', '2227_37144_113468', inputId);
+var resultat = '';
+var missatgeError = '';
+condiciona('2227_37144_113488', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF55841(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113488','TRACTAMENT'));var resposta = convierte(respAtratar, 'VARCHAR2');var resultat = '';
+var missatgeError = '';
+calcula('2227_37144_113469', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF55842(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37143_497','CODI'));var resposta = convierte(respAtratar, 'VARCHAR2');var resultat = '';
+var missatgeError = '';
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF55843(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113828','DESCRIPCIO'));var resposta = convierte(respAtratar, 'VARCHAR2');var resultat = '';
+var missatgeError = '';
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56089(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('56089', '2227_37144_113470:2227_37144_113474:2227_37144_113475:2227_37144_113479', inputId);
+var resultat = '';
+var missatgeError = '';
+calcula('2227_37144_113477', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56090(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('56090', '2227_37144_113467:2227_37144_113477:2227_37144_114906', inputId);
+var resultat = '';
+var missatgeError = '';
+calcula('2227_37144_113487', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56091(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '04' && AtributVariable('2227_37144_113470','CODI') != '');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+obligatorietat('2227_37144_113475', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56102(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('56102', '2227_37144_113480:2227_37144_114164:2227_37144_114908', inputId);
+var resultat = '';
+var missatgeError = '';
+calcula('2227_37144_114165', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56187(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('56187', null, inputId);
+var resultat = '';
+var missatgeError = '';
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF57169(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('57169', '2227_37144_114906', inputId);
+var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37144_114906', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF58273(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( document.getElementById("form:h_occurrence").value == '' || document.getElementById("form:h_currentuser").value == 'JCLAPES');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+modificabilitat('2227_37144_113478', resposta, false);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF58644(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( document.getElementById("form:h_currentuser").value == 'JCLAPES' || document.getElementById("form:h_currentuser").value == 'ESAGARRA' || document.getElementById("form:h_currentuser").value == 'JCASAS');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+modificabilitat('2227_37144_113480', resposta, false);
+modificabilitat('2227_37144_114164', resposta, false);
+modificabilitat('2227_37144_114908', resposta, false);
+visibilitat('2227_37144_113480', resposta);
+visibilitat('2227_37144_114164', resposta);
+visibilitat('2227_37144_114908', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF60401(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('60401', null, inputId);
+var resultat = '';
+var missatgeError = '';
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+
+function validacio_variables() {
+var valor='';
+
+valor+=validateRank('2227_37144_113477', null, null, false);
+
+ if(valor =='') return ''; else return 'Error de validació! \n' + valor;
+}
+
+function validacio_totes_formules_validacio_nivell() {
+ var txt='';
+if(txt == null || txt == 'null' || txt == '') return txt;
+else return 'No valida fórmula de nivell:\n' + txt;
+}
+</script><script id="_id5" type="text/javascript">deshabilita_tot();</script>
+
+
+    		</div>
+    	</div>
+    </body>
+</html>

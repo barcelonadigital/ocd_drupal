@@ -1,0 +1,1711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <base href="https://salut.gencat.net/">
+    	<link id="stylesheet" rel="stylesheet" type="text/css" media="all" href="/rsa/scripts/resources/stylesheet.css"/>
+        <script type="text/javascript" src="/rsa/scripts/support.js"></script>
+    	
+<script language="javascript">
+	
+</script>
+
+<script type="text/javascript" src="/rsa/scripts/WarningManagement.js"></script>
+<script language="javascript">
+	
+</script>
+
+<meta content="no-cache" http-equiv="Pragma" />
+<meta content="no-cache" http-equiv="Cache-Control" />
+<meta content="no-store" http-equiv="Cache-Control" />
+<meta content="max-age=0" http-equiv="Cache-Control" />
+<meta content="1" http-equiv="Expires" />
+
+<script type="text/javascript" src="/rsa/theme/com/sun/rave/web/ui/defaulttheme/javascript/formElements.js"></script>
+<link rel="stylesheet" type="text/css" href="/rsa/theme/com/sun/rave/web/ui/defaulttheme/css/css_master.css" />
+
+<script type="text/javascript">
+var sjwuic_ScrollCookie = new sjwuic_ScrollCookie('/pages/EditOccurrence.jsp', '/rsa/AppJava/faces/pages/EditOccurrence.jsp'); 
+</script>
+<link id="link" rel="stylesheet" type="text/css" href="/rsa/scripts/resources/stylesheet.css" />
+<link id="link2" rel="stylesheet" type="text/css" href="/rsa/scripts/resources/TreeJSFComponent.css" />
+<script id="styleScript">metStyle = {
+'BANDA_MARRO':'font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#A17400;text-align:left;display:block',
+'DRETA':'text-align:right;display:block',
+'BARRA_NEGRE':'font-family:arial;font-size:11px;font-weight:bold;color:black;height:16px;text-align:center; border-bottom: 3px solid black; display:block',
+'TITULAR_GRAN':'font-family:arial;font-size:14px;font-weight:bold;color:#1B5BA3;text-align:left;display:block',
+'ESQUERRA':'text-align:left;display:block',
+'BANDA_BLAVA':'font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#1B5BA3;text-align:left;display:block',
+'TITULAR':'font-family:arial;font-size:11px;font-weight:bold;color:#1B5BA3;text-align:left;display:block',
+'BANDA_GRIS':'font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#AEA892;text-align:left;display:block'
+};
+
+var css = '';
+css += '.BANDA_MARRO{font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#A17400;text-align:left;display:block}';
+css += '.DRETA{text-align:right;display:block}';
+css += '.BARRA_NEGRE{font-family:arial;font-size:11px;font-weight:bold;color:black;height:16px;text-align:center; border-bottom: 3px solid black; display:block}';
+css += '.TITULAR_GRAN{font-family:arial;font-size:14px;font-weight:bold;color:#1B5BA3;text-align:left;display:block}';
+css += '.ESQUERRA{text-align:left;display:block}';
+css += '.BANDA_BLAVA{font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#1B5BA3;text-align:left;display:block}';
+css += '.TITULAR{font-family:arial;font-size:11px;font-weight:bold;color:#1B5BA3;text-align:left;display:block}';
+css += '.BANDA_GRIS{font-family:arial;font-size:11px;font-weight:bold;color:#FFFFFF;height:16px;background-color:#AEA892;text-align:left;display:block}';
+var styleElement = document.createElement('style');
+styleElement.type = 'text/css';
+if(styleElement.styleSheet) styleElement.styleSheet.cssText = css;
+else styleElement.appendChild(document.createTextNode(css));
+styleElement.id='estils_metataula';
+document.getElementsByTagName('head')[0].appendChild(styleElement);
+</script><script id="iframescript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/iframe.js"></script>
+<script id="calendarbasescript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/Calendar-base.js"></script>
+<script id="calendarenscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/Calendar-en.js"></script>
+<script id="calendarsetupscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/Calendar-setup.js"></script>
+<script id="xmlscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/xmlUtils.js"></script>
+<script id="loaderscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/ajax/Loader.js"></script>
+<script id="formulascript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/formulaTargets.js"></script>
+<script id="idScriptLoadingPopUp" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/loadingEditPopup.js"></script>
+<script id="idScriptNavigationPopUp" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/navigationPopUp.js"></script>
+<script id="idScriptPopup" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/popup.js"></script>
+<script id="idScriptCustomComponents" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/CustomComponents.js"></script>
+<script id="editscript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/editOccurrence.js"></script>
+<script id="funcionsScript" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/formulaFuncions.js"></script>
+<link id="idCssCustomComponentsStyle" rel="stylesheet" type="text/css" href="/rsa/scripts/resources/CustomComponentsStyle.css" />
+<style type="text/css">.ColLabel21{width: 350px; text-align: right;}
+.ColData21{width: 350px; text-align: left;}
+.ColLabel31{width: 350px; text-align: right;}
+.ColData31{width: 350px; text-align: left;}
+.ColLabel41{width: 350px; text-align: right;}
+.ColData41{width: 350px; text-align: left;}
+.ColLabel51{width: 350px; text-align: right;}
+.ColData51{width: 350px; text-align: left;}
+.ColLabel61{width: 350px; text-align: right;}
+.ColData61{width: 350px; text-align: left;}
+.ColLabel71{width: 350px; text-align: right;}
+.ColData71{width: 350px; text-align: left;}
+.ColLabel81{width: 350px; text-align: right;}
+.ColData81{width: 350px; text-align: left;}
+.ColLabel91{width: 350px; text-align: right;}
+.ColData91{width: 350px; text-align: left;}
+.ColLabel101{width: 350px; text-align: right;}
+.ColData101{width: 350px; text-align: left;}
+.ColLabel111{width: 350px; text-align: right;}
+.ColData111{width: 350px; text-align: left;}
+.ColLabel121{width: 350px; text-align: right;}
+.ColData121{width: 350px; text-align: left;}
+.ColLabel131{width: 350px; text-align: right;}
+.ColData131{width: 350px; text-align: left;}
+.ColLabel141{width: 350px; text-align: right;}
+.ColData141{width: 350px; text-align: left;}
+.ColLabel151{width: 350px; text-align: right;}
+.ColData151{width: 350px; text-align: left;}
+.ColLabel161{width: 350px; text-align: right;}
+.ColData161{width: 350px; text-align: left;}
+.ColLabel171{width: 350px; text-align: right;}
+.ColData171{width: 350px; text-align: left;}
+.ColLabel181{width: 350px; text-align: right;}
+.ColData181{width: 350px; text-align: left;}
+.ColLabel191{width: 350px; text-align: right;}
+.ColData191{width: 350px; text-align: left;}
+.ColLabel201{width: 350px; text-align: right;}
+.ColData201{width: 350px; text-align: left;}
+.ColLabel211{width: 350px; text-align: right;}
+.ColData211{width: 350px; text-align: left;}
+.ColLabel221{width: 350px; text-align: right;}
+.ColData221{width: 350px; text-align: left;}
+.ColLabel231{width: 350px; text-align: right;}
+.ColData231{width: 350px; text-align: left;}
+.ColLabel241{width: 350px; text-align: right;}
+.ColData241{width: 350px; text-align: left;}
+.ColLabel251{width: 350px; text-align: right;}
+.ColData251{width: 350px; text-align: left;}
+.ColLabel261{width: 350px; text-align: right;}
+.ColData261{width: 350px; text-align: left;}
+.ColLabel271{width: 350px; text-align: right;}
+.ColData271{width: 350px; text-align: left;}
+.ColLabel281{width: 350px; text-align: right;}
+.ColData281{width: 350px; text-align: left;}
+.ColLabel291{width: 350px; text-align: right;}
+.ColData291{width: 350px; text-align: left;}
+.ColLabel301{width: 350px; text-align: right;}
+.ColData301{width: 350px; text-align: left;}
+.ColLabel311{width: 350px; text-align: right;}
+.ColData311{width: 350px; text-align: left;}
+.ColLabel321{width: 350px; text-align: right;}
+.ColData321{width: 350px; text-align: left;}
+.ColLabel331{width: 350px; text-align: right;}
+.ColData331{width: 350px; text-align: left;}
+.ColLabel341{width: 350px; text-align: right;}
+.ColData341{width: 350px; text-align: left;}
+.ColLabel351{width: 350px; text-align: right;}
+.ColData351{width: 350px; text-align: left;}
+.ColLabel361{width: 350px; text-align: right;}
+.ColData361{width: 350px; text-align: left;}
+.ColLabel371{width: 350px; text-align: right;}
+.ColData371{width: 350px; text-align: left;}
+.ColLabel381{width: 350px; text-align: right;}
+.ColData381{width: 350px; text-align: left;}
+.ColLabel391{width: 350px; text-align: right;}
+.ColData391{width: 350px; text-align: left;}
+.ColLabel401{width: 350px; text-align: right;}
+.ColData401{width: 350px; text-align: left;}
+.ColLabel411{width: 350px; text-align: right;}
+.ColData411{width: 350px; text-align: left;}
+.ColLabel421{width: 350px; text-align: right;}
+.ColData421{width: 350px; text-align: left;}
+.ColLabel431{width: 350px; text-align: right;}
+.ColData431{width: 350px; text-align: left;}
+.ColLabel441{width: 350px; text-align: right;}
+.ColData441{width: 350px; text-align: left;}
+.ColLabel451{width: 350px; text-align: right;}
+.ColData451{width: 350px; text-align: left;}
+.ColLabel461{width: 350px; text-align: right;}
+.ColData461{width: 350px; text-align: left;}
+.ColLabel471{width: 350px; text-align: right;}
+.ColData471{width: 350px; text-align: left;}
+.ColLabel481{width: 350px; text-align: right;}
+.ColData481{width: 350px; text-align: left;}
+.ColLabel491{width: 350px; text-align: right;}
+.ColData491{width: 350px; text-align: left;}
+.ColLabel501{width: 350px; text-align: right;}
+.ColData501{width: 350px; text-align: left;}
+.ColLabel511{width: 350px; text-align: right;}
+.ColData511{width: 350px; text-align: left;}
+</style>
+    </head>
+    <body id="body2" onload="setSizeWhenIframe();">
+    	<div id="page">
+    		<div id="body">
+    			
+<form id="form" class="form" method="post" action="https://salut.gencat.net:443/rsa/AppJava/faces/pages/EditOccurrence.jsp" enctype="multipart/form-data" onsubmit="window.scroll(0,0);return true;return validateForm(this);">
+<div id="form:overlayDiv" style="position: relative;-rave-layout: grid;"></div>
+
+
+
+	<script id="form:HeadTab:_id1" type="text/javascript" src="https://salut.gencat.net:443/rsa/scripts/formElements.js"></script>
+
+	<div><a id="optsskipLink_skipHyperlinkId" href="#optsskipLink_skipHyperlinkId"><img id="optsskipLink_skipHyperlinkId_image" src="https://salut.gencat.net:443/rsa/theme/com/sun/rave/web/ui/defaulttheme/images/other/dot.gif" alt="Omitir el &aacute;rea de navegaci&oacute;n con tabulador. La selecci&oacute;n actual es " border="0" /></a><div class="Tab1Div"><table border="0" cellspacing="0" cellpadding="0" class="Tab1Tbl3New" title=""><tr><td class="Tab1TblSelTd"><div class="Tab1SelTxtNew" title="Selecci&oacute;n actual: 1.- Pacients"><span id="form:HeadTab:opts:TABSET_0" class=" disabled">1.- Pacients</span></div></td><td><a id="form:HeadTab:opts:TABSET_2" class="Tab1Lnk" onclick="showNavigationPopUp('Cercant...');return hyperlink_submit(this, 'form', null);" href="#">2.- Consultes Prescriptor</a></td></tr></table></div><div class="Tab2Div"><table border="0" cellspacing="0" cellpadding="0" class="Tab2Tbl3New" title=""><tr><td class="Tab2TblSelTd"><div class="Tab2SelTxt" title="Selecci&oacute;n actual: Cerca de Pacient"><span id="form:HeadTab:opts:TABSET_0:TABSET_1" class=" disabled">Cerca de Pacient</span></div></td></tr></table></div><div><a id="optsskipLink_skipHyperlinkId" name="optsskipLink_skipHyperlinkId"></a></div></div>
+	<!-- br-->
+<span id="form:titolB" class="titolBarres" style="left: 0px; top: 0px; margin-bottom: 10px; width:100%;height:20px;"><span id="form:headerTitle" class="titolBarresText" style="width: 700px;">Edici&oacute;: 2.1 Variables de Tractament</span>
+<span id="form:_id2" style="margin-top: 5px; width:15%; float: right"><a id="form:helpFile" style="float: right;" onclick="return hyperlink_submit(this, 'form', null);" href="#"></a>
+<a id="form:linkLink" style="float: right;" onclick="return hyperlink_submit(this, 'form', null);" href="#"></a></span></span><div id="form:ariadna" style="position: relative;-rave-layout: grid;"><span id="form:LArTornarA" class="TitolAriadna LblLev2Txt">
+Tornar a:  
+</span><a id="form:LAr0" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(0);return hyperlink_submit(this, 'form', null);" href="#">Criteri</a><span id="form:Sep1_nullsearchResults" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr1" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(1);return hyperlink_submit(this, 'form', null);" href="#">Llistat</a><span id="form:Sep2_nullcaseTree" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr2" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(2);return hyperlink_submit(this, 'form', null);" href="#">Arbre</a><span id="form:Sep3_nulleditOccurrence" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr3" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(3);return hyperlink_submit(this, 'form', null);" href="#">1.- Dades de Pacient</a><span id="form:Sep4_nulleditOccurrence" class="LblLev2Txt">
+ &gt; 
+</span><a id="form:LAr4" class="LinkAriadna" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" onclick="showNavigationPopUp('Carregant...');go(4);return hyperlink_submit(this, 'form', null);" href="#">2.- Prescripci&oacute; de tractament</a></div><input type="text" size="20" id="form:idNav" name="form:idNav" class="hidden TxtFld" value="" /><table id="form:headerGrid" cellpadding="0" cellspacing="0" style="position: relative; margin-top: 5px; margin-bottom: 5px; width:700px;">
+<tbody>
+<tr>
+<td><?xml version="1.0" encoding="UTF-8"?><style>			
+			table.capcalera      {  font-family: verdana; font-size: 11px; border: inset 1px black; empty-cells: show; width: 100%;}
+			td.capcalera {border: inset 0px ;}
+			.barraGris{FONT-SIZE: 11px; COLOR: #FFFFFF; TEXT-DECORATION: none; background:#AEA892; text-align:left; font-weight:normal; padding-left: 5px;}
+			.titol{FONT-SIZE: 11px; COLOR: #535847; text-decoration:none; text-align:left; font-weight:normal; font-family: Arial, Helvetica, sans-serif;}
+			.text{font-size:11px; COLOR: #535847;font-weight: bold;}
+			.textBarraGris{font-size:11px; COLOR: #FFFFFF;}
+		</style><table class="capcalera"><tr><td colspan="2" class="barraGris"><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris">Pacient</span><span class="textBarraGris"/></td><td colspan="8" class="barraGris"><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris">Domicili</span><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/></td></tr><tr><td colspan=""><span class="titol">Nom</span></td><td colspan=""/><td colspan=""><span class="titol">Adreça</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""/><td colspan="8"><span class="titol"/><span class="titol"/><span class="text">CARRER XXXXX , 90 1 2</span></td></tr><tr><td colspan=""><span class="titol">Cognoms</span></td><td colspan=""/><td colspan=""><span class="titol">CP i localitat residència</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol">Telèfon 1</span></td><td colspan=""/><td colspan=""><span class="titol">Telèfon 2</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""><span class="titol"> </span><span class="titol"/><span class="text">08011</span><span class="titol"> </span><span class="text">BARCELONA</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""/><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol">DNI/NIE</span></td><td colspan=""><span class="titol"/><span class="text">XXXXX</span></td><td colspan="8" class="barraGris"><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris"/><span class="textBarraGris">Assegurament</span><span class="textBarraGris"/></td></tr><tr><td colspan=""><span class="titol">Dates, d'alta</span></td><td colspan=""><span class="titol">de naixement</span></td><td colspan=""><span class="titol">Entitat de cotització</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol">Tipus d'afiliació</span></td><td colspan=""/><td colspan=""><span class="titol">Règim d'afiliació</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">14/12/2001</span></td><td colspan=""><span class="titol"/><span class="text">28/12/1947</span></td><td colspan=""><span class="titol"> </span><span class="text">INSTITUT NACIONAL DE LA SEGURETAT SOCIAL</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol"/><span class="text">Pensionista</span></td><td colspan=""/><td colspan=""><span class="titol"/><span class="text">RÈGIM GENERAL</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol">CIP</span></td><td colspan=""><span class="titol">Estat i data</span></td><td colspan=""><span class="titol">Àrea bàsica de salut</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol">Sector sanitari</span></td><td colspan=""/><td colspan=""><span class="titol">Regió sanitària</span></td><td colspan=""/></tr><tr><td colspan=""><span class="titol"/><span class="text">VAGAXXXXXXXXXX</span></td><td colspan=""><span class="titol"/><span class="text">A</span><span class="titol"> </span><span class="text">25/08/2004</span></td><td colspan=""><span class="titol"/><span class="text">BARCELONA 2-E</span></td><td colspan=""/><td colspan=""/><td colspan=""/><td colspan=""><span class="titol"/><span class="text">BARCELONA EIXAMPLE</span></td><td colspan=""/><td colspan=""><span class="titol"/><span class="text">BARCELONA</span></td><td colspan=""/></tr></table></td>
+</tr>
+</tbody>
+</table>
+<table id="form:errorGroup" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><span id="form:errorMsg" class="ITError"></span></td>
+</tr>
+</tbody>
+</table>
+<input type="text" size="20" id="form:h_registerid" name="form:h_registerid" class="hidden TxtFld" value="2227" /><input type="text" size="20" id="form:h_levelid" name="form:h_levelid" class="hidden TxtFld" value="37187" /><input type="text" size="20" id="form:h_parentoccurrence" name="form:h_parentoccurrence" class="hidden TxtFld" value="7691477" /><input type="text" size="20" id="form:h_occurrence" name="form:h_occurrence" class="hidden TxtFld" value="7691479" /><input type="text" size="20" id="form:h_nextregisterid" name="form:h_nextregisterid" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextplevelid" name="form:h_nextplevelid" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextlevelid" name="form:h_nextlevelid" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextparentoccurrence" name="form:h_nextparentoccurrence" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_nextoccurrence" name="form:h_nextoccurrence" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:h_xmlField" name="form:h_xmlField" class="hidden TxtFld" value="" /><input type="hidden" id="form:h_currentuser" name="form:h_currentuser" value="RMARRADES" /><input type="hidden" id="form:h_baseURL" name="form:h_baseURL" value="https://salut.gencat.net:443/rsa/AppJava/faces/" /><input type="hidden" id="form:h_currentapplication" name="form:h_currentapplication" value="RTRD" /><input type="hidden" id="form:h_currentprofile" name="form:h_currentprofile" value="CENTRE PRESCRIPTOR" /><input type="text" size="20" id="form:selectedDomainQuery" name="form:selectedDomainQuery" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:selectedDomainQueryValue" name="form:selectedDomainQueryValue" class="hidden TxtFld" value="" /><input type="hidden" id="form:h_PreinfField" name="form:h_PreinfField" value="" /><input type="hidden" id="form:valorsAtributs" name="form:valorsAtributs" value="" /><input type="hidden" id="form:selectedFile" name="form:selectedFile" value="" /><input type="hidden" id="form:hiddenDadaCanviada" name="form:hiddenDadaCanviada" value="" /><input type="text" size="20" id="form:nextAction" name="form:nextAction" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:nextPermission" name="form:nextPermission" class="hidden TxtFld" value="" /><input type="text" size="20" id="form:saveActual" name="form:saveActual" class="hidden TxtFld" value="" /><script id="form:varsAncesters">var ATTR_2227_37144_113470='<value reg_creg="2227" nrs_cnrs="37144" vnr_cvnr="113470"><CODI>03</CODI><DESCRIPCIO>OXIGENOTERÀPIA</DESCRIPCIO></value>';</script><script id="form:varsValuesXML">
+var valorsCarregatsXml='2227_37187_30572:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30573:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30574:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30575:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30576:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30577:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30591:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30592:$REQ$@|@$REQ$@|@N@|@INI@|@TRUE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30593:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30594:$REQ$@|@$REQ$@|@N@|@INI@|@FALSE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_30610:$REQ$@|@$REQ$@|@N@|@INI@|@TRUE@|@TRUE@|@INI@|@FALSE@|@$REQ$|#|2227_37187_114810:@|@7691477@|@NUMBER@|@FALSE@|@TRUE@|@FALSE@|@DarkBlue@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114810"><CODI></CODI><DESCRIPCIO>7691477</DESCRIPCIO></value>|#|2227_37187_114167:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114167"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114168:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114168"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114169:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114169"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114170:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114170"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114171:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114171"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114181:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114181"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114172:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114172"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114173:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114173"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114174:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114174"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114175:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114175"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114176:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114176"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114177:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114177"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114178:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114178"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114182:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114182"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114183:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114183"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114179:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114179"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114200:@|@@|@NUMBER@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114200"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114201:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114201"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114184:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114184"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114202:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114202"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114203:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114203"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114204:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114204"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114205:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114205"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114206:S@|@Si@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114206"><CODI>S</CODI><DESCRIPCIO>Si</DESCRIPCIO></value>|#|2227_37187_114207:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114207"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114185:@|@2@|@NUMBER@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114185"><CODI></CODI><DESCRIPCIO>2</DESCRIPCIO></value>|#|2227_37187_114208:@|@@|@NUMBER@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114208"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114209:@|@24@|@NUMBER@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114209"><CODI></CODI><DESCRIPCIO>24</DESCRIPCIO></value>|#|2227_37187_114210:@|@@|@NUMBER@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114210"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114220:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114220"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114221:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114221"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114222:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114222"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114223:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114223"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114224:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114224"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114225:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114225"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114226:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114226"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114227:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114227"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114228:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114228"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114230:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114230"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114231:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114231"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114232:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114232"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114233:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114233"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114234:@|@@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114234"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114235:@|@@|@NUMBER@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114235"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114236:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114236"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114237:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114237"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114238:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114238"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114239:@|@@|@BOOLEAN@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114239"><CODI></CODI><DESCRIPCIO></DESCRIPCIO></value>|#|2227_37187_114240:@|@JA REALITZAT -- HDOM@|@VARCHAR2@|@FALSE@|@TRUE@|@TRUE@|@INI@|@REQ@|@INI@|@@|@FALSE@|@FALSE@|@<value reg_creg="2227" nrs_cnrs="37187" vnr_cvnr="114240"><CODI></CODI><DESCRIPCIO>JA REALITZAT -- HDOM</DESCRIPCIO></value>|#|';</script><span id="form:HCCpanel"></span><span id="form:editLayer" style="width: 700px;"><table id="form:errorTxtGrid" class="ITError">
+<tbody>
+<tr>
+<td><span id="form:errorTxt0" class="ITError"></span></td>
+</tr>
+</tbody>
+</table>
+
+<div id="form:ROW_2227_37187_0" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114810" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel21"><span id="form:LABEL_2227_37187_114810" class="LblLev2Txt" style="color:DarkBlue" title="Identificador de la prescripci&oacute;">
+Identificador de la prescripci&oacute;:  
+</span></td>
+<td class="ColData21"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="12" id="form:INPUT_2227_37187_114810" name="form:INPUT_2227_37187_114810" maxlength="12" title="Identificador de la prescripci&oacute;" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114810', this.value);if(!estatCarregant){ validateRank('2227_37187_114810', null, null, true);
+}" onfocus="this.blur()" onkeydown="if(!estatCarregant){changeValue();}" class="EDITNoModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114810" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114810" name="form:COLLAPSED_2227_37187_114810" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114810" type="hidden" name="form:DATATYPE_2227_37187_114810" value="NUMBER 12-0" /></td>
+</tr>
+<tr>
+<td class="ColLabel21"><input id="form:COMPONENTTYPE_2227_37187_114810" type="hidden" name="form:COMPONENTTYPE_2227_37187_114810" value="NUMBER" /></td>
+<td class="ColData21"><input id="form:INPUT_2227_37187_114810_MOD" type="hidden" name="form:INPUT_2227_37187_114810_MOD" value="N" /></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div id="form:ROW_REQ_2227_37187_1" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30572" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30572" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30572" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30572'); return false;" /><span id="form:REQ_2227_37187_30572_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+01 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30572"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30572" name="form:COMPONENTTYPEREQ_2227_37187_30572" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30572_MOD" name="form:REQ_2227_37187_30572_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30572" name="form:COLLAPSEDREQ_2227_37187_30572" value="S" /><div id="form:ROW_2227_37187_1" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114167" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel31"><span id="form:LABEL_2227_37187_114167" class="LblLev2Txt" style="color:" title="Model">
+Model:  
+</span></td>
+<td class="ColData31"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114167" name="form:INPUT_2227_37187_114167" maxlength="10" title="Model" onchange="carregaAtributSimple('ATTR_2227_37187_114167', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114167" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114167" name="form:COLLAPSED_2227_37187_114167" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114167" type="hidden" name="form:DATATYPE_2227_37187_114167" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel31"><input id="form:COMPONENTTYPE_2227_37187_114167" type="hidden" name="form:COMPONENTTYPE_2227_37187_114167" value="VARCHAR" /></td>
+<td class="ColData31"><input id="form:REQ_VAR_2227_37187_114167" type="hidden" name="form:REQ_VAR_2227_37187_114167" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114167_MOD" type="hidden" name="form:INPUT_2227_37187_114167_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_2" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114168" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel41"><span id="form:LABEL_2227_37187_114168" class="LblLev2Txt" title="Model ventilaci&oacute;">
+Model ventilaci&oacute;:  
+</span></td>
+<td class="ColData41"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114168" name="form:INPUT_2227_37187_114168" maxlength="10" title="Model ventilaci&oacute;" onchange="carregaAtributSimple('ATTR_2227_37187_114168', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114168" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114168" name="form:COLLAPSED_2227_37187_114168" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114168" type="hidden" name="form:DATATYPE_2227_37187_114168" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel41"><input id="form:COMPONENTTYPE_2227_37187_114168" type="hidden" name="form:COMPONENTTYPE_2227_37187_114168" value="VARCHAR" /></td>
+<td class="ColData41"><input id="form:REQ_VAR_2227_37187_114168" type="hidden" name="form:REQ_VAR_2227_37187_114168" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114168_MOD" type="hidden" name="form:INPUT_2227_37187_114168_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_3" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114169" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel51"><span id="form:LABEL_2227_37187_114169" class="LblLev2Txt" title="Vol. (ML)">
+Vol. (ML):  
+</span></td>
+<td class="ColData51"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114169" name="form:INPUT_2227_37187_114169" maxlength="10" title="Vol. (ML)" onchange="carregaAtributSimple('ATTR_2227_37187_114169', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114169" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114169" name="form:COLLAPSED_2227_37187_114169" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114169" type="hidden" name="form:DATATYPE_2227_37187_114169" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel51"><input id="form:COMPONENTTYPE_2227_37187_114169" type="hidden" name="form:COMPONENTTYPE_2227_37187_114169" value="VARCHAR" /></td>
+<td class="ColData51"><input id="form:REQ_VAR_2227_37187_114169" type="hidden" name="form:REQ_VAR_2227_37187_114169" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114169_MOD" type="hidden" name="form:INPUT_2227_37187_114169_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_4" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114170" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel61"><span id="form:LABEL_2227_37187_114170" class="LblLev2Txt" title="VT (ML)">
+VT (ML):  
+</span></td>
+<td class="ColData61"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114170" name="form:INPUT_2227_37187_114170" maxlength="10" title="VT (ML)" onchange="carregaAtributSimple('ATTR_2227_37187_114170', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114170" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114170" name="form:COLLAPSED_2227_37187_114170" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114170" type="hidden" name="form:DATATYPE_2227_37187_114170" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel61"><input id="form:COMPONENTTYPE_2227_37187_114170" type="hidden" name="form:COMPONENTTYPE_2227_37187_114170" value="VARCHAR" /></td>
+<td class="ColData61"><input id="form:REQ_VAR_2227_37187_114170" type="hidden" name="form:REQ_VAR_2227_37187_114170" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114170_MOD" type="hidden" name="form:INPUT_2227_37187_114170_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_5" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114171" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel71"><span id="form:LABEL_2227_37187_114171" class="LblLev2Txt" title="F. Resp X'">
+F. Resp X':  
+</span></td>
+<td class="ColData71"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114171" name="form:INPUT_2227_37187_114171" maxlength="10" title="F. Resp X'" onchange="carregaAtributSimple('ATTR_2227_37187_114171', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114171" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114171" name="form:COLLAPSED_2227_37187_114171" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114171" type="hidden" name="form:DATATYPE_2227_37187_114171" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel71"><input id="form:COMPONENTTYPE_2227_37187_114171" type="hidden" name="form:COMPONENTTYPE_2227_37187_114171" value="VARCHAR" /></td>
+<td class="ColData71"><input id="form:REQ_VAR_2227_37187_114171" type="hidden" name="form:REQ_VAR_2227_37187_114171" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114171_MOD" type="hidden" name="form:INPUT_2227_37187_114171_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_6" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114181" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel81"><span id="form:LABEL_2227_37187_114181" class="LblLev2Txt" title="I/E">
+I/E:  
+</span></td>
+<td class="ColData81"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114181" name="form:INPUT_2227_37187_114181" maxlength="10" title="I/E" onchange="carregaAtributSimple('ATTR_2227_37187_114181', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114181" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114181" name="form:COLLAPSED_2227_37187_114181" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114181" type="hidden" name="form:DATATYPE_2227_37187_114181" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel81"><input id="form:COMPONENTTYPE_2227_37187_114181" type="hidden" name="form:COMPONENTTYPE_2227_37187_114181" value="VARCHAR" /></td>
+<td class="ColData81"><input id="form:REQ_VAR_2227_37187_114181" type="hidden" name="form:REQ_VAR_2227_37187_114181" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114181_MOD" type="hidden" name="form:INPUT_2227_37187_114181_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_7" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114172" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel91"><span id="form:LABEL_2227_37187_114172" class="LblLev2Txt" title="Durada VM Hores /Dia">
+Durada VM Hores /Dia:  
+</span></td>
+<td class="ColData91"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114172" name="form:INPUT_2227_37187_114172" maxlength="10" title="Durada VM Hores /Dia" onchange="carregaAtributSimple('ATTR_2227_37187_114172', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114172" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114172" name="form:COLLAPSED_2227_37187_114172" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114172" type="hidden" name="form:DATATYPE_2227_37187_114172" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel91"><input id="form:COMPONENTTYPE_2227_37187_114172" type="hidden" name="form:COMPONENTTYPE_2227_37187_114172" value="VARCHAR" /></td>
+<td class="ColData91"><input id="form:REQ_VAR_2227_37187_114172" type="hidden" name="form:REQ_VAR_2227_37187_114172" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114172_MOD" type="hidden" name="form:INPUT_2227_37187_114172_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_8" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114173" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel101"><span id="form:LABEL_2227_37187_114173" class="LblLev2Txt" title="Humificador">
+Humificador:  
+</span></td>
+<td class="ColData101"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114173" name="form:INPUT_2227_37187_114173" maxlength="10" title="01_Humificador" onchange="carregaAtributSimple('ATTR_2227_37187_114173', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114173" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114173" name="form:COLLAPSED_2227_37187_114173" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114173" type="hidden" name="form:DATATYPE_2227_37187_114173" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel101"><input id="form:COMPONENTTYPE_2227_37187_114173" type="hidden" name="form:COMPONENTTYPE_2227_37187_114173" value="VARCHAR" /></td>
+<td class="ColData101"><input id="form:REQ_VAR_2227_37187_114173" type="hidden" name="form:REQ_VAR_2227_37187_114173" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114173_MOD" type="hidden" name="form:INPUT_2227_37187_114173_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_9" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114174" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel111"><span id="form:LABEL_2227_37187_114174" class="LblLev2Txt" title="Aspirador secrecions">
+Aspirador secrecions:  
+</span></td>
+<td class="ColData111"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114174" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114174" name="form:INPUT_2227_37187_114174" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114174', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114174','form:INPUT_SELECT_2227_37187_114174');;dropDown_changed('form:INPUT_2227_37187_114174');  return false;" onmouseover="this.title='01_Aspirador secrecions';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114174" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114174" name="form:INPUT_SELECT_2227_37187_114174" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114174" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114174" name="form:COLLAPSED_2227_37187_114174" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114174" type="hidden" name="form:DATATYPE_2227_37187_114174" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel111"><input id="form:COMPONENTTYPE_2227_37187_114174" type="hidden" name="form:COMPONENTTYPE_2227_37187_114174" value="SELECT" /></td>
+<td class="ColData111"><input id="form:REQ_VAR_2227_37187_114174" type="hidden" name="form:REQ_VAR_2227_37187_114174" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114174_MOD" type="hidden" name="form:INPUT_2227_37187_114174_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_10" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114175" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel121"><span id="form:LABEL_2227_37187_114175" class="LblLev2Txt" title="Segon ventilador">
+Segon ventilador:  
+</span></td>
+<td class="ColData121"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114175" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114175" name="form:INPUT_2227_37187_114175" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114175', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114175','form:INPUT_SELECT_2227_37187_114175');;dropDown_changed('form:INPUT_2227_37187_114175');  return false;" onmouseover="this.title='01_Segon ventilador';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114175" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114175" name="form:INPUT_SELECT_2227_37187_114175" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114175" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114175" name="form:COLLAPSED_2227_37187_114175" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114175" type="hidden" name="form:DATATYPE_2227_37187_114175" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel121"><input id="form:COMPONENTTYPE_2227_37187_114175" type="hidden" name="form:COMPONENTTYPE_2227_37187_114175" value="SELECT" /></td>
+<td class="ColData121"><input id="form:REQ_VAR_2227_37187_114175" type="hidden" name="form:REQ_VAR_2227_37187_114175" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114175_MOD" type="hidden" name="form:INPUT_2227_37187_114175_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_11" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114176" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel131"><span id="form:LABEL_2227_37187_114176" class="LblLev2Txt" title="Control de saturaci&oacute;">
+Control de saturaci&oacute;:  
+</span></td>
+<td class="ColData131"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114176" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114176" name="form:INPUT_2227_37187_114176" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114176', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114176','form:INPUT_SELECT_2227_37187_114176');;dropDown_changed('form:INPUT_2227_37187_114176');  return false;" onmouseover="this.title='Control de saturaci&oacute;';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114176" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114176" name="form:INPUT_SELECT_2227_37187_114176" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114176" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114176" name="form:COLLAPSED_2227_37187_114176" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114176" type="hidden" name="form:DATATYPE_2227_37187_114176" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel131"><input id="form:COMPONENTTYPE_2227_37187_114176" type="hidden" name="form:COMPONENTTYPE_2227_37187_114176" value="SELECT" /></td>
+<td class="ColData131"><input id="form:REQ_VAR_2227_37187_114176" type="hidden" name="form:REQ_VAR_2227_37187_114176" value="REQ_2227_37187_30572" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114176_MOD" type="hidden" name="form:INPUT_2227_37187_114176_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_2" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30591" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30591" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30591" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30591'); return false;" /><span id="form:REQ_2227_37187_30591_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+02 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30591"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30591" name="form:COMPONENTTYPEREQ_2227_37187_30591" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30591_MOD" name="form:REQ_2227_37187_30591_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30591" name="form:COLLAPSEDREQ_2227_37187_30591" value="S" /><div id="form:ROW_2227_37187_12" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114177" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel141"><span id="form:LABEL_2227_37187_114177" class="LblLev2Txt" style="color:" title="Model R. Pressi&oacute;">
+Model R. Pressi&oacute;:  
+</span></td>
+<td class="ColData141"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114177" name="form:INPUT_2227_37187_114177" maxlength="10" title="Model R. Pressi&oacute;" onchange="carregaAtributSimple('ATTR_2227_37187_114177', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114177" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114177" name="form:COLLAPSED_2227_37187_114177" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114177" type="hidden" name="form:DATATYPE_2227_37187_114177" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel141"><input id="form:COMPONENTTYPE_2227_37187_114177" type="hidden" name="form:COMPONENTTYPE_2227_37187_114177" value="VARCHAR" /></td>
+<td class="ColData141"><input id="form:REQ_VAR_2227_37187_114177" type="hidden" name="form:REQ_VAR_2227_37187_114177" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114177_MOD" type="hidden" name="form:INPUT_2227_37187_114177_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_13" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114178" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel151"><span id="form:LABEL_2227_37187_114178" class="LblLev2Txt" title="Pressi&oacute; inspirat&ograve;ria">
+Pressi&oacute; inspirat&ograve;ria:  
+</span></td>
+<td class="ColData151"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114178" name="form:INPUT_2227_37187_114178" maxlength="10" title="Pressi&oacute; inspirat&ograve;ria" onchange="carregaAtributSimple('ATTR_2227_37187_114178', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114178" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114178" name="form:COLLAPSED_2227_37187_114178" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114178" type="hidden" name="form:DATATYPE_2227_37187_114178" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel151"><input id="form:COMPONENTTYPE_2227_37187_114178" type="hidden" name="form:COMPONENTTYPE_2227_37187_114178" value="VARCHAR" /></td>
+<td class="ColData151"><input id="form:REQ_VAR_2227_37187_114178" type="hidden" name="form:REQ_VAR_2227_37187_114178" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114178_MOD" type="hidden" name="form:INPUT_2227_37187_114178_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_14" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114182" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel161"><span id="form:LABEL_2227_37187_114182" class="LblLev2Txt" title="Pressi&oacute; espirat&ograve;ria">
+Pressi&oacute; espirat&ograve;ria:  
+</span></td>
+<td class="ColData161"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114182" name="form:INPUT_2227_37187_114182" maxlength="10" title="Pressi&oacute; espirat&ograve;ria" onchange="carregaAtributSimple('ATTR_2227_37187_114182', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114182" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114182" name="form:COLLAPSED_2227_37187_114182" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114182" type="hidden" name="form:DATATYPE_2227_37187_114182" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel161"><input id="form:COMPONENTTYPE_2227_37187_114182" type="hidden" name="form:COMPONENTTYPE_2227_37187_114182" value="VARCHAR" /></td>
+<td class="ColData161"><input id="form:REQ_VAR_2227_37187_114182" type="hidden" name="form:REQ_VAR_2227_37187_114182" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114182_MOD" type="hidden" name="form:INPUT_2227_37187_114182_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_15" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114183" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel171"><span id="form:LABEL_2227_37187_114183" class="LblLev2Txt" title="F. Res X'">
+F. Res X':  
+</span></td>
+<td class="ColData171"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114183" name="form:INPUT_2227_37187_114183" maxlength="10" title="F. Res X'" onchange="carregaAtributSimple('ATTR_2227_37187_114183', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114183" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114183" name="form:COLLAPSED_2227_37187_114183" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114183" type="hidden" name="form:DATATYPE_2227_37187_114183" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel171"><input id="form:COMPONENTTYPE_2227_37187_114183" type="hidden" name="form:COMPONENTTYPE_2227_37187_114183" value="VARCHAR" /></td>
+<td class="ColData171"><input id="form:REQ_VAR_2227_37187_114183" type="hidden" name="form:REQ_VAR_2227_37187_114183" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114183_MOD" type="hidden" name="form:INPUT_2227_37187_114183_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_16" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114179" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel181"><span id="form:LABEL_2227_37187_114179" class="LblLev2Txt" title="I/E(T IMSP)">
+I/E(T IMSP):  
+</span></td>
+<td class="ColData181"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114179" name="form:INPUT_2227_37187_114179" maxlength="10" title="I/E(T IMSP)" onchange="carregaAtributSimple('ATTR_2227_37187_114179', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114179" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114179" name="form:COLLAPSED_2227_37187_114179" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114179" type="hidden" name="form:DATATYPE_2227_37187_114179" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel181"><input id="form:COMPONENTTYPE_2227_37187_114179" type="hidden" name="form:COMPONENTTYPE_2227_37187_114179" value="VARCHAR" /></td>
+<td class="ColData181"><input id="form:REQ_VAR_2227_37187_114179" type="hidden" name="form:REQ_VAR_2227_37187_114179" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114179_MOD" type="hidden" name="form:INPUT_2227_37187_114179_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_17" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114200" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel191"><span id="form:LABEL_2227_37187_114200" class="LblLev2Txt" title="Durada VM H/Dia">
+Durada VM H/Dia:  
+</span></td>
+<td class="ColData191"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="2" id="form:INPUT_2227_37187_114200" name="form:INPUT_2227_37187_114200" maxlength="2" title="Durada VM H/Dia" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114200', this.value);if(!estatCarregant){ validateRank('2227_37187_114200', null, null, true);
+}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114200" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114200" name="form:COLLAPSED_2227_37187_114200" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114200" type="hidden" name="form:DATATYPE_2227_37187_114200" value="NUMBER 2-0" /></td>
+</tr>
+<tr>
+<td class="ColLabel191"><input id="form:COMPONENTTYPE_2227_37187_114200" type="hidden" name="form:COMPONENTTYPE_2227_37187_114200" value="NUMBER" /></td>
+<td class="ColData191"><input id="form:REQ_VAR_2227_37187_114200" type="hidden" name="form:REQ_VAR_2227_37187_114200" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114200_MOD" type="hidden" name="form:INPUT_2227_37187_114200_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_18" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114201" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel201"><span id="form:LABEL_2227_37187_114201" class="LblLev2Txt" title="Humificador">
+Humificador:  
+</span></td>
+<td class="ColData201"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114201" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114201" name="form:INPUT_2227_37187_114201" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114201', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114201','form:INPUT_SELECT_2227_37187_114201');;dropDown_changed('form:INPUT_2227_37187_114201');  return false;" onmouseover="this.title='02_Humificador';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOptSel" value="S" selected="selected">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114201" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114201" name="form:INPUT_SELECT_2227_37187_114201" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114201" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114201" name="form:COLLAPSED_2227_37187_114201" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114201" type="hidden" name="form:DATATYPE_2227_37187_114201" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel201"><input id="form:COMPONENTTYPE_2227_37187_114201" type="hidden" name="form:COMPONENTTYPE_2227_37187_114201" value="SELECT" /></td>
+<td class="ColData201"><input id="form:REQ_VAR_2227_37187_114201" type="hidden" name="form:REQ_VAR_2227_37187_114201" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114201_MOD" type="hidden" name="form:INPUT_2227_37187_114201_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_19" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114184" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel211"><span id="form:LABEL_2227_37187_114184" class="LblLev2Txt" title="Aspirador de secrecions">
+Aspirador de secrecions:  
+</span></td>
+<td class="ColData211"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114184" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114184" name="form:INPUT_2227_37187_114184" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114184', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114184','form:INPUT_SELECT_2227_37187_114184');;dropDown_changed('form:INPUT_2227_37187_114184');  return false;" onmouseover="this.title='02_Aspirador de secrecions';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOptSel" value="N" selected="selected">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114184" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114184" name="form:INPUT_SELECT_2227_37187_114184" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114184" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114184" name="form:COLLAPSED_2227_37187_114184" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114184" type="hidden" name="form:DATATYPE_2227_37187_114184" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel211"><input id="form:COMPONENTTYPE_2227_37187_114184" type="hidden" name="form:COMPONENTTYPE_2227_37187_114184" value="SELECT" /></td>
+<td class="ColData211"><input id="form:REQ_VAR_2227_37187_114184" type="hidden" name="form:REQ_VAR_2227_37187_114184" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114184_MOD" type="hidden" name="form:INPUT_2227_37187_114184_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_20" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114202" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel221"><span id="form:LABEL_2227_37187_114202" class="LblLev2Txt" title="Segon ventilador">
+Segon ventilador:  
+</span></td>
+<td class="ColData221"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114202" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114202" name="form:INPUT_2227_37187_114202" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114202', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114202','form:INPUT_SELECT_2227_37187_114202');;dropDown_changed('form:INPUT_2227_37187_114202');  return false;" onmouseover="this.title='02_Segon ventilador';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOptSel" value="N" selected="selected">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114202" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114202" name="form:INPUT_SELECT_2227_37187_114202" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114202" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114202" name="form:COLLAPSED_2227_37187_114202" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114202" type="hidden" name="form:DATATYPE_2227_37187_114202" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel221"><input id="form:COMPONENTTYPE_2227_37187_114202" type="hidden" name="form:COMPONENTTYPE_2227_37187_114202" value="SELECT" /></td>
+<td class="ColData221"><input id="form:REQ_VAR_2227_37187_114202" type="hidden" name="form:REQ_VAR_2227_37187_114202" value="REQ_2227_37187_30591" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114202_MOD" type="hidden" name="form:INPUT_2227_37187_114202_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_3" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30592" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30592" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30592" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30592'); return false;" /><span id="form:REQ_2227_37187_30592_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+03 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30592"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30592" name="form:COMPONENTTYPEREQ_2227_37187_30592" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30592_MOD" name="form:REQ_2227_37187_30592_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30592" name="form:COLLAPSEDREQ_2227_37187_30592" value="S" /><div id="form:ROW_2227_37187_21" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114203" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel231"><span id="form:LABEL_2227_37187_114203" class="LblLev2Txt" style="color:" title="PH">
+PH:  
+</span></td>
+<td class="ColData231"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114203" name="form:INPUT_2227_37187_114203" maxlength="6" title="PH" onchange="carregaAtributSimple('ATTR_2227_37187_114203', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114203" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114203" name="form:COLLAPSED_2227_37187_114203" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114203" type="hidden" name="form:DATATYPE_2227_37187_114203" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel231"><input id="form:COMPONENTTYPE_2227_37187_114203" type="hidden" name="form:COMPONENTTYPE_2227_37187_114203" value="VARCHAR" /></td>
+<td class="ColData231"><input id="form:REQ_VAR_2227_37187_114203" type="hidden" name="form:REQ_VAR_2227_37187_114203" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114203_MOD" type="hidden" name="form:INPUT_2227_37187_114203_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_22" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114204" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel241"><span id="form:LABEL_2227_37187_114204" class="LblLev2Txt" title="FEV1/FVC">
+FEV1/FVC:  
+</span></td>
+<td class="ColData241"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114204" name="form:INPUT_2227_37187_114204" maxlength="6" title="FEV1/FVC" onchange="carregaAtributSimple('ATTR_2227_37187_114204', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114204" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114204" name="form:COLLAPSED_2227_37187_114204" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114204" type="hidden" name="form:DATATYPE_2227_37187_114204" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel241"><input id="form:COMPONENTTYPE_2227_37187_114204" type="hidden" name="form:COMPONENTTYPE_2227_37187_114204" value="VARCHAR" /></td>
+<td class="ColData241"><input id="form:REQ_VAR_2227_37187_114204" type="hidden" name="form:REQ_VAR_2227_37187_114204" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114204_MOD" type="hidden" name="form:INPUT_2227_37187_114204_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_23" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114205" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel251"><span id="form:LABEL_2227_37187_114205" class="LblLev2Txt" title="Mascareta">
+Mascareta:  
+</span></td>
+<td class="ColData251"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114205" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114205" name="form:INPUT_2227_37187_114205" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114205', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114205','form:INPUT_SELECT_2227_37187_114205');;dropDown_changed('form:INPUT_2227_37187_114205');  return false;" onmouseover="this.title='03_Mascareta';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114205" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114205" name="form:INPUT_SELECT_2227_37187_114205" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114205" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114205" name="form:COLLAPSED_2227_37187_114205" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114205" type="hidden" name="form:DATATYPE_2227_37187_114205" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel251"><input id="form:COMPONENTTYPE_2227_37187_114205" type="hidden" name="form:COMPONENTTYPE_2227_37187_114205" value="SELECT" /></td>
+<td class="ColData251"><input id="form:REQ_VAR_2227_37187_114205" type="hidden" name="form:REQ_VAR_2227_37187_114205" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114205_MOD" type="hidden" name="form:INPUT_2227_37187_114205_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_24" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114206" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel261"><span id="form:LABEL_2227_37187_114206" class="LblLev2Txt" title="Ulleres nasals">
+Ulleres nasals:  
+</span></td>
+<td class="ColData261"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114206" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114206" name="form:INPUT_2227_37187_114206" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114206', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114206','form:INPUT_SELECT_2227_37187_114206');;dropDown_changed('form:INPUT_2227_37187_114206');  return false;" onmouseover="this.title='Ulleres nasals';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOptSel" value="S" selected="selected">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114206" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114206" name="form:INPUT_SELECT_2227_37187_114206" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114206" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114206" name="form:COLLAPSED_2227_37187_114206" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114206" type="hidden" name="form:DATATYPE_2227_37187_114206" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel261"><input id="form:COMPONENTTYPE_2227_37187_114206" type="hidden" name="form:COMPONENTTYPE_2227_37187_114206" value="SELECT" /></td>
+<td class="ColData261"><input id="form:REQ_VAR_2227_37187_114206" type="hidden" name="form:REQ_VAR_2227_37187_114206" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114206_MOD" type="hidden" name="form:INPUT_2227_37187_114206_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_25" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114207" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel271"><span id="form:LABEL_2227_37187_114207" class="LblLev2Txt" title="Altres">
+Altres:  
+</span></td>
+<td class="ColData271"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114207" name="form:INPUT_2227_37187_114207" maxlength="6" title="Altres" onchange="carregaAtributSimple('ATTR_2227_37187_114207', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114207" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114207" name="form:COLLAPSED_2227_37187_114207" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114207" type="hidden" name="form:DATATYPE_2227_37187_114207" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel271"><input id="form:COMPONENTTYPE_2227_37187_114207" type="hidden" name="form:COMPONENTTYPE_2227_37187_114207" value="VARCHAR" /></td>
+<td class="ColData271"><input id="form:REQ_VAR_2227_37187_114207" type="hidden" name="form:REQ_VAR_2227_37187_114207" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114207_MOD" type="hidden" name="form:INPUT_2227_37187_114207_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_26" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114185" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel281"><span id="form:LABEL_2227_37187_114185" class="LblLev2Txt" title="Flux repos I/MIN">
+Flux repos I/MIN:  
+</span></td>
+<td class="ColData281"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="5" id="form:INPUT_2227_37187_114185" name="form:INPUT_2227_37187_114185" maxlength="5" title="Flux repos I/MIN" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114185', this.value);if(!estatCarregant){ validateRank('2227_37187_114185', null, null, true);
+}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114185" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114185" name="form:COLLAPSED_2227_37187_114185" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114185" type="hidden" name="form:DATATYPE_2227_37187_114185" value="NUMBER 4-2" /></td>
+</tr>
+<tr>
+<td class="ColLabel281"><input id="form:COMPONENTTYPE_2227_37187_114185" type="hidden" name="form:COMPONENTTYPE_2227_37187_114185" value="NUMBER" /></td>
+<td class="ColData281"><input id="form:REQ_VAR_2227_37187_114185" type="hidden" name="form:REQ_VAR_2227_37187_114185" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114185_MOD" type="hidden" name="form:INPUT_2227_37187_114185_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_27" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114208" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel291"><span id="form:LABEL_2227_37187_114208" class="LblLev2Txt" title="Flux esfor&ccedil; I/MIN">
+Flux esfor&ccedil; I/MIN:  
+</span></td>
+<td class="ColData291"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="5" id="form:INPUT_2227_37187_114208" name="form:INPUT_2227_37187_114208" maxlength="5" title="Flux esfor&ccedil; I/MIN" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114208', this.value);if(!estatCarregant){ validateRank('2227_37187_114208', null, null, true);
+}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114208" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114208" name="form:COLLAPSED_2227_37187_114208" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114208" type="hidden" name="form:DATATYPE_2227_37187_114208" value="NUMBER 4-2" /></td>
+</tr>
+<tr>
+<td class="ColLabel291"><input id="form:COMPONENTTYPE_2227_37187_114208" type="hidden" name="form:COMPONENTTYPE_2227_37187_114208" value="NUMBER" /></td>
+<td class="ColData291"><input id="form:REQ_VAR_2227_37187_114208" type="hidden" name="form:REQ_VAR_2227_37187_114208" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114208_MOD" type="hidden" name="form:INPUT_2227_37187_114208_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_28" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114209" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel301"><span id="form:LABEL_2227_37187_114209" class="LblLev2Txt" title="Hores/Dia&gt;15/">
+Hores/Dia&gt;15/:  
+</span></td>
+<td class="ColData301"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114209" name="form:INPUT_2227_37187_114209" maxlength="6" title="Hores/Dia&gt;15/" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114209', this.value);if(!estatCarregant){ validateRank('2227_37187_114209', null, null, true);
+}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114209" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114209" name="form:COLLAPSED_2227_37187_114209" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114209" type="hidden" name="form:DATATYPE_2227_37187_114209" value="NUMBER 6-0" /></td>
+</tr>
+<tr>
+<td class="ColLabel301"><input id="form:COMPONENTTYPE_2227_37187_114209" type="hidden" name="form:COMPONENTTYPE_2227_37187_114209" value="NUMBER" /></td>
+<td class="ColData301"><input id="form:REQ_VAR_2227_37187_114209" type="hidden" name="form:REQ_VAR_2227_37187_114209" value="REQ_2227_37187_30592" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114209_MOD" type="hidden" name="form:INPUT_2227_37187_114209_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_4" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30593" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30593" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30593" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30593'); return false;" /><span id="form:REQ_2227_37187_30593_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+04 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30593"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30593" name="form:COMPONENTTYPEREQ_2227_37187_30593" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30593_MOD" name="form:REQ_2227_37187_30593_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30593" name="form:COLLAPSEDREQ_2227_37187_30593" value="S" /><div id="form:ROW_2227_37187_29" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114210" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel311"><span id="form:LABEL_2227_37187_114210" class="LblLev2Txt" style="color:" title="Pressi&oacute; (CMH20)">
+Pressi&oacute; (CMH20):  
+</span></td>
+<td class="ColData311"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="7" id="form:INPUT_2227_37187_114210" name="form:INPUT_2227_37187_114210" maxlength="7" title="Pressi&oacute; (CMH20)" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114210', this.value);if(!estatCarregant){ validateRank('2227_37187_114210', null, null, true);
+}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114210" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114210" name="form:COLLAPSED_2227_37187_114210" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114210" type="hidden" name="form:DATATYPE_2227_37187_114210" value="NUMBER 6-2" /></td>
+</tr>
+<tr>
+<td class="ColLabel311"><input id="form:COMPONENTTYPE_2227_37187_114210" type="hidden" name="form:COMPONENTTYPE_2227_37187_114210" value="NUMBER" /></td>
+<td class="ColData311"><input id="form:REQ_VAR_2227_37187_114210" type="hidden" name="form:REQ_VAR_2227_37187_114210" value="REQ_2227_37187_30593" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114210_MOD" type="hidden" name="form:INPUT_2227_37187_114210_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_30" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114220" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel321"><span id="form:LABEL_2227_37187_114220" class="LblLev2Txt" title="Rampa">
+Rampa:  
+</span></td>
+<td class="ColData321"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114220" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114220" name="form:INPUT_2227_37187_114220" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114220', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114220','form:INPUT_SELECT_2227_37187_114220');;dropDown_changed('form:INPUT_2227_37187_114220');  return false;" onmouseover="this.title='Rampa';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOptSel" value="S" selected="selected">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114220" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114220" name="form:INPUT_SELECT_2227_37187_114220" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114220" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114220" name="form:COLLAPSED_2227_37187_114220" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114220" type="hidden" name="form:DATATYPE_2227_37187_114220" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel321"><input id="form:COMPONENTTYPE_2227_37187_114220" type="hidden" name="form:COMPONENTTYPE_2227_37187_114220" value="SELECT" /></td>
+<td class="ColData321"><input id="form:REQ_VAR_2227_37187_114220" type="hidden" name="form:REQ_VAR_2227_37187_114220" value="REQ_2227_37187_30593" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114220_MOD" type="hidden" name="form:INPUT_2227_37187_114220_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_31" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114221" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel331"><span id="form:LABEL_2227_37187_114221" class="LblLev2Txt" title="Temps">
+Temps:  
+</span></td>
+<td class="ColData331"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114221" name="form:INPUT_2227_37187_114221" maxlength="6" title="Temps" onchange="carregaAtributSimple('ATTR_2227_37187_114221', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114221" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114221" name="form:COLLAPSED_2227_37187_114221" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114221" type="hidden" name="form:DATATYPE_2227_37187_114221" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel331"><input id="form:COMPONENTTYPE_2227_37187_114221" type="hidden" name="form:COMPONENTTYPE_2227_37187_114221" value="VARCHAR" /></td>
+<td class="ColData331"><input id="form:REQ_VAR_2227_37187_114221" type="hidden" name="form:REQ_VAR_2227_37187_114221" value="REQ_2227_37187_30593" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114221_MOD" type="hidden" name="form:INPUT_2227_37187_114221_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_32" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114222" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel341"><span id="form:LABEL_2227_37187_114222" class="LblLev2Txt" title="Mascareta">
+Mascareta:  
+</span></td>
+<td class="ColData341"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114222" name="form:INPUT_2227_37187_114222" maxlength="6" title="04_Mascareta" onchange="carregaAtributSimple('ATTR_2227_37187_114222', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114222" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114222" name="form:COLLAPSED_2227_37187_114222" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114222" type="hidden" name="form:DATATYPE_2227_37187_114222" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel341"><input id="form:COMPONENTTYPE_2227_37187_114222" type="hidden" name="form:COMPONENTTYPE_2227_37187_114222" value="VARCHAR" /></td>
+<td class="ColData341"><input id="form:REQ_VAR_2227_37187_114222" type="hidden" name="form:REQ_VAR_2227_37187_114222" value="REQ_2227_37187_30593" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114222_MOD" type="hidden" name="form:INPUT_2227_37187_114222_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_33" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114223" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel351"><span id="form:LABEL_2227_37187_114223" class="LblLev2Txt" title="Coixinets nasals">
+Coixinets nasals:  
+</span></td>
+<td class="ColData351"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114223" name="form:INPUT_2227_37187_114223" maxlength="6" title="Coixinets nasals" onchange="carregaAtributSimple('ATTR_2227_37187_114223', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114223" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114223" name="form:COLLAPSED_2227_37187_114223" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114223" type="hidden" name="form:DATATYPE_2227_37187_114223" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel351"><input id="form:COMPONENTTYPE_2227_37187_114223" type="hidden" name="form:COMPONENTTYPE_2227_37187_114223" value="VARCHAR" /></td>
+<td class="ColData351"><input id="form:REQ_VAR_2227_37187_114223" type="hidden" name="form:REQ_VAR_2227_37187_114223" value="REQ_2227_37187_30593" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114223_MOD" type="hidden" name="form:INPUT_2227_37187_114223_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_34" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114224" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel361"><span id="form:LABEL_2227_37187_114224" class="LblLev2Txt" title="Humificaci&oacute;">
+Humificaci&oacute;:  
+</span></td>
+<td class="ColData361"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114224" style="display: inline;"><select class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114224" name="form:INPUT_2227_37187_114224" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114224', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114224','form:INPUT_SELECT_2227_37187_114224');;dropDown_changed('form:INPUT_2227_37187_114224');  return false;" onmouseover="this.title='Humificaci&oacute;';">
+	<option class="MnuStdOpt" value="">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOptSel" value="N" selected="selected">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114224" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114224" name="form:INPUT_SELECT_2227_37187_114224" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114224" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114224" name="form:COLLAPSED_2227_37187_114224" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114224" type="hidden" name="form:DATATYPE_2227_37187_114224" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel361"><input id="form:COMPONENTTYPE_2227_37187_114224" type="hidden" name="form:COMPONENTTYPE_2227_37187_114224" value="SELECT" /></td>
+<td class="ColData361"><input id="form:REQ_VAR_2227_37187_114224" type="hidden" name="form:REQ_VAR_2227_37187_114224" value="REQ_2227_37187_30593" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114224_MOD" type="hidden" name="form:INPUT_2227_37187_114224_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_5" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30573" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30573" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30573" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30573'); return false;" /><span id="form:REQ_2227_37187_30573_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+05 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30573"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30573" name="form:COMPONENTTYPEREQ_2227_37187_30573" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30573_MOD" name="form:REQ_2227_37187_30573_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30573" name="form:COLLAPSEDREQ_2227_37187_30573" value="S" /><div id="form:ROW_2227_37187_35" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114225" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel371"><span id="form:LABEL_2227_37187_114225" class="LblLev2Txt" style="color:" title="Farmacos a nebulitzar">
+Farmacos a nebulitzar:  
+</span></td>
+<td class="ColData371"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="50" id="form:INPUT_2227_37187_114225" name="form:INPUT_2227_37187_114225" maxlength="50" title="Farmacos a nebulitzar" onchange="carregaAtributSimple('ATTR_2227_37187_114225', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114225" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114225" name="form:COLLAPSED_2227_37187_114225" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114225" type="hidden" name="form:DATATYPE_2227_37187_114225" value="VARCHAR2 50" /></td>
+</tr>
+<tr>
+<td class="ColLabel371"><input id="form:COMPONENTTYPE_2227_37187_114225" type="hidden" name="form:COMPONENTTYPE_2227_37187_114225" value="VARCHAR" /></td>
+<td class="ColData371"><input id="form:REQ_VAR_2227_37187_114225" type="hidden" name="form:REQ_VAR_2227_37187_114225" value="REQ_2227_37187_30573" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114225_MOD" type="hidden" name="form:INPUT_2227_37187_114225_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_36" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114226" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel381"><span id="form:LABEL_2227_37187_114226" class="LblLev2Txt" title="Nebulitzador tipus">
+Nebulitzador tipus:  
+</span></td>
+<td class="ColData381"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="20" id="form:INPUT_2227_37187_114226" name="form:INPUT_2227_37187_114226" maxlength="20" title="Nebulitzador tipus" onchange="carregaAtributSimple('ATTR_2227_37187_114226', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114226" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114226" name="form:COLLAPSED_2227_37187_114226" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114226" type="hidden" name="form:DATATYPE_2227_37187_114226" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel381"><input id="form:COMPONENTTYPE_2227_37187_114226" type="hidden" name="form:COMPONENTTYPE_2227_37187_114226" value="VARCHAR" /></td>
+<td class="ColData381"><input id="form:REQ_VAR_2227_37187_114226" type="hidden" name="form:REQ_VAR_2227_37187_114226" value="REQ_2227_37187_30573" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114226_MOD" type="hidden" name="form:INPUT_2227_37187_114226_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_37" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114227" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel391"><span id="form:LABEL_2227_37187_114227" class="LblLev2Txt" title="Compresor temps">
+Compresor temps:  
+</span></td>
+<td class="ColData391"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="50" id="form:INPUT_2227_37187_114227" name="form:INPUT_2227_37187_114227" maxlength="50" title="Compresor temps" onchange="carregaAtributSimple('ATTR_2227_37187_114227', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114227" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114227" name="form:COLLAPSED_2227_37187_114227" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114227" type="hidden" name="form:DATATYPE_2227_37187_114227" value="VARCHAR2 50" /></td>
+</tr>
+<tr>
+<td class="ColLabel391"><input id="form:COMPONENTTYPE_2227_37187_114227" type="hidden" name="form:COMPONENTTYPE_2227_37187_114227" value="VARCHAR" /></td>
+<td class="ColData391"><input id="form:REQ_VAR_2227_37187_114227" type="hidden" name="form:REQ_VAR_2227_37187_114227" value="REQ_2227_37187_30573" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114227_MOD" type="hidden" name="form:INPUT_2227_37187_114227_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_38" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114228" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel401"><span id="form:LABEL_2227_37187_114228" class="LblLev2Txt" title="Pipeta /mascareta">
+Pipeta /mascareta:  
+</span></td>
+<td class="ColData401"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114228" name="form:INPUT_2227_37187_114228" maxlength="10" title="Pipeta /mascareta" onchange="carregaAtributSimple('ATTR_2227_37187_114228', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114228" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114228" name="form:COLLAPSED_2227_37187_114228" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114228" type="hidden" name="form:DATATYPE_2227_37187_114228" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel401"><input id="form:COMPONENTTYPE_2227_37187_114228" type="hidden" name="form:COMPONENTTYPE_2227_37187_114228" value="VARCHAR" /></td>
+<td class="ColData401"><input id="form:REQ_VAR_2227_37187_114228" type="hidden" name="form:REQ_VAR_2227_37187_114228" value="REQ_2227_37187_30573" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114228_MOD" type="hidden" name="form:INPUT_2227_37187_114228_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_39" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114230" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel411"><span id="form:LABEL_2227_37187_114230" class="LblLev2Txt" title="V&agrave;lvula / Circuit">
+V&agrave;lvula / Circuit:  
+</span></td>
+<td class="ColData411"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114230" name="form:INPUT_2227_37187_114230" maxlength="10" title="V&agrave;lvula / Circuit" onchange="carregaAtributSimple('ATTR_2227_37187_114230', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114230" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114230" name="form:COLLAPSED_2227_37187_114230" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114230" type="hidden" name="form:DATATYPE_2227_37187_114230" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel411"><input id="form:COMPONENTTYPE_2227_37187_114230" type="hidden" name="form:COMPONENTTYPE_2227_37187_114230" value="VARCHAR" /></td>
+<td class="ColData411"><input id="form:REQ_VAR_2227_37187_114230" type="hidden" name="form:REQ_VAR_2227_37187_114230" value="REQ_2227_37187_30573" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114230_MOD" type="hidden" name="form:INPUT_2227_37187_114230_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_40" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114231" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel421"><span id="form:LABEL_2227_37187_114231" class="LblLev2Txt" title="Volum de nebulitzaci&oacute;">
+Volum de nebulitzaci&oacute;:  
+</span></td>
+<td class="ColData421"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="10" id="form:INPUT_2227_37187_114231" name="form:INPUT_2227_37187_114231" maxlength="10" title="Volum de nebulitzaci&oacute;" onchange="carregaAtributSimple('ATTR_2227_37187_114231', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114231" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114231" name="form:COLLAPSED_2227_37187_114231" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114231" type="hidden" name="form:DATATYPE_2227_37187_114231" value="VARCHAR2 10" /></td>
+</tr>
+<tr>
+<td class="ColLabel421"><input id="form:COMPONENTTYPE_2227_37187_114231" type="hidden" name="form:COMPONENTTYPE_2227_37187_114231" value="VARCHAR" /></td>
+<td class="ColData421"><input id="form:REQ_VAR_2227_37187_114231" type="hidden" name="form:REQ_VAR_2227_37187_114231" value="REQ_2227_37187_30573" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114231_MOD" type="hidden" name="form:INPUT_2227_37187_114231_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_6" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30574" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30574" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30574" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30574'); return false;" /><span id="form:REQ_2227_37187_30574_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+06 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30574"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30574" name="form:COMPONENTTYPEREQ_2227_37187_30574" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30574_MOD" name="form:REQ_2227_37187_30574_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30574" name="form:COLLAPSEDREQ_2227_37187_30574" value="S" /><div id="form:ROW_2227_37187_41" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114232" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel431"><span id="form:LABEL_2227_37187_114232" class="LblLev2Txt" style="color:" title="Tipus de monitor">
+Tipus de monitor:  
+</span></td>
+<td class="ColData431"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="20" id="form:INPUT_2227_37187_114232" name="form:INPUT_2227_37187_114232" maxlength="20" title="Tipus de monitor" onchange="carregaAtributSimple('ATTR_2227_37187_114232', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114232" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114232" name="form:COLLAPSED_2227_37187_114232" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114232" type="hidden" name="form:DATATYPE_2227_37187_114232" value="VARCHAR2 20" /></td>
+</tr>
+<tr>
+<td class="ColLabel431"><input id="form:COMPONENTTYPE_2227_37187_114232" type="hidden" name="form:COMPONENTTYPE_2227_37187_114232" value="VARCHAR" /></td>
+<td class="ColData431"><input id="form:REQ_VAR_2227_37187_114232" type="hidden" name="form:REQ_VAR_2227_37187_114232" value="REQ_2227_37187_30574" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114232_MOD" type="hidden" name="form:INPUT_2227_37187_114232_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_42" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114233" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel441"><span id="form:LABEL_2227_37187_114233" class="LblLev2Txt" title="Apnea segons">
+Apnea segons:  
+</span></td>
+<td class="ColData441"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114233" name="form:INPUT_2227_37187_114233" maxlength="6" title="Apnea segons" onchange="carregaAtributSimple('ATTR_2227_37187_114233', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114233" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114233" name="form:COLLAPSED_2227_37187_114233" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114233" type="hidden" name="form:DATATYPE_2227_37187_114233" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel441"><input id="form:COMPONENTTYPE_2227_37187_114233" type="hidden" name="form:COMPONENTTYPE_2227_37187_114233" value="VARCHAR" /></td>
+<td class="ColData441"><input id="form:REQ_VAR_2227_37187_114233" type="hidden" name="form:REQ_VAR_2227_37187_114233" value="REQ_2227_37187_30574" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114233_MOD" type="hidden" name="form:INPUT_2227_37187_114233_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_43" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114234" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel451"><span id="form:LABEL_2227_37187_114234" class="LblLev2Txt" title="Bradicardia X minut">
+Bradicardia X minut:  
+</span></td>
+<td class="ColData451"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114234" name="form:INPUT_2227_37187_114234" maxlength="6" title="Bradicardia X minut" onchange="carregaAtributSimple('ATTR_2227_37187_114234', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114234" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114234" name="form:COLLAPSED_2227_37187_114234" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114234" type="hidden" name="form:DATATYPE_2227_37187_114234" value="VARCHAR2 6" /></td>
+</tr>
+<tr>
+<td class="ColLabel451"><input id="form:COMPONENTTYPE_2227_37187_114234" type="hidden" name="form:COMPONENTTYPE_2227_37187_114234" value="VARCHAR" /></td>
+<td class="ColData451"><input id="form:REQ_VAR_2227_37187_114234" type="hidden" name="form:REQ_VAR_2227_37187_114234" value="REQ_2227_37187_30574" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114234_MOD" type="hidden" name="form:INPUT_2227_37187_114234_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div><div id="form:ROW_2227_37187_44" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114235" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel461"><span id="form:LABEL_2227_37187_114235" class="LblLev2Txt" title="Taquicardia X minut">
+Taquicardia X minut:  
+</span></td>
+<td class="ColData461"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="6" id="form:INPUT_2227_37187_114235" name="form:INPUT_2227_37187_114235" maxlength="6" title="Taquicardia X minut" onchange="if(!estatCarregant){changeValue();}carregaAtributSimple('ATTR_2227_37187_114235', this.value);if(!estatCarregant){ validateRank('2227_37187_114235', null, null, true);
+}" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114235" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114235" name="form:COLLAPSED_2227_37187_114235" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114235" type="hidden" name="form:DATATYPE_2227_37187_114235" value="NUMBER 6-0" /></td>
+</tr>
+<tr>
+<td class="ColLabel461"><input id="form:COMPONENTTYPE_2227_37187_114235" type="hidden" name="form:COMPONENTTYPE_2227_37187_114235" value="NUMBER" /></td>
+<td class="ColData461"><input id="form:REQ_VAR_2227_37187_114235" type="hidden" name="form:REQ_VAR_2227_37187_114235" value="REQ_2227_37187_30574" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114235_MOD" type="hidden" name="form:INPUT_2227_37187_114235_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_7" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30575" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30575" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30575" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30575'); return false;" /><span id="form:REQ_2227_37187_30575_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+07 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30575"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30575" name="form:COMPONENTTYPEREQ_2227_37187_30575" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30575_MOD" name="form:REQ_2227_37187_30575_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30575" name="form:COLLAPSEDREQ_2227_37187_30575" value="S" /><div id="form:ROW_2227_37187_45" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114236" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel471"><span id="form:LABEL_2227_37187_114236" class="LblLev2Txt" style="color:" title="Enviar comunicaci&oacute; (07)">
+Enviar comunicaci&oacute; (07):  
+</span></td>
+<td class="ColData471"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114236" style="display: inline;"><select style="border-color:" class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114236" name="form:INPUT_2227_37187_114236" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114236', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114236','form:INPUT_SELECT_2227_37187_114236');;dropDown_changed('form:INPUT_2227_37187_114236');  return false;" onmouseover="this.title='Enviar comunicaci&oacute; (07)';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114236" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114236" name="form:INPUT_SELECT_2227_37187_114236" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114236" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114236" name="form:COLLAPSED_2227_37187_114236" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114236" type="hidden" name="form:DATATYPE_2227_37187_114236" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel471"><input id="form:COMPONENTTYPE_2227_37187_114236" type="hidden" name="form:COMPONENTTYPE_2227_37187_114236" value="SELECT" /></td>
+<td class="ColData471"><input id="form:REQ_VAR_2227_37187_114236" type="hidden" name="form:REQ_VAR_2227_37187_114236" value="REQ_2227_37187_30575" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114236_MOD" type="hidden" name="form:INPUT_2227_37187_114236_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_8" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30576" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30576" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30576" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30576'); return false;" /><span id="form:REQ_2227_37187_30576_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+08 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30576"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30576" name="form:COMPONENTTYPEREQ_2227_37187_30576" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30576_MOD" name="form:REQ_2227_37187_30576_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30576" name="form:COLLAPSEDREQ_2227_37187_30576" value="S" /><div id="form:ROW_2227_37187_46" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114237" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel481"><span id="form:LABEL_2227_37187_114237" class="LblLev2Txt" style="color:" title="Enviar comunicaci&oacute; (08)">
+Enviar comunicaci&oacute; (08):  
+</span></td>
+<td class="ColData481"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114237" style="display: inline;"><select style="border-color:" class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114237" name="form:INPUT_2227_37187_114237" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114237', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114237','form:INPUT_SELECT_2227_37187_114237');;dropDown_changed('form:INPUT_2227_37187_114237');  return false;" onmouseover="this.title='Enviar comunicaci&oacute; (08)';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114237" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114237" name="form:INPUT_SELECT_2227_37187_114237" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114237" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114237" name="form:COLLAPSED_2227_37187_114237" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114237" type="hidden" name="form:DATATYPE_2227_37187_114237" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel481"><input id="form:COMPONENTTYPE_2227_37187_114237" type="hidden" name="form:COMPONENTTYPE_2227_37187_114237" value="SELECT" /></td>
+<td class="ColData481"><input id="form:REQ_VAR_2227_37187_114237" type="hidden" name="form:REQ_VAR_2227_37187_114237" value="REQ_2227_37187_30576" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114237_MOD" type="hidden" name="form:INPUT_2227_37187_114237_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_9" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30577" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30577" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30577" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30577'); return false;" /><span id="form:REQ_2227_37187_30577_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+09 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30577"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30577" name="form:COMPONENTTYPEREQ_2227_37187_30577" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30577_MOD" name="form:REQ_2227_37187_30577_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30577" name="form:COLLAPSEDREQ_2227_37187_30577" value="S" /><div id="form:ROW_2227_37187_47" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114238" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel491"><span id="form:LABEL_2227_37187_114238" class="LblLev2Txt" style="color:" title="Enviar comunicaci&oacute; (09)">
+Enviar comunicaci&oacute; (09):  
+</span></td>
+<td class="ColData491"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114238" style="display: inline;"><select style="border-color:" class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114238" name="form:INPUT_2227_37187_114238" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114238', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114238','form:INPUT_SELECT_2227_37187_114238');;dropDown_changed('form:INPUT_2227_37187_114238');  return false;" onmouseover="this.title='Enviar comunicaci&oacute; (09)';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114238" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114238" name="form:INPUT_SELECT_2227_37187_114238" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114238" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114238" name="form:COLLAPSED_2227_37187_114238" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114238" type="hidden" name="form:DATATYPE_2227_37187_114238" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel491"><input id="form:COMPONENTTYPE_2227_37187_114238" type="hidden" name="form:COMPONENTTYPE_2227_37187_114238" value="SELECT" /></td>
+<td class="ColData491"><input id="form:REQ_VAR_2227_37187_114238" type="hidden" name="form:REQ_VAR_2227_37187_114238" value="REQ_2227_37187_30577" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114238_MOD" type="hidden" name="form:INPUT_2227_37187_114238_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_10" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30594" style="width: 700px; float: left; display: none;"><div id="form:REQ_2227_37187_30594" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30594" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30594'); return false;" /><span id="form:REQ_2227_37187_30594_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+10 - Variables de tractament 
+</span><div id="form:REQ_FOLD_2227_37187_30594"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30594" name="form:COMPONENTTYPEREQ_2227_37187_30594" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30594_MOD" name="form:REQ_2227_37187_30594_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30594" name="form:COLLAPSEDREQ_2227_37187_30594" value="S" /><div id="form:ROW_2227_37187_48" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114239" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel501"><span id="form:LABEL_2227_37187_114239" class="LblLev2Txt" style="color:" title="Enviar comunicaci&oacute; (10)">
+Enviar comunicaci&oacute; (10):  
+</span></td>
+<td class="ColData501"><table style="float: left">
+<tbody>
+<tr>
+<td><span id="form:SPAN_COMPONENT_P12227_37187_114239" style="display: inline;"><select style="border-color:" class="EDITModificableNoObligatori MnuStd" id="form:INPUT_2227_37187_114239" name="form:INPUT_2227_37187_114239" size="1" onchange="if(!estatCarregant){changeValue();}carregaAtributBasic('ATTR_2227_37187_114239', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text);if(!estatCarregant){ }copyDataFromSelectToText('form:INPUT_2227_37187_114239','form:INPUT_SELECT_2227_37187_114239');;dropDown_changed('form:INPUT_2227_37187_114239');  return false;" onmouseover="this.title='Enviar comunicaci&oacute; (10)';">
+	<option class="MnuStdOptSel" value="" selected="selected">- Sense determinar -</option>
+	<option class="MnuStdOpt" value="S">Si</option>
+	<option class="MnuStdOpt" value="N">No</option>
+</select>
+</span></td>
+<td><span id="form:SPAN_COMPONENT_P22227_37187_114239" style="display:none"><input type="text" size="20" id="form:INPUT_SELECT_2227_37187_114239" name="form:INPUT_SELECT_2227_37187_114239" onfocus="" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114239" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114239" name="form:COLLAPSED_2227_37187_114239" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114239" type="hidden" name="form:DATATYPE_2227_37187_114239" value="BOOLEAN 1" /></td>
+</tr>
+<tr>
+<td class="ColLabel501"><input id="form:COMPONENTTYPE_2227_37187_114239" type="hidden" name="form:COMPONENTTYPE_2227_37187_114239" value="SELECT" /></td>
+<td class="ColData501"><input id="form:REQ_VAR_2227_37187_114239" type="hidden" name="form:REQ_VAR_2227_37187_114239" value="REQ_2227_37187_30594" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114239_MOD" type="hidden" name="form:INPUT_2227_37187_114239_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<div id="form:ROW_REQ_2227_37187_11" style="clear:both; width: 700px;"><div id="form:DIVREQ_2227_37187_30610" style="width: 700px; float: left; display: block;"><div id="form:REQ_2227_37187_30610" class="BoxStyle" style="float: left; width: 700px;" style="position: relative;-rave-layout: grid; float: left; width: 700px;"><img id="form:IMG_FOLD_2227_37187_30610" style="margin-left: 2px;vertical-align: middle;" src="" alt="" border="0" onclick="collapse_req('2227_37187_30610'); return false;" /><span id="form:REQ_2227_37187_30610_TITLE" class="LblLev2Txt" style="vertical-align:middle;font-weight:bold;margin-left:5px;">
+Observacions 
+</span><div id="form:REQ_FOLD_2227_37187_30610"><input type="hidden" id="form:COMPONENTTYPEREQ_2227_37187_30610" name="form:COMPONENTTYPEREQ_2227_37187_30610" value="REQUADRE" /><input type="hidden" id="form:REQ_2227_37187_30610_MOD" name="form:REQ_2227_37187_30610_MOD" value="S" /><input type="hidden" id="form:COLLAPSEDREQ_2227_37187_30610" name="form:COLLAPSEDREQ_2227_37187_30610" value="S" /><div id="form:ROW_2227_37187_49" style="clear: both; float: left; width: 700px;"><div id="form:DIV_2227_37187_114240" style="width: 700px; float: left; display: block;"><table class="RowStyle" cellpadding="0" width="700px">
+<tbody>
+<tr>
+<td class="ColLabel511"><span id="form:LABEL_2227_37187_114240" class="LblLev2Txt" style="color:" title="Observacions variables">
+Observacions variables:  
+</span></td>
+<td class="ColData511"><table style="float: left">
+<tbody>
+<tr>
+<td><input type="text" size="60" id="form:INPUT_2227_37187_114240" name="form:INPUT_2227_37187_114240" maxlength="150" title="Observacions variables" onchange="carregaAtributSimple('ATTR_2227_37187_114240', this.value);if(!estatCarregant){ }" onfocus="" onkeydown="if(!estatCarregant){changeValue();}" class="EDITModificableNoObligatori TxtFld" value="" AUTOCOMPLETE="off" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td class="ColOther"><div id="form:DIV_OCULTO_2227_37187_114240" class="DivOculto"><input type="text" size="20" id="form:COLLAPSED_2227_37187_114240" name="form:COLLAPSED_2227_37187_114240" class="TxtFld" value="S" AUTOCOMPLETE="off" /></div></td>
+<td class="ColOther"><input id="form:DATATYPE_2227_37187_114240" type="hidden" name="form:DATATYPE_2227_37187_114240" value="VARCHAR2 150" /></td>
+</tr>
+<tr>
+<td class="ColLabel511"><input id="form:COMPONENTTYPE_2227_37187_114240" type="hidden" name="form:COMPONENTTYPE_2227_37187_114240" value="VARCHAR" /></td>
+<td class="ColData511"><input id="form:REQ_VAR_2227_37187_114240" type="hidden" name="form:REQ_VAR_2227_37187_114240" value="REQ_2227_37187_30610" /></td>
+<td class="ColOther"><input id="form:INPUT_2227_37187_114240_MOD" type="hidden" name="form:INPUT_2227_37187_114240_MOD" value="S" /></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+<script id="form:scriptVarsLevel">var ATTR_2227_37187_114810='<value></value>';var ATTR_2227_37187_114167='<value></value>';var ATTR_2227_37187_114168='<value></value>';var ATTR_2227_37187_114169='<value></value>';var ATTR_2227_37187_114170='<value></value>';var ATTR_2227_37187_114171='<value></value>';var ATTR_2227_37187_114181='<value></value>';var ATTR_2227_37187_114172='<value></value>';var ATTR_2227_37187_114173='<value></value>';var ATTR_2227_37187_114174='<value></value>';var ATTR_2227_37187_114175='<value></value>';var ATTR_2227_37187_114176='<value></value>';var ATTR_2227_37187_114177='<value></value>';var ATTR_2227_37187_114178='<value></value>';var ATTR_2227_37187_114182='<value></value>';var ATTR_2227_37187_114183='<value></value>';var ATTR_2227_37187_114179='<value></value>';var ATTR_2227_37187_114200='<value></value>';var ATTR_2227_37187_114201='<value></value>';var ATTR_2227_37187_114184='<value></value>';var ATTR_2227_37187_114202='<value></value>';var ATTR_2227_37187_114203='<value></value>';var ATTR_2227_37187_114204='<value></value>';var ATTR_2227_37187_114205='<value></value>';var ATTR_2227_37187_114206='<value></value>';var ATTR_2227_37187_114207='<value></value>';var ATTR_2227_37187_114185='<value></value>';var ATTR_2227_37187_114208='<value></value>';var ATTR_2227_37187_114209='<value></value>';var ATTR_2227_37187_114210='<value></value>';var ATTR_2227_37187_114220='<value></value>';var ATTR_2227_37187_114221='<value></value>';var ATTR_2227_37187_114222='<value></value>';var ATTR_2227_37187_114223='<value></value>';var ATTR_2227_37187_114224='<value></value>';var ATTR_2227_37187_114225='<value></value>';var ATTR_2227_37187_114226='<value></value>';var ATTR_2227_37187_114227='<value></value>';var ATTR_2227_37187_114228='<value></value>';var ATTR_2227_37187_114230='<value></value>';var ATTR_2227_37187_114231='<value></value>';var ATTR_2227_37187_114232='<value></value>';var ATTR_2227_37187_114233='<value></value>';var ATTR_2227_37187_114234='<value></value>';var ATTR_2227_37187_114235='<value></value>';var ATTR_2227_37187_114236='<value></value>';var ATTR_2227_37187_114237='<value></value>';var ATTR_2227_37187_114238='<value></value>';var ATTR_2227_37187_114239='<value></value>';var ATTR_2227_37187_114240='<value></value>';</script></span><span id="form:buit" style="height: 10px"></span><iframe id="form:taulaOcurrencies:taulaFrame" src="https://salut.gencat.net:443/rsa/AppJava/faces/pages/ChildOccurrenceTable.jsp" name="taulaFrame" scrolling="no" frameborder="0" marginheight="5" align="center" width="100%"></iframe>
+<div id="form:botons" style="width: 702px; margin-top: 5px; text-align: center;"><input id="form:save" name="form:save" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" title="Validar i desar les dades informades a l'ocurr&egrave;ncia" onclick="showNavigationPopUp('Desant els canvis...');return validaAndDiv();" onmousedown="eliminaNextAction();" type="submit" value="Desar"></input><script type="text/javascript">sjwuic_assign_button('form:save', defaultButtonStrings, true, false, false);</script><input id="form:back" name="form:back" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" title="Tornar enrere i no desar les dades informades a l'ocurr&egrave;ncia" onclick="showNavigationPopUp('Carregant...'); return true;" onmousedown="RSAconfirmWithChangePopUp('Vol sortir sense salvar les dades?', this);" type="submit" value="Tornar"></input><script type="text/javascript">sjwuic_assign_button('form:back', defaultButtonStrings, true, false, false);</script></div><div id="popUp" style="visibility:hidden;width:235px; background: #F4F4F3; border: solid 1px #000000; position:absolute; top:50px; left:150px; z-index: 2;"><span id="form:popUpTitle" class="titolBarresPopUp">Desar abans de continuar?</span><span id="form:popUpMessage" style="display: block; padding: 10px;">Voleu desar els canvis a l'ocurr&egrave;ncia actual abans de continuar?\n\nPremi Si per desar els canvis i editar l'ocurr&egrave;ncia filla.\nPremi No per rebutjar els canvis i editar l'ocurr&egrave;ncia filla\nPremi Cancel&middot;lar per tornar a la pantalla</span><div id="desarButons" align="center"><input id="form:popUpConfirm" name="form:popUpConfirm" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" onclick="if(!doConfirmValidaIDesa()) 	 return false;" style="margin: 10px; width: 100px;" type="submit" value="  Si  "></input><script type="text/javascript">sjwuic_assign_button('form:popUpConfirm', defaultButtonStrings, true, false, false);</script><input id="form:popUpCancel" name="form:popUpCancel" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" onclick="if(!doConfirmValidaINoDesa()) return false;" style="margin: 10px 10px 10px 0px; width: 100px;" type="submit" value="  No  "></input><script type="text/javascript">sjwuic_assign_button('form:popUpCancel', defaultButtonStrings, true, false, false);</script><input id="form:popUpNothing" name="form:popUpNothing" class="botonsText Btn2" onblur="return this.myonblur();" onfocus="return this.myonfocus();" onmouseout="return this.myonmouseout();" onmouseover="return this.myonmouseover();" title="No desar l'ocurr&egrave;ncia actual ni anar a l'ocurr&egrave;ncia filla" onclick="if(doCancel())				 return false;" style="margin: 10px 10px 10px 0px; width: 100px;" type="submit" value="Cancel&middot;lar"></input><script type="text/javascript">sjwuic_assign_button('form:popUpNothing', defaultButtonStrings, true, false, false);</script></div><input type="hidden" id="form:popUpActionMessage" name="form:popUpActionMessage" value="Desant els canvis..." /></div><div id="form:popUpAjudaOcultar" style="background-color:black;position:absolute; visibility:hidden; display:none; display:none; z-index: 3;" style="position: relative;-rave-layout: grid; background-color:black;position:absolute; visibility:hidden; display:none; display:none; z-index: 3;"></div><div id="form:popUpAjuda" style="position:absolute; visibility:hidden; display:none; background: #F4F4F3; border: solid 1px #000000; z-index: 4;" style="position: relative;-rave-layout: grid; position:absolute; visibility:hidden; display:none; background: #F4F4F3; border: solid 1px #000000; z-index: 4;"><table id="form:popUpAjudaCapcalera" class="titolBarresPopUp" width="100%">
+<tbody>
+<tr>
+<td><span id="form:popUpAjudaTitle" style="FONT-SIZE: 12px; font-weight: bold; COLOR: #FFFFFF; display:inline"></span></td>
+<td><a id="form:popUpAjudaClose" style="float:right" onclick="ocultDiv();return false;return hyperlink_submit(this, 'form', null);" href="#"><img id="form:popUpAjudaClose_image" src="https://salut.gencat.net:443/rsa/images/close_div.gif" alt="Tancar" border="0" /></a></td>
+</tr>
+</tbody>
+</table>
+<span id="form:popUpAjudaMessage" style="display: block;margin-top:10px;margin-bottom:10px;margin-right:10px;margin-left:10px;"></span></div>
+<input id="form_hidden" name="form_hidden" value="form_hidden" type="hidden" />
+
+</form>
+<div id="divFormPopUp" style="display: none"><form id="formPopUp" method="post" action="https://salut.gencat.net:443/rsa/AppJava/faces/pages/EditOccurrence.jsp" enctype="application/x-www-form-urlencoded" onsubmit="modalWin('formPopUp');" target="V164C267">
+<input name="com_sun_rave_web_ui_appbase_renderer_CommandLinkRendererer" type="hidden" value="" /><a id="formPopUp:igual" href="#" onclick="document.forms['formPopUp']['com_sun_rave_web_ui_appbase_renderer_CommandLinkRendererer'].value='formPopUp:igual';document.forms['formPopUp'].submit(); return false;">link</a><input id="formPopUp:selectedDomain" type="text" name="formPopUp:selectedDomain" /><input id="formPopUp:selectedString" type="text" name="formPopUp:selectedString" /><input id="formPopUp:selectedCondition" type="text" name="formPopUp:selectedCondition" /><input id="formPopUp:selectedFindValues" type="text" name="formPopUp:selectedFindValues" /><input id="formPopUp:idVista" type="text" name="formPopUp:idVista" value="V164C267" /><input id="formPopUp:HIDDEN_INPUT_MODIFICABLE" type="text" name="formPopUp:HIDDEN_INPUT_MODIFICABLE" /><input type="hidden" name="formPopUp" value="formPopUp" /></form></div><script id="formulaCallsScript">
+ 
+
+ 
+var res= carregaValorsOccurrencia(valorsCarregatsXml);
+function calculaF56091(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '04' && AtributVariable('2227_37144_113470','CODI') != '');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30593', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56104(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '01');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30572', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56105(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '02');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30591', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56106(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '05');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30573', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56107(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '08');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30576', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56109(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( document.getElementById("form:h_parentoccurrence").value);var resposta = convierte(respAtratar, 'NUMBER');var resultat = '';
+var missatgeError = '';
+calcula('2227_37187_114810', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56111(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '03');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30592', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56112(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '06');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30574', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56113(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '07');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30575', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56114(inputId) {
+var respostaValorVariableActual;
+var resposta = formulaAjax('56114', null, inputId);
+var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30577', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+function calculaF56115(inputId) {
+var respostaValorVariableActual;
+var respAtratar = ( AtributVariable('2227_37144_113470','CODI') == '10');var resposta = convierte(respAtratar, 'BOOLEAN');var resultat = '';
+var missatgeError = '';
+visibilitat('2227_37187_30594', resposta);
+if(missatgeError != '' && missatgeError != null) {
+alert(missatgeError);
+}
+if(debug=='1') alert('resposta:'+resposta);
+}
+
+function validacio_variables() {
+var valor='';
+
+valor+=validateRank('2227_37187_114810', null, null, false);
+valor+=validateRank('2227_37187_114200', null, null, false);
+valor+=validateRank('2227_37187_114185', null, null, false);
+valor+=validateRank('2227_37187_114208', null, null, false);
+valor+=validateRank('2227_37187_114209', null, null, false);
+valor+=validateRank('2227_37187_114210', null, null, false);
+valor+=validateRank('2227_37187_114235', null, null, false);
+
+ if(valor =='') return ''; else return 'Error de validació! \n' + valor;
+}
+
+function validacio_totes_formules_validacio_nivell() {
+ var txt='';
+if(txt == null || txt == 'null' || txt == '') return txt;
+else return 'No valida fórmula de nivell:\n' + txt;
+}
+</script>
+
+    		</div>
+    	</div>
+    </body>
+</html>

@@ -18,6 +18,46 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+require_once "phpwebdriver/WebDriver.php";
+
+/**
+ * Constructs a descriptive page.
+ *
+ * Our menu maps this function to the path 'ohp/ohp_case_formcatsalut_robot'.
+ */
+function ohp_case_formcatsalut_robot() {
+  //********************************************************************
+  //IT REQUIRES TO RUN: java -jar selenium-server-standalone-2.42.2.jar
+  //********************************************************************
+  $webdriver = new WebDriver("localhost", "4444");
+  $webdriver->connect("firefox");
+  //$webdriver->get("https://salut.gencat.net/pls/gsa/gsapk030.inici_portal");
+  $webdriver->get("http://localhost/buildkit/oxigen/000AccesUsuari.htm");
+  $usernameInput = $webdriver->findElementBy(LocatorStrategy::name, "v_nom_usu");
+  if ($usernameInput) {
+      $usernameInput->sendKeys(array("user" ) );
+  }
+  $passwordInput = $webdriver->findElementBy(LocatorStrategy::name, "v_clau");
+  if ($passwordInput) {
+      $passwordInput->sendKeys(array("user" ) );
+  }
+  $buttonSubmit = $webdriver->findElementBy(LocatorStrategy::xpath, "/html/body/table[3]/tbody/tr[1]/td[3]/table[2]/tbody/tr[5]/td[1]/a");
+  if ($buttonSubmit) {
+      //$buttonSubmit->click();
+  }
+  sleep( 3 );
+  $webdriver->close();
+
+  $id_admission = $_SESSION['admission_bean']->id_admission;
+  $id_case      = $_SESSION['case_bean']->id_case;
+  $id_task      = $_GET['id_task'];
+  $id_form      = $_GET['id_form'];
+
+  drupal_set_message(t('La sol·licitud s\'ha enviat correctament.'));
+  drupal_goto('ohp/ohp_case_formcatsalut', array('query' => array('id_form' => $id_form, 'id_task' => $id_task,
+              'id_admission' => $id_admission, 'id_case' => $id_case)));
+}
+
 /**
  * Constructs a descriptive page.
  *
@@ -175,11 +215,11 @@ function ohp_case_formcatsalut_page() {
       '#markup' => '<span class="question">'.t('Observacions').'</span> <span class="answer">'.$observacions.'</span><br/>',
     );
   }
-  $form['ohp_case_formcatsalut_arguments'] = array(
-    //Title serves as page subtitle
-    '#title' => t('Sol·licitud d\'OCD a CatSalut'),
-    '#markup' => '<iframe src="https://salut.gencat.net/pls/gsa/gsapk030.portal" style="width:1000px; height:375px;"></iframe>',
-  );
+//   $form['ohp_case_formcatsalut_arguments'] = array(
+//     //Title serves as page subtitle
+//     '#title' => t('Sol·licitud d\'OCD a CatSalut'),
+//     '#markup' => '<iframe src="https://salut.gencat.net/pls/gsa/gsapk030.portal" style="width:1000px; height:375px;"></iframe>',
+//   );
 
   $page_array['main'] = array(
     '#theme' => 'ohp_case_body',
@@ -198,7 +238,7 @@ function ohp_case_formcatsalut_page() {
     $task_status = $task_bean->status;
   }
   $page_array['main']['pager_container']['controls'] = array(
-    '#theme' => 'ohp_case_formctrl',
+    '#theme' => 'ohp_case_catsalutctrl',
     '#selected_option' => t('Sol·licitud d\'OCD a CatSalut'),
     '#task_status' => $task_status,
   );
