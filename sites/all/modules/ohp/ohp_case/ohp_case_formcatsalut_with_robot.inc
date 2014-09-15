@@ -285,7 +285,7 @@ function ohp_case_formcatsalut_page() {
     $questions_map = array();
     load_form(NULL ,$id_form, $form_xml, $questions_map);
 
-    var_dump($questions_map);
+    //var_dump($questions_map);
 
     $task_status='';
     if(isset($id_task) && $id_task!=''){
