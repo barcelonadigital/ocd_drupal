@@ -192,18 +192,28 @@ function ohp_case_formunit_submit($form, &$form_state) {
         }
         $option_id = NULL;
         $value     = NULL;
+        $hi_ha_canvi = FALSE;
         if($question_type=='VERTICAL_RADIO' || $question_type=='HORIZONTAL_RADIO'){
           foreach ($questions_map[$question_id]->options->option as $option) {
             if($option->value==$question_value){
               $option_id = $option->id_option;
             }
           }
+          if($option_id!=$questions_map[$question_id]->id_option){
+            $hi_ha_canvi = TRUE;
+          }
         }else{
           $value = $question_value;
+          if($value!=$questions_map[$question_id]->value){
+            $hi_ha_canvi = TRUE;
+          }
         }
+        //drupal_set_message('value ('.$value.','.$questions_map[$question_id]->value.'), option ('.$option_id.','.$questions_map[$question_id]->id_option.')', 'error');
 
         try {
-          update_answer($answer_id,$option_id,$value);
+          if($hi_ha_canvi==TRUE){
+            update_answer($answer_id,$option_id,$value);
+          }
         }
         catch (Exception $e) {
           drupal_set_message(t('db_update failed. Message = %message, query= %query',

@@ -88,6 +88,9 @@ form#ohp-case-formunit fieldset a.info_popup {
 .columnboxes .column.por2 {
     width: 330px;
 }
+.columnboxes .column.por1 {
+    width: 1000px;
+}
 .columnboxes .column fieldset .question {
     font-weight:bold;
 }

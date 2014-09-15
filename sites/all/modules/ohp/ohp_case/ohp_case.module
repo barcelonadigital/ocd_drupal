@@ -203,6 +203,7 @@ function ohp_case_theme() {
       'template' => 'tpl/ohp-case-catsalutctrl-layout',
       'variables' => array(
         'selected_option' => NULL,
+        'is_discharge' => NULL,
       ),
     ),
       'ohp_case_report'  => array(

@@ -200,3 +200,17 @@ function get_value_description($question_id, $questions_map) {
   }
   return "";
 }
+
+function get_radio_value($question_id, $questions_map) {
+  if(isset($questions_map[$question_id])){
+    $question_obj = $questions_map[$question_id];
+    if(isset($question_obj->value)&&!empty($question_obj->value)){
+      foreach ($question_obj->options->option as $option) {
+        if(isset($option->id_option) && isset($question_obj->value) && trim($option->id_option)==trim($question_obj->value)){
+          return (string)$option->value;
+        }
+      }
+    }
+  }
+  return "";
+}

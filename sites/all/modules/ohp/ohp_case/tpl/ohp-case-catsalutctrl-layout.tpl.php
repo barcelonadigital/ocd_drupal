@@ -35,7 +35,7 @@
 			<li><a href="<?php echo url('ohp/ohp_case_formcatsalut'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>&id_form=<?php if (isset($_GET['id_form'])): print $_GET['id_form']; endif; ?>&id_task=<?php if (isset($_GET['id_task'])): print $_GET['id_task']; endif; ?>"><?php echo t('Sol·licitud d\'OCD a CatSalut'); ?></a></li>
 		</ul>
 	</div>
-	<a href="<?php echo url('ohp/ohp_case_robotcatsalut'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>&id_form=<?php if (isset($_GET['id_form'])): print $_GET['id_form']; endif; ?>&id_task=<?php if (isset($_GET['id_task'])): print $_GET['id_task']; endif; ?>" class="btn btn-large btn-warning btn-finish">Enviar</a>
+	<a href="<?php echo url('ohp/ohp_case_robotcatsalut'); ?>?id_case=<?php if (isset($_SESSION['case_bean']->id_case)): print $_SESSION['case_bean']->id_case; endif; ?>&id_admission=<?php if (isset($_SESSION['admission_bean']->id_admission)): print $_SESSION['admission_bean']->id_admission; endif; ?>&id_form=<?php if (isset($_GET['id_form'])): print $_GET['id_form']; endif; ?>&id_task=<?php if (isset($_GET['id_task'])): print $_GET['id_task']; endif; ?>&is_discharge=<?php if (isset($is_discharge)): print $is_discharge; endif; ?>" class="btn btn-large btn-warning btn-finish">Enviar</a>
 </div>
 <script type="text/javascript">
 function doFinish(){
