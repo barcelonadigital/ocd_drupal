@@ -153,6 +153,9 @@ function ohp_case_formunit_submit($form, &$form_state) {
     $root = $doc->createElement("questions");
     $root = $doc->appendChild($root);
 
+    $last_task = get_admission_last_task($id_admission);
+    $is_last_task = ($last_task->id_task == $id_task);
+
     foreach ($form_state['values'] as $key => $value) {
       if(strrpos($key, "question_type")===FALSE &&
           strrpos($key, "question_condition")===FALSE &&
@@ -208,11 +211,29 @@ function ohp_case_formunit_submit($form, &$form_state) {
             $hi_ha_canvi = TRUE;
           }
         }
-        //drupal_set_message('value ('.$value.','.$questions_map[$question_id]->value.'), option ('.$option_id.','.$questions_map[$question_id]->id_option.')', 'error');
 
         try {
           if($hi_ha_canvi==TRUE){
-            update_answer($answer_id,$option_id,$value);
+            if($is_last_task==TRUE && $question_id=='5'){
+              $transaction = db_transaction();
+              try {
+                if($question_value=='S'){
+                  update_admission_discharge($id_admission,TRUE);
+                }else{
+                  update_admission_discharge($id_admission,FALSE);
+                }
+                update_answer($answer_id,$option_id,$value);
+              }
+              catch (Exception $e) {
+                $transaction->rollback();
+                watchdog_exception('my_type', $e);
+              }
+              // $transaction goes out of scope here.  Unless it was rolled back, it
+              // gets automatically commited here.
+              unset($transaction);
+            }else{
+              update_answer($answer_id,$option_id,$value);
+            }
           }
         }
         catch (Exception $e) {

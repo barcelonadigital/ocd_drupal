@@ -67,32 +67,42 @@ function ohp_task_menu() {
  */
 function ohp_task_insert_page() {
   if(isset($_GET['id_case']) && isset($_GET['id_activity'])){
-    $id_case = $_GET['id_case'];
-    $code_activity = $_GET['id_activity'];
-    $id_admission = NULL;
-    if(!isset($_GET['id_admission']) || 
-        $_GET['id_admission']==null || 
-        $_GET['id_admission']==''){
-      $id_admission = insert_admission($id_case);
-    }else{
-      $id_admission = $_GET['id_admission'];
-    }
-    $id_activity = NULL;
-    if($code_activity=="#TASK:N261"){
-      $id_activity = 2;
-    }else if($code_activity=="#TASK:N253"){
-      $id_activity = 1;
-    }else{
-      drupal_set_message("ERROR: code_activity");
+    // The transaction opens here.
+    $transaction = db_transaction();
+    try {
+      $id_case = $_GET['id_case'];
+      $code_activity = $_GET['id_activity'];
+      $id_admission = NULL;
+      if(!isset($_GET['id_admission']) || 
+          $_GET['id_admission']==null || 
+          $_GET['id_admission']==''){
+        $id_admission = insert_admission($id_case);
+      }else{
+        $id_admission = $_GET['id_admission'];
+      }
+      $id_activity = NULL;
+      if($code_activity=="#TASK:N261"){
+        $id_activity = 2;
+      }else if($code_activity=="#TASK:N253"){
+        $id_activity = 1;
+      }else{
+        drupal_set_message("ERROR: code_activity");
+        drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $id_case)));
+        return;
+      }
+      $id_task = insert_task($id_admission,$id_activity);
+      if($id_activity == 2){
+        update_task_role($id_task, 1);
+      }
+      unset($_SESSION['admission_bean']);
       drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $id_case)));
-      return;
     }
-    $id_task = insert_task($id_admission,$id_activity);
-    if($id_activity == 2){
-      update_task_role($id_task, 1);
+    catch (Exception $e) {
+      $transaction->rollback();
+      watchdog_exception('my_type', $e);
     }
-    unset($_SESSION['admission_bean']);
-    drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $id_case)));
+    // $transaction goes out of scope here.  Unless it was rolled back, it
+    // gets automatically commited here.
   }
 }
 

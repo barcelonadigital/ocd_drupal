@@ -386,6 +386,30 @@ function get_user_roles($id_user) {
  *   A set of tasks from the admission.
  */
 function get_admission_tasks($admission_id) {
+  return get_admission_tasks_or_last($admission_id, FALSE);
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve admission first task from database.
+ *
+ * @return
+ *   A set of tasks from the admission.
+ */
+function get_admission_last_task($admission_id) {
+  return get_admission_tasks_or_last($admission_id, TRUE)->fetchObject();
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve admission tasks from database.
+ *
+ * @return
+ *   A set of tasks from the admission.
+ */
+function get_admission_tasks_or_last($admission_id, $last) {
 
   $query = db_select('ohp_task', 'n');
   $query->join('ohp_activity', 'p', 'n.id_activity = p.id_activity');
@@ -399,6 +423,9 @@ function get_admission_tasks($admission_id) {
   $query->condition('n.id_admission',$admission_id,'=');
   $query->condition('n.status','DELETED','<>');
   $query->orderBy('n.id_task', 'DESC');
+  if($last==TRUE){
+    $query->range(0,1);
+  }
 
   $result = $query->execute();
 
@@ -425,6 +452,36 @@ function get_task_forms($id_task) {
   $query->condition('n.id_task',$id_task,'=');
 
   $result = $query->execute();
+
+  return $result;
+}
+
+/**
+ * Custom content function.
+ *
+ * Retrieve task answer from database.
+ *
+ * @return
+ *   A set of answers from the task.
+ */
+function get_task_answer($id_task,$id_question) {
+
+  $query = db_select('ohp_answer', 'n');
+  $query->join('ohp_option', 'p', 'n.id_option = p.id_option');
+  $query->join('ohp_form', 'f', 'n.id_form = f.id_form');
+  $query->addField('p', 'value', 'option_value');
+  $query->addField('p', 'description');
+  $query->addField('p', 'id_question');
+  $query->addField('p', 'id_option');
+  $query->addField('n', 'value');
+  $query->addField('n', 'id_option');
+  $query->addField('n', 'id_answer');
+  $query->addField('n', 'id_form');
+  $query->addField('n', 'id_question');
+  $query->condition('f.id_task',$id_task,'=');
+  $query->condition('n.id_question',$id_question,'=');
+
+  $result = $query->execute()->fetchObject();
 
   return $result;
 }
@@ -555,6 +612,55 @@ function update_admission($id_admission,$admission_date,$status) {
 /**
  * Custom update function.
  *
+ * Update admission in database.
+ */
+function update_admission_enrol($id_admission) {
+
+  $entry = array(
+    'admission_date' => NULL,
+    'discharge_date' => NULL,
+    'status' => 'ENROLLED',
+  );
+  $count = db_update('ohp_admission')
+    ->fields($entry)
+    ->condition('id_admission', $id_admission)
+    ->execute();
+
+  return $count;
+}
+
+/**
+ * Custom update function.
+ *
+ * Update admission in database.
+ */
+function update_admission_discharge($id_admission,$is_discharge) {
+
+  $discharge_date = NULL;
+  $status = NULL;
+  if($is_discharge==TRUE){
+    $today = getdate();
+    $discharge_date = mktime($today['hours'], $today['minutes'], 0, $today['mon'], $today['mday'], $today['year']);
+    $status = 'DISCHARGED';
+  }else{
+    $discharge_date = NULL;
+    $status = 'ACTIVE';
+  }
+  $entry = array(
+    'discharge_date' => $discharge_date,
+    'status' => $status,
+  );
+  $count = db_update('ohp_admission')
+    ->fields($entry)
+    ->condition('id_admission', $id_admission)
+    ->execute();
+
+  return $count;
+}
+
+/**
+ * Custom update function.
+ *
  * Update task forms in database.
  */
 function update_taskform_status($id_task, $status) {
@@ -604,38 +710,58 @@ function update_task_status($id_task, $status) {
  */
 function delete_task($id_task,$type = 'VOID') {
 
-  if($type=='VOID'){
-    $entry = array(
-      'status' => 'DELETED',
-    );
-    $count = db_update('ohp_task')
-      ->fields($entry)
-      ->condition('id_task', $id_task)
-      ->execute();
-  }else{
-    $query = db_select('ohp_form', 'n');
-    $query->addField('n', 'id_form');
-    $query->condition('n.id_task',$id_task,'=');
+  $transaction = db_transaction();
+  try {
+    if($type=='VOID'){
+      $entry = array(
+        'status' => 'DELETED',
+      );
+      $count = db_update('ohp_task')
+        ->fields($entry)
+        ->condition('id_task', $id_task)
+        ->execute();
+    }else{
+      $query = db_select('ohp_form', 'n');
+      $query->addField('n', 'id_form');
+      $query->condition('n.id_task',$id_task,'=');
 
-    $result = $query->execute();
+      $result = $query->execute();
 
-    foreach ($result as $row) {
-      $count = db_delete('ohp_answer')
-        ->condition('id_form', $row->id_form)
+      foreach ($result as $row) {
+        $count = db_delete('ohp_answer')
+          ->condition('id_form', $row->id_form)
+          ->execute();
+      }
+
+      $count = db_delete('ohp_form')
+        ->condition('id_task', $id_task)
+        ->execute();
+
+      $count = db_delete('ohp_task_role')
+        ->condition('id_task', $id_task)
+        ->execute();
+
+      $count = db_delete('ohp_task')
+        ->condition('id_task', $id_task)
         ->execute();
     }
-
-    $count = db_delete('ohp_form')
-      ->condition('id_task', $id_task)
-      ->execute();
-
-    $count = db_delete('ohp_task_role')
-      ->condition('id_task', $id_task)
-      ->execute();
-
-    $count = db_delete('ohp_task')
-      ->condition('id_task', $id_task)
-      ->execute();
+    $obj_task = get_task($id_task);
+    $id_admission = $obj_task->id_admission;
+    $last_task = get_admission_last_task($id_admission);
+    if($last_task==NULL){
+      update_admission_enrol($id_admission);
+    }else{
+      $discharge_question = get_task_answer($last_task->id_task,'5');
+      if($discharge_question->option_value=='S'){
+        update_admission_discharge($id_admission,TRUE);
+      }else{
+        update_admission_discharge($id_admission,FALSE);
+      }
+    }
+  }
+  catch (Exception $e) {
+    $transaction->rollback();
+    watchdog_exception('my_type', $e);
   }
 }
 
@@ -702,6 +828,7 @@ function insert_task($id_admission,$id_activity) {
     $query->join('ohp_template', 'o', 'o.id_template = n.id_template');
     $query->addExpression('MAX(n.id_form)');
     $query->condition('p.id_admission',$id_admission,'=');
+    $query->condition('p.status','DELETED','<>');
     $query->condition('o.id_activity',array(1,2),'IN');
 
     $maxform= $query->execute()->fetchField();
@@ -765,7 +892,7 @@ function insert_task($id_admission,$id_activity) {
 
   $admission_obj = get_admission($id_admission);
 
-  if($admission_obj->status!='ACTIVE'){
+  if($admission_obj->status=='ENROLLED'){
     $value = getdate();
     $enrol_date = mktime($value['hours'], $value['minutes'], 0, $value['mon'], $value['mday'], $value['year']);
     update_admission($id_admission,$enrol_date,'ACTIVE');
