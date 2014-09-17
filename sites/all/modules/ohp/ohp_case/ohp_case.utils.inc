@@ -752,7 +752,7 @@ function delete_task($id_task,$type = 'VOID') {
       update_admission_enrol($id_admission);
     }else{
       $discharge_question = get_task_answer($last_task->id_task,'5');
-      if($discharge_question->option_value=='S'){
+      if($discharge_question!=NULL && $discharge_question->option_value=='S'){
         update_admission_discharge($id_admission,TRUE);
       }else{
         update_admission_discharge($id_admission,FALSE);
