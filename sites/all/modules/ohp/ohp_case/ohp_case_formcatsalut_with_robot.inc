@@ -48,7 +48,8 @@ function ohp_case_formcatsalut_robot() {
     $webdriver->connect("firefox");
 
     //$webdriver->get("https://salut.gencat.net/pls/gsa/gsapk030.inici_portal");
-    $webdriver->get("http://localhost/buildkit/oxigen/000AccesUsuari.htm");
+    $webdriver->get("http://localhost:8080/ocd_drupal/oxigen/000AccesUsuari.htm");
+
     $usernameInput = $webdriver->findElementBy(LocatorStrategy::name, "v_nom_usu");
     if ($usernameInput) {
         $usernameInput->sendKeys(array("user" ) );

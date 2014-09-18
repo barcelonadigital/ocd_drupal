@@ -51,7 +51,7 @@ function ohp_case_formdocument_page() {
     $task_status = $task_bean->status;
   }
   $page_array['main']['pager_container']['controls'] = array(
-    '#theme' => 'ohp_case_formctrl',
+    '#theme' => 'ohp_case_documentctrl',
     '#selected_option' => t('Enviament de document a la història clínica'),
     '#task_status' => $task_status,
   );
@@ -60,5 +60,20 @@ function ohp_case_formdocument_page() {
     '#markup' => '<br><iframe src="'.$path.'" style="width:1000px; height:500px;"></iframe>',
   );
   return $page_array;
+}
+
+/*
+ * 	Confirms the sending of the document to the Patient Health History archive
+ */
+function ohp_case_formdocument_sent() {
+	
+	$id_admission = $_SESSION['admission_bean']->id_admission;
+	$id_case      = $_SESSION['case_bean']->id_case;
+	$id_task      = $_GET['id_task'];
+	$id_form      = $_GET['id_form'];
+	
+	drupal_set_message(t('El document s\'ha enviat correctament.'));
+	drupal_goto('ohp/ohp_case_formdocument', array('query' => array('id_form' => $id_form, 'id_task' => $id_task,
+	'id_admission' => $id_admission, 'id_case' => $id_case)));
 }
 
