@@ -343,10 +343,15 @@ function template_preprocess_ohp_case_header(&$variables) {
 }
 
 function ohp_case_load_common(&$page_array) {
+  
   $case_id = NULL;
+  //$case_cip = NULL;
   if(isset($_GET['id_case'])){
+  //if(isset($_GET['cip_case'])){
     $case_id  = $_GET['id_case'];
+    //$case_cip  = $_GET['cip_case'];
   }
+  
   $case_bean_stored  = NULL;
   if(isset($_SESSION['case_bean'])){
     $case_bean_stored  = $_SESSION['case_bean'];
@@ -356,7 +361,10 @@ function ohp_case_load_common(&$page_array) {
   if(isset($case_id) && isset($case_bean_stored) && $case_id == $case_bean_stored->id_case){
     $case_bean=$case_bean_stored;
   }else if(isset($case_id) && (!isset($case_bean_stored) || $case_id != $case_bean_stored->id_case)){
+    
     $result = get_case_identification($case_id);
+    //$result = get_case_identificationWS($case_cip);
+    
     if(!empty($result)){
       $case_bean = new stdClass();
       $case_bean->id_case  = $result['user_uid'];
@@ -374,6 +382,16 @@ function ohp_case_load_common(&$page_array) {
       $case_bean->nie = $result['nie'];
       $case_bean->pas = $result['pas'];
       $case_bean->nhc = $result['nhc'];
+      
+      /*
+       * Commented code - To be used with the Web Services when they are ready
+      if (!caseExists($case_cip)) { 
+     	$case_id = insert_case($case_bean);
+     }
+     else {
+     	$case_id = search_case_id($case_cip);
+     }
+     */
     }
 
     $contact_bean = new stdClass();

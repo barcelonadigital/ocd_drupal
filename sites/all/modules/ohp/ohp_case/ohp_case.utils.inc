@@ -23,6 +23,62 @@
  * A file with case utils.
  */
 
+/*
+ * Commented code - To be used with the Web Services when they are ready
+ *
+$GLOBALS["WS-ENDPOINT"]="http://path_to_web_service";
+
+
+function loginWS($token, $name, $password) {
+	...
+}
+
+function getNextUserTableID() {
+	$query = db_select('users');
+	$query->addExpression('MAX(uid)');
+	$max= $query->execute()->fetchField();
+	return $max+1;
+}
+
+function insertUser($name, $password) {
+	
+  $id = getNextUserTableID();
+  $fields = array(
+  	'uid' => $id,
+    'name' => $name,
+  	'pass' => $password,
+    'status' => 1,
+    'roles' => array(
+      4 => 'OHP role',
+    ),
+  );
+ 
+  //the first parameter is left blank so a new user is created
+  $account = user_save('', $fields);
+  return $id;
+}
+
+function case_exists($cip) {
+	$query = db_select('ohp_identification', 'n');
+	$query->addField('n', 'user_uid');
+	$query->condition('n.cip', db_like($search_str),'LIKE');
+	$result = $query->execute();
+	return $result-> rowCount()>0;	
+}
+
+
+function search_case_id($nhc) {
+	$query = db_select('ohp_identification', 'n');
+	$query->addField('n', 'user_uid');
+	$query->condition('n.cip', db_like($search_str),'LIKE');
+	$result = $query->execute();
+	return $result;
+}
+
+
+
+*/
+
 /**
  * Custom content function.
  *

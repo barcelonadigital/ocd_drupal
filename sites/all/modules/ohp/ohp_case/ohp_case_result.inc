@@ -44,11 +44,15 @@ function ohp_case_result_page() {
       $items[] = array(
         'data' => array(
           'cip' => l($row->cip, 'ohp/ohp_case_main', array('query' => array('id_case' => $row->user_uid))),
+           //'cip' => l($row->cip, 'ohp/ohp_case_main', array('query' => array('cip_case' => $row->cip))),
           'nif' => l($row->nif, 'ohp/ohp_case_main', array('query' => array('id_case' => $row->user_uid))),
+          //'nif' => l($row->nif, 'ohp/ohp_case_main', array('query' => array('cip_case' => $row->cip))),
           'item_description' => l($fullname, 'ohp/ohp_case_main', array('query' => array('id_case' => $row->user_uid))),
+          //'item_description' => l($fullname, 'ohp/ohp_case_main', array('query' => array('cip_case' => $row->cip))),
         ),
       );
     }
+    
     // Split your list into page sized chunks
     $chunks = array_chunk($items, $per_page, TRUE);
 

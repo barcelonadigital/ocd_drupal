@@ -47,6 +47,23 @@ function ohp_user_login(&$edit, $account) {
   drupal_goto('ohp/ohp_case');
 }
 
+/*
+ * Commented code - To be used with the Web Services when they are ready
+ *
+function ohp_user_login(&$edit, $account) {
+ $_SESSION['ohp_token'] = $session_init;
+ $_SESSION['user_full_name'] = $account->name;
+ $_SESSION['user_center'] = 'Hospital Clìnic';
+ $_SESSION['id_user'] = $account->uid;
+ $_SESSION['case_bean'] = NULL;
+ $_SESSION['admission_bean'] = NULL;
+ drupal_goto('ohp/ohp_case');
+}
+
+*/
+
+
+
 /**
  * Implements hook_user_logout().
  */

@@ -2216,6 +2216,30 @@ function user_authenticate($name, $password) {
   return $uid;
 }
 
+/*
+ * Commented code - To be used with the Web Services when they are ready
+ *
+
+function user_authenticate($name, $password) {
+
+  if (loginWS($name, $password) {
+	
+	// Login successful - Check if user exists
+	$account = user_load_by_name($name);
+	if ($account) {
+		return $account->uid;
+	}
+	else {
+		return insertUser($name)
+	}
+  }
+  else {
+    // Login failed
+  	return FALSE;
+  }
+}
+*/
+
 /**
  * Finalize the login process. Must be called when logging in a user.
  *

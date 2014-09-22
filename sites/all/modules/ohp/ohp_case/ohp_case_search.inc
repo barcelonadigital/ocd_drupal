@@ -77,10 +77,12 @@ function ohp_case_search_form_submit($form, &$form_state) {
   $search_str = $form_state['values']['text'];
 
   $result = search_case($search_str);
-
+  // $result = getPatientsWS($_SESSION['token'], $search_str);
+  
   if($result->rowCount()==1){
     $row = $result->fetchAssoc();
     drupal_goto('ohp/ohp_case_main', array('query' => array('id_case' => $row["user_uid"])));
+    //drupal_goto('ohp/ohp_case_main', array('query' => array('cip_case' => $row->cip)));
   }else{
     drupal_goto('ohp/ohp_case_result', array('query' => array('search_str' => $search_str)));
   }

@@ -327,6 +327,12 @@ function ohp_schema() {
     ),
   ),
   'primary key' => array('user_uid'),
+  /*
+   * Commented code - To be used with the Web Services when they are ready
+    'unique keys' => array(
+        'cip_UNIQUE' => array('cip')
+    ),
+  */
 );
   
   $schema['ohp_option'] = array(
