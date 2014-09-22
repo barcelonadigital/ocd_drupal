@@ -386,6 +386,7 @@ function get_forms() {
   $query->addField('d', 'family_name2');
   $query->addField('d', 'gender');
   $query->addField('a', 'id_form');
+  $query->condition('b.status', 'DELETED', '<>');
 
   $result = $query->execute();
 
